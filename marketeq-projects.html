@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketeq Projects — Case Study | Christopher Torres</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="case-study.css">
+  <style>html{opacity:0}html.fonts-loaded{opacity:1;transition:opacity .15s ease-in}</style>
+  <script>document.fonts.ready.then(()=>document.documentElement.classList.add('fonts-loaded'));</script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo">Christopher Torres</a>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
+      <nav class="nav">
+        <a href="index.html#about">ABOUT</a>
+        <a href="index.html#work">WORK</a>
+        <a href="index.html#resume">RESUME</a>
+        <a href="index.html#contact">CONTACT</a>
+        <a href="https://www.linkedin.com/in/christophertorres" target="_blank" rel="noopener" class="nav-icon" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Case Study Hero -->
+  <section class="cs-hero">
+    <div class="container">
+      <p class="cs-label">MARKETEQ PROJECTS</p>
+      <h1 class="cs-title">Redesigning the import contacts process to be more intuitive & seamless</h1>
+    </div>
+    <div class="cs-hero-image">
+      <img src="images/marketeq-hero.png" alt="Marketeq Projects platform overview">
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="cs-section">
+    <div class="container">
+      <h2 class="cs-section-title">The Problem</h2>
+      <div class="cs-body-text">
+        <p>The idea behind Marketeq Projects was simple: Buy a scoped service project &rarr; Choose your team &rarr; Launch your project.</p>
+        <p>But the actual experience wasn't that simple. The original version of the platform (pre-launch) tried to pack in a lot, editable scopes, team invites, pricing tiers, AI-generated deliverables, but without enough clarity or structure. During internal tests and early user flow reviews, we kept running into the same question: "Wait... what exactly am I committing to here?"</p>
+        <p>We weren't live yet, but we knew if we launched in this state, we'd lose trust before we even had a chance to build it.</p>
+      </div>
+
+      <div class="cs-problems-grid">
+        <div class="cs-problem-card">
+          <h3>Problem 01: Scope Anxiety</h3>
+          <p>Clients didn't feel confident editing their scope. There was no clear sense of what was included, how changes would affect the price, or whether edits would mess things up. It felt like building a contract blindfolded.</p>
+        </div>
+        <div class="cs-problem-card">
+          <h3>Problem 02: Team Assembly Confusion</h3>
+          <p>Inviting talent to a project sounds great &mdash; until you realize you don't know:</p>
+          <ul>
+            <li>How many people are needed</li>
+            <li>What roles are already filled</li>
+            <li>Who you're actually hiring</li>
+          </ul>
+          <p>There was no live status of open positions, and no reassurance that the project would still "work" if someone wasn't invited right away.</p>
+        </div>
+        <div class="cs-problem-card">
+          <h3>Problem 03: The Checkout Cliff</h3>
+          <p>The CTA said "Start Project," but most users weren't ready to start. There was no preview, no summary, no sense of what happens next. No financing options. No buyer protection. No safety net. And when people aren't sure... they don't click.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Market Research -->
+  <section class="cs-section cs-section--gray">
+    <div class="container">
+      <h2 class="cs-section-title">Market Research</h2>
+      <div class="cs-body-text">
+        <p>Before finalizing any design decisions, we took a deep dive into other marketplaces &mdash; not just to "benchmark" them, but to really understand how they make users feel.</p>
+        <p>We analyzed a mix of direct and indirect competitors:</p>
+        <ul>
+          <li>Upwork (freelancer-first, light on scope structure)</li>
+          <li>Fiverr (structured but rigid)</li>
+          <li>Themeforest (great spec breakdowns, product clarity)</li>
+          <li>Amazon, Etsy, Best Buy (e-commerce-level tooltips, trust layers, and purchase flow clarity)</li>
+          <li>Target, eBay, Epic Games (used for tooltip structure, "payment plan" transparency, and FAQs)</li>
+        </ul>
+      </div>
+
+      <div class="cs-subsection">
+        <h3 class="cs-subsection-title">What We Were Looking For</h3>
+        <ul>
+          <li>How clearly are deliverables communicated?</li>
+          <li>Can users preview exactly what they're buying?</li>
+          <li>Is it easy to understand who's behind the service/product?</li>
+          <li>Do users feel safe to check out?</li>
+        </ul>
+      </div>
+
+      <div class="cs-subsection">
+        <h3 class="cs-subsection-title">Where They Fell Short</h3>
+        <div class="cs-three-col">
+          <div>
+            <h4>Upwork & Fiverr</h4>
+            <ul>
+              <li>Deliverables are often just a few bullet points or marketing fluff</li>
+              <li>Hard to customize or understand what changes actually do</li>
+              <li>No clear invite logic for multi-person teams</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Themeforest</h4>
+            <ul>
+              <li>Good specs... but no people. Just assets</li>
+              <li>No live team or service dynamics &mdash; not comparable, but worth stealing ideas from</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Amazon, Etsy, Best Buy</h4>
+            <ul>
+              <li>Surprisingly strong tooltip patterns</li>
+              <li>Clear policies, reviews, delivery estimates &mdash; but not designed for services</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <p class="cs-body-text">These gave us a model for how to explain complex scope info with simple overlays.</p>
+
+      <div class="cs-image-row">
+        <div class="cs-image-block"><img src="images/cs-competitors.png" alt="Competitor analysis board"></div>
+        <div class="cs-image-block"><img src="images/cs-ecommerce.png" alt="E-commerce best-in-class analysis"></div>
+        <div class="cs-image-block"><img src="images/cs-digital.png" alt="Digital products analysis"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Card Sorting -->
+  <section class="cs-section">
+    <div class="container">
+      <h2 class="cs-section-title">Card Sorting</h2>
+      <div class="cs-three-col cs-card-sorting">
+        <div class="cs-card-col cs-card-col--green">
+          <h3>Must-Have</h3>
+          <ul>
+            <li>Editable phased deliverables</li>
+            <li>"Live Team Status" (e.g. Need 4, Have 2)</li>
+            <li>Trust badges and agency bios</li>
+            <li>Tooltips explaining scope, roles, and payment</li>
+            <li>Klarna-style financing breakdown</li>
+            <li>Purchase protection and refund policies</li>
+          </ul>
+        </div>
+        <div class="cs-card-col cs-card-col--yellow">
+          <h3>Nice-to-Have (Later)</h3>
+          <ul>
+            <li>Secret "auto-match" team mode</li>
+            <li>Creator DM feature</li>
+            <li>Real-time invite acceptance status updates</li>
+            <li>Version history for scope edits</li>
+          </ul>
+        </div>
+        <div class="cs-card-col cs-card-col--red">
+          <h3>Will NOT Have</h3>
+          <ul>
+            <li>Build-your-own-scope from scratch</li>
+            <li>Project-based chat integrations (Slack, Discord)</li>
+            <li>Multi-project bulk checkout</li>
+          </ul>
+        </div>
+      </div>
+      <p class="cs-callout">Everything we prioritized came back to one question: "Does this reduce doubt at the moment someone's about to commit?" If it didn't... it didn't make the cut.</p>
+
+      <div class="cs-image-full">
+        <img src="images/cs-card-sorting-competitors.png" alt="Card sorting: Competitors">
+      </div>
+      <div class="cs-image-full">
+        <img src="images/cs-card-sorting-bestinclass.png" alt="Card sorting: Best in Class">
+      </div>
+    </div>
+  </section>
+
+  <!-- User Journey -->
+  <section class="cs-section cs-section--gray">
+    <div class="container">
+      <h2 class="cs-section-title">User Journey</h2>
+      <div class="cs-body-text">
+        <p>We mapped out what it actually feels like to launch a project on Marketeq Projects &mdash; from browsing to checkout &mdash; and yeah... it got a little bumpy.</p>
+        <p>Even in a pre-launch state, the journey had a lot of emotional ups and downs. The biggest takeaway? People weren't just clicking buttons. They were guessing. Stressing. Second-guessing. And sometimes, they'd just give up.</p>
+      </div>
+
+      <div class="cs-two-col">
+        <div>
+          <h3>Where Things Got Messy</h3>
+          <ul>
+            <li>No overview before checkout</li>
+            <li>No visual on how many roles were still open</li>
+            <li>No payment breakdown or assurance of protection</li>
+            <li>No emotional reassurance that it was okay to hit "Start"</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What We Had to Fix</h3>
+          <p>To create a better experience, we needed to:</p>
+          <ul>
+            <li>Break down the scope into clearer, editable phases</li>
+            <li>Visualize team assembly in real-time ("Need 4, have 2")</li>
+            <li>Show a transparent, reviewable summary before checkout</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-image-full">
+        <img src="images/cs-journey-session.png" alt="Client Journey Session board">
+      </div>
+      <div class="cs-image-full">
+        <img src="images/cs-journey-stickies.png" alt="User journey research sticky notes">
+      </div>
+      <div class="cs-image-full">
+        <img src="images/cs-journey-map.png" alt="User journey emotion map">
+      </div>
+    </div>
+  </section>
+
+  <!-- Affinity Mapping -->
+  <section class="cs-section">
+    <div class="container">
+      <h2 class="cs-section-title">Affinity Mapping</h2>
+      <div class="cs-body-text">
+        <p>We gathered notes from interviews, internal feedback sessions, and early usability tests &mdash; and then we sat with it all to find the patterns. It turns out, a lot of users were asking the same questions. Not always in the same words, but with the same energy:</p>
+        <blockquote>"Wait, what am I supposed to do here?" &nbsp; "Can I change this later?" &nbsp; "Am I locked in if I click this?"</blockquote>
+        <p>Once we clustered everything, it became obvious: We weren't just solving for navigation or layout. We were solving for reassurance.</p>
+      </div>
+
+      <h3 class="cs-subsection-title">Common Themes We Found</h3>
+      <div class="cs-themes-grid">
+        <div class="cs-theme">
+          <h4>Trust + Transparency</h4>
+          <ul>
+            <li>"I need to know what I'm getting before I pay."</li>
+            <li>"What happens if the project doesn't go as planned?"</li>
+          </ul>
+        </div>
+        <div class="cs-theme">
+          <h4>Scope Clarity</h4>
+          <ul>
+            <li>"This list of deliverables is overwhelming."</li>
+            <li>"Which part is editable vs. fixed?"</li>
+            <li>"What happens if I delete something by accident?"</li>
+          </ul>
+        </div>
+        <div class="cs-theme">
+          <h4>Team Assembly Confusion</h4>
+          <ul>
+            <li>"How many people do I need to invite?"</li>
+            <li>"What if I don't know anyone yet?"</li>
+            <li>"Can I finish checkout with just one person?"</li>
+          </ul>
+        </div>
+        <div class="cs-theme">
+          <h4>Checkout Hesitation</h4>
+          <ul>
+            <li>"Am I committing right now?"</li>
+            <li>"Where's the refund policy?"</li>
+            <li>"I don't see what I'm actually paying for."</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="cs-subsection-title">What This Told Us</h3>
+      <p class="cs-body-text">People didn't want more options. They wanted fewer unknowns. So every feature from here on out, tooltips, trust badges, phased scope breakdowns, refund policies, was designed to answer one core question: &nbsp;"Is it safe to move forward?"</p>
+
+      <div class="cs-image-row">
+        <div class="cs-image-block cs-image-block--wide">
+          <img src="images/cs-affinity-clarity.png" alt="Affinity map: Clarity & Scope Transparency">
+        </div>
+        <div class="cs-image-block cs-image-block--wide">
+          <img src="images/cs-affinity-trust.png" alt="Affinity map: Trust & Reassurance">
+        </div>
+        <div class="cs-image-block cs-image-block--wide">
+          <img src="images/cs-affinity-team.png" alt="Affinity map: Team Visibility & Control">
+        </div>
+      </div>
+
+      <div class="cs-image-row">
+        <div class="cs-image-block cs-image-block--wide">
+          <img src="images/cs-affinity-checkout.png" alt="Affinity map: Checkout Confidence">
+        </div>
+        <div class="cs-image-block cs-image-block--wide">
+          <img src="images/cs-affinity-comms.png" alt="Affinity map: Communication & Support">
+        </div>
+        <div class="cs-image-block cs-image-block--wide">
+          <img src="images/cs-affinity-discovery.png" alt="Affinity map: Browsing & Discovery">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- User Flows -->
+  <section class="cs-section cs-section--gray">
+    <div class="container">
+      <h2 class="cs-section-title">User Flows</h2>
+      <div class="cs-body-text">
+        <p>This is where we saw the real cracks. On paper, the original user flows looked solid:<br>
+        &rarr; Browse project &rarr; Customize scope &rarr; Invite team &rarr; Checkout &rarr; Done.</p>
+        <p>But in practice, users hit friction way earlier than expected. They'd stall. Loop back. Ask questions the UI didn't answer. And worst of all &mdash; they weren't sure if they were doing it "right."</p>
+      </div>
+
+      <div class="cs-subsection">
+        <h3 class="cs-subsection-title">Original Flow Highlights (and where it broke down)</h3>
+        <div class="cs-flow-breakdown">
+          <div class="cs-flow-item">
+            <h4>1. View Project &rarr; Read Scope &rarr; ?</h4>
+            <p>"I don't know what this includes... Is this everything I get?"</p>
+            <ul>
+              <li>Deliverables were long, unstructured, and felt like reading a legal document.</li>
+              <li>Users wanted a clean, step-by-step preview &mdash; not a wall of tasks.</li>
+            </ul>
+          </div>
+          <div class="cs-flow-item">
+            <h4>2. Invite Team &rarr; Confusion</h4>
+            <p>"How many people do I have to invite? Can I do that later?"</p>
+            <ul>
+              <li>There was no live status for how many team members were assigned vs. needed.</li>
+              <li>Clients weren't sure if their project could proceed with just 1 or 2 people invited.</li>
+            </ul>
+          </div>
+          <div class="cs-flow-item">
+            <h4>3. Checkout &rarr; Cold Feet</h4>
+            <p>"Am I committing to something right now? What happens if I change my mind?"</p>
+            <ul>
+              <li>No review screen.</li>
+              <li>No payment flexibility or trust reassurance until after the "Start Project" CTA.</li>
+              <li>This was the biggest drop-off point.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-subsection">
+        <h3 class="cs-subsection-title">New flow highlights</h3>
+        <p class="cs-body-text">We redesigned the flow with emotional clarity in mind &mdash; not just usability.</p>
+        <div class="cs-flow-pills">
+          <span>Scope Preview &rarr; Phased Deliverables &rarr; Clear Editing Logic</span>
+          <span>Team Invite &rarr; Live Role Status ("Need 4, Have 2") &rarr; Optional Invites</span>
+          <span>Review Summary &rarr; Payment Plans + Refund Policy &rarr; Confirm & Start</span>
+        </div>
+        <p class="cs-body-text">Each flow now answers the question: "Do I understand what's happening &mdash; and do I feel okay moving forward?" That became our North Star.</p>
+      </div>
+
+      <div class="cs-image-full">
+        <img src="images/cs-flow-original.png" alt="Original user flow diagram">
+      </div>
+      <div class="cs-image-full">
+        <img src="images/cs-flow-new.png" alt="Redesigned user flow diagram">
+      </div>
+    </div>
+  </section>
+
+  <!-- Design Requirements -->
+  <section class="cs-section">
+    <div class="container">
+      <h2 class="cs-section-title">Design Requirements</h2>
+      <div class="cs-three-col cs-requirements">
+        <div class="cs-req-card">
+          <h3>Clarity Over Cleverness</h3>
+          <p>Avoid abstract labels or "creative" scope names</p>
+          <ul>
+            <li>Use plain language, bullet points, and phased sections</li>
+          </ul>
+          <blockquote>"I need to know what I'm getting &mdash; not read a pitch deck." &mdash; Internal reviewer, early build</blockquote>
+        </div>
+        <div class="cs-req-card">
+          <h3>Build-In Trust, Not Just Talk</h3>
+          <p>Add badges, creator bios, and verified stats before checkout</p>
+          <ul>
+            <li>Surface refund policies and secure payment info early</li>
+            <li>Make the system feel safe to explore</li>
+          </ul>
+        </div>
+        <div class="cs-req-card">
+          <h3>Always Show What's Next</h3>
+          <p>Preview team roles and open slots</p>
+          <ul>
+            <li>Break scope into clear milestones</li>
+            <li>Use tooltips to explain why something matters</li>
+          </ul>
+          <p class="cs-req-note">We weren't live yet, but we knew if we launched in this state, we'd lose trust before we even had a chance to build it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Solution -->
+  <section class="cs-section cs-section--dark">
+    <div class="container">
+      <h2 class="cs-section-title">The Solution</h2>
+      <div class="cs-body-text">
+        <p>Diam integer molestie sem tristique condimentum fusce tristique parturient vulputate. Tincidunt luctus enim pulvinar massa pharetra a ut arcu risus. Ultricies turpis placerat ultrices aliquam at nulla faucibus. Phasellus justo leo semper proin. Massa eu dictum facilisi neque massa turpis nec ridiculus etiam.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wireframe Iterations -->
+  <section class="cs-section">
+    <div class="container">
+      <h2 class="cs-section-title">Wireframe Iterations</h2>
+
+      <div class="cs-subsection">
+        <h3 class="cs-subsection-title">Project Overview Section</h3>
+        <p class="cs-body-text">Diam integer molestie sem tristique condimentum fusce tristique parturient vulputate. Tincidunt luctus enim pulvinar m</p>
+        <div class="cs-versions">
+          <div class="cs-version">
+            <h4>Version 1</h4>
+            <div class="cs-version-card">
+              <img src="images/cs-wireframe-overview-v1.png" alt="Project Overview v1">
+            </div>
+          </div>
+          <div class="cs-version">
+            <h4>Version 2</h4>
+            <div class="cs-version-card">
+              <img src="images/cs-wireframe-overview-v2.png" alt="Project Overview v2">
+            </div>
+          </div>
+          <div class="cs-version">
+            <h4>Version 3</h4>
+            <div class="cs-version-card">
+              <img src="images/cs-wireframe-overview-v3.png" alt="Project Overview v3">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-subsection">
+        <h3 class="cs-subsection-title">Project Sidebar Section</h3>
+        <p class="cs-body-text">Diam integer molestie sem tristique condimentum fusce tristique parturient vulputate. Tincidunt luctus enim pulvinar m</p>
+        <div class="cs-versions">
+          <div class="cs-version">
+            <h4>Version 1</h4>
+            <div class="cs-version-card">
+              <img src="images/cs-wireframe-sidebar-v1.png" alt="Project Sidebar v1">
+            </div>
+          </div>
+          <div class="cs-version">
+            <h4>Version 2</h4>
+            <div class="cs-version-card">
+              <img src="images/cs-wireframe-sidebar-v2.png" alt="Project Sidebar v2">
+            </div>
+          </div>
+          <div class="cs-version">
+            <h4>Version 3</h4>
+            <div class="cs-version-card">
+              <img src="images/cs-wireframe-sidebar-v3.png" alt="Project Sidebar v3">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Developer Handoff -->
+  <section class="cs-section cs-section--gray">
+    <div class="container">
+      <h2 class="cs-section-title">Developer Handoff</h2>
+      <div class="cs-handoff-grid">
+        <img src="images/cs-handoff-1.png" alt="Component states and specs">
+        <img src="images/cs-handoff-2.png" alt="Button and input states">
+        <img src="images/cs-handoff-3.png" alt="FAQ and question components">
+        <img src="images/cs-handoff-4.png" alt="Tag and category components">
+        <img src="images/cs-handoff-5.png" alt="Deliverables component specs">
+        <img src="images/cs-handoff-6.png" alt="Pricing and duration selectors">
+      </div>
+    </div>
+  </section>
+
+  <!-- Final Screens -->
+  <section class="cs-section">
+    <div class="container">
+      <h2 class="cs-section-title">Final Screens</h2>
+      <div class="cs-final-grid">
+        <img src="images/cs-final-1.png" alt="Final design: Project listing">
+        <img src="images/cs-final-2.png" alt="Final design: Project detail with video">
+        <img src="images/cs-final-3.png" alt="Final design: Project detail sidebar">
+        <img src="images/cs-final-4.png" alt="Final design: Similar projects">
+        <img src="images/cs-final-5.png" alt="Final design: Description tab">
+        <img src="images/cs-final-6.png" alt="Final design: Pricing sidebar">
+        <img src="images/cs-final-7.png" alt="Final design: Recently viewed">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Christopher Torres Design. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    const body = document.body;
+
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('nav-open');
+      toggle.classList.toggle('active');
+      toggle.setAttribute('aria-expanded', open);
+      body.classList.toggle('nav-locked', open);
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('nav-open');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', 'false');
+        body.classList.remove('nav-locked');
+      });
+    });
+  </script>
+</body>
+</html>
