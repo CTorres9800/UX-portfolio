@@ -14,26 +14,7 @@
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="container header-inner">
-      <a href="/" class="logo">Christopher Torres</a>
-      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span class="menu-bar"></span>
-        <span class="menu-bar"></span>
-        <span class="menu-bar"></span>
-      </button>
-      <nav class="nav">
-        <a href="index.html#about">ABOUT</a>
-        <a href="index.html#work">WORK</a>
-        <a href="index.html#resume">RESUME</a>
-        <a href="index.html#contact">CONTACT</a>
-        <a href="https://www.linkedin.com/in/christophertorres" target="_blank" rel="noopener" class="nav-icon" aria-label="LinkedIn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-      </nav>
-    </div>
-  </header>
+  <div id="site-header"></div>
 
   <!-- Case Study Hero -->
   <section class="cs-hero">
@@ -46,34 +27,30 @@
     </div>
   </section>
 
-  <!-- The Problem -->
+  <!-- About the Project -->
   <section class="cs-section">
-    <div class="container">
-      <h2 class="cs-section-title">The Problem</h2>
-      <div class="cs-body-text">
-        <p>The idea behind Marketeq Projects was simple: Buy a scoped service project &rarr; Choose your team &rarr; Launch your project.</p>
-        <p>But the actual experience wasn't that simple. The original version of the platform (pre-launch) tried to pack in a lot, editable scopes, team invites, pricing tiers, AI-generated deliverables, but without enough clarity or structure. During internal tests and early user flow reviews, we kept running into the same question: "Wait... what exactly am I committing to here?"</p>
-        <p>We weren't live yet, but we knew if we launched in this state, we'd lose trust before we even had a chance to build it.</p>
+    <div class="container cs-about-grid">
+      <div class="cs-about-main">
+        <p class="cs-label">ABOUT THE PROJECT</p>
+        <h2 class="cs-section-title">Designing for Reassurance</h2>
+        <div class="cs-body-text">
+          <p>Marketeq Projects is a remote talent marketplace for buying pre-scoped service projects, complete with curated deliverables and a fully assembled team. But before we ever launched, we realized the original experience wasn't working. Clients were confused. Scope customization felt vague. Inviting team members felt risky. And checking out felt like signing a contract you didn't fully read.</p>
+          <p>So... we went back to the drawing board.</p>
+          <p>I led a full UX redesign of the end-to-end project purchase experience before launch. This meant simplifying scope previews, showing real-time team status, adding Klarna-style payment breakdowns, and layering in trust signals at every step, like reviews, badges, and creator bios.</p>
+          <p>The goal? Help clients feel confident clicking "Start Project", because they actually understand what they're getting and who they're working with.</p>
+        </div>
       </div>
-
-      <div class="cs-problems-grid">
-        <div class="cs-problem-card">
-          <h3>Problem 01: Scope Anxiety</h3>
-          <p>Clients didn't feel confident editing their scope. There was no clear sense of what was included, how changes would affect the price, or whether edits would mess things up. It felt like building a contract blindfolded.</p>
+      <div class="cs-about-sidebar">
+        <div class="cs-about-meta">
+          <p class="cs-label">ROLE</p>
+          <p>Senior UX Architect</p>
+          <p>UX Strategy & Direction</p>
+          <p>UI Design System</p>
+          <p>Hi-Fidelity Visual Design</p>
         </div>
-        <div class="cs-problem-card">
-          <h3>Problem 02: Team Assembly Confusion</h3>
-          <p>Inviting talent to a project sounds great &mdash; until you realize you don't know:</p>
-          <ul>
-            <li>How many people are needed</li>
-            <li>What roles are already filled</li>
-            <li>Who you're actually hiring</li>
-          </ul>
-          <p>There was no live status of open positions, and no reassurance that the project would still "work" if someone wasn't invited right away.</p>
-        </div>
-        <div class="cs-problem-card">
-          <h3>Problem 03: The Checkout Cliff</h3>
-          <p>The CTA said "Start Project," but most users weren't ready to start. There was no preview, no summary, no sense of what happens next. No financing options. No buyer protection. No safety net. And when people aren't sure... they don't click.</p>
+        <div class="cs-about-meta">
+          <p class="cs-label">CLIENT</p>
+          <p>Marketeq Digital</p>
         </div>
       </div>
     </div>
@@ -498,32 +475,8 @@
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2026 Christopher Torres Design. All rights reserved.</p>
-    </div>
-  </footer>
+  <div id="site-footer"></div>
 
-  <script>
-    const toggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.nav');
-    const body = document.body;
-
-    toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('nav-open');
-      toggle.classList.toggle('active');
-      toggle.setAttribute('aria-expanded', open);
-      body.classList.toggle('nav-locked', open);
-    });
-
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('nav-open');
-        toggle.classList.remove('active');
-        toggle.setAttribute('aria-expanded', 'false');
-        body.classList.remove('nav-locked');
-      });
-    });
-  </script>
+  <script src="components.js"></script>
 </body>
 </html>

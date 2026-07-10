@@ -1,0 +1,37 @@
+{
+  "heroHeadingBefore": "I'm a ",
+  "heroHeadingBold": "product designer",
+  "heroHeadingAfter": " & ux strategy coach obsessed with creating optimized ",
+  "heroHeadingHighlight": "human",
+  "heroHeadingEnd": " experiences",
+  "heroDescription": "For the past 14 years I have lead teams to design premium user experiences that maximize growth opportunities, user retention, and customer satisfaction. I'm currently based in Atlanta, GA working as a lead product designer and CPO for Marketeq Digital Inc.",
+  "caseStudies": [
+    {
+      "title": "Referrizer",
+      "description": "Redesigning the import contacts process to be more intuitive & seamless",
+      "image": "/images/referrizer.webp",
+      "imageAlt": "Referrizer case study preview",
+      "link": "#"
+    },
+    {
+      "title": "Blend Metrics",
+      "description": "New API Integration workflow builder to be more intuitive and flexible",
+      "image": "/images/blend-metrics.webp",
+      "imageAlt": "Blend Metrics case study preview",
+      "link": "#"
+    },
+    {
+      "title": "Marketeq Projects",
+      "description": "Redesigning the import contacts process to be more intuitive & seamless",
+      "image": "/images/marketeq-projects.webp",
+      "imageAlt": "Marketeq Projects case study preview",
+      "link": "marketeq-projects"
+    }
+  ],
+  "contactDescription": "Drop me a line on Linkedin or shoot me an email",
+  "contactEmail": "christophertorres17@gmail.com",
+  "contactPhone": "(786) 424-8475",
+  "ctaHeading": "Ready to collaborate?",
+  "ctaDescription": "Let's meet up for coffee (online of course)",
+  "ctaLinkText": "Book a Call"
+}
