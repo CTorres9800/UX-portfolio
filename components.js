@@ -9,7 +9,7 @@
     headerEl.outerHTML =
       '<header class="header">' +
         '<div class="container header-inner">' +
-          '<a href="/" class="logo">Christopher Torres</a>' +
+          '<a href="/" class="logo"><span class="logo-first">Christopher</span> Torres</a>' +
           '<button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">' +
             '<svg class="menu-icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">' +
               '<rect class="menu-line menu-line-1" width="15.3821" height="2.05601" style="transform:matrix(-0.707107,0.707107,0.707107,0.707107,29.0898,18.2128)" fill="black"/>' +
