@@ -15,7 +15,7 @@ import SectionUserJourney from '../components/SectionUserJourney.astro';
   <!-- 1. Hero -->
   <SectionHero
     label="MARKETEQ PROJECTS"
-    title="Redesigning the import contacts process to be more intuitive & seamless"
+    title="Redesigning the import contacts process to be more <strong>intuitive &amp; seamless</strong>"
     image="/images/marketeq-hero.png"
     imageAlt="Marketeq Projects platform overview"
   />
@@ -258,58 +258,36 @@ import SectionUserJourney from '../components/SectionUserJourney.astro';
   <!-- 9. User Flows -->
   <SectionContent title="User Flows">
     <div class="cs-body-text">
-      <p>This is where we saw the real cracks. On paper, the original user flows looked solid:<br>
-      &rarr; Browse project &rarr; Customize scope &rarr; Invite team &rarr; Checkout &rarr; Done.</p>
-      <p>But in practice, users hit friction way earlier than expected. They'd stall. Loop back. Ask questions the UI didn't answer. And worst of all, they weren't sure if they were doing it "right."</p>
+      <p>We focused on redesigning the most emotionally loaded part of the platform: Buying a scoped project with a team.</p>
+      <p>This wasn't a typical e-comm flow. It wasn't "add to cart, check out." It was "do I understand what I'm buying, who I'm working with, and if I'm ready to commit?" So the flow needed to answer those questions, step by step.</p>
     </div>
 
     <div class="cs-subsection">
-      <h3 class="cs-subsection-title">Original Flow Highlights (and where it broke down)</h3>
-      <div class="cs-flow-breakdown">
-        <div class="cs-flow-item">
-          <h4>1. View Project &rarr; Read Scope &rarr; ?</h4>
-          <p>"I don't know what this includes... Is this everything I get?"</p>
-          <ul>
-            <li>Deliverables were long, unstructured, and felt like reading a legal document.</li>
-            <li>Users wanted a clean, step-by-step preview, not a wall of tasks.</li>
-          </ul>
-        </div>
-        <div class="cs-flow-item">
-          <h4>2. Invite Team &rarr; Confusion</h4>
-          <p>"How many people do I have to invite? Can I do that later?"</p>
-          <ul>
-            <li>There was no live status for how many team members were assigned vs. needed.</li>
-            <li>Clients weren't sure if their project could proceed with just 1 or 2 people invited.</li>
-          </ul>
-        </div>
-        <div class="cs-flow-item">
-          <h4>3. Checkout &rarr; Cold Feet</h4>
-          <p>"Am I committing to something right now? What happens if I change my mind?"</p>
-          <ul>
-            <li>No review screen.</li>
-            <li>No payment flexibility or trust reassurance until after the "Start Project" CTA.</li>
-            <li>This was the biggest drop-off point.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="cs-subsection">
-      <h3 class="cs-subsection-title">New flow highlights</h3>
-      <p class="cs-body-text">We redesigned the flow with emotional clarity in mind, not just usability.</p>
+      <h3 class="cs-subsection-title">Key Flow: Start to Checkout</h3>
       <div class="cs-flow-pills">
-        <span>Scope Preview &rarr; Phased Deliverables &rarr; Clear Editing Logic</span>
-        <span>Team Invite &rarr; Live Role Status ("Need 4, Have 2") &rarr; Optional Invites</span>
-        <span>Review Summary &rarr; Payment Plans + Refund Policy &rarr; Confirm & Start</span>
+        <span><strong>Browse Project Scopes</strong> &rarr; View starting price, team type, and deliverables &rarr; Clear "Starting at $X" label with optional add-ons</span>
+        <span><strong>Customize Scope</strong> &rarr; Add/remove phases, view dynamic pricing updates &rarr; Tooltip support for each deliverable</span>
+        <span><strong>Invite or Confirm Team</strong> &rarr; See who's needed, who's already included &rarr; Status indicator: "Need 4, Have 2" &rarr; Invite collaborators or proceed solo</span>
+        <span><strong>Review &amp; Reassure</strong> &rarr; Klarna-style payment breakdown &rarr; Refund policy + team bios &rarr; Final scope preview before CTA</span>
+        <span><strong>Start Project (Or Don't)</strong> &rarr; Optional "Start Later" save state &rarr; Soft language on final CTA &rarr; Post-checkout confirmation: next steps, contact info, and edit options</span>
       </div>
-      <p class="cs-body-text">Each flow now answers the question: "Do I understand what's happening, and do I feel okay moving forward?" That became our North Star.</p>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 48px;">
+      <p>Every step was designed to reduce friction, not just functionally, but emotionally. Because when people feel clear, they move forward. When they don't, they bounce.</p>
     </div>
 
     <div class="cs-image-full">
-      <img src="/images/cs-flow-original.png" alt="Original user flow diagram">
+      <img src="/images/cs-flow-scope-editing.png" alt="Scope editing user flow diagram">
     </div>
+
+    <blockquote class="cs-pullquote">
+      <svg class="cs-pullquote-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/></svg>
+      Making something look simple is easy.<br>Making something simple to use is much harder.
+    </blockquote>
+
     <div class="cs-image-full">
-      <img src="/images/cs-flow-new.png" alt="Redesigned user flow diagram">
+      <img src="/images/cs-flow-team-matching.png" alt="Team matching and invitation user flow diagram">
     </div>
   </SectionContent>
 
@@ -318,7 +296,8 @@ import SectionUserJourney from '../components/SectionUserJourney.astro';
   <!-- 10. Affinity Mapping -->
   <SectionContent title="Affinity Mapping">
     <div class="cs-body-text">
-      <p>We gathered notes from interviews, internal feedback sessions, and early usability tests, and then we sat with it all to find the patterns. It turns out, a lot of users were asking the same questions. Not always in the same words, but with the same energy:</p>
+      <p>We gathered notes from interviews, internal feedback sessions, and early usability tests, and then we sat with it all to find the patterns.</p>
+      <p>It turns out, a lot of users were asking the same questions. Not always in the same words, but with the same energy:</p>
       <blockquote>"Wait, what am I supposed to do here?" &nbsp; "Can I change this later?" &nbsp; "Am I locked in if I click this?"</blockquote>
       <p>Once we clustered everything, it became obvious: We weren't just solving for navigation or layout. We were solving for reassurance.</p>
     </div>
@@ -326,14 +305,14 @@ import SectionUserJourney from '../components/SectionUserJourney.astro';
     <h3 class="cs-subsection-title">Common Themes We Found</h3>
     <div class="cs-themes-grid">
       <div class="cs-theme">
-        <h4>Trust + Transparency</h4>
+        <h4>&#128172; Trust + Transparency</h4>
         <ul>
           <li>"I need to know what I'm getting before I pay."</li>
           <li>"What happens if the project doesn't go as planned?"</li>
         </ul>
       </div>
       <div class="cs-theme">
-        <h4>Scope Clarity</h4>
+        <h4>&#129513; Scope Clarity</h4>
         <ul>
           <li>"This list of deliverables is overwhelming."</li>
           <li>"Which part is editable vs. fixed?"</li>
@@ -341,7 +320,7 @@ import SectionUserJourney from '../components/SectionUserJourney.astro';
         </ul>
       </div>
       <div class="cs-theme">
-        <h4>Team Assembly Confusion</h4>
+        <h4>&#128101; Team Assembly Confusion</h4>
         <ul>
           <li>"How many people do I need to invite?"</li>
           <li>"What if I don't know anyone yet?"</li>
@@ -349,27 +328,20 @@ import SectionUserJourney from '../components/SectionUserJourney.astro';
         </ul>
       </div>
       <div class="cs-theme">
-        <h4>Checkout Hesitation</h4>
+        <h4>&#128184; Checkout Hesitation</h4>
         <ul>
-          <li>"Am I committing right now?"</li>
-          <li>"Where's the refund policy?"</li>
-          <li>"I don't see what I'm actually paying for."</li>
+          <li>"Is there a way to split payments?"</li>
+          <li>"Where's the final review screen?"</li>
+          <li>"Can I cancel if I mess something up?"</li>
         </ul>
       </div>
     </div>
 
-    <h3 class="cs-subsection-title">What This Told Us</h3>
+    <h3 class="cs-subsection-title">&#128161; What This Told Us</h3>
     <p class="cs-body-text">People didn't want more options. They wanted fewer unknowns. So every feature from here on out, tooltips, trust badges, phased scope breakdowns, refund policies, was designed to answer one core question: "Is it safe to move forward?"</p>
 
-    <div class="cs-image-row">
-      <div class="cs-image-block cs-image-block--wide"><img src="/images/cs-affinity-clarity.png" alt="Affinity map: Clarity & Scope Transparency"></div>
-      <div class="cs-image-block cs-image-block--wide"><img src="/images/cs-affinity-trust.png" alt="Affinity map: Trust & Reassurance"></div>
-      <div class="cs-image-block cs-image-block--wide"><img src="/images/cs-affinity-team.png" alt="Affinity map: Team Visibility & Control"></div>
-    </div>
-    <div class="cs-image-row">
-      <div class="cs-image-block cs-image-block--wide"><img src="/images/cs-affinity-checkout.png" alt="Affinity map: Checkout Confidence"></div>
-      <div class="cs-image-block cs-image-block--wide"><img src="/images/cs-affinity-comms.png" alt="Affinity map: Communication & Support"></div>
-      <div class="cs-image-block cs-image-block--wide"><img src="/images/cs-affinity-discovery.png" alt="Affinity map: Browsing & Discovery"></div>
+    <div class="cs-image-full">
+      <img src="/images/cs-affinity-map.png" alt="Affinity map: Clarity, Trust, Team Visibility, Checkout, Communication, and Browsing themes">
     </div>
   </SectionContent>
 
@@ -380,21 +352,39 @@ import SectionUserJourney from '../components/SectionUserJourney.astro';
     title="Wireframe Iterations"
     groups={[
       {
-        subtitle: 'Project Overview Section',
-        description: 'Diam integer molestie sem tristique condimentum fusce tristique parturient vulputate. Tincidunt luctus enim pulvinar m',
+        subtitle: 'Project Header',
+        description: 'The first version showed only the project title and vertical, no real context. We gradually added a breadcrumb, rating badge, and top-performer tags, then clarified the project name itself ("Custom iOS Marketplace App"). By V3, users knew what they were viewing, where it fit, and why it was credible, in just a glance.',
         versions: [
-          { label: 'Version 1', image: '/images/cs-wireframe-overview-v1.png', imageAlt: 'Project Overview v1' },
-          { label: 'Version 2', image: '/images/cs-wireframe-overview-v2.png', imageAlt: 'Project Overview v2' },
-          { label: 'Version 3', image: '/images/cs-wireframe-overview-v3.png', imageAlt: 'Project Overview v3' },
+          { label: 'Version 1', image: '/images/cs-wireframe-overview-v1.png', imageAlt: 'Project Header v1' },
+          { label: 'Version 2', image: '/images/cs-wireframe-overview-v2.png', imageAlt: 'Project Header v2' },
+          { label: 'Version 3', image: '/images/cs-wireframe-overview-v3.png', imageAlt: 'Project Header v3' },
         ],
       },
       {
-        subtitle: 'Project Sidebar Section',
-        description: 'Diam integer molestie sem tristique condimentum fusce tristique parturient vulputate. Tincidunt luctus enim pulvinar m',
+        subtitle: 'Pricing Sidebar with Team Info',
+        description: 'In V1, the sidebar only offered time, price, and a "Start Project" CTA. By V2, we brought in visible team members and clearer formatting. V3 introduced flexible payment options ("$833/mo for 24 months") and embedded trust cues like refund terms, making the checkout feel more like a smart investment than a risk.',
         versions: [
-          { label: 'Version 1', image: '/images/cs-wireframe-sidebar-v1.png', imageAlt: 'Project Sidebar v1' },
-          { label: 'Version 2', image: '/images/cs-wireframe-sidebar-v2.png', imageAlt: 'Project Sidebar v2' },
-          { label: 'Version 3', image: '/images/cs-wireframe-sidebar-v3.png', imageAlt: 'Project Sidebar v3' },
+          { label: 'Version 1', image: '/images/cs-wireframe-sidebar-v1.png', imageAlt: 'Pricing Sidebar v1' },
+          { label: 'Version 2', image: '/images/cs-wireframe-sidebar-v2.png', imageAlt: 'Pricing Sidebar v2' },
+          { label: 'Version 3', image: '/images/cs-wireframe-sidebar-v3.png', imageAlt: 'Pricing Sidebar v3' },
+        ],
+      },
+      {
+        subtitle: 'Media / Gallery',
+        description: 'The initial layout had a simple image placeholder. By V3, the gallery supported multiple content types, like videos and images, helping potential buyers better visualize what the project would look and feel like in action.',
+        versions: [
+          { label: 'Version 1', image: '/images/cs-wireframe-gallery-v1.png', imageAlt: 'Media Gallery v1' },
+          { label: 'Version 2', image: '/images/cs-wireframe-gallery-v2.png', imageAlt: 'Media Gallery v2' },
+          { label: 'Version 3', image: '/images/cs-wireframe-gallery-v3.png', imageAlt: 'Media Gallery v3' },
+        ],
+      },
+      {
+        subtitle: 'FAQ / Live Chat / Question Form',
+        description: 'V1 started with a basic "Ask a question" form. By V2, we added suggested questions and visible team availability. V3 introduced a live chat experience, complete with real-time presence (e.g. "Kevin is online") and expected response times. It turned a support feature into a trust-building moment.',
+        versions: [
+          { label: 'Version 1', image: '/images/cs-wireframe-faq-v1.png', imageAlt: 'FAQ and Chat v1' },
+          { label: 'Version 2', image: '/images/cs-wireframe-faq-v2.png', imageAlt: 'FAQ and Chat v2' },
+          { label: 'Version 3', image: '/images/cs-wireframe-faq-v3.png', imageAlt: 'FAQ and Chat v3' },
         ],
       },
     ]}

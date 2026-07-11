@@ -12,7 +12,7 @@ const { label, title, image, imageAlt } = Astro.props;
 <section class="cs-hero">
   <div class="container">
     <p class="cs-label">{label}</p>
-    <h1 class="cs-title">{title}</h1>
+    <h1 class="cs-title" set:html={title} />
   </div>
   <div class="cs-hero-image">
     <img src={image} alt={imageAlt}>
