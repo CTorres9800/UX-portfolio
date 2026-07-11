@@ -73,5 +73,18 @@ const data = homepage!;
   <div id="site-footer"></div>
 
   <script is:inline src="/components.js"></script>
+  <script is:inline>
+    document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey || e.metaKey) {
+        var k = e.key.toLowerCase();
+        if (k === 'a' || k === 'c' || k === 'u' || k === 's' || k === 'p') {
+          e.preventDefault();
+        }
+      }
+      if (e.key === 'PrintScreen') { e.preventDefault(); }
+    });
+    document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+  </script>
 </body>
 </html>

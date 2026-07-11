@@ -5,6 +5,17 @@
   box-sizing: border-box;
 }
 
+body {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
+}
+
 :root {
   --font-serif: 'Libre Baskerville', Georgia, serif;
   --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;

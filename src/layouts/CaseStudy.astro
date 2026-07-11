@@ -18,7 +18,11 @@ const { title } = Astro.props;
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/case-study.css">
   <style>html{opacity:0}html.fonts-loaded{opacity:1;transition:opacity .15s ease-in}</style>
-  <script is:inline>document.fonts.ready.then(()=>document.documentElement.classList.add('fonts-loaded'));</script>
+  <script is:inline>
+    var show=function(){document.documentElement.classList.add('fonts-loaded')};
+    document.fonts.ready.then(show);
+    setTimeout(show,1500);
+  </script>
 </head>
 <body>
   <div id="site-header"></div>
@@ -27,5 +31,22 @@ const { title } = Astro.props;
 
   <div id="site-footer"></div>
   <script is:inline src="/components.js"></script>
+  <script is:inline>
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+    // Disable text selection via keyboard (Ctrl+A, Ctrl+C, Ctrl+U, Ctrl+S, Ctrl+P)
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey || e.metaKey) {
+        var k = e.key.toLowerCase();
+        if (k === 'a' || k === 'c' || k === 'u' || k === 's' || k === 'p') {
+          e.preventDefault();
+        }
+      }
+      // Block PrintScreen
+      if (e.key === 'PrintScreen') { e.preventDefault(); }
+    });
+    // Disable drag on images
+    document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+  </script>
 </body>
 </html>
