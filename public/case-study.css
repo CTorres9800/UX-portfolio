@@ -429,6 +429,11 @@
 .cs-theme {
   padding: 32px;
   border: 1px solid #e5e5e5;
+  transition: box-shadow 0.3s ease;
+}
+
+.cs-theme:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
 }
 
 .cs-theme h4 {
@@ -626,6 +631,16 @@
 .cs-image-full img {
   width: 100%;
   display: block;
+}
+
+.cs-image-crop {
+  overflow: hidden;
+}
+
+.cs-image-crop img {
+  margin: -6px -8px;
+  width: calc(100% + 16px);
+  max-width: none;
 }
 
 .cs-image-row {
