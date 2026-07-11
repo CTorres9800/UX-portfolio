@@ -154,14 +154,11 @@
   background: none;
 }
 
-.cs-pullquote-mark {
+.cs-pullquote-icon {
   display: block;
-  font-family: var(--font-serif);
-  font-size: 4rem;
-  font-weight: 700;
-  line-height: 1;
+  margin: 0 auto 20px;
   color: var(--black);
-  margin-bottom: 16px;
+  opacity: 0.25;
 }
 
 .cs-pullquote {

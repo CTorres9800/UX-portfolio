@@ -1,0 +1,252 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = 'User Journey' } = Astro.props;
+---
+
+<section class="cs-section">
+  <div class="container">
+    <h2 class="cs-section-title">{title}</h2>
+
+    <div class="cs-body-text">
+      <p>We mapped out what it actually felt like to start a project on Marketeq, from browsing to checkout, and yeah... it got bumpy. Even in its pre-launch state, the journey was full of hidden stress points. People weren't just clicking buttons. They were hesitating. Guessing. Second-guessing. And sometimes? Just giving up.</p>
+    </div>
+
+    <div class="cs-two-card-grid">
+      <div class="cs-problem-card">
+        <h3>&#128161; Where Things Got Messy</h3>
+        <ul>
+          <li>No clear overview before checkout</li>
+          <li>No visual on how many roles were still open</li>
+          <li>No hint that pricing was flexible or estimated</li>
+          <li>No emotional reassurance that it was okay to hit "Start"</li>
+        </ul>
+      </div>
+      <div class="cs-problem-card">
+        <h3>&#128560; What We Had to Fix</h3>
+        <p>To create a smoother, safer flow, we focused on the moments that triggered doubt and redesigned them with emotional clarity in mind:</p>
+        <ul>
+          <li>Broke down the scope into editable, phase-based previews</li>
+          <li>Visualized team assembly in real time ("Need 4 / Have 2")</li>
+          <li>Added review steps and financing info before the final CTA</li>
+          <li>Layered in small trust signals: refund policies, verified badges, tooltips, and soft language</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 48px;">
+      <p>We weren't just mapping actions. We were mapping feelings. Because trust isn't built at the beginning or the end. It's built in all the little pauses in between.</p>
+    </div>
+
+    <!-- Journey Session Image -->
+    <div class="cs-image-full">
+      <img src="/images/cs-journey-session.png" alt="Client Journey Session board">
+    </div>
+
+    <!-- Arrow pointing down to chart -->
+    <div class="cs-journey-arrow">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+    </div>
+
+    <!-- Journey Experience Map -->
+    <div class="cs-journey-map">
+
+      <!-- Phase Row -->
+      <div class="cs-journey-row">
+        <div class="cs-journey-label">Phase</div>
+        <div class="cs-journey-grid">
+          <div class="cs-journey-cell cs-journey-phase">1. Reviewing<br>Project Details</div>
+          <div class="cs-journey-cell cs-journey-phase">2. Editing<br>the Scope</div>
+          <div class="cs-journey-cell cs-journey-phase">3. Previewing<br>the Scope</div>
+          <div class="cs-journey-cell cs-journey-phase">4. Checkout</div>
+          <div class="cs-journey-cell cs-journey-phase">5. Invite Team<br>Members</div>
+          <div class="cs-journey-cell cs-journey-phase">6. Confirm<br>Availability</div>
+        </div>
+      </div>
+
+      <!-- Emotions Row (Curve) -->
+      <div class="cs-journey-row">
+        <div class="cs-journey-label">Emotions</div>
+        <div class="cs-journey-grid cs-journey-grid--curve">
+          <div class="cs-curve-area">
+            <div class="cs-curve-baseline"></div>
+            <svg class="cs-curve-svg" viewBox="0 0 1200 300" preserveAspectRatio="none">
+              <polyline
+                points="100,200 300,190 500,160 700,185 900,230 1100,250"
+                fill="none"
+                stroke="var(--journey-color)"
+                stroke-width="3"
+              />
+            </svg>
+            <div class="cs-curve-point" style="left: 8.3%; top: 62%;">
+              <div class="cs-curve-dot"></div>
+              <div class="cs-curve-tooltip cs-curve-tooltip--below">Pressured by<br>information overload</div>
+            </div>
+            <div class="cs-curve-point" style="left: 25%; top: 58%;">
+              <div class="cs-curve-dot"></div>
+              <div class="cs-curve-tooltip cs-curve-tooltip--above">Skeptical about<br>editing scope</div>
+            </div>
+            <div class="cs-curve-point" style="left: 41.6%; top: 48%;">
+              <div class="cs-curve-dot"></div>
+              <div class="cs-curve-tooltip cs-curve-tooltip--above">Cautious but<br>slightly hopeful</div>
+            </div>
+            <div class="cs-curve-point" style="left: 58.3%; top: 56%;">
+              <div class="cs-curve-dot"></div>
+              <div class="cs-curve-tooltip cs-curve-tooltip--below">Anxious about<br>committing</div>
+            </div>
+            <div class="cs-curve-point" style="left: 75%; top: 72%;">
+              <div class="cs-curve-dot"></div>
+              <div class="cs-curve-tooltip cs-curve-tooltip--below">Restless choosing<br>team members</div>
+            </div>
+            <div class="cs-curve-point" style="left: 91.6%; top: 80%;">
+              <div class="cs-curve-dot"></div>
+              <div class="cs-curve-tooltip cs-curve-tooltip--above">Annoyed waiting<br>for responses</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions Row -->
+      <div class="cs-journey-row">
+        <div class="cs-journey-label">Actions</div>
+        <div class="cs-journey-grid">
+          <div class="cs-journey-cell">
+            <p><strong>1A.</strong> Decide if project fits needs, review details, and customize scope to liking.</p>
+            <p><strong>1B.</strong> Search for transparency: deliverables, pricing, discount info, and budget details.</p>
+            <p><strong>1C.</strong> Look for team info, FAQs, and Live Chat to ask questions before committing.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>2A.</strong> Click to customize scope to reflect what they actually want out of the project.</p>
+            <p><strong>2B.</strong> Try to change deliverables to match needs. Look for live price updates.</p>
+            <p><strong>2C.</strong> Attempt to save progress. Worry about losing edits if tab closes.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>3A.</strong> Review full scope before checking out. Confirm everything looks right.</p>
+            <p><strong>3B.</strong> Check if everything is included. Look for edit and confirm buttons.</p>
+            <p><strong>3C.</strong> Try to go back to fix a specific step without restarting.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>4A.</strong> Begin purchase using preferred payment method.</p>
+            <p><strong>4B.</strong> Double-check all payment and scope info before committing.</p>
+            <p><strong>4C.</strong> Look for secure payment badges and summary before final click.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>5A.</strong> Review suggested team members to fill open vacancies.</p>
+            <p><strong>5B.</strong> Check candidate details one by one. Send invites to fill roles.</p>
+            <p><strong>5C.</strong> Look for bulk invite option with talent details upfront.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>6A.</strong> Wait for team members to accept or reject invites.</p>
+            <p><strong>6B.</strong> Track invite status. Send more invites if needed.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thoughts Row -->
+      <div class="cs-journey-row">
+        <div class="cs-journey-label">Thoughts</div>
+        <div class="cs-journey-grid">
+          <div class="cs-journey-cell cs-journey-cell--italic">
+            <p><strong>1A.</strong> "I'd be less inclined to purchase if I'm too overwhelmed to read it."</p>
+            <p><strong>1B.</strong> "I need to get it right the first time. I can't afford to start over."</p>
+          </div>
+          <div class="cs-journey-cell cs-journey-cell--italic">
+            <p><strong>2A.</strong> "I hope editing the scope won't be difficult."</p>
+            <p><strong>2B.</strong> "I don't think I'd use this feature even though it's available to me."</p>
+          </div>
+          <div class="cs-journey-cell cs-journey-cell--italic">
+            <p><strong>3A.</strong> "I need to be confident the scope represents what I need."</p>
+            <p><strong>3B.</strong> "I really hope I don't have to start all over."</p>
+          </div>
+          <div class="cs-journey-cell cs-journey-cell--italic">
+            <p><strong>4A.</strong> "I'd like to make sure I double check the payment since this is a HUGE sum of money."</p>
+          </div>
+          <div class="cs-journey-cell cs-journey-cell--italic">
+            <p><strong>5A.</strong> "This part feels like make or break."</p>
+            <p><strong>5B.</strong> "I'm hoping the good talent saves enough time."</p>
+          </div>
+          <div class="cs-journey-cell cs-journey-cell--italic">
+            <p><strong>6A.</strong> "I don't want to keep checking to see if someone accepted. I have other things to do!"</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pain Points Row -->
+      <div class="cs-journey-row">
+        <div class="cs-journey-label">Pain Points</div>
+        <div class="cs-journey-grid">
+          <div class="cs-journey-cell">
+            <p><strong>1A.</strong> Project info is too overwhelming to read.</p>
+            <p><strong>1B.</strong> Team is incomplete but I like the project. Don't know if I should go for it.</p>
+            <p><strong>1C.</strong> Don't have funds to fix issues from miscommunication.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>2A.</strong> Editing options are unclear or easy to miss entirely.</p>
+            <p><strong>2B.</strong> Price changes unpredictably with no live feedback.</p>
+            <p><strong>2C.</strong> No autosave if tab closes accidentally.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>3A.</strong> Forgot to include something, wants to go back.</p>
+            <p><strong>3B.</strong> Editing requires restarting from beginning.</p>
+            <p><strong>3C.</strong> No seamless edit-and-return flow.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>4A.</strong> Process feels too long.</p>
+            <p><strong>4B.</strong> Questions platform legitimacy.</p>
+            <p><strong>4C.</strong> No summary before final click.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>5A.</strong> Too many candidates to check one by one.</p>
+            <p><strong>5B.</strong> No clarity on why people were suggested.</p>
+            <p><strong>5C.</strong> No bulk invite option available.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>6A.</strong> No way to track who accepted or declined.</p>
+            <p><strong>6B.</strong> "Available" talent not actually responding.</p>
+            <p><strong>6C.</strong> Can't easily send more invites.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Insights/Opportunities Row -->
+      <div class="cs-journey-row">
+        <div class="cs-journey-label">Insights /<br>Opportunities</div>
+        <div class="cs-journey-grid">
+          <div class="cs-journey-cell">
+            <p><strong>1A.</strong> Organize info by sections for easier navigation.</p>
+            <p><strong>1B.</strong> Explain team selection process clearly.</p>
+            <p><strong>1C.</strong> Place key info in a singular, scannable section.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>2A.</strong> Encourage "add to scope" over "remove."</p>
+            <p><strong>2B.</strong> Show live price updates as scope changes.</p>
+            <p><strong>2C.</strong> Add autosave or save-for-later feature.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>3A.</strong> Allow editing specific steps without restarting.</p>
+            <p><strong>3B.</strong> Preview should match final scope exactly.</p>
+            <p><strong>3C.</strong> Make editing and preview seamless.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>4A.</strong> Include payment and scope summary.</p>
+            <p><strong>4B.</strong> Add double-check info before hitting checkout.</p>
+            <p><strong>4C.</strong> Show secure payment indicators.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>5A.</strong> Bulk invite with individual talent details.</p>
+            <p><strong>5B.</strong> Show rate, skills, and availability upfront.</p>
+            <p><strong>5C.</strong> Allow select-all or individual selection.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>6A.</strong> Email alerts when invites are accepted.</p>
+            <p><strong>6B.</strong> AI should factor confirmed availability.</p>
+            <p><strong>6C.</strong> Require periodic availability updates from talent.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
