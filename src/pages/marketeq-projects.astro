@@ -15,7 +15,7 @@ import SectionUserJourney from '../components/SectionUserJourney.astro';
   <!-- 1. Hero -->
   <SectionHero
     label="MARKETEQ PROJECTS"
-    title="Redesigning the import contacts process to be more <strong>intuitive &amp; seamless</strong>"
+    title="Redesigning the project listing page to help clients <strong>buy with confidence</strong>"
     image="/images/marketeq-hero.png"
     imageAlt="Marketeq Projects platform overview"
   />
@@ -73,7 +73,7 @@ import SectionUserJourney from '../components/SectionUserJourney.astro';
 
     <div class="cs-problem-item">
       <h3 class="cs-problem-title"><span class="cs-eyes-icon">&#128064;</span> What We Noticed Early</h3>
-      <p>We hadn't launched yet, but user feedback was already telling us this wasn't it. Even internal testers were stalling out, second-guessing their next step, or asking questions the UI didn't answer. That's when we knew: Before launching, we needed to redesign the whole experience. Not just visually, but emotionally.</p>
+      <p>We hadn't launched yet, but user feedback was already telling us this wasn't it. Even internal testers were stalling out, second-guessing their next step, or asking questions the UI didn't answer. That's when we knew we needed to redesign the whole experience before launching.</p>
     </div>
   </SectionContent>
 
@@ -105,7 +105,7 @@ import SectionUserJourney from '../components/SectionUserJourney.astro';
       </div>
       <div class="cs-problem-card">
         <h3>Design for the Unspoken Questions</h3>
-        <p>Most users won't ask "Can I trust this?" They'll just leave if they're unsure. We treated every trust gap as an opportunity: surfacing refund policies early, adding reassurance tooltips, and embedding quiet signals of reliability throughout the flow.</p>
+        <p>Most users won't ask "Can I trust this?" They'll just leave if they're unsure. So we surfaced refund policies early, added reassurance tooltips, and placed reliability signals throughout the flow before users had to go looking for them.</p>
       </div>
     </div>
   </SectionContent>
@@ -113,20 +113,43 @@ import SectionUserJourney from '../components/SectionUserJourney.astro';
   <hr class="cs-section-divider">
 
   <!-- 5. The Solution -->
-  <SectionSolution title="The Solution">
-    <p>We didn't just patch the issues. We rethought the experience from the ground up.</p>
-    <p>The new flow was designed to feel calm, clear, and confidence-building at every step. We restructured the scope into editable phases, added real-time team visibility, and introduced a review-first checkout model that made clicking Start Project feel like a choice, not a gamble.</p>
-    <p>Everything we added was meant to answer one question: "Do I understand what's happening, and do I feel okay moving forward?"</p>
-    <h3>Here's what changed:</h3>
-    <ul>
-      <li><strong>Clearer pricing signals.</strong> Starting prices were labeled as estimates, and any changes updated the cost in real time, no surprises.</li>
-      <li><strong>Phased scopes with preview logic.</strong> Clients could see exactly what each phase included, and how edits would impact the plan.</li>
-      <li><strong>Live team status.</strong> A new status bar ("Need 4, Have 2") made it easy to track open roles, and removed the pressure to invite everyone upfront.</li>
-      <li><strong>Klarna-style checkout.</strong> We broke down total cost into digestible pieces, surfaced refund policies early, and added review screens before commitment.</li>
-      <li><strong>Embedded trust signals.</strong> Creator bios, verified badges, and secure payment indicators were all placed intentionally, before users had to ask.</li>
-    </ul>
-    <p>The result? A checkout experience that felt like a well-lit hallway, not a cliff edge.</p>
-  </SectionSolution>
+  <SectionContent title="The Solution">
+    <div class="cs-body-text">
+      <p>We didn't just patch the issues. We redesigned the whole flow.</p>
+      <p>We restructured the scope into editable phases, added real-time team visibility, and built a review-first checkout so users could actually see what they were committing to before clicking "Start Project."</p>
+      <p>Every change was meant to answer one question: "Do I understand what's happening, and do I feel okay moving forward?"</p>
+      <h3>Here's what changed:</h3>
+    </div>
+    <div class="cs-problems-grid" style="margin-top: 24px;">
+      <div class="cs-problem-card">
+        <h3>Clearer Pricing Signals</h3>
+        <p>Starting prices were labeled as estimates, and any changes updated the cost in real time, no surprises.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>Scope Previews</h3>
+        <p>Clients could see exactly what each phase included, and how edits would impact the plan.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>Live Team Status</h3>
+        <p>A new status bar ("Need 4, Have 2") made it easy to track open roles, and removed the pressure to invite everyone upfront.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>Klarna-style Checkout</h3>
+        <p>We broke down total cost into digestible pieces, surfaced refund policies early, and added review screens before commitment.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>Embedded Trust Signals</h3>
+        <p>Creator bios, verified badges, and secure payment indicators were all placed intentionally, before users had to ask.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>Contextual Tooltips</h3>
+        <p>Instead of burying explanations in FAQs, we surfaced short, helpful tooltips right where users needed them most.</p>
+      </div>
+    </div>
+    <div class="cs-body-text" style="margin-top: 32px;">
+      <p>The result was a checkout flow where users actually knew what they were buying and felt good about clicking the button.</p>
+    </div>
+  </SectionContent>
 
   <hr class="cs-section-divider">
 
@@ -134,7 +157,7 @@ import SectionUserJourney from '../components/SectionUserJourney.astro';
   <SectionContent title="Market Research">
     <h3 class="cs-subtitle">Comparing the Competition</h3>
     <div class="cs-body-text">
-      <p>Before finalizing any design decisions, we took a deep dive into other marketplaces, not just to "benchmark" them, but to really understand how they make users feel.</p>
+      <p>Before finalizing any design decisions, we studied other marketplaces to understand how they handle the same problems we were trying to solve.</p>
       <p>We analyzed a mix of direct and indirect competitors:</p>
       <ul>
         <li>Upwork (freelancer-first, light on scope structure)</li>
@@ -147,12 +170,24 @@ import SectionUserJourney from '../components/SectionUserJourney.astro';
 
     <div class="cs-subsection">
       <h3 class="cs-subsection-title">&#128270; What We Were Looking For</h3>
-      <ul>
-        <li>How clearly are deliverables communicated?</li>
-        <li>Can users preview exactly what they're buying?</li>
-        <li>Is it easy to understand who's behind the service/product?</li>
-        <li>Do users feel safe to check out?</li>
-      </ul>
+      <div class="cs-problems-grid cs-problems-grid--four">
+        <div class="cs-problem-card">
+          <h3>Deliverable Clarity</h3>
+          <p>How clearly are deliverables communicated?</p>
+        </div>
+        <div class="cs-problem-card">
+          <h3>Preview Accuracy</h3>
+          <p>Can users preview exactly what they're buying?</p>
+        </div>
+        <div class="cs-problem-card">
+          <h3>Team Transparency</h3>
+          <p>Is it easy to understand who's behind the service/product?</p>
+        </div>
+        <div class="cs-problem-card">
+          <h3>Checkout Confidence</h3>
+          <p>Do users feel safe to check out?</p>
+        </div>
+      </div>
     </div>
 
     <div class="cs-subsection">
@@ -298,7 +333,6 @@ import SectionUserJourney from '../components/SectionUserJourney.astro';
     <div class="cs-body-text">
       <p>We gathered notes from interviews, internal feedback sessions, and early usability tests, and then we sat with it all to find the patterns.</p>
       <p>It turns out, a lot of users were asking the same questions. Not always in the same words, but with the same energy:</p>
-      <blockquote>"Wait, what am I supposed to do here?" &nbsp; "Can I change this later?" &nbsp; "Am I locked in if I click this?"</blockquote>
       <p>Once we clustered everything, it became obvious: We weren't just solving for navigation or layout. We were solving for reassurance.</p>
     </div>
 
@@ -430,49 +464,555 @@ import SectionUserJourney from '../components/SectionUserJourney.astro';
         </div>
       </div>
     </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 120px;">Project Details</h3>
+    <div class="cs-body-text">
+      <p>Designed to reduce uncertainty, this screen lays out everything from deliverables and tools to industries, tags, and team structure. It turns abstract project listings into concrete offerings users can actually evaluate.</p>
+    </div>
+
+    <div class="cs-annotated-wrap cs-annotated-wrap--left-only">
+      <div class="cs-annotated-left">
+        <div class="cs-annotated-card">
+          <h4>Deliverables by Phase</h4>
+          <p>Deliverables are broken down by project phase, so clients can see what to expect at each step.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>Project Details</h4>
+          <p>This section gives a full picture of the project's scope: tools and technologies involved, relevant industries, publish date, subcategories, and tags for quick filtering.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>About the Team</h4>
+          <p>Includes details on each member's skills, roles, location, languages spoken, and who's leading the project. Reassurance that the right people are already in place.</p>
+        </div>
+      </div>
+
+      <div class="cs-annotated-center">
+        <img src="/images/cs-final-project-details.png" alt="Final design: Project Details with deliverables, details, and team info" class="cs-annotated-img">
+        <span class="cs-dot cs-dot--left cs-dot--a"></span>
+        <span class="cs-dot cs-dot--left cs-dot--b"></span>
+        <span class="cs-dot cs-dot--left cs-dot--c"></span>
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 120px;">Questions</h3>
+    <div class="cs-body-text">
+      <p>Whether users want to ask something directly, browse FAQs, or check response times, this screen makes it easy to get answers. It's a trust-building layer that meets clients where they are, unsure, curious, and looking for reassurance.</p>
+    </div>
+
+    <div class="cs-annotated-wrap cs-annotated-wrap--right-only">
+      <div class="cs-annotated-center">
+        <img src="/images/cs-final-questions.png" alt="Final design: Questions, FAQ, and Live Chat" class="cs-annotated-img">
+        <span class="cs-dot cs-dot--right cs-dot--d"></span>
+        <span class="cs-dot cs-dot--right cs-dot--e"></span>
+      </div>
+
+      <div class="cs-annotated-right">
+        <div class="cs-annotated-card">
+          <h4>Ask a Question + Live Chat</h4>
+          <p>Users can type and submit a question directly to the team, choose from suggested prompts, or chat live when someone's online.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>FAQs &amp; Recently Asked</h4>
+          <p>This expandable FAQ section blends common questions with recent ones from other users. All responses come from the team, so info is always accurate and up to date.</p>
+        </div>
+      </div>
+    </div>
+    <h3 class="cs-subsection-title" style="margin-top: 120px;">Reviews</h3>
+    <div class="cs-body-text">
+      <p>This screen balances the big picture and the personal, combining ratings summaries with actual feedback from past clients. It helps users validate their decision by showing how the project has performed for others.</p>
+    </div>
+
+    <div class="cs-annotated-wrap cs-annotated-wrap--left-only">
+      <div class="cs-annotated-left">
+        <div class="cs-annotated-card">
+          <h4>Ratings Summary</h4>
+          <p>A full breakdown of review scores plus the project's overall average and total number of reviews.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>Individual Reviews</h4>
+          <p>These reviews come from people who've actually purchased and completed the project.</p>
+        </div>
+      </div>
+
+      <div class="cs-annotated-center">
+        <img src="/images/cs-final-reviews.png" alt="Final design: Reviews with ratings summary and individual feedback" class="cs-annotated-img">
+        <span class="cs-dot cs-dot--left cs-dot--f"></span>
+        <span class="cs-dot cs-dot--left cs-dot--g"></span>
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 120px;">Browse Similar & Recommended</h3>
+    <div class="cs-body-text">
+      <p>When users aren't ready to commit, this screen keeps them exploring. It offers curated paths forward, whether they want to compare similar scopes or browse intelligently recommended alternatives.</p>
+    </div>
+
+    <div class="cs-annotated-wrap cs-annotated-wrap--right-only">
+      <div class="cs-annotated-center">
+        <img src="/images/cs-final-browse-similar.png" alt="Final design: Similar and Recommended project carousels" class="cs-annotated-img">
+        <span class="cs-dot cs-dot--right cs-dot--h"></span>
+        <span class="cs-dot cs-dot--right cs-dot--i"></span>
+      </div>
+
+      <div class="cs-annotated-right">
+        <div class="cs-annotated-card">
+          <h4>Similar Projects Carousel</h4>
+          <p>This carousel shows projects with similar scopes, industries, or tools, perfect for clients who want to compare before committing.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>Recommended Projects Carousel</h4>
+          <p>These recommendations are personalized based on what you're viewing, a quick way to discover projects with similar value or better alignment.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 120px;">Recently Viewed</h3>
+    <div class="cs-body-text">
+      <p>Buying isn't always linear. This screen helps users backtrack, compare, and revisit projects they've already clicked, without having to start their search over from scratch.</p>
+    </div>
+
+    <div class="cs-annotated-wrap cs-annotated-wrap--left-only">
+      <div class="cs-annotated-left">
+        <div class="cs-annotated-card">
+          <h4>Recently Viewed Projects</h4>
+          <p>This grid shows projects you've recently viewed so you can compare, revisit, or re-evaluate without starting your search from scratch.</p>
+        </div>
+      </div>
+
+      <div class="cs-annotated-center">
+        <img src="/images/cs-final-recently-viewed.png" alt="Final design: Recently viewed projects grid" class="cs-annotated-img">
+        <span class="cs-dot cs-dot--left cs-dot--j"></span>
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 120px;">More Ways to Explore</h3>
+    <div class="cs-body-text">
+      <p>For clients still feeling things out, this screen offers new entry points. It pulls in related categories and popular searches tied to the current project, helping users discover more, without getting lost.</p>
+    </div>
+
+    <div class="cs-annotated-wrap cs-annotated-wrap--right-only">
+      <div class="cs-annotated-center">
+        <img src="/images/cs-final-more-ways.png" alt="Final design: Related categories and related searches" class="cs-annotated-img">
+        <span class="cs-dot cs-dot--right cs-dot--k"></span>
+        <span class="cs-dot cs-dot--right cs-dot--l"></span>
+      </div>
+
+      <div class="cs-annotated-right">
+        <div class="cs-annotated-card">
+          <h4>Related Categories</h4>
+          <p>These clickable columns highlight categories connected to the one you're viewing, pulled from the project's main and subcategories to help users explore laterally without getting lost.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>Related Searches</h4>
+          <p>This badge carousel surfaces real search terms that led others to this project, helping users discover relevant work they may not have thought to search for directly.</p>
+        </div>
+      </div>
+    </div>
   </SectionContent>
 
   <hr class="cs-section-divider">
 
-  <!-- 13. UI Design System (placeholder) -->
-
-  <!-- 14. Stylized UI Components (placeholder) -->
-
-  <!-- 15. Hi-Fi Designs (placeholder) -->
-
-  <!-- 16. User Testing (placeholder) -->
-
-  <!-- 17. Testing Feedback (placeholder) -->
-
-  <!-- 18. Final Takeaways/Reflection (placeholder) -->
-
-  <SectionGallery
-    title="Developer Handoff"
-    columns={3}
-    images={[
-      { src: '/images/cs-handoff-1.png', alt: 'Component states and specs' },
-      { src: '/images/cs-handoff-2.png', alt: 'Button and input states' },
-      { src: '/images/cs-handoff-3.png', alt: 'FAQ and question components' },
-      { src: '/images/cs-handoff-4.png', alt: 'Tag and category components' },
-      { src: '/images/cs-handoff-5.png', alt: 'Deliverables component specs' },
-      { src: '/images/cs-handoff-6.png', alt: 'Pricing and duration selectors' },
-    ]}
-  />
+  <!-- UI Design System -->
+  <SectionContent title="UI Design System">
+    <div class="cs-body-text">
+      <p>Every component in the final design is built from a unified design system I spent about two weeks building from the ground up. Colors, typography, buttons, tabs, and badges are all standardized to ensure visual consistency and speed up development handoff.</p>
+    </div>
+    <div class="cs-image-full" style="margin-top: 40px;">
+      <img src="/images/cs-ui-design-system.png" alt="UI Design System: colors, typography, buttons, tabs, and badges" style="width: 100%; height: auto; border-radius: 4px;">
+    </div>
+  </SectionContent>
 
   <hr class="cs-section-divider">
 
-  <SectionGallery
-    title="Final Screens"
-    columns={3}
-    images={[
-      { src: '/images/cs-final-1.png', alt: 'Final design: Project listing' },
-      { src: '/images/cs-final-2.png', alt: 'Final design: Project detail with video' },
-      { src: '/images/cs-final-3.png', alt: 'Final design: Project detail sidebar' },
-      { src: '/images/cs-final-4.png', alt: 'Final design: Similar projects' },
-      { src: '/images/cs-final-5.png', alt: 'Final design: Description tab' },
-      { src: '/images/cs-final-6.png', alt: 'Final design: Pricing sidebar' },
-      { src: '/images/cs-final-7.png', alt: 'Final design: Recently viewed' },
-    ]}
-  />
+  <!-- Stylized UI Components -->
+  <SectionContent title="Stylized UI Components">
+
+    <div class="cs-component-showcase">
+      <div class="cs-component-details">
+        <h3 class="cs-component-title">Pricing Sidebar with Payment Plan, Team Status, &amp; Guarantee</h3>
+        <p class="cs-component-desc">Anchored on the right side of the layout, this component keeps essential decision-making info visible and reassuring throughout the experience, from cost and team visibility to purchase protection.</p>
+        <h4>Key Details</h4>
+        <ul>
+          <li>Klarna-style pricing breakdown shows the initial payment and flexible monthly options, so users know exactly what to expect financially</li>
+          <li>Current Team section displays real avatars and a "+X more" indicator, reinforcing that a qualified team is already in place</li>
+          <li>Start Project CTA is styled as a blue outlined button, visually prominent but not aggressive, paired with a note that additional payment plans are available</li>
+          <li>Peace of Mind Guarantee sits directly below the CTA with Purchase Protection and Trusted Transactions, giving users confidence that their money is safe</li>
+        </ul>
+        <p class="cs-component-closing">Together, these elements build a steady sense of clarity and control.</p>
+      </div>
+      <div class="cs-component-image">
+        <img src="/images/cs-ui-pricing-sidebar.png" alt="Pricing sidebar with payment plan, team status, and peace of mind guarantee" class="cs-component-img" style="max-width: 401px;">
+      </div>
+    </div>
+
+    <div class="cs-component-showcase cs-component-showcase--reverse" style="margin-top: 120px;">
+      <div class="cs-component-details">
+        <h3 class="cs-component-title">Media Player &amp; Gallery</h3>
+        <p class="cs-component-desc">Turns the project offering into something clients can see and imagine, not just read about.</p>
+        <h4>Key Details</h4>
+        <ul>
+          <li>Supports a mix of static images and video previews</li>
+          <li>Smooth carousel interaction lets users flip through visuals easily</li>
+          <li>Emphasis on clean framing and hierarchy to keep the experience elegant and informative</li>
+        </ul>
+      </div>
+      <div class="cs-component-image">
+        <img src="/images/cs-ui-media-player.png" alt="Media player with video playback and thumbnail carousel" class="cs-component-img" style="max-width: 689px;">
+      </div>
+    </div>
+
+    <div class="cs-component-showcase" style="margin-top: 120px;">
+      <div class="cs-component-details">
+        <h3 class="cs-component-title">Live Chat</h3>
+        <p class="cs-component-desc">A simple, direct way for users to message the project team when they have questions, no forms, no waiting, just a clear line of communication.</p>
+        <h4>Key Details</h4>
+        <ul>
+          <li>Real-time presence indicator shows if a team member is online and available to chat</li>
+          <li>Familiar messaging interface keeps interaction lightweight and low-pressure</li>
+          <li>Designed to feel personal and responsive, even when the user just wants to clarify one small thing</li>
+        </ul>
+      </div>
+      <div class="cs-component-image">
+        <img src="/images/cs-ui-live-chat.png" alt="Live chat interface with real-time messaging and online status" class="cs-component-img" style="max-width: 645px;">
+      </div>
+    </div>
+
+    <div class="cs-component-showcase cs-component-showcase--reverse" style="margin-top: 120px;">
+      <div class="cs-component-details">
+        <h3 class="cs-component-title">Scope Preview</h3>
+        <p class="cs-component-desc">This component gives users a clear, structured view of the project's original scope, broken down by phases, tasks, and team assignments, so they can understand exactly what they're buying before making changes.</p>
+        <h4>Key Details</h4>
+        <ul>
+          <li>Organized by project phase for easy scanning and mental modeling</li>
+          <li>Each task includes a short description, assigned team member, and time estimate</li>
+          <li>Fully interactive and collapsible, so users can explore details at their own pace</li>
+          <li>Designed to reduce ambiguity and help users feel confident about what the current price includes, no edits, no surprises</li>
+        </ul>
+      </div>
+      <div class="cs-component-image">
+        <img src="/images/cs-ui-scope-preview.png" alt="Scope preview showing project phases, tasks, assignees, and durations" class="cs-component-img" style="max-width: 645px;">
+      </div>
+    </div>
+
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <SectionContent title="Hi Fi Designs">
+    <div class="cs-hifi-showcase">
+      <div class="cs-hifi-image">
+        <img src="/images/cs-hifi-project-overview.png" alt="High fidelity design of the Marketeq project overview page with colored UI, gallery, pricing sidebar, and team details" style="max-width: 645px;">
+      </div>
+      <div class="cs-hifi-content">
+        <h3 class="cs-hifi-title">Project Overview</h3>
+        <p class="cs-hifi-desc">This screen was designed to give clients immediate clarity and confidence. The goal was to answer the big question <em>"Is this the right project for me?"</em> without making them scroll. I surfaced key details like project title, badges, pricing, and trust markers right away, paired with a visual gallery to build interest.</p>
+        <blockquote class="cs-hifi-quote">
+          Bold badges, a muted layout, and a clear type hierarchy help draw attention to the most important details without the page feeling cluttered.
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="cs-hifi-showcase cs-hifi-showcase--reverse" style="margin-top: 120px;">
+      <div class="cs-hifi-content">
+        <h3 class="cs-hifi-title">Questions</h3>
+        <p class="cs-hifi-desc">I knew that uncertainty often shows up as silence, so I wanted this screen to invite conversation. I integrated a live chat feature, suggested prompts, and a lightweight question form so users could get answers without friction. It was designed to feel more like texting a teammate than submitting a support ticket.</p>
+        <blockquote class="cs-hifi-quote">
+          The online status ("Kevin is online") and average response time are small details, but they make it feel like there's a real person on the other end.
+        </blockquote>
+      </div>
+      <div class="cs-hifi-image">
+        <img src="/images/cs-hifi-questions.png" alt="Questions screen with live chat, suggested prompts, FAQs, and ask a question form" style="max-width: 653px;">
+      </div>
+    </div>
+
+    <div class="cs-hifi-showcase" style="margin-top: 120px;">
+      <div class="cs-hifi-image">
+        <img src="/images/cs-hifi-reviews.png" alt="Reviews screen with rating summary, detailed reviews with avatars and tags, and company responses" style="max-width: 653px;">
+      </div>
+      <div class="cs-hifi-content">
+        <h3 class="cs-hifi-title">Reviews</h3>
+        <p class="cs-hifi-desc">This screen goes beyond star ratings. I pulled in detailed reviews, visual summaries, and company responses so clients could understand why people felt the way they did, not just the score.</p>
+        <blockquote class="cs-hifi-quote">
+          Avatars, icon-based tags (like "Highly Professional"), and clear spacing keep the reviews readable and scannable instead of overwhelming.
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="cs-hifi-showcase cs-hifi-showcase--reverse" style="margin-top: 120px;">
+      <div class="cs-hifi-content">
+        <h3 class="cs-hifi-title">Similar &amp; Recommended Projects</h3>
+        <p class="cs-hifi-desc">Not everyone is ready to buy right away, so this screen shows similar and recommended projects in a carousel. It lets clients compare options or switch directions without losing where they were.</p>
+        <blockquote class="cs-hifi-quote">
+          Hover states and consistent thumbnail sizing keep the browsing experience clean and easy to scan.
+        </blockquote>
+      </div>
+      <div class="cs-hifi-image">
+        <img src="/images/cs-hifi-similar.png" alt="Similar and recommended projects carousel with project cards, ratings, and team avatars" style="max-width: 650px;">
+      </div>
+    </div>
+
+    <div class="cs-hifi-showcase" style="margin-top: 120px;">
+      <div class="cs-hifi-image">
+        <img src="/images/cs-hifi-more-ways.png" alt="More ways to explore with related categories, related searches, and badge-style search suggestions" style="max-width: 650px;">
+      </div>
+      <div class="cs-hifi-content">
+        <h3 class="cs-hifi-title">More Ways to Explore</h3>
+        <p class="cs-hifi-desc">This screen is for users who want to keep browsing. It shows related categories and search terms based on what they're already looking at, so they can find other options without going back to the main search.</p>
+        <blockquote class="cs-hifi-quote">
+          The badge-style search suggestions and grouped categories give users a quick way to branch out without feeling lost.
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="cs-hifi-showcase cs-hifi-showcase--reverse" style="margin-top: 120px;">
+      <div class="cs-hifi-content">
+        <h3 class="cs-hifi-title">Recently Viewed</h3>
+        <p class="cs-hifi-desc">People don't always make decisions in a straight line, so I wanted an easy way to go back. This screen shows recently viewed projects in a simple grid so clients can revisit what they've already looked at and compare without starting over.</p>
+        <blockquote class="cs-hifi-quote">
+          Thumbnails, titles, and pricing are all visible at a glance so it works more like a personal shortlist than a history log.
+        </blockquote>
+      </div>
+      <div class="cs-hifi-image">
+        <img src="/images/cs-hifi-recently-viewed.png" alt="Recently viewed projects grid with thumbnails, titles, pricing, and duration" style="max-width: 650px;">
+      </div>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <SectionContent title="User Testing">
+    <div class="cs-body-text">
+      <p>Before handing anything off, I ran moderated usability tests with 5 participants to validate the key flows. Each session lasted about 20 minutes and followed a structured test guide. I tracked completion rate, error rate, time to success, and satisfaction level, then assigned severity ratings (1 = cosmetic, 4 = must fix) to prioritize what needed attention.</p>
+    </div>
+
+    <div class="cs-testing-metrics">
+      <div class="cs-metric-card">
+        <span class="cs-metric-number">5</span>
+        <span class="cs-metric-label">Participants</span>
+      </div>
+      <div class="cs-metric-card">
+        <span class="cs-metric-number">8</span>
+        <span class="cs-metric-label">Tasks Tested</span>
+      </div>
+      <div class="cs-metric-card">
+        <span class="cs-metric-number">91%</span>
+        <span class="cs-metric-label">Completion Rate</span>
+      </div>
+      <div class="cs-metric-card">
+        <span class="cs-metric-number">20 min</span>
+        <span class="cs-metric-label">Avg. Session</span>
+      </div>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 64px;">
+      <h3 class="cs-subsection-title">Task Results</h3>
+    </div>
+
+    <div class="cs-testing-table-wrap">
+      <table class="cs-testing-table">
+        <thead>
+          <tr>
+            <th class="cs-testing-th--task">Task</th>
+            <th>U1</th>
+            <th>U2</th>
+            <th>U3</th>
+            <th>U4</th>
+            <th>U5</th>
+            <th>Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cs-testing-td--task">Browse the project overview and identify what the project offers, who it's for, and the starting price.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate">5/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Review the project scope, expand a phase, and understand what's included before editing.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--iterate" title="Delayed"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate">4/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Check the current team status and understand how many roles still need to be filled.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate">5/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Ask the project creator a question using the live chat or suggested prompts.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--iterate" title="Delayed"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate">4/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Read reviews and determine if the creator is credible and trustworthy.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate">5/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Find and compare similar projects without losing your place.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--iterate" title="Delayed"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate">4/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Complete the checkout flow and feel confident about the purchase decision.</td>
+            <td><span class="cs-test-dot cs-test-dot--iterate" title="Delayed"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--fail" title="Failed"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--iterate" title="Delayed"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--iterate" title="Delayed"></span></td>
+            <td class="cs-testing-td--rate cs-testing-td--rate-low">1/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Understand the payment breakdown and refund policy before committing.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--iterate" title="Delayed"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate">4/5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cs-testing-legend">
+      <div class="cs-legend-item"><span class="cs-test-dot cs-test-dot--pass"></span> Pass</div>
+      <div class="cs-legend-item"><span class="cs-test-dot cs-test-dot--iterate"></span> Delayed</div>
+      <div class="cs-legend-item"><span class="cs-test-dot cs-test-dot--fail"></span> Failed</div>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 64px;">
+      <h3 class="cs-subsection-title">Key Findings</h3>
+    </div>
+    <div class="cs-findings-grid">
+      <div class="cs-finding-card cs-finding-card--sev3">
+        <div class="cs-finding-header">
+          <span class="cs-finding-severity cs-finding-severity--3">Severity 3</span>
+          <span class="cs-finding-tag">Must Fix</span>
+        </div>
+        <h3>Checkout Confidence</h3>
+        <p>3 out of 5 users struggled with the checkout flow. Users wanted a review summary before final confirmation. We added a full review screen with scope, pricing, and team details before the commit step.</p>
+      </div>
+      <div class="cs-finding-card cs-finding-card--sev2">
+        <div class="cs-finding-header">
+          <span class="cs-finding-severity cs-finding-severity--2">Severity 2</span>
+          <span class="cs-finding-tag">Improve</span>
+        </div>
+        <h3>Scope Navigation</h3>
+        <p>1 user took extra time to locate the scope preview. We improved the "View Project Scope" label and added a visual indicator to draw attention to it.</p>
+      </div>
+      <div class="cs-finding-card cs-finding-card--sev1">
+        <div class="cs-finding-header">
+          <span class="cs-finding-severity cs-finding-severity--1">Severity 1</span>
+          <span class="cs-finding-tag">Cosmetic</span>
+        </div>
+        <h3>Chat Discoverability</h3>
+        <p>1 user initially missed the live chat entry point. We made the online status indicator more prominent and added a subtle pulse animation on first load.</p>
+      </div>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <SectionContent title="Developer Handoff">
+    <div class="cs-body-text">
+      <p>I make sure developers understand every part of the interface. Every component has a master component with clearly defined variants, where all state management is laid out: default, hover, active, focused, and disabled states are all accounted for.</p>
+      <p>I prototype all key interactions so I can identify any missing states or edge cases before handoff. Then I organize every component variant side by side in a clean, structured layout so developers can reference them at a glance.</p>
+      <p>The design files are cleaned up and structured so the front-end functionality and detailed component architecture are immediately clear, no guesswork required.</p>
+    </div>
+
+    <div class="cs-handoff-gallery">
+      <div class="cs-handoff-item">
+        <p class="cs-handoff-label">Project Details</p>
+        <img src="/images/cs-handoff-project-details.png" alt="Full project details page with all component variants and states laid out">
+      </div>
+      <div class="cs-handoff-item">
+        <p class="cs-handoff-label">Modals</p>
+        <img src="/images/cs-handoff-modals.png" alt="Modal components showing media player, authentication, and question overlays">
+      </div>
+      <div class="cs-handoff-item">
+        <p class="cs-handoff-label">Reviews</p>
+        <img src="/images/cs-handoff-reviews.png" alt="Reviews component variants with different states and data configurations">
+      </div>
+      <div class="cs-handoff-item">
+        <p class="cs-handoff-label">Rich Text Editor</p>
+        <img src="/images/cs-handoff-rte-1.png" alt="Rich text editor component with formatting toolbar and content states">
+      </div>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <SectionContent title="Final Takeaways">
+    <div class="cs-body-text">
+      <p>This project taught me that making something work is only half the job. The other half is making people feel comfortable using it, especially when they're spending money and committing to a team. What started as "let's clean up this flow" turned into a full redesign. I'm glad we caught the problems before we shipped.</p>
+    </div>
+
+    <div class="cs-subsection">
+      <h3 class="cs-subsection-title">What I Learned</h3>
+      <div class="cs-problems-grid cs-problems-grid--four">
+        <div class="cs-problem-card">
+          <p>Just because something is functional doesn't mean it's reassuring.</p>
+        </div>
+        <div class="cs-problem-card">
+          <p>If users don't trust the interface, it doesn't matter how well it works. Trust has to be designed in.</p>
+        </div>
+        <div class="cs-problem-card">
+          <p>Users will always give better feedback than you expect, if you give them space to talk.</p>
+        </div>
+        <div class="cs-problem-card">
+          <p>"Start Project" should never feel like a leap of faith.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-subsection">
+      <h3 class="cs-subsection-title">What's Next</h3>
+      <p class="cs-body-text" style="margin-bottom: 24px;">If I had more time (or dev resources), I'd love to explore:</p>
+      <div class="cs-problems-grid cs-problems-grid--four">
+        <div class="cs-problem-card">
+          <h3>Smart Invites</h3>
+          <p>AI-powered team match suggestions based on role gaps and timeline.</p>
+        </div>
+        <div class="cs-problem-card">
+          <h3>Scope Simulation</h3>
+          <p>Let users test changes before applying them.</p>
+        </div>
+        <div class="cs-problem-card">
+          <h3>Post-Checkout Invites</h3>
+          <p>Let clients start with a core team, and fill in roles later without friction.</p>
+        </div>
+        <div class="cs-problem-card">
+          <h3>Saved Templates</h3>
+          <p>Especially for agencies launching multiple projects at once.</p>
+        </div>
+      </div>
+      <div class="cs-body-text" style="margin-top: 32px;">
+        <p>All of these would keep building on the same idea: give users more information upfront so they can make better decisions faster. This project was never about adding features for the sake of it. It was about making the experience actually make sense.</p>
+      </div>
+    </div>
+  </SectionContent>
 
 </CaseStudy>

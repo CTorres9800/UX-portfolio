@@ -35,14 +35,16 @@
       '<footer class="footer">' +
         '<div class="container footer-inner">' +
           '<p>&copy; 2026 Christopher Torres Design. All rights reserved.</p>' +
-          '<div class="footer-icons">' +
+          '<div class="footer-right">' +
             '<a href="#" class="back-to-top" onclick="window.scrollTo({top:0,behavior:\'smooth\'});return false;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>Back to top</a>' +
-            '<a href="https://www.linkedin.com/in/christorres17/" target="_blank" rel="noopener" class="footer-icon" aria-label="LinkedIn">' +
-              linkedInSVG +
-            '</a>' +
-            '<a href="mailto:christophertorres17@gmail.com" class="footer-icon" aria-label="Email">' +
-              emailSVG +
-            '</a>' +
+            '<div class="footer-icons">' +
+              '<a href="https://www.linkedin.com/in/christorres17/" target="_blank" rel="noopener" class="footer-icon" aria-label="LinkedIn">' +
+                linkedInSVG +
+              '</a>' +
+              '<a href="mailto:christophertorres17@gmail.com" class="footer-icon" aria-label="Email">' +
+                emailSVG +
+              '</a>' +
+            '</div>' +
           '</div>' +
         '</div>' +
       '</footer>';
