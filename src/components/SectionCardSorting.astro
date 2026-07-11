@@ -1,0 +1,32 @@
+---
+interface Card {
+  title: string;
+  body: string;
+  color?: 'green' | 'yellow' | 'red' | 'default';
+}
+
+interface Props {
+  title: string;
+  cards: Card[];
+  variant?: 'white' | 'gray' | 'dark';
+}
+
+const { title, cards, variant = 'white' } = Astro.props;
+const sectionClass = variant === 'gray' ? 'cs-section cs-section--gray' : variant === 'dark' ? 'cs-section cs-section--dark' : 'cs-section';
+---
+
+<section class={sectionClass}>
+  <div class="container">
+    <h2 class="cs-section-title">{title}</h2>
+    <slot name="intro" />
+    <div class="cs-card-grid">
+      {cards.map((card) => (
+        <div class={`cs-card ${card.color ? `cs-card--${card.color}` : ''}`}>
+          <h3>{card.title}</h3>
+          <Fragment set:html={card.body} />
+        </div>
+      ))}
+    </div>
+    <slot />
+  </div>
+</section>

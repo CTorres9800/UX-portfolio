@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string;
+  variant?: 'white' | 'gray' | 'dark';
+}
+
+const { title, variant = 'white' } = Astro.props;
+const sectionClass = variant === 'gray' ? 'cs-section cs-section--gray' : variant === 'dark' ? 'cs-section cs-section--dark' : 'cs-section';
+---
+
+<section class={sectionClass}>
+  <div class="container">
+    <h2 class="cs-section-title">{title}</h2>
+    <div class="cs-body-text">
+      <slot />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,43 @@
+---
+interface VersionGroup {
+  subtitle: string;
+  description?: string;
+  versions: {
+    label: string;
+    image: string;
+    imageAlt: string;
+  }[];
+}
+
+interface Props {
+  title: string;
+  groups: VersionGroup[];
+  variant?: 'white' | 'gray' | 'dark';
+}
+
+const { title, groups, variant = 'white' } = Astro.props;
+const sectionClass = variant === 'gray' ? 'cs-section cs-section--gray' : variant === 'dark' ? 'cs-section cs-section--dark' : 'cs-section';
+---
+
+<section class={sectionClass}>
+  <div class="container">
+    <h2 class="cs-section-title">{title}</h2>
+    <slot />
+    {groups.map((group) => (
+      <div class="cs-subsection">
+        <h3 class="cs-subsection-title">{group.subtitle}</h3>
+        {group.description && <p class="cs-body-text">{group.description}</p>}
+        <div class="cs-versions">
+          {group.versions.map((v) => (
+            <div class="cs-version">
+              <h4>{v.label}</h4>
+              <div class="cs-version-card">
+                <img src={v.image} alt={v.imageAlt}>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

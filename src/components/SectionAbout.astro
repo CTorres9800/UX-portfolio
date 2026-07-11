@@ -1,0 +1,38 @@
+---
+interface SidebarMeta {
+  label: string;
+  items: string[];
+}
+
+interface Props {
+  label: string;
+  title: string;
+  sidebar: SidebarMeta[];
+  variant?: 'white' | 'gray' | 'dark';
+}
+
+const { label, title, sidebar, variant = 'white' } = Astro.props;
+const sectionClass = variant === 'gray' ? 'cs-section cs-section--gray' : variant === 'dark' ? 'cs-section cs-section--dark' : 'cs-section';
+---
+
+<section class={sectionClass}>
+  <div class="container cs-about-grid">
+    <div class="cs-about-main">
+      <p class="cs-label">{label}</p>
+      <h2 class="cs-section-title">{title}</h2>
+      <div class="cs-body-text">
+        <slot />
+      </div>
+    </div>
+    <div class="cs-about-sidebar">
+      {sidebar.map((meta) => (
+        <div class="cs-about-meta">
+          <p class="cs-label">{meta.label}</p>
+          {meta.items.map((item) => (
+            <p>{item}</p>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
