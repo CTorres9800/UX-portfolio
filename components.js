@@ -18,7 +18,7 @@
           '<nav class="nav">' +
             '<a href="/#about">ABOUT</a>' +
             '<a href="/#work">WORK</a>' +
-            '<a href="/#resume">RESUME</a>' +
+            '<a href="/Christopher-Torres-Resume.pdf" target="_blank" rel="noopener">RESUME</a>' +
             '<a href="/#contact">CONTACT</a>' +
             '<a href="https://www.linkedin.com/in/christorres17/" target="_blank" rel="noopener" class="nav-icon" aria-label="LinkedIn">' +
               linkedInSVG +
