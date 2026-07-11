@@ -11,9 +11,11 @@
         '<div class="container header-inner">' +
           '<a href="/" class="logo">Christopher Torres</a>' +
           '<button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">' +
-            '<span class="menu-bar"></span>' +
-            '<span class="menu-bar"></span>' +
-            '<span class="menu-bar"></span>' +
+            '<svg class="menu-icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+              '<rect class="menu-line menu-line-1" width="15.3821" height="2.05601" style="transform:matrix(-0.707107,0.707107,0.707107,0.707107,29.0898,18.2128)" fill="black"/>' +
+              '<rect class="menu-line menu-line-2" width="22" height="2.05601" style="transform:matrix(-0.707107,0.707107,0.707107,0.707107,27.0508,11.4949)" fill="black"/>' +
+              '<rect class="menu-line menu-line-3" width="15.3821" height="2.05601" style="transform:matrix(-0.707107,0.707107,0.707107,0.707107,20.332,9.45662)" fill="black"/>' +
+            '</svg>' +
           '</button>' +
           '<nav class="nav">' +
             '<a href="/#about">ABOUT</a>' +
