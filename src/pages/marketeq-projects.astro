@@ -232,103 +232,7 @@ import SectionUserJourney from '../components/SectionUserJourney.astro';
 
   <hr class="cs-section-divider">
 
-  <!-- 7. Feature Prioritization -->
-  <SectionContent title="Feature Prioritization">
-    <div class="cs-body-text">
-      <p>Once we had a clearer picture of what users needed, we mapped out every possible feature and sorted them by impact, effort, and emotional value. The question at the center of every decision: "Will this reduce doubt right before someone commits?"</p>
-      <p>If the answer wasn't a clear yes, it didn't make the cut.</p>
-    </div>
-
-    <div class="cs-problems-grid">
-      <div class="cs-problem-card cs-card--green">
-        <h3>&#9989; Must-Have</h3>
-        <ul>
-          <li>Editable phased deliverables</li>
-          <li>"Live Team Status" (e.g. Need 4, Have 2)</li>
-          <li>Trust badges and agency bios</li>
-          <li>Tooltips explaining scope, roles, and payment</li>
-          <li>Klarna-style financing breakdown</li>
-          <li>Purchase protection and refund policies</li>
-        </ul>
-      </div>
-      <div class="cs-problem-card cs-card--yellow">
-        <h3>&#129300; Nice-to-Have (Later)</h3>
-        <ul>
-          <li>Secret "auto-match" team mode</li>
-          <li>Creator DMs and floating chat widget</li>
-          <li>Real-time invite acceptance status updates</li>
-          <li>Version history for scope edits</li>
-        </ul>
-      </div>
-      <div class="cs-problem-card cs-card--red">
-        <h3>&#10060; Will Not Have</h3>
-        <ul>
-          <li>Build-your-own-scope from scratch</li>
-          <li>Bulk/multi-project checkout</li>
-          <li>Tier comparisons and pricing tables</li>
-          <li>Cross-project reviews and deep creator stats</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="cs-body-text" style="margin-top: 48px;">
-      <p>This helped us stay focused. We didn't chase "nice ideas." We prioritized emotional reassurance at exactly the point people tend to hesitate.</p>
-    </div>
-
-    <div class="cs-image-full">
-      <img src="/images/cs-card-sorting-bestinclass.png" alt="Card sorting: Best in Class / Out of Category">
-    </div>
-    <div class="cs-image-full">
-      <img src="/images/cs-card-sorting-competitors.png" alt="Card sorting: Competitors">
-    </div>
-  </SectionContent>
-
-  <hr class="cs-section-divider">
-
-  <!-- 8. User Journey -->
-  <SectionUserJourney />
-
-  <hr class="cs-section-divider">
-
-  <!-- 9. User Flows -->
-  <SectionContent title="User Flows">
-    <div class="cs-body-text">
-      <p>We focused on redesigning the most emotionally loaded part of the platform: Buying a scoped project with a team.</p>
-      <p>This wasn't a typical e-comm flow. It wasn't "add to cart, check out." It was "do I understand what I'm buying, who I'm working with, and if I'm ready to commit?" So the flow needed to answer those questions, step by step.</p>
-    </div>
-
-    <div class="cs-subsection">
-      <h3 class="cs-subsection-title">Key Flow: Start to Checkout</h3>
-      <div class="cs-flow-pills">
-        <span><strong>Browse Project Scopes</strong> &rarr; View starting price, team type, and deliverables &rarr; Clear "Starting at $X" label with optional add-ons</span>
-        <span><strong>Customize Scope</strong> &rarr; Add/remove phases, view dynamic pricing updates &rarr; Tooltip support for each deliverable</span>
-        <span><strong>Invite or Confirm Team</strong> &rarr; See who's needed, who's already included &rarr; Status indicator: "Need 4, Have 2" &rarr; Invite collaborators or proceed solo</span>
-        <span><strong>Review &amp; Reassure</strong> &rarr; Klarna-style payment breakdown &rarr; Refund policy + team bios &rarr; Final scope preview before CTA</span>
-        <span><strong>Start Project (Or Don't)</strong> &rarr; Optional "Start Later" save state &rarr; Soft language on final CTA &rarr; Post-checkout confirmation: next steps, contact info, and edit options</span>
-      </div>
-    </div>
-
-    <div class="cs-body-text" style="margin-top: 48px;">
-      <p>Every step was designed to reduce friction, not just functionally, but emotionally. Because when people feel clear, they move forward. When they don't, they bounce.</p>
-    </div>
-
-    <div class="cs-image-full cs-image-crop">
-      <img src="/images/cs-flow-scope-editing.png" alt="Scope editing user flow diagram">
-    </div>
-
-    <blockquote class="cs-pullquote">
-      <svg class="cs-pullquote-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/></svg>
-      Making something look simple is easy.<br>Making something simple to use is much harder.
-    </blockquote>
-
-    <div class="cs-image-full">
-      <img src="/images/cs-flow-team-matching.png" alt="Team matching and invitation user flow diagram">
-    </div>
-  </SectionContent>
-
-  <hr class="cs-section-divider">
-
-  <!-- 10. Affinity Mapping -->
+  <!-- 7. Affinity Mapping -->
   <SectionContent title="Affinity Mapping">
     <div class="cs-body-text">
       <p>We gathered notes from interviews, internal feedback sessions, and early usability tests, and then we sat with it all to find the patterns.</p>
@@ -376,6 +280,107 @@ import SectionUserJourney from '../components/SectionUserJourney.astro';
 
     <div class="cs-image-full">
       <img src="/images/cs-affinity-map.png" alt="Affinity map: Clarity, Trust, Team Visibility, Checkout, Communication, and Browsing themes">
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 8. Feature Prioritization -->
+  <SectionContent title="Feature Prioritization">
+    <div class="cs-body-text">
+      <p>Once we had a clearer picture of what users needed, we mapped out every possible feature and sorted them by impact, effort, and emotional value. The question at the center of every decision: "Will this reduce doubt right before someone commits?"</p>
+      <p>If the answer wasn't a clear yes, it didn't make the cut.</p>
+    </div>
+
+    <div class="cs-problems-grid">
+      <div class="cs-problem-card cs-card--green">
+        <h3>&#9989; Must-Have</h3>
+        <ul>
+          <li>Editable phased deliverables</li>
+          <li>"Live Team Status" (e.g. Need 4, Have 2)</li>
+          <li>Trust badges and agency bios</li>
+          <li>Tooltips explaining scope, roles, and payment</li>
+          <li>Klarna-style financing breakdown</li>
+          <li>Purchase protection and refund policies</li>
+        </ul>
+      </div>
+      <div class="cs-problem-card cs-card--yellow">
+        <h3>&#129300; Nice-to-Have (Later)</h3>
+        <ul>
+          <li>Secret "auto-match" team mode</li>
+          <li>Creator DMs and floating chat widget</li>
+          <li>Real-time invite acceptance status updates</li>
+          <li>Version history for scope edits</li>
+        </ul>
+      </div>
+      <div class="cs-problem-card cs-card--red">
+        <h3>&#10060; Will Not Have</h3>
+        <ul>
+          <li>Build-your-own-scope from scratch</li>
+          <li>Bulk/multi-project checkout</li>
+          <li>Tier comparisons and pricing tables</li>
+          <li>Cross-project reviews and deep creator stats</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 48px;">
+      <p>This helped us stay focused. We didn't chase "nice ideas." We prioritized emotional reassurance at exactly the point people tend to hesitate.</p>
+    </div>
+
+    <div class="cs-image-full">
+      <img src="/images/cs-card-sorting-competitors.png" alt="Card sorting: Competitors">
+    </div>
+    <div class="cs-image-full">
+      <img src="/images/cs-card-sorting-bestinclass.png" alt="Card sorting: Best in Class / Out of Category">
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 9. User Journey -->
+  <SectionUserJourney />
+
+  <hr class="cs-section-divider">
+
+  <!-- 10. User Flows -->
+  <SectionContent title="User Flows">
+    <div class="cs-body-text">
+      <p>We focused on redesigning the most emotionally loaded part of the platform: Buying a scoped project with a team.</p>
+      <p>This wasn't a typical e-comm flow. It wasn't "add to cart, check out." It was "do I understand what I'm buying, who I'm working with, and if I'm ready to commit?" So the flow needed to answer those questions, step by step.</p>
+    </div>
+
+    <div class="cs-subsection">
+      <h3 class="cs-subsection-title">Key Flow: Start to Checkout</h3>
+      <div class="cs-flow-pills">
+        <span><strong>Browse Project Scopes</strong> &rarr; View starting price, team type, and deliverables &rarr; Clear "Starting at $X" label with optional add-ons</span>
+        <span><strong>Customize Scope</strong> &rarr; Add/remove phases, view dynamic pricing updates &rarr; Tooltip support for each deliverable</span>
+        <span><strong>Invite or Confirm Team</strong> &rarr; See who's needed, who's already included &rarr; Status indicator: "Need 4, Have 2" &rarr; Invite collaborators or proceed solo</span>
+        <span><strong>Review &amp; Reassure</strong> &rarr; Klarna-style payment breakdown &rarr; Refund policy + team bios &rarr; Final scope preview before CTA</span>
+        <span><strong>Start Project (Or Don't)</strong> &rarr; Optional "Start Later" save state &rarr; Soft language on final CTA &rarr; Post-checkout confirmation: next steps, contact info, and edit options</span>
+      </div>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 48px;">
+      <p>Every step was designed to reduce friction, not just functionally, but emotionally. Because when people feel clear, they move forward. When they don't, they bounce.</p>
+    </div>
+
+    <div class="cs-image-full">
+      <img src="/images/cs-flow-scope-editing.png" alt="Scope editing user flow diagram">
+    </div>
+
+    <blockquote class="cs-pullquote">
+      <svg class="cs-pullquote-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/></svg>
+      Making something look simple is easy.<br>Making something simple to use is much harder.
+    </blockquote>
+
+    <div class="cs-image-full">
+      <img src="/images/cs-flow-team-matching.png" alt="Team matching and invitation user flow diagram">
+    </div>
+
+    <p style="margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.05em;">Legend</p>
+    <div class="cs-image-full" style="max-width: 380px; margin-left: 0; margin-right: auto; margin-top: 0; overflow: hidden;">
+      <img src="/images/cs-flow-legend.png" alt="User flow legend: Start/End, Action, Screen/Page, Decision" style="margin: -10px -10px; width: calc(100% + 20px); max-width: none;">
     </div>
   </SectionContent>
 
