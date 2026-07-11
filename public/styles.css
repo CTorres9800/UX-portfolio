@@ -16,6 +16,10 @@ img {
   pointer-events: none;
 }
 
+@media print {
+  body { display: none !important; }
+}
+
 :root {
   --font-serif: 'Libre Baskerville', Georgia, serif;
   --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;

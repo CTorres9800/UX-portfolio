@@ -47,6 +47,14 @@ const { title } = Astro.props;
     });
     // Disable drag on images
     document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+    // Disable print
+    window.addEventListener('beforeprint', function(e) { e.preventDefault(); });
+    // Block Ctrl+Shift+I (dev tools)
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'i') {
+        e.preventDefault();
+      }
+    });
   </script>
 </body>
 </html>
