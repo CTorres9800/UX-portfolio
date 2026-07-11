@@ -254,14 +254,10 @@ body {
 .back-to-top {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 20px 0 32px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--black);
+  gap: 5px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #666;
   text-decoration: none;
   transition: opacity 0.2s;
 }

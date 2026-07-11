@@ -1,0 +1,686 @@
+---
+import CaseStudy from '../layouts/CaseStudy.astro';
+import SectionHero from '../components/SectionHero.astro';
+import SectionAbout from '../components/SectionAbout.astro';
+import SectionContent from '../components/SectionContent.astro';
+import SectionCardSorting from '../components/SectionCardSorting.astro';
+import SectionSolution from '../components/SectionSolution.astro';
+import SectionWireframes from '../components/SectionWireframes.astro';
+import SectionGallery from '../components/SectionGallery.astro';
+---
+
+<CaseStudy title="Marketeq Projects">
+
+  <!-- 1. Hero -->
+  <SectionHero
+    label="MARKETEQ PROJECTS"
+    title="Redesigning the import contacts process to be more intuitive & seamless"
+    image="/images/marketeq-hero.png"
+    imageAlt="Marketeq Projects platform overview"
+  />
+
+  <!-- 2. About the Project -->
+  <SectionAbout
+    label="ABOUT THE PROJECT"
+    title="Designing for Reassurance"
+    sidebar={[
+      { label: 'ROLE', items: ['Senior UX Architect', 'UX Strategy & Direction', 'UI Design System', 'Hi-Fidelity Visual Design'] },
+      { label: 'CLIENT', items: ['Marketeq Digital'] },
+    ]}
+  >
+    <p>Marketeq Projects is a remote talent marketplace for buying pre-scoped service projects, complete with curated deliverables and a fully assembled team. But before we ever launched, we realized the original experience wasn't working. Clients were confused. Scope customization felt vague. Inviting team members felt risky. And checking out felt like signing a contract you didn't fully read.</p>
+    <p>So... we went back to the drawing board.</p>
+    <p>I led a full UX redesign of the end-to-end project purchase experience before launch. This meant simplifying scope previews, showing real-time team status, adding Klarna-style payment breakdowns, and layering in trust signals at every step, like reviews, badges, and creator bios.</p>
+    <p>The goal? Help clients feel confident clicking "Start Project", because they actually understand what they're getting and who they're working with.</p>
+  </SectionAbout>
+
+  <hr class="cs-section-divider">
+
+  <!-- 3. The Problem -->
+  <SectionContent title="The Problem">
+    <div class="cs-body-text">
+      <p>The idea behind Marketeq Projects was simple: Buy a scoped service project &rarr; Choose your team &rarr; Launch.</p>
+      <p>But the actual experience wasn't that simple. The original version of the platform (pre-launch) tried to pack in a lot: editable scopes, team invites, pricing tiers, AI-generated deliverables. But without enough clarity or structure, During internal tests and early user flow reviews, we kept running into the same question: "Wait... what exactly am I committing to here?"</p>
+      <p>We weren't live yet, but we knew if we launched in this state, we'd lose trust before we even had a chance to build it.</p>
+    </div>
+
+    <div class="cs-problems-grid">
+      <div class="cs-problem-card">
+        <h3><span class="cs-x-icon">&#10005;</span> Problem 01: Scope Anxiety</h3>
+        <p>Clients didn't feel confident editing their scope. There was no clear sense of what was included, how changes would affect the price, or whether edits would mess things up. It felt like building a contract blindfolded.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3><span class="cs-x-icon">&#10005;</span> Problem 02: Team Assembly Confusion</h3>
+        <p>Inviting talent to a project sounds great, until you realize you don't know:</p>
+        <ul>
+          <li>How many people are needed</li>
+          <li>What roles are already filled</li>
+          <li>Who you're actually hiring</li>
+        </ul>
+        <p>There was no live status of open positions, and no reassurance that the project would still "work" if someone wasn't invited right away.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3><span class="cs-x-icon">&#10005;</span> Problem 03: The Checkout Cliff</h3>
+        <p>The CTA said "Start Project," but most users weren't ready to start. There was no preview, no summary, no sense of what happens next. No financing options. No buyer protection. No safety net. And when people aren't sure... they don't click.</p>
+      </div>
+    </div>
+
+    <blockquote class="cs-pullquote">
+      <span class="cs-pullquote-mark">&ldquo;</span>
+      "It kind of feels like I'm buying a flight without seeing the destination."
+    </blockquote>
+
+    <div class="cs-problem-item">
+      <h3 class="cs-problem-title"><span class="cs-eyes-icon">&#128064;</span> What We Noticed Early</h3>
+      <p>We hadn't launched yet, but user feedback was already telling us this wasn't it. Even internal testers were stalling out, second-guessing their next step, or asking questions the UI didn't answer. That's when we knew: Before launching, we needed to redesign the whole experience. Not just visually, but emotionally.</p>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 4. Design Requirements -->
+  <SectionContent title="Design Requirements">
+    <div class="cs-req-grid">
+      <div class="cs-problem-card">
+        <h3>&#129482; Clarity Over Cleverness</h3>
+        <p>Skip the cute labels. Ditch the jargon. We used plain language, phased sections, and clear bullets to help users instantly understand what they're getting.</p>
+        <p class="cs-card-quote">"I need to know what I'm getting, not read a pitch deck." - Internal reviewer, early build</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>&#128737; Build-In Trust, Don't Just Talk About It</h3>
+        <p>Instead of just saying "safe," we showed it. We added creator bios, badges, refund policies, and secure payment indicators, all surfaced before checkout. This wasn't about decoration. It was about reassurance.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>&#128065; Always Show What's Next</h3>
+        <p>People don't freeze because they don't care. They freeze because they're unsure. So we broke down the flow into milestones, added previews, and used tooltips to explain things before they became questions.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>&#128172; Keep the UX Calm</h3>
+        <p>No pressure. No pushy CTAs. We made sure users could move at their own pace, with review screens, subtle prompts, and a checkout flow that felt optional until it wasn't.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>Make Pricing Feel Predictable</h3>
+        <p>Scope changes were allowed. Surprise pricing wasn't. We used dynamic price breakdowns, inline explanations, and "starting at" indicators to set clearer expectations, so edits felt flexible, not risky.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>Design for the Unspoken Questions</h3>
+        <p>Most users won't ask "Can I trust this?" They'll just leave if they're unsure. We treated every trust gap as an opportunity: surfacing refund policies early, adding reassurance tooltips, and embedding quiet signals of reliability throughout the flow.</p>
+      </div>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 5. The Solution -->
+  <SectionSolution title="The Solution">
+    <p>We didn't just patch the issues. We rethought the experience from the ground up.</p>
+    <p>The new flow was designed to feel calm, clear, and confidence-building at every step. We restructured the scope into editable phases, added real-time team visibility, and introduced a review-first checkout model that made clicking Start Project feel like a choice, not a gamble.</p>
+    <p>Everything we added was meant to answer one question: "Do I understand what's happening, and do I feel okay moving forward?"</p>
+    <h3>Here's what changed:</h3>
+    <ul>
+      <li><strong>Clearer pricing signals.</strong> Starting prices were labeled as estimates, and any changes updated the cost in real time, no surprises.</li>
+      <li><strong>Phased scopes with preview logic.</strong> Clients could see exactly what each phase included, and how edits would impact the plan.</li>
+      <li><strong>Live team status.</strong> A new status bar ("Need 4, Have 2") made it easy to track open roles, and removed the pressure to invite everyone upfront.</li>
+      <li><strong>Klarna-style checkout.</strong> We broke down total cost into digestible pieces, surfaced refund policies early, and added review screens before commitment.</li>
+      <li><strong>Embedded trust signals.</strong> Creator bios, verified badges, and secure payment indicators were all placed intentionally, before users had to ask.</li>
+    </ul>
+    <p>The result? A checkout experience that felt like a well-lit hallway, not a cliff edge.</p>
+  </SectionSolution>
+
+  <hr class="cs-section-divider">
+
+  <!-- 6. Market Research -->
+  <SectionContent title="Market Research">
+    <h3 class="cs-subtitle">Comparing the Competition</h3>
+    <div class="cs-body-text">
+      <p>Before finalizing any design decisions, we took a deep dive into other marketplaces, not just to "benchmark" them, but to really understand how they make users feel.</p>
+      <p>We analyzed a mix of direct and indirect competitors:</p>
+      <ul>
+        <li>Upwork (freelancer-first, light on scope structure)</li>
+        <li>Fiverr (structured but rigid)</li>
+        <li>Themeforest (great spec breakdowns, product clarity)</li>
+        <li>Amazon, Etsy, Best Buy (e-commerce-level tooltips, trust layers, and purchase flow clarity)</li>
+        <li>Target, eBay, Epic Games (used for tooltip structure, "payment plan" transparency, and FAQs)</li>
+      </ul>
+    </div>
+
+    <div class="cs-subsection">
+      <h3 class="cs-subsection-title">&#128270; What We Were Looking For</h3>
+      <ul>
+        <li>How clearly are deliverables communicated?</li>
+        <li>Can users preview exactly what they're buying?</li>
+        <li>Is it easy to understand who's behind the service/product?</li>
+        <li>Do users feel safe to check out?</li>
+      </ul>
+    </div>
+
+    <div class="cs-subsection">
+      <h3 class="cs-subsection-title">&#10006; Where They Fell Short</h3>
+      <div class="cs-problems-grid">
+        <div class="cs-problem-card">
+          <h3>&#129521; Upwork &amp; Fiverr</h3>
+          <ul>
+            <li>Deliverables are often just a few bullet points or marketing fluff</li>
+            <li>Hard to customize or understand what changes actually do</li>
+            <li>No clear invite logic for multi-person teams</li>
+          </ul>
+        </div>
+        <div class="cs-problem-card">
+          <h3>&#129513; Themeforest</h3>
+          <ul>
+            <li>Good specs... but no people. Just assets</li>
+            <li>No live team or service dynamics, not comparable, but worth stealing ideas from</li>
+          </ul>
+        </div>
+        <div class="cs-problem-card">
+          <h3>&#128172; Amazon, Etsy, Best Buy</h3>
+          <ul>
+            <li>Surprisingly strong tooltip patterns</li>
+            <li>Clear policies, reviews, delivery estimates, but not designed for services</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 48px;">
+      <p>These gave us a model for how to explain complex scope info with simple overlays.</p>
+    </div>
+
+    <div class="cs-image-full">
+      <img src="/images/cs-research-1.png" alt="Competitor and e-commerce research board">
+    </div>
+    <div class="cs-image-full">
+      <img src="/images/cs-research-2.png" alt="Component and feature audit board">
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 7. Feature Prioritization -->
+  <SectionContent title="Feature Prioritization">
+    <div class="cs-body-text">
+      <p>Once we had a clearer picture of what users needed, we mapped out every possible feature and sorted them by impact, effort, and emotional value. The question at the center of every decision: "Will this reduce doubt right before someone commits?"</p>
+      <p>If the answer wasn't a clear yes, it didn't make the cut.</p>
+    </div>
+
+    <div class="cs-problems-grid">
+      <div class="cs-problem-card cs-card--green">
+        <h3>&#9989; Must-Have</h3>
+        <ul>
+          <li>Editable phased deliverables</li>
+          <li>"Live Team Status" (e.g. Need 4, Have 2)</li>
+          <li>Trust badges and agency bios</li>
+          <li>Tooltips explaining scope, roles, and payment</li>
+          <li>Klarna-style financing breakdown</li>
+          <li>Purchase protection and refund policies</li>
+        </ul>
+      </div>
+      <div class="cs-problem-card cs-card--yellow">
+        <h3>&#129300; Nice-to-Have (Later)</h3>
+        <ul>
+          <li>Secret "auto-match" team mode</li>
+          <li>Creator DMs and floating chat widget</li>
+          <li>Real-time invite acceptance status updates</li>
+          <li>Version history for scope edits</li>
+        </ul>
+      </div>
+      <div class="cs-problem-card cs-card--red">
+        <h3>&#10060; Will Not Have</h3>
+        <ul>
+          <li>Build-your-own-scope from scratch</li>
+          <li>Bulk/multi-project checkout</li>
+          <li>Tier comparisons and pricing tables</li>
+          <li>Cross-project reviews and deep creator stats</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 48px;">
+      <p>This helped us stay focused. We didn't chase "nice ideas." We prioritized emotional reassurance at exactly the point people tend to hesitate.</p>
+    </div>
+
+    <div class="cs-image-full">
+      <img src="/images/cs-card-sorting-bestinclass.png" alt="Card sorting: Best in Class / Out of Category">
+    </div>
+    <div class="cs-image-full">
+      <img src="/images/cs-card-sorting-competitors.png" alt="Card sorting: Competitors">
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 8. User Journey -->
+  <SectionContent title="User Journey">
+    <div class="cs-body-text">
+      <p>We mapped out what it actually felt like to start a project on Marketeq, from browsing to checkout, and yeah... it got bumpy. Even in its pre-launch state, the journey was full of hidden stress points. People weren't just clicking buttons. They were hesitating. Guessing. Second-guessing. And sometimes? Just giving up.</p>
+    </div>
+
+    <div class="cs-two-card-grid">
+      <div class="cs-problem-card">
+        <h3>&#128161; Where Things Got Messy</h3>
+        <ul>
+          <li>No clear overview before checkout</li>
+          <li>No visual on how many roles were still open</li>
+          <li>No hint that pricing was flexible or estimated</li>
+          <li>No emotional reassurance that it was okay to hit "Start"</li>
+        </ul>
+      </div>
+      <div class="cs-problem-card">
+        <h3>&#128560; What We Had to Fix</h3>
+        <p>To create a smoother, safer flow, we focused on the moments that triggered doubt and redesigned them with emotional clarity in mind:</p>
+        <ul>
+          <li>Broke down the scope into editable, phase-based previews</li>
+          <li>Visualized team assembly in real time ("Need 4 / Have 2")</li>
+          <li>Added review steps and financing info before the final CTA</li>
+          <li>Layered in small trust signals: refund policies, verified badges, tooltips, and soft language</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 48px;">
+      <p>We weren't just mapping actions. We were mapping feelings. Because trust isn't built at the beginning or the end. It's built in all the little pauses in between.</p>
+    </div>
+
+    <!-- Journey Session Image -->
+    <div class="cs-image-full">
+      <img src="/images/cs-journey-session.png" alt="Client Journey Session board">
+    </div>
+
+    <!-- Arrow pointing down to chart -->
+    <div class="cs-journey-arrow">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+    </div>
+
+    <!-- Journey Experience Map -->
+    <div class="cs-journey-map">
+
+      <!-- Phase Row -->
+      <div class="cs-journey-row">
+        <div class="cs-journey-label">Phase</div>
+        <div class="cs-journey-grid">
+          <div class="cs-journey-cell cs-journey-phase">1. Reviewing<br>Project Details</div>
+          <div class="cs-journey-cell cs-journey-phase">2. Editing<br>the Scope</div>
+          <div class="cs-journey-cell cs-journey-phase">3. Previewing<br>the Scope</div>
+          <div class="cs-journey-cell cs-journey-phase">4. Checkout</div>
+          <div class="cs-journey-cell cs-journey-phase">5. Invite Team<br>Members</div>
+          <div class="cs-journey-cell cs-journey-phase">6. Confirm<br>Availability</div>
+        </div>
+      </div>
+
+      <!-- Emotions Row (Curve) -->
+      <div class="cs-journey-row">
+        <div class="cs-journey-label">Emotions</div>
+        <div class="cs-journey-grid cs-journey-grid--curve">
+          <div class="cs-curve-area">
+            <div class="cs-curve-baseline"></div>
+            <svg class="cs-curve-svg" viewBox="0 0 1200 300" preserveAspectRatio="none">
+              <polyline
+                points="100,200 300,190 500,160 700,185 900,230 1100,250"
+                fill="none"
+                stroke="var(--journey-color)"
+                stroke-width="3"
+              />
+            </svg>
+            <div class="cs-curve-point" style="left: 8.3%; top: 62%;">
+              <div class="cs-curve-dot"></div>
+              <div class="cs-curve-tooltip cs-curve-tooltip--below">Pressured by<br>information overload</div>
+            </div>
+            <div class="cs-curve-point" style="left: 25%; top: 58%;">
+              <div class="cs-curve-dot"></div>
+              <div class="cs-curve-tooltip cs-curve-tooltip--above">Skeptical about<br>editing scope</div>
+            </div>
+            <div class="cs-curve-point" style="left: 41.6%; top: 48%;">
+              <div class="cs-curve-dot"></div>
+              <div class="cs-curve-tooltip cs-curve-tooltip--above">Cautious but<br>slightly hopeful</div>
+            </div>
+            <div class="cs-curve-point" style="left: 58.3%; top: 56%;">
+              <div class="cs-curve-dot"></div>
+              <div class="cs-curve-tooltip cs-curve-tooltip--below">Anxious about<br>committing</div>
+            </div>
+            <div class="cs-curve-point" style="left: 75%; top: 72%;">
+              <div class="cs-curve-dot"></div>
+              <div class="cs-curve-tooltip cs-curve-tooltip--below">Restless choosing<br>team members</div>
+            </div>
+            <div class="cs-curve-point" style="left: 91.6%; top: 80%;">
+              <div class="cs-curve-dot"></div>
+              <div class="cs-curve-tooltip cs-curve-tooltip--above">Annoyed waiting<br>for responses</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions Row -->
+      <div class="cs-journey-row">
+        <div class="cs-journey-label">Actions</div>
+        <div class="cs-journey-grid">
+          <div class="cs-journey-cell">
+            <p><strong>1A.</strong> Decide if project fits needs, review details, and customize scope to liking.</p>
+            <p><strong>1B.</strong> Search for transparency: deliverables, pricing, discount info, and budget details.</p>
+            <p><strong>1C.</strong> Look for team info, FAQs, and Live Chat to ask questions before committing.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>2A.</strong> Click to customize scope to reflect what they actually want out of the project.</p>
+            <p><strong>2B.</strong> Try to change deliverables to match needs. Look for live price updates.</p>
+            <p><strong>2C.</strong> Attempt to save progress. Worry about losing edits if tab closes.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>3A.</strong> Review full scope before checking out. Confirm everything looks right.</p>
+            <p><strong>3B.</strong> Check if everything is included. Look for edit and confirm buttons.</p>
+            <p><strong>3C.</strong> Try to go back to fix a specific step without restarting.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>4A.</strong> Begin purchase using preferred payment method.</p>
+            <p><strong>4B.</strong> Double-check all payment and scope info before committing.</p>
+            <p><strong>4C.</strong> Look for secure payment badges and summary before final click.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>5A.</strong> Review suggested team members to fill open vacancies.</p>
+            <p><strong>5B.</strong> Check candidate details one by one. Send invites to fill roles.</p>
+            <p><strong>5C.</strong> Look for bulk invite option with talent details upfront.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>6A.</strong> Wait for team members to accept or reject invites.</p>
+            <p><strong>6B.</strong> Track invite status. Send more invites if needed.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thoughts Row -->
+      <div class="cs-journey-row">
+        <div class="cs-journey-label">Thoughts</div>
+        <div class="cs-journey-grid">
+          <div class="cs-journey-cell cs-journey-cell--italic">
+            <p><strong>1A.</strong> "I'd be less inclined to purchase if I'm too overwhelmed to read it."</p>
+            <p><strong>1B.</strong> "I need to get it right the first time. I can't afford to start over."</p>
+          </div>
+          <div class="cs-journey-cell cs-journey-cell--italic">
+            <p><strong>2A.</strong> "I hope editing the scope won't be difficult."</p>
+            <p><strong>2B.</strong> "I don't think I'd use this feature even though it's available to me."</p>
+          </div>
+          <div class="cs-journey-cell cs-journey-cell--italic">
+            <p><strong>3A.</strong> "I need to be confident the scope represents what I need."</p>
+            <p><strong>3B.</strong> "I really hope I don't have to start all over."</p>
+          </div>
+          <div class="cs-journey-cell cs-journey-cell--italic">
+            <p><strong>4A.</strong> "I'd like to make sure I double check the payment since this is a HUGE sum of money."</p>
+          </div>
+          <div class="cs-journey-cell cs-journey-cell--italic">
+            <p><strong>5A.</strong> "This part feels like make or break."</p>
+            <p><strong>5B.</strong> "I'm hoping the good talent saves enough time."</p>
+          </div>
+          <div class="cs-journey-cell cs-journey-cell--italic">
+            <p><strong>6A.</strong> "I don't want to keep checking to see if someone accepted. I have other things to do!"</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pain Points Row -->
+      <div class="cs-journey-row">
+        <div class="cs-journey-label">Pain Points</div>
+        <div class="cs-journey-grid">
+          <div class="cs-journey-cell">
+            <p><strong>1A.</strong> Project info is too overwhelming to read.</p>
+            <p><strong>1B.</strong> Team is incomplete but I like the project. Don't know if I should go for it.</p>
+            <p><strong>1C.</strong> Don't have funds to fix issues from miscommunication.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>2A.</strong> Editing options are unclear or easy to miss entirely.</p>
+            <p><strong>2B.</strong> Price changes unpredictably with no live feedback.</p>
+            <p><strong>2C.</strong> No autosave if tab closes accidentally.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>3A.</strong> Forgot to include something, wants to go back.</p>
+            <p><strong>3B.</strong> Editing requires restarting from beginning.</p>
+            <p><strong>3C.</strong> No seamless edit-and-return flow.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>4A.</strong> Process feels too long.</p>
+            <p><strong>4B.</strong> Questions platform legitimacy.</p>
+            <p><strong>4C.</strong> No summary before final click.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>5A.</strong> Too many candidates to check one by one.</p>
+            <p><strong>5B.</strong> No clarity on why people were suggested.</p>
+            <p><strong>5C.</strong> No bulk invite option available.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>6A.</strong> No way to track who accepted or declined.</p>
+            <p><strong>6B.</strong> "Available" talent not actually responding.</p>
+            <p><strong>6C.</strong> Can't easily send more invites.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Insights/Opportunities Row -->
+      <div class="cs-journey-row">
+        <div class="cs-journey-label">Insights /<br>Opportunities</div>
+        <div class="cs-journey-grid">
+          <div class="cs-journey-cell">
+            <p><strong>1A.</strong> Organize info by sections for easier navigation.</p>
+            <p><strong>1B.</strong> Explain team selection process clearly.</p>
+            <p><strong>1C.</strong> Place key info in a singular, scannable section.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>2A.</strong> Encourage "add to scope" over "remove."</p>
+            <p><strong>2B.</strong> Show live price updates as scope changes.</p>
+            <p><strong>2C.</strong> Add autosave or save-for-later feature.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>3A.</strong> Allow editing specific steps without restarting.</p>
+            <p><strong>3B.</strong> Preview should match final scope exactly.</p>
+            <p><strong>3C.</strong> Make editing and preview seamless.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>4A.</strong> Include payment and scope summary.</p>
+            <p><strong>4B.</strong> Add double-check info before hitting checkout.</p>
+            <p><strong>4C.</strong> Show secure payment indicators.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>5A.</strong> Bulk invite with individual talent details.</p>
+            <p><strong>5B.</strong> Show rate, skills, and availability upfront.</p>
+            <p><strong>5C.</strong> Allow select-all or individual selection.</p>
+          </div>
+          <div class="cs-journey-cell">
+            <p><strong>6A.</strong> Email alerts when invites are accepted.</p>
+            <p><strong>6B.</strong> AI should factor confirmed availability.</p>
+            <p><strong>6C.</strong> Require periodic availability updates from talent.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 9. User Flows -->
+  <SectionContent title="User Flows">
+    <div class="cs-body-text">
+      <p>This is where we saw the real cracks. On paper, the original user flows looked solid:<br>
+      &rarr; Browse project &rarr; Customize scope &rarr; Invite team &rarr; Checkout &rarr; Done.</p>
+      <p>But in practice, users hit friction way earlier than expected. They'd stall. Loop back. Ask questions the UI didn't answer. And worst of all, they weren't sure if they were doing it "right."</p>
+    </div>
+
+    <div class="cs-subsection">
+      <h3 class="cs-subsection-title">Original Flow Highlights (and where it broke down)</h3>
+      <div class="cs-flow-breakdown">
+        <div class="cs-flow-item">
+          <h4>1. View Project &rarr; Read Scope &rarr; ?</h4>
+          <p>"I don't know what this includes... Is this everything I get?"</p>
+          <ul>
+            <li>Deliverables were long, unstructured, and felt like reading a legal document.</li>
+            <li>Users wanted a clean, step-by-step preview, not a wall of tasks.</li>
+          </ul>
+        </div>
+        <div class="cs-flow-item">
+          <h4>2. Invite Team &rarr; Confusion</h4>
+          <p>"How many people do I have to invite? Can I do that later?"</p>
+          <ul>
+            <li>There was no live status for how many team members were assigned vs. needed.</li>
+            <li>Clients weren't sure if their project could proceed with just 1 or 2 people invited.</li>
+          </ul>
+        </div>
+        <div class="cs-flow-item">
+          <h4>3. Checkout &rarr; Cold Feet</h4>
+          <p>"Am I committing to something right now? What happens if I change my mind?"</p>
+          <ul>
+            <li>No review screen.</li>
+            <li>No payment flexibility or trust reassurance until after the "Start Project" CTA.</li>
+            <li>This was the biggest drop-off point.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-subsection">
+      <h3 class="cs-subsection-title">New flow highlights</h3>
+      <p class="cs-body-text">We redesigned the flow with emotional clarity in mind, not just usability.</p>
+      <div class="cs-flow-pills">
+        <span>Scope Preview &rarr; Phased Deliverables &rarr; Clear Editing Logic</span>
+        <span>Team Invite &rarr; Live Role Status ("Need 4, Have 2") &rarr; Optional Invites</span>
+        <span>Review Summary &rarr; Payment Plans + Refund Policy &rarr; Confirm & Start</span>
+      </div>
+      <p class="cs-body-text">Each flow now answers the question: "Do I understand what's happening, and do I feel okay moving forward?" That became our North Star.</p>
+    </div>
+
+    <div class="cs-image-full">
+      <img src="/images/cs-flow-original.png" alt="Original user flow diagram">
+    </div>
+    <div class="cs-image-full">
+      <img src="/images/cs-flow-new.png" alt="Redesigned user flow diagram">
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 10. Affinity Mapping -->
+  <SectionContent title="Affinity Mapping">
+    <div class="cs-body-text">
+      <p>We gathered notes from interviews, internal feedback sessions, and early usability tests, and then we sat with it all to find the patterns. It turns out, a lot of users were asking the same questions. Not always in the same words, but with the same energy:</p>
+      <blockquote>"Wait, what am I supposed to do here?" &nbsp; "Can I change this later?" &nbsp; "Am I locked in if I click this?"</blockquote>
+      <p>Once we clustered everything, it became obvious: We weren't just solving for navigation or layout. We were solving for reassurance.</p>
+    </div>
+
+    <h3 class="cs-subsection-title">Common Themes We Found</h3>
+    <div class="cs-themes-grid">
+      <div class="cs-theme">
+        <h4>Trust + Transparency</h4>
+        <ul>
+          <li>"I need to know what I'm getting before I pay."</li>
+          <li>"What happens if the project doesn't go as planned?"</li>
+        </ul>
+      </div>
+      <div class="cs-theme">
+        <h4>Scope Clarity</h4>
+        <ul>
+          <li>"This list of deliverables is overwhelming."</li>
+          <li>"Which part is editable vs. fixed?"</li>
+          <li>"What happens if I delete something by accident?"</li>
+        </ul>
+      </div>
+      <div class="cs-theme">
+        <h4>Team Assembly Confusion</h4>
+        <ul>
+          <li>"How many people do I need to invite?"</li>
+          <li>"What if I don't know anyone yet?"</li>
+          <li>"Can I finish checkout with just one person?"</li>
+        </ul>
+      </div>
+      <div class="cs-theme">
+        <h4>Checkout Hesitation</h4>
+        <ul>
+          <li>"Am I committing right now?"</li>
+          <li>"Where's the refund policy?"</li>
+          <li>"I don't see what I'm actually paying for."</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title">What This Told Us</h3>
+    <p class="cs-body-text">People didn't want more options. They wanted fewer unknowns. So every feature from here on out, tooltips, trust badges, phased scope breakdowns, refund policies, was designed to answer one core question: "Is it safe to move forward?"</p>
+
+    <div class="cs-image-row">
+      <div class="cs-image-block cs-image-block--wide"><img src="/images/cs-affinity-clarity.png" alt="Affinity map: Clarity & Scope Transparency"></div>
+      <div class="cs-image-block cs-image-block--wide"><img src="/images/cs-affinity-trust.png" alt="Affinity map: Trust & Reassurance"></div>
+      <div class="cs-image-block cs-image-block--wide"><img src="/images/cs-affinity-team.png" alt="Affinity map: Team Visibility & Control"></div>
+    </div>
+    <div class="cs-image-row">
+      <div class="cs-image-block cs-image-block--wide"><img src="/images/cs-affinity-checkout.png" alt="Affinity map: Checkout Confidence"></div>
+      <div class="cs-image-block cs-image-block--wide"><img src="/images/cs-affinity-comms.png" alt="Affinity map: Communication & Support"></div>
+      <div class="cs-image-block cs-image-block--wide"><img src="/images/cs-affinity-discovery.png" alt="Affinity map: Browsing & Discovery"></div>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 11. Wireframe Iterations -->
+  <SectionWireframes
+    title="Wireframe Iterations"
+    groups={[
+      {
+        subtitle: 'Project Overview Section',
+        description: 'Diam integer molestie sem tristique condimentum fusce tristique parturient vulputate. Tincidunt luctus enim pulvinar m',
+        versions: [
+          { label: 'Version 1', image: '/images/cs-wireframe-overview-v1.png', imageAlt: 'Project Overview v1' },
+          { label: 'Version 2', image: '/images/cs-wireframe-overview-v2.png', imageAlt: 'Project Overview v2' },
+          { label: 'Version 3', image: '/images/cs-wireframe-overview-v3.png', imageAlt: 'Project Overview v3' },
+        ],
+      },
+      {
+        subtitle: 'Project Sidebar Section',
+        description: 'Diam integer molestie sem tristique condimentum fusce tristique parturient vulputate. Tincidunt luctus enim pulvinar m',
+        versions: [
+          { label: 'Version 1', image: '/images/cs-wireframe-sidebar-v1.png', imageAlt: 'Project Sidebar v1' },
+          { label: 'Version 2', image: '/images/cs-wireframe-sidebar-v2.png', imageAlt: 'Project Sidebar v2' },
+          { label: 'Version 3', image: '/images/cs-wireframe-sidebar-v3.png', imageAlt: 'Project Sidebar v3' },
+        ],
+      },
+    ]}
+  />
+
+  <hr class="cs-section-divider">
+
+  <!-- 12. Final Features (placeholder) -->
+
+  <!-- 13. UI Design System (placeholder) -->
+
+  <!-- 14. Stylized UI Components (placeholder) -->
+
+  <!-- 15. Hi-Fi Designs (placeholder) -->
+
+  <!-- 16. User Testing (placeholder) -->
+
+  <!-- 17. Testing Feedback (placeholder) -->
+
+  <!-- 18. Final Takeaways/Reflection (placeholder) -->
+
+  <SectionGallery
+    title="Developer Handoff"
+    columns={3}
+    images={[
+      { src: '/images/cs-handoff-1.png', alt: 'Component states and specs' },
+      { src: '/images/cs-handoff-2.png', alt: 'Button and input states' },
+      { src: '/images/cs-handoff-3.png', alt: 'FAQ and question components' },
+      { src: '/images/cs-handoff-4.png', alt: 'Tag and category components' },
+      { src: '/images/cs-handoff-5.png', alt: 'Deliverables component specs' },
+      { src: '/images/cs-handoff-6.png', alt: 'Pricing and duration selectors' },
+    ]}
+  />
+
+  <hr class="cs-section-divider">
+
+  <SectionGallery
+    title="Final Screens"
+    columns={3}
+    images={[
+      { src: '/images/cs-final-1.png', alt: 'Final design: Project listing' },
+      { src: '/images/cs-final-2.png', alt: 'Final design: Project detail with video' },
+      { src: '/images/cs-final-3.png', alt: 'Final design: Project detail sidebar' },
+      { src: '/images/cs-final-4.png', alt: 'Final design: Similar projects' },
+      { src: '/images/cs-final-5.png', alt: 'Final design: Description tab' },
+      { src: '/images/cs-final-6.png', alt: 'Final design: Pricing sidebar' },
+      { src: '/images/cs-final-7.png', alt: 'Final design: Recently viewed' },
+    ]}
+  />
+
+</CaseStudy>
