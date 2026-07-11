@@ -891,6 +891,121 @@
   top: calc(100% + 12px);
 }
 
+/* Annotated screenshot layout */
+.cs-annotated-wrap {
+  display: grid;
+  grid-template-columns: 220px 1fr 220px;
+  gap: 28px;
+  margin-top: 48px;
+  align-items: start;
+}
+
+.cs-annotated-left,
+.cs-annotated-right {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.cs-annotated-left {
+  padding-top: 10%;
+}
+
+.cs-annotated-right {
+  padding-top: 8%;
+}
+
+.cs-annotated-center {
+  position: relative;
+}
+
+.cs-annotated-img {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.08);
+}
+
+/* Card styles */
+.cs-annotated-card {
+  padding: 20px;
+  background: #f9fafb;
+  border: 1px solid #e8ecf1;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.cs-annotated-card:hover {
+  border-color: #c5d5fe;
+  box-shadow: 0 4px 20px rgba(48,108,254,0.08);
+}
+
+.cs-annotated-card h4 {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--black);
+}
+
+.cs-annotated-card p {
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: #555;
+  margin: 0;
+}
+
+/* Dots on the image */
+.cs-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #306CFE;
+  border-radius: 50%;
+  border: 2.5px solid var(--white);
+  box-shadow: 0 0 0 1.5px #306CFE, 0 0 12px rgba(48,108,254,0.4);
+  z-index: 2;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: cs-dot-pulse 2.4s ease-in-out infinite;
+}
+
+/* Dot positions: on the edge of the image, aligned with card centers */
+.cs-dot--1 { top: 17%; left: 0; transform: translate(-50%, -50%); }
+.cs-dot--2 { top: 52%; left: 0; transform: translate(-50%, -50%); }
+.cs-dot--3 { top: 19.5%; right: 0; left: auto; transform: translate(50%, -50%); }
+.cs-dot--4 { top: 54.5%; right: 0; left: auto; transform: translate(50%, -50%); }
+
+/* Connector lines extending from dots toward cards */
+.cs-dot--1::after,
+.cs-dot--2::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  width: 34px;
+  height: 1.5px;
+  background: linear-gradient(to left, rgba(48,108,254,0.5), rgba(48,108,254,0.1));
+  transform: translateY(-50%);
+}
+
+.cs-dot--3::after,
+.cs-dot--4::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 34px;
+  height: 1.5px;
+  background: linear-gradient(to right, rgba(48,108,254,0.5), rgba(48,108,254,0.1));
+  transform: translateY(-50%);
+}
+
+@keyframes cs-dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 1.5px #306CFE, 0 0 12px rgba(48,108,254,0.4); }
+  50% { box-shadow: 0 0 0 1.5px #306CFE, 0 0 20px rgba(48,108,254,0.6), 0 0 40px rgba(48,108,254,0.15); }
+}
+
 /* ===========================
    Responsive
    =========================== */
@@ -933,6 +1048,21 @@
   .cs-themes-grid {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+
+  .cs-annotated-wrap {
+    padding: 0;
+  }
+
+  .cs-annotation {
+    position: static;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .cs-annotation::after,
+  .cs-annotation::before {
+    display: none;
   }
 }
 
