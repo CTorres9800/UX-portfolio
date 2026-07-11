@@ -301,9 +301,11 @@ body {
   gap: 5px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #666;
+  color: #000;
   text-decoration: none;
   transition: opacity 0.2s;
+  position: relative;
+  top: -1px;
 }
 
 .back-to-top:hover {
@@ -324,13 +326,13 @@ body {
 
 .footer p {
   font-size: 0.85rem;
-  color: #666;
+  color: #000;
 }
 
 .footer-right {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 42px;
 }
 
 .footer-icons {
@@ -340,7 +342,7 @@ body {
 }
 
 .footer-icon {
-  color: #666;
+  color: #000;
   transition: opacity 0.2s;
 }
 
