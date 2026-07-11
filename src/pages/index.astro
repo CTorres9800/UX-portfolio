@@ -37,9 +37,9 @@ const data = homepage!;
     <div class="container">
       {data.caseStudies.map((study) => (
         <article class="case-study">
-          <div class="case-study-image">
+          <a href={study.link} class="case-study-image">
             <img src={study.image} alt={study.imageAlt}>
-          </div>
+          </a>
           <div class="case-study-info">
             <h2>{study.title}</h2>
             <p>{study.description}</p>
