@@ -1,0 +1,682 @@
+---
+import CaseStudy from '../layouts/CaseStudy.astro';
+import SectionHero from '../components/SectionHero.astro';
+import SectionAbout from '../components/SectionAbout.astro';
+import SectionContent from '../components/SectionContent.astro';
+---
+
+<CaseStudy title="Referrizer">
+
+  <!-- 1. Hero -->
+  <SectionHero
+    label="REFERRIZER"
+    title="Redesigning the import contacts process to be more <strong>intuitive & seamless</strong>"
+    image="/images/referrizer-hero.png"
+    imageAlt="Referrizer import contacts redesign overview"
+  />
+
+  <!-- 2. Overview -->
+  <SectionAbout
+    label="OVERVIEW"
+    title="Overview"
+    sidebar={[
+      { label: 'MY ROLE', items: ['Lead the UX strategy and execution'] },
+      { label: 'TOOLS', items: ['Figma, Miro, FigJam, Maze'] },
+      { label: 'PROJECT DURATION', items: ['~ 2 years'] },
+    ]}
+  >
+    <p>As a senior UX designer for Referrizer and project lead, I took a strategic approach to create a solution that would meet the needs of non-tech small business owners looking for an easy way to import their contacts into our marketing automation CRM system. I used a design process that included research, ideation, design, prototyping, and user testing to ensure the final solution would be as intuitive and user-friendly as possible.</p>
+  </SectionAbout>
+
+  <hr class="cs-section-divider">
+
+  <!-- 3. The Challenge -->
+  <SectionContent title="The Challenge">
+    <div class="cs-body-text">
+      <p>The main challenge was to simplify the contact import process for non-tech small business owners, who are not familiar with marketing automation tools and do not have the time to learn everything about marketing. We identified that our target personas had problems associated with the complicated process of manually importing their contacts into our system, and were looking for a more streamlined solution that would enable them to import contacts quickly and easily.</p>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 4. The Solution -->
+  <SectionContent title="The Solution">
+    <div class="cs-body-text">
+      <p>To solve this challenge, I worked with my team to develop features that would allow users to import contacts into our system in a seamless and intuitive way, using integrations to multiple platforms, as well as CSV upload and manual upload (copy & paste). This involved developing a user flow that was easy to follow, as well as wireframes and high fidelity screens that were optimized for usability. We also worked on creating a design system that was consistent with our brand identity, and ensured that the final solution was scalable and easy to maintain.</p>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 5. My Design Process -->
+  <SectionContent title="My Design Process">
+    <div class="cs-body-text">
+      <p>My design process is focused on user-centered design principles and involved several stages of development, including research, ideation, design, prototyping, and user testing. I started with research to understand our users' needs and pain points, and used tools like user interviews, surveys, and user behavior tracking to gather insights. This information was then used to inform our ideation process, where we brainstormed ideas and concepts for the solution.</p>
+    </div>
+
+    <div class="cs-process">
+      <!-- Pills row -->
+      <div class="cs-process-pills">
+        <div class="cs-process-pill">Learn</div>
+        <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        <div class="cs-process-pill">Define</div>
+        <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        <div class="cs-process-pill" style="position:relative;">
+          Design
+          <!-- Iteration arc from Test back to Design -->
+          <svg class="cs-process-arc" width="320" height="44" viewBox="0 0 320 44" fill="none" style="left:50%;transform:translateX(-10%);">
+            <path d="M4 42 C60 0, 260 0, 316 42" stroke="#ccc" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
+            <polyline points="0,36 4,44 10,38" fill="none" stroke="#ccc" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        <div class="cs-process-pill">Test</div>
+        <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        <div class="cs-process-pill">Refine</div>
+        <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        <div class="cs-process-pill">Dev Handoff</div>
+      </div>
+
+      <!-- Task lists -->
+      <div class="cs-process-grid">
+        <ul class="cs-process-tasks">
+          <li>Conduct Research</li>
+          <li>Analyze Data</li>
+          <li>Competitor Analysis</li>
+          <li>Explore Solutions</li>
+          <li>Review Trends</li>
+        </ul>
+        <ul class="cs-process-tasks">
+          <li>Synthesize Research</li>
+          <li>Develop Personas</li>
+          <li>Set Goals</li>
+          <li>Create Roadmap</li>
+          <li>Define Challenge</li>
+        </ul>
+        <ul class="cs-process-tasks">
+          <li>Sketch Ideas</li>
+          <li>Test Design</li>
+          <li>Refine Prototype</li>
+          <li>Polished Design</li>
+          <li>Test Plan</li>
+        </ul>
+        <ul class="cs-process-tasks">
+          <li>User Testing</li>
+          <li>Gather Feedback</li>
+          <li>Analyze Results</li>
+          <li>Iterate Design</li>
+          <li>Prepare Launch</li>
+        </ul>
+        <ul class="cs-process-tasks">
+          <li>Review Feedback</li>
+          <li>Implement Changes</li>
+          <li>Finalize Design</li>
+          <li>Prepare Delivery</li>
+          <li>Conduct Retrospective</li>
+        </ul>
+        <ul class="cs-process-tasks"></ul>
+      </div>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 6. Research -->
+  <SectionContent title="Research">
+    <div class="cs-body-text">
+      <p>Research was a key part of our design process, as it allowed us to gain a deep understanding of our users' needs and pain points. We performed user interviews, surveys, journey sessions, and user behavior tracking to gather insights, and used this information to inform our design decisions.</p>
+    </div>
+
+    <div class="cs-subsection" style="margin-top:48px;">
+      <h3 class="cs-subsection-title">Brainstorm Session</h3>
+      <div class="cs-body-text">
+        <p>One of the key aspects of this project was uncovering client pain points related to the process of importing contacts into the Referrizer system. To do this, we conducted extensive research, including one-on-one interviews, surveys, and focus groups with our target personas. Through this research, we were able to identify several pain points that were common among our target personas, such as the complexity of the process and the time-consuming nature of manually importing contacts.</p>
+        <p>We also discovered that many small business owners didn't have a clear understanding of how to properly clean and organize their contact lists, which led to issues with targeting and segmentation in their marketing campaigns. Armed with this information, we were able to design a solution that addressed these pain points by simplifying the import process and providing tools to help users clean and organize their contact lists.</p>
+      </div>
+
+      <div class="cs-image-full">
+        <img src="/images/referrizer-brainstorm.png" alt="Referrizer brainstorming session showing integration import, copy/paste import, CSV import, and auto field mapping categories with goals, problems, and solutions" />
+      </div>
+    </div>
+
+    <div class="cs-subsection" style="margin-top:48px;">
+      <h3 class="cs-subsection-title">Client Pain Points</h3>
+      <div class="cs-body-text">
+        <p>One of the key aspects of this project was uncovering client pain points related to the process of importing contacts into the Referrizer system. To do this, we conducted extensive research, including one-on-one interviews, surveys, and focus groups with our target personas. Through this research, we were able to identify several pain points that were common among our target personas, such as the complexity of the process and the time-consuming nature of manually importing contacts.</p>
+      </div>
+
+      <div class="cs-image-full">
+        <img src="/images/referrizer-pain-points.png" alt="Referrizer client pain points organized by import stages: Where Is Your Data, Import Setup, Configuration, Check Your Data, and Import In Progress" />
+      </div>
+    </div>
+
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 7. Working as a Team -->
+  <SectionContent title="Working as a Team">
+    <div class="cs-body-text">
+      <p>I collaborated with other designers, developers, and product managers to ensure that we were all on the same page and working towards the same goals. This involved organizing regular meetings to discuss our progress, as well as being open to feedback and constructive criticism from one another. By working closely together, we were able to identify potential roadblocks and find solutions to them quickly, which helped to keep the project moving forward.</p>
+    </div>
+
+    <div class="cs-image-full">
+      <img src="/images/referrizer-team.png" alt="The Referrizer team working together" />
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 8. Ideation -->
+  <SectionContent title="Ideation">
+    <div class="cs-body-text">
+      <p>In the ideation stage, I used the insights gained from our research to come up with a range of ideas for how we could improve the contact import feature. I generated various concepts and narrowed them down to the most promising ones. I did some card sorting to help determine feature priorities, sketched out low-fidelity wireframes and user flows, and shared them with the team for feedback. We discussed each idea and selected the most promising ones to move forward with.</p>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 9. User Personas -->
+  <SectionContent title="User Personas">
+    <div class="cs-body-text">
+      <p>I created detailed user personas that represented our target audience. These personas helped us to keep the user's needs and goals in mind as we continued to design and develop the feature. The personas were based on data we gathered during our research, including demographic information, behavior patterns, and pain points. We used the personas as a reference point throughout the design process, constantly asking ourselves if the features we were developing would meet the needs of our target audience.</p>
+    </div>
+
+    <div class="cs-image-full">
+      <img src="/images/referrizer-personas.png" alt="User personas for Referrizer: Michael (fitness center owner), Jessica May (spa business owner), and Sarah Smith (marketing manager) with their backgrounds, goals, and frustrations" />
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 10. User Journey -->
+  <section class="cs-section">
+    <div class="container">
+      <h2 class="cs-section-title">User Journey</h2>
+
+      <div class="cs-body-text">
+        <p>The user journey session allowed us to map out the entire user experience, from the data location stage to the final import stage. We identified each touchpoint along the way and mapped out the user's emotional state at each point. This exercise helped us to identify areas where the user experience was less than ideal and where we could improve the overall flow of the platform. I developed a user journey map that visualized the steps a user would take to import their contacts. The journey map helped us to identify pain points and areas where we could improve the user experience. By looking at the user's journey as a whole, we were able to see the big picture and make informed decisions about how to improve the contact import feature. We also used the user journey map to prioritize the features that we would include in the first version of the product.</p>
+      </div>
+
+      <!-- Journey Experience Map -->
+      <div class="cs-journey-map">
+
+        <!-- Phase Row -->
+        <div class="cs-journey-row">
+          <div class="cs-journey-label">Stage</div>
+          <div class="cs-journey-grid" style="grid-template-columns: repeat(5, 1fr);">
+            <div class="cs-journey-cell cs-journey-phase">Step 1<br>Select Import Type</div>
+            <div class="cs-journey-cell cs-journey-phase">Step 2<br>Select CSV / Add Credentials</div>
+            <div class="cs-journey-cell cs-journey-phase">Step 3<br>Confirmation & Auto Field Mapping</div>
+            <div class="cs-journey-cell cs-journey-phase">Step 4<br>Verifying & Sorting The Data</div>
+            <div class="cs-journey-cell cs-journey-phase">Step 5<br>Import The Data</div>
+          </div>
+        </div>
+
+        <!-- Emotions Row (Curve) -->
+        <div class="cs-journey-row">
+          <div class="cs-journey-label">Emotions</div>
+          <div class="cs-journey-grid cs-journey-grid--curve" style="grid-template-columns: repeat(5, 1fr);">
+            <div class="cs-curve-area cs-curve-area--5col">
+              <div class="cs-curve-baseline"></div>
+              <svg class="cs-curve-svg" viewBox="0 0 1000 300" preserveAspectRatio="none">
+                <polyline
+                  points="100,200 300,100 500,230 700,120 900,210"
+                  fill="none"
+                  stroke="var(--journey-color)"
+                  stroke-width="3"
+                />
+              </svg>
+              <div class="cs-curve-point" style="left: 10%; top: 66%;">
+                <div class="cs-curve-dot"></div>
+                <div class="cs-curve-tooltip cs-curve-tooltip--above">Confused, sad</div>
+              </div>
+              <div class="cs-curve-point" style="left: 30%; top: 33%;">
+                <div class="cs-curve-dot"></div>
+                <div class="cs-curve-tooltip cs-curve-tooltip--above">Excited, curious</div>
+              </div>
+              <div class="cs-curve-point" style="left: 50%; top: 76%;">
+                <div class="cs-curve-dot"></div>
+                <div class="cs-curve-tooltip cs-curve-tooltip--above">Angry,<br>disappointed</div>
+              </div>
+              <div class="cs-curve-point" style="left: 70%; top: 40%;">
+                <div class="cs-curve-dot"></div>
+                <div class="cs-curve-tooltip cs-curve-tooltip--below">Happy</div>
+              </div>
+              <div class="cs-curve-point" style="left: 90%; top: 70%;">
+                <div class="cs-curve-dot"></div>
+                <div class="cs-curve-tooltip cs-curve-tooltip--above">Sad, frustrated</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Goals Row -->
+        <div class="cs-journey-row">
+          <div class="cs-journey-label">Goals</div>
+          <div class="cs-journey-grid" style="grid-template-columns: repeat(5, 1fr);">
+            <div class="cs-journey-cell">
+              <p><strong>1A.</strong> Upload your contacts.</p>
+              <p><strong>1B.</strong> Know if manually importing or auto syncing.</p>
+              <p><strong>1C.</strong> Integrations establishing.</p>
+              <p><strong>1D.</strong> Contact importing.</p>
+              <p><strong>1E.</strong> Turn on the integration for auto check-ins and auto import.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>2A.</strong> Make a universal import for everybody.</p>
+              <p><strong>2B.</strong> Make data transfer easy.</p>
+              <p><strong>2C.</strong> Get relevant data in.</p>
+              <p><strong>2D.</strong> Start getting results today / using the system.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>3A.</strong> Simplify the process of data mapping.</p>
+              <p><strong>3B.</strong> Ensure contact data is matched from their system to our system.</p>
+              <p><strong>3C.</strong> Get rid of unnecessary data types/fields.</p>
+              <p><strong>3D.</strong> Create custom fields.</p>
+              <p><strong>3E.</strong> Simplified easy decision (minimum number of decisions = better).</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>4A.</strong> Make sure data is not broken.</p>
+              <p><strong>4B.</strong> Checking for corrupt or broken files.</p>
+              <p><strong>4C.</strong> Ensure the contacts are subscribed to the list.</p>
+              <p><strong>4D.</strong> Segment contacts into groups.</p>
+              <p><strong>4E.</strong> Make sure customer type is identified.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>5A.</strong> Meet expectation of the user.</p>
+              <p><strong>5B.</strong> Import it fast.</p>
+              <p><strong>5C.</strong> Know the progress of import (how long it will take?).</p>
+              <p><strong>5D.</strong> Import multiple files simultaneously.</p>
+              <p><strong>5E.</strong> Give chance to reverse the import (undo).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pain Points Row -->
+        <div class="cs-journey-row">
+          <div class="cs-journey-label">Pain Points</div>
+          <div class="cs-journey-grid" style="grid-template-columns: repeat(5, 1fr);">
+            <div class="cs-journey-cell">
+              <p><strong>1A.</strong> People don't know how long it will take to import their contacts.</p>
+              <p><strong>1B.</strong> They don't have login credentials.</p>
+              <p><strong>1C.</strong> Worried about what we are doing with their data.</p>
+              <p><strong>1D.</strong> Make sure contacts have opted in.</p>
+              <p><strong>1E.</strong> Explain opt-in, data mapping.</p>
+              <p><strong>1F.</strong> Don't know how long it will take and how many steps.</p>
+              <p><strong>1G.</strong> Data ownership.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>2A.</strong> Why I only have 200 imported contacts from a db of 2k?</p>
+              <p><strong>2B.</strong> First and last name needs to be separated.</p>
+              <p><strong>2C.</strong> Need to be clear what types of files are accepted (no pdf, only csv).</p>
+              <p><strong>2D.</strong> How to export data from my existing system.</p>
+              <p><strong>2E.</strong> Columns need to match with backend.</p>
+              <p><strong>2F.</strong> How long will this import take.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>3A.</strong> Address in one cell (column) instead of separating it.</p>
+              <p><strong>3B.</strong> Multiple sheets in one file.</p>
+              <p><strong>3C.</strong> Not all lines have the same data.</p>
+              <p><strong>3D.</strong> Merged data whole address in one cell, could make it harder to map the fields.</p>
+              <p><strong>3E.</strong> Auto field mapping may not be accurate.</p>
+              <p><strong>3F.</strong> Data without headers need logic to assume suggested headers.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>4A.</strong> Client not sure if they have permission to contact specific people.</p>
+              <p><strong>4B.</strong> If this is not your first import, you may run into the issue of contacting people who have already unsubscribed.</p>
+              <p><strong>4C.</strong> Client doesn't know if the contacts are current, past, new, etc.</p>
+              <p><strong>4D.</strong> Many clients don't have last visit data.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>5A.</strong> My data is not what I anticipated.</p>
+              <p><strong>5B.</strong> Import results don't match the file I was attempting to import.</p>
+              <p><strong>5C.</strong> I don't know when the import will be finished.</p>
+              <p><strong>5D.</strong> Client has more people in the file than were imported (duplicates, missing phone/email).</p>
+              <p><strong>5E.</strong> Progress bar shows import takes too long.</p>
+              <p><strong>5F.</strong> Email could go to wrong account or into spam folder.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Thoughts Row -->
+        <div class="cs-journey-row">
+          <div class="cs-journey-label">Thoughts</div>
+          <div class="cs-journey-grid" style="grid-template-columns: repeat(5, 1fr);">
+            <div class="cs-journey-cell cs-journey-cell--italic">
+              <p><strong>1A.</strong> "Who can see my data?"</p>
+              <p><strong>1B.</strong> "Where can I see my contacts?"</p>
+              <p><strong>1C.</strong> "My database sucks, not structured properly."</p>
+              <p><strong>1D.</strong> "How long will it take to import larger data sets?"</p>
+              <p><strong>1E.</strong> "My data is old/outdated."</p>
+              <p><strong>1F.</strong> "Do you validate my data? Email validation?"</p>
+              <p><strong>1G.</strong> "I don't have time for this."</p>
+            </div>
+            <div class="cs-journey-cell cs-journey-cell--italic">
+              <p><strong>2A.</strong> "Should I wait for the import or come back later?"</p>
+              <p><strong>2B.</strong> "I don't have permission to access this online file."</p>
+              <p><strong>2C.</strong> "The file is locked / not available publicly."</p>
+              <p><strong>2D.</strong> "Why do I need to segment clients into current and past clients?"</p>
+              <p><strong>2E.</strong> "Are my passwords protected?"</p>
+              <p><strong>2F.</strong> "How often do I need to import my data?"</p>
+            </div>
+            <div class="cs-journey-cell cs-journey-cell--italic">
+              <p><strong>3A.</strong> "Client not sure if they have permission to contact specific people on this list."</p>
+              <p><strong>3B.</strong> "If this is not your first import, you may run into the issue of contacting people who have already unsubscribed."</p>
+              <p><strong>3C.</strong> "Client doesn't know if contacts are current, past, new, etc."</p>
+            </div>
+            <div class="cs-journey-cell cs-journey-cell--italic">
+              <p><strong>4A.</strong> "Can I get fined for contacting people without their permission?"</p>
+              <p><strong>4B.</strong> "What happens if I accidentally reach out to an unsubscribed customer?"</p>
+              <p><strong>4C.</strong> "What should I choose as default if I don't have the last visit data?"</p>
+            </div>
+            <div class="cs-journey-cell cs-journey-cell--italic">
+              <p><strong>5A.</strong> "I started the process, is my data getting imported?"</p>
+              <p><strong>5B.</strong> "What happened to the contacts with no phone or email?"</p>
+              <p><strong>5C.</strong> "Did I import the right file? Where is the file name?"</p>
+              <p><strong>5D.</strong> "I don't understand the way you report the data."</p>
+              <p><strong>5E.</strong> "The data doesn't match what I was expecting."</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="cs-subsection" style="margin-top:48px;">
+        <h3 class="cs-subsection-title">Journey Steps</h3>
+        <div class="cs-body-text">
+          <p>Once we had identified the touch points in the user journey, we created a detailed breakdown of each step involved in the process. This allowed us to identify areas where users might become confused or frustrated, and to make changes to the platform that would alleviate those pain points.</p>
+        </div>
+
+        <div class="cs-image-full">
+          <img src="/images/referrizer-journey-step1.png" alt="Journey Step 1: Where is your data currently - breakdown of goals, ideas, pain points, thoughts, solutions, feelings, and what is needed" />
+        </div>
+      </div>
+
+      <div class="cs-subsection" style="margin-top:48px;">
+        <h3 class="cs-subsection-title">Journey Data</h3>
+        <div class="cs-body-text">
+          <p>To supplement our user research, we collected data on user goals, pain points, and thought processes for each step in the journey. We then used this data to create a detailed user journey map that highlighted key touchpoints, pain points, and opportunities for improvement. The user journey map helped us to understand the user's perspective and identify areas where we could improve the experience.</p>
+          <p>By analyzing the user journey, we were able to identify areas where the user may experience frustration or confusion and make adjustments to the design to ensure a more seamless experience. This was an essential step in our design process, as it allowed us to validate our assumptions and make data-driven decisions to improve the user experience.</p>
+        </div>
+
+        <div class="cs-image-full">
+          <img src="/images/referrizer-journey-notes.png" alt="Detailed journey session notes showing goals, pain points, and user thoughts for each import step" />
+        </div>
+      </div>
+
+      <div class="cs-subsection" style="margin-top:48px;">
+        <h3 class="cs-subsection-title">Journey Notes</h3>
+        <div class="cs-body-text">
+          <p>We pasted notes from the journey session into the user flows to help understand how the user's goals and pain points related to the actual flow of the interface. By doing this, we were able to identify areas where the user may experience frustration or confusion, and make adjustments to the design to ensure a more seamless experience.</p>
+        </div>
+
+        <div class="cs-image-full">
+          <img src="/images/referrizer-journey-data.png" alt="Journey data breakdown showing dev notes, pain points, solutions, user thoughts, and emotional states across import steps" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="cs-section-divider">
+
+  <!-- 11. Competitive Analysis -->
+  <SectionContent title="Competitive Analysis">
+    <div class="cs-body-text">
+      <p>As part of our design process, we conducted extensive competitive analysis to gain insight into how other marketing automation systems handled the import contacts process. We analyzed a range of competitors to understand their features, functionalities, and overall user experience. Through our analysis, we were able to identify best practices, common pain points, and opportunities for improvement.</p>
+      <p>We paid close attention to how our competitors handled the import contacts process. We looked at factors such as the ease of use, the speed of the process, and the overall level of automation. We also analyzed the user feedback and reviews to gain a better understanding of how our target users felt about the process. By doing this, we were able to identify areas where our competitors were falling short and where we could differentiate ourselves.</p>
+      <p>Our analysis revealed that many of our competitors had complicated and time-consuming import processes that required extensive technical knowledge. This was a significant pain point for our target users who were non-tech small business owners looking for an intuitive and straightforward solution. As a result, we made sure that our import process was streamlined, automated, and required minimal technical knowledge. By conducting a thorough competitive analysis, we were able to identify opportunities for improvement and create a product that provided a better user experience than our competitors.</p>
+    </div>
+
+    <div class="cs-image-full">
+      <img src="/images/referrizer-competitive-analysis.png" alt="Competitive analysis showing import contact flows from Keap, Active Campaigns, and AWeber" />
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 12. Design Stage -->
+  <SectionContent title="Design Stage">
+    <div class="cs-body-text">
+      <p>Once we had a clear understanding of the user journey, I began creating detailed user flows which I would then convert into wireframes for each screen in the process. I used FigJam to create the user flows, and then created the wireframes using Figma, these wireframes helped to refine the user flow and get everyone on the same page before we moved on to creating the high-fidelity screens. During the design stage, I also created a design system to ensure that the design was consistent across all screens.</p>
+    </div>
+
+    <div class="cs-subsection" style="margin-top:48px;">
+      <h3 class="cs-subsection-title">User Flow</h3>
+      <div class="cs-body-text">
+        <p>I created multiple iterations of the user flows, taking into account the feedback we had received from the team and making sure that the user flow was intuitive and easy to follow. To ensure that the user flow was efficient, I also eliminated any unnecessary steps and simplified the design wherever possible. I worked closely with the developers to make sure that the design was feasible and that the developers had a clear understanding of what needed to be built.</p>
+      </div>
+
+      <div class="cs-image-full">
+        <img src="/images/referrizer-user-flow.png" alt="Detailed user flow diagram for the Referrizer import contacts process showing decision points, screens, and journey annotations" />
+      </div>
+    </div>
+
+    <div class="cs-subsection" style="margin-top:48px;">
+      <h3 class="cs-subsection-title">Wireframes</h3>
+      <div class="cs-body-text">
+        <p>I created the wireframes as a visual representation of the user interface to plan out the layout, structure, and functionality of the product. We utilized these wireframes to explore different design options and identify any potential problems before moving into the design and development phase.</p>
+      </div>
+
+      <div class="cs-image-row cs-image-row--2col">
+        <div class="cs-image-block"><img src="/images/referrizer-wf-step1.png" alt="Wireframe: Step 1 - Choose Method" /></div>
+        <div class="cs-image-block"><img src="/images/referrizer-wf-step2b.png" alt="Wireframe: Step 2 - Upload Contacts, integration grid" /></div>
+      </div>
+      <div class="cs-image-row cs-image-row--2col">
+        <div class="cs-image-block"><img src="/images/referrizer-wf-step2c.png" alt="Wireframe: Step 2 - Processing request" /></div>
+        <div class="cs-image-block"><img src="/images/referrizer-wf-step2a.png" alt="Wireframe: Step 2 - Successful integration with selected app" /></div>
+      </div>
+      <div class="cs-image-row cs-image-row--2col">
+        <div class="cs-image-block"><img src="/images/referrizer-wf-step3a.png" alt="Wireframe: Step 3 - Map Your Data" /></div>
+        <div class="cs-image-block"><img src="/images/referrizer-wf-step3b.png" alt="Wireframe: Step 3 - Map Your Data, skip unmatched" /></div>
+      </div>
+      <div class="cs-image-row cs-image-row--2col">
+        <div class="cs-image-block"><img src="/images/referrizer-wf-step4.png" alt="Wireframe: Step 4 - Organize Contacts" /></div>
+        <div class="cs-image-block"><img src="/images/referrizer-wf-step5.png" alt="Wireframe: Step 5 - Sort and Tag" /></div>
+      </div>
+      <div class="cs-image-row cs-image-row--2col">
+        <div class="cs-image-block"><img src="/images/referrizer-wf-summary.png" alt="Wireframe: Import summary review" /></div>
+        <div class="cs-image-block"><img src="/images/referrizer-wf-report.png" alt="Wireframe: My Contacts dashboard after import" /></div>
+      </div>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 13. Design System -->
+  <SectionContent title="Design System">
+    <div class="cs-body-text">
+      <p>With the wireframes finalized, I developed a design system to ensure consistency across all screens and components. The design system included guidelines for typography, color, icons, and other design elements. By having a consistent design system, we could ensure that the user experience was seamless and that users could easily navigate the contact import feature. The design system was shared with the entire team, including developers who converted in into Angular.js components.</p>
+    </div>
+
+    <!-- Full-width: Buttons -->
+    <div class="cs-image-full" style="margin-top: 40px;">
+      <img src="/images/referrizer-ds-buttons.webp" alt="Button component system showing primary, secondary, tertiary variants in light and dark themes" style="width: 100%; height: auto; border-radius: 4px;">
+    </div>
+
+    <!-- 3-column: Colors, Alerts, Modals -->
+    <div class="cs-image-row" style="margin-top: 24px;">
+      <div class="cs-image-block">
+        <img src="/images/referrizer-ds-colors.webp" alt="Color palette with semantic, opacity, and chart color tokens" style="border-radius: 4px;">
+      </div>
+      <div class="cs-image-block">
+        <img src="/images/referrizer-ds-alerts.webp" alt="Alert components showing info, success, warning, and danger variants" style="border-radius: 4px;">
+      </div>
+      <div class="cs-image-block">
+        <img src="/images/referrizer-ds-modals.webp" alt="Modal dialog components in blue, green, and confirm dialog styles" style="border-radius: 4px;">
+      </div>
+    </div>
+
+    <!-- 2-column: Badges, Icons -->
+    <div class="cs-image-row cs-image-row--2col" style="margin-top: 24px;">
+      <div class="cs-image-block">
+        <img src="/images/referrizer-ds-badges.webp" alt="Badge components for campaigns, offers, and notifications" style="border-radius: 4px;">
+      </div>
+      <div class="cs-image-block">
+        <img src="/images/referrizer-ds-icons.webp" alt="Icon library with social logos, star ratings, and app icons" style="border-radius: 4px;">
+      </div>
+    </div>
+
+    <!-- 2-column: Calendar/Dashboard, Tabs -->
+    <div class="cs-image-row cs-image-row--2col" style="margin-top: 24px;">
+      <div class="cs-image-block">
+        <img src="/images/referrizer-ds-calendar.webp" alt="Dashboard layout with navigation, widgets, and banner components" style="border-radius: 4px;">
+      </div>
+      <div class="cs-image-block">
+        <img src="/images/referrizer-ds-tabs.webp" alt="Tab navigation components with dropdown and inline variants" style="border-radius: 4px;">
+      </div>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 14. High Fidelity Screens -->
+  <SectionContent title="High Fidelity Screens">
+    <div class="cs-body-text">
+      <p>One of the most important aspects of the design stage was the creation of high-fidelity screens that accurately reflected the final product. We made sure to use consistent branding and design elements throughout the screens to create a cohesive experience. The screens included features such as the ability to import contacts from various sources, preview imported contacts, and easily clean and organize contact lists.</p>
+      <p style="margin-top: 16px;">The design team worked closely with the development team to ensure that the screens were technically feasible and that the design system could be implemented without issue. We also made sure to gather feedback from stakeholders and target personas throughout the design process to ensure that the final product would meet their needs and expectations.</p>
+    </div>
+
+    <!-- 2-column grid: HiFi screens -->
+    <div class="cs-image-row cs-image-row--2col" style="margin-top: 40px;">
+      <div class="cs-image-block">
+        <img src="/images/referrizer-hf-step1.webp" alt="Step 1: Choose Method - Import from another service, upload a file, or copy and paste" style="border-radius: 4px;">
+      </div>
+      <div class="cs-image-block">
+        <img src="/images/referrizer-hf-step2a.webp" alt="Step 2: Upload Contacts - File validation with error state showing uploaded files" style="border-radius: 4px;">
+      </div>
+    </div>
+
+    <div class="cs-image-row cs-image-row--2col" style="margin-top: 24px;">
+      <div class="cs-image-block">
+        <img src="/images/referrizer-hf-step2b.webp" alt="Step 2: Upload Contacts - Drag and drop file upload with subscriber options" style="border-radius: 4px;">
+      </div>
+      <div class="cs-image-block">
+        <img src="/images/referrizer-hf-step3.webp" alt="Step 3: Map Your Data - Column header matching with field mapping table" style="border-radius: 4px;">
+      </div>
+    </div>
+
+    <div class="cs-image-row cs-image-row--2col" style="margin-top: 24px;">
+      <div class="cs-image-block">
+        <img src="/images/referrizer-hf-step4.webp" alt="Step 4: Organize Contacts - Subscription status and contact categorization" style="border-radius: 4px;">
+      </div>
+      <div class="cs-image-block">
+        <img src="/images/referrizer-hf-step5.webp" alt="Step 5: Sort and Tag - Contact sorting, tagging, and duplicate handling" style="border-radius: 4px;">
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="cs-image-row cs-image-row--2col" style="margin-top: 24px;">
+      <div class="cs-image-block" style="grid-column: 1 / -1;">
+        <img src="/images/referrizer-hf-summary.webp" alt="Import summary showing total contacts uploaded with success status for each validation step" style="border-radius: 4px;">
+      </div>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 15. Prototyping -->
+  <SectionContent title="Prototyping">
+    <div class="cs-body-text">
+      <p>With the design system in place, I created a functional prototype using Figma to simulate the user's experience of importing their contacts and completing the onboarding process. This prototype was extensively tested internally to ensure that the process was intuitive and easy to follow, and any issues or inconsistencies were addressed before the final prototype was presented to the development team for implementation.</p>
+    </div>
+
+    <div class="cs-image-full" style="margin-top: 40px;">
+      <img src="/images/referrizer-prototype-flow.webp" alt="Figma prototype flow showing connected screens for the full import contacts journey" style="width: 100%; height: auto; border-radius: 4px;">
+    </div>
+
+    <div class="cs-image-full" style="margin-top: 24px;">
+      <img src="/images/referrizer-prototype-screen.webp" alt="Prototype screen showing the Upload Contacts step with service integration search and selection" style="width: 100%; height: auto; border-radius: 4px;">
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 16. User Testing -->
+  <SectionContent title="User Testing">
+    <div class="cs-body-text">
+      <p>To ensure that the final product met the needs of our target personas and was easy to use, I conducted extensive user testing using a tool called Maze.com. I created user scenarios and tasks that mimicked real-world situations and tested the prototype with a diverse group of participants. The results of the user testing were analyzed and used to make further improvements to the design, which were then incorporated into the final product.</p>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 48px;">
+      <h3>Scenarios & Tasks</h3>
+      <p style="margin-top: 12px;">As we moved into the user testing phase, we began by creating a series of scenarios and tasks that would allow us to test the usability of the import contacts process. These tasks were designed to mimic real-world situations that our target personas might encounter when trying to import contacts into our marketing automation CRM system. We made sure to create tasks that would test all aspects of the import process, from selecting the right source to cleaning and organizing imported contact lists.</p>
+    </div>
+
+    <div class="cs-image-full" style="margin-top: 40px;">
+      <img src="/images/referrizer-test-scenarios.webp" alt="Test scenario table showing context, tasks, success criteria, and clarifying questions for each step" style="width: 100%; height: auto; border-radius: 4px;">
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 48px;">
+      <h3>Setting up the test</h3>
+      <p style="margin-top: 12px;">To conduct user testing, we used a tool called Maze.com, which allowed us to create and run live tests with our target personas. We worked with our client to recruit a diverse group of small business owners who were representative of our target personas. We then set up the test within the Maze platform, which included creating the tasks and scenarios, selecting the appropriate screens to test, and setting up the necessary data collection tools.</p>
+    </div>
+
+    <div class="cs-image-full" style="margin-top: 40px;">
+      <img src="/images/referrizer-test-maze.webp" alt="Maze.com test builder showing prototype test configuration with task blocks, open questions, and preview" style="width: 100%; height: auto; border-radius: 4px;">
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 48px;">
+      <h3>Running the live test</h3>
+      <p style="margin-top: 12px;">Once the test was set up, we ran it with our selected group of users. We closely observed their actions and behaviors as they completed each task, taking notes on any issues or pain points that arose. We also collected quantitative data on how long each task took to complete and how many errors were made. Throughout the testing process, we encouraged users to think aloud and provide feedback on their experience.</p>
+    </div>
+
+    <div class="cs-image-full" style="margin-top: 40px;">
+      <img src="/images/referrizer-test-live.webp" alt="Live Maze test preview showing the import contacts prototype with step-by-step progress sidebar" style="width: 100%; height: auto; border-radius: 4px;">
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 48px;">
+      <h3>Test Results</h3>
+      <p style="margin-top: 12px;">After the testing phase was complete, we analyzed the data and feedback we had collected to identify any issues or pain points with the import process. We found that some users struggled to understand the different import sources and how to select the correct one. Others had difficulty previewing and cleaning imported contact lists. Based on this feedback, we made several refinements to the design and user flow, such as adding more detailed instructions and clarifying the selection process for import sources.</p>
+      <p style="margin-top: 16px;">Overall, the user testing phase was crucial to ensuring that the import contacts process was easy to use and met the needs of our target personas. By gathering feedback directly from users, we were able to make informed decisions and refine the design to create a product that truly met their needs.</p>
+    </div>
+
+    <div class="cs-image-full" style="margin-top: 40px;">
+      <img src="/images/referrizer-test-results.webp" alt="User testing results table showing task completion feedback across 5 users with notes and suggestions" style="width: 100%; height: auto; border-radius: 4px;">
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 17. Developer Handoff -->
+  <SectionContent title="Developer Handoff">
+    <div class="cs-body-text">
+      <p>Once the prototype was finalized, I worked closely with the development team to ensure that the design was implemented accurately and with the user experience in mind. I provided detailed design specifications and guidelines, as well as ongoing support and feedback throughout the development process to ensure that the final product was consistent with the design vision and met the needs of our target personas.</p>
+    </div>
+
+    <div class="cs-image-full" style="margin-top: 40px;">
+      <img src="/images/referrizer-handoff.webp" alt="Figma inspect panel showing component properties, spacing measurements, colors, and generated code for developer handoff" style="width: 100%; height: auto; border-radius: 4px;">
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 18. Reflection / Launch -->
+  <SectionContent title="Reflection / Launch">
+    <div class="cs-body-text">
+      <p>Looking back on the project, I am proud of the work that was done to simplify the process of importing contacts into the Referrizer system. The final product met the needs of our target personas, and was easy to use and understand. We received positive feedback from users and saw an increase in user adoption rates. This project was a great example of how collaboration between design, development, and product management can result in a successful product that meets the needs of the user and drives business results.</p>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 48px;">
+      <h3>What I learned</h3>
+      <ul style="margin-top: 12px;">
+        <li>Conducting thorough user research and analysis is critical to understanding user pain points and designing a successful product.</li>
+        <li>Collaborating closely with team members and stakeholders is essential for aligning on the project's goals and ensuring everyone is working towards the same vision.</li>
+        <li>User testing with tools like Maze.com is a valuable way to gather user feedback and validate design decisions.</li>
+        <li>Competitive analysis can provide insights into industry best practices and help identify areas for differentiation.</li>
+      </ul>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 48px;">
+      <h3>What I would do differently</h3>
+      <ul style="margin-top: 12px;">
+        <li>Prioritize involving target users earlier in the design process to ensure their feedback is incorporated into the design from the start.</li>
+        <li>Conduct more extensive usability testing to identify and address any usability issues earlier in the design process.</li>
+        <li>Consider exploring additional integrations beyond just the import contacts feature to provide a more comprehensive solution for our target users.</li>
+      </ul>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+</CaseStudy>
