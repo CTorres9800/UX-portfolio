@@ -650,9 +650,12 @@
   margin-top: 48px;
 }
 
+.cs-image-row--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .cs-image-block {
   overflow: hidden;
-  background: #eee;
 }
 
 .cs-image-block img {
@@ -832,6 +835,16 @@
 .cs-curve-area {
   position: relative;
   height: 300px;
+}
+
+.cs-curve-area--5col::before {
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent 0%,
+    transparent calc(20% - 0.5px),
+    #ddd calc(20% - 0.5px),
+    #ddd 20%
+  ) !important;
 }
 
 .cs-curve-area::before {
@@ -1443,6 +1456,12 @@
   font-style: italic;
 }
 
+.cs-dialog-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
 @media (max-width: 768px) {
   .cs-component-showcase {
     grid-template-columns: 1fr;
@@ -1457,6 +1476,11 @@
     width: 100% !important;
     height: auto !important;
   }
+
+  .cs-dialog-grid {
+    grid-template-columns: 1fr;
+  }
+
 }
 
 /* ===========================
@@ -1833,7 +1857,192 @@
 }
 
 .cs-handoff-item img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cs-handoff-item--scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid #e5e5e5;
+  padding: 24px;
+  background: #fafafa;
+}
+
+.cs-handoff-item--scroll img {
+  max-width: none;
+  height: 600px;
+  width: auto;
+}
+
+/* ===========================
+   Process Diagram
+   =========================== */
+
+.cs-process {
+  margin-top: 60px;
+  position: relative;
+}
+
+/* Pills row */
+.cs-process-pills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.cs-process-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  border: 1.5px solid #d0d0d0;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--black);
+  background: var(--white);
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+.cs-process-arrow {
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  color: #999;
+  flex-shrink: 0;
+}
+
+/* Iteration arc */
+.cs-process-arc {
+  position: absolute;
+  top: -36px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Tasks grid */
+.cs-process-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+}
+
+.cs-process-tasks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cs-process-tasks li {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: #777;
+  padding-left: 14px;
+  position: relative;
+}
+
+.cs-process-tasks li::before {
+  content: '\00B7';
+  position: absolute;
+  left: 2px;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  color: #bbb;
+}
+
+@media (max-width: 1024px) {
+  .cs-process-pills {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .cs-process-arrow {
+    display: none;
+  }
+
+  .cs-process-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .cs-process-arc {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .cs-process-pills {
+    gap: 8px;
+  }
+
+  .cs-process-pill {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  .cs-process-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+/* Inline SVG wireframes — scale like the <img> variant they replace */
+.cs-version-svg svg {
   width: 100%;
   height: auto;
   display: block;
 }
+
+/* Two-column variant — for wireframes that are near full-screen and unreadable at a third width */
+.cs-versions--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 1024px) {
+  .cs-versions--2col {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Inline SVG final-feature wireframes — behave exactly like the <img> they replace */
+div.cs-annotated-img {
+  overflow: hidden;
+}
+div.cs-annotated-img svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+/* Blend Metrics final features: the wireframes have different proportions to the
+   Marketeq screens, so these dots need their own vertical positions. The base
+   .cs-dot--1..4 rules still supply side, transform and connector lines. */
+.cs-dot--bm-1 { top: 27.8%; }
+.cs-dot--bm-2 { top: 75.9%; }
+.cs-dot--bm-3 { top: 24.3%; }
+.cs-dot--bm-4 { top: 72.5%; }
+
+/* Reusable annotation dots for the added Blend Metrics final features.
+   Vertical position is set inline per dot, so no new letter class per annotation. */
+.cs-dot--bm-l { left: 0; right: auto; transform: translate(-50%, -50%); }
+.cs-dot--bm-r { right: 0; left: auto; transform: translate(50%, -50%); }
+.cs-dot--bm-l::after,
+.cs-dot--bm-r::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 28px;
+  height: 1.5px;
+  background: #306CFE;
+  transform: translateY(-50%);
+}
+.cs-dot--bm-l::after { right: 50%; }
+.cs-dot--bm-r::after { left: 50%; }
