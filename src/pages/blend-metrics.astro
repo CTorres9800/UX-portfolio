@@ -1176,22 +1176,84 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
 
     <div class="cs-component-showcase">
       <div class="cs-component-details">
-        <h3 class="cs-component-title">Button System</h3>
-        <p class="cs-component-desc">A structured button matrix that defines every interactive state across three variant types, ensuring visual consistency and accessibility throughout the workflow builder.</p>
+        <h3 class="cs-component-title">Trigger Setup Panel</h3>
+        <p class="cs-component-desc">The sidebar panel where a trigger is turned into a working step. It carries the whole configuration flow — pick the event, connect the account, fill the required fields — without ever leaving the canvas.</p>
         <h4>Key Details</h4>
         <ul>
-          <li>Three variants cover every use case: primary (blue) for forward actions, secondary (outlined) for neutral options, and destructive (red) for irreversible actions</li>
-          <li>Each variant includes Default, Hover, Focused, and Disabled states so every interaction feels intentional</li>
-          <li>Focus rings on the Focused state ensure keyboard navigation is always visible and accessible</li>
-          <li>Disabled states use reduced opacity to clearly communicate when an action is unavailable without removing it from the layout</li>
+          <li>Docked to the right of the canvas so the workflow stays visible while a step is configured</li>
+          <li>Tabbed into Setup, Conditions and Test, which keeps a long configuration from becoming one endless scroll</li>
+          <li>A radio list of trigger events with a description under each, so the choice is made on meaning rather than a name</li>
+          <li>Required fields are flagged inline and mark the tab itself, so an incomplete step is visible from the canvas</li>
         </ul>
       </div>
       <div class="cs-component-image">
-        <img src="/images/bm-ui-buttons.png" alt="Button system showing primary, secondary, and destructive variants across default, hover, focused, and disabled states" class="cs-component-img">
+        <img src="/images/bm-comp-trigger-setup.png" alt="Trigger setup sidebar panel with tabbed navigation and a trigger event list" class="cs-component-img" style="max-width: 360px;">
       </div>
     </div>
 
     <div class="cs-component-showcase cs-component-showcase--reverse" style="margin-top: 120px;">
+      <div class="cs-component-details">
+        <h3 class="cs-component-title">Step Library Popup</h3>
+        <p class="cs-component-desc">The picker behind every "add a step" action. With 126 triggers, 52 conditions, 294 actions and 46 filters, it had to stay browsable for people exploring and instant for people who already know what they want.</p>
+        <h4>Key Details</h4>
+        <ul>
+          <li>Category rail with live counts, so the scale of the library reads as useful rather than overwhelming</li>
+          <li>Search cuts across triggers, conditions, actions and filters at once instead of forcing a category first</li>
+          <li>An honest empty state that names the query that returned nothing, rather than a blank panel</li>
+          <li>The same popup shell serves browse, search and empty — one component, three states</li>
+        </ul>
+      </div>
+      <div class="cs-component-image">
+        <div class="cs-dialog-grid">
+          <img src="/images/bm-comp-step-library.png" alt="Step library popup browsing triggers by category with counts" class="cs-component-img">
+          <img src="/images/bm-comp-library-search.png" alt="Step library popup showing search results across every category" class="cs-component-img">
+          <img src="/images/bm-comp-library-empty.png" alt="Step library popup empty state for a search with no results" class="cs-component-img">
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-component-showcase" style="margin-top: 120px;">
+      <div class="cs-component-details">
+        <h3 class="cs-component-title">Condition Builder</h3>
+        <p class="cs-component-desc">Where AND/OR logic is actually assembled. This is the densest surface in the product and the one most likely to lose people, so the whole design is about keeping a complex rule readable at a glance.</p>
+        <h4>Key Details</h4>
+        <ul>
+          <li>Conditions group visually, so a nested rule reads as structure rather than a wall of text</li>
+          <li>ANY/ALL and AND/OR are inline selectors, editable in place without a separate modal</li>
+          <li>Each condition is a chip carrying its source app icon, so the data it references is identifiable at a glance</li>
+          <li>Add Condition and Clear All Conditions sit together, making it as easy to unwind a rule as to build one</li>
+        </ul>
+      </div>
+      <div class="cs-component-image">
+        <div class="cs-dialog-grid">
+          <img src="/images/bm-comp-condition-builder.png" alt="Condition builder sidebar with a single condition and save action" class="cs-component-img">
+          <img src="/images/bm-comp-nested-conditions.png" alt="Condition builder with nested AND/OR groups and the ANY/ALL selector open" class="cs-component-img">
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-component-showcase cs-component-showcase--reverse" style="margin-top: 120px;">
+      <div class="cs-component-details">
+        <h3 class="cs-component-title">Menus &amp; Flyouts</h3>
+        <p class="cs-component-desc">The small surfaces that carry most of the configuration work. Each one had to open in place, stay scannable, and close without losing the user’s position in the sidebar.</p>
+        <h4>Key Details</h4>
+        <ul>
+          <li>The data flyout lists every available field with a real example value, so users pick data on evidence rather than a field name</li>
+          <li>The date picker handles selected, hover and event-dot states, with Today as a one-tap shortcut</li>
+          <li>The filter dropdown is searchable, because a category list stops being useful once it outgrows the panel</li>
+          <li>All three open anchored to their trigger, never as a full-screen interruption</li>
+        </ul>
+      </div>
+      <div class="cs-component-image">
+        <div class="cs-dialog-grid">
+          <img src="/images/bm-comp-data-flyout.png" alt="Data field flyout listing available fields with example values" class="cs-component-img">
+          <img src="/images/bm-comp-date-picker.png" alt="Date picker menu with month navigation, selected and hover states" class="cs-component-img">
+          <img src="/images/bm-comp-filter-dropdown.png" alt="Searchable filter categories dropdown menu" class="cs-component-img">
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-component-showcase" style="margin-top: 120px;">
       <div class="cs-component-details">
         <h3 class="cs-component-title">Canvas Toolbar</h3>
         <p class="cs-component-desc">A minimal control bar anchored to the bottom-left of the workflow canvas, giving users quick access to zoom and search without cluttering the build space.</p>
@@ -1207,66 +1269,21 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
       </div>
     </div>
 
-    <div class="cs-component-showcase" style="margin-top: 120px;">
-      <div class="cs-component-details">
-        <h3 class="cs-component-title">Auto-save Indicator</h3>
-        <p class="cs-component-desc">A persistent status element in the canvas header that communicates save state in real time, so users never worry about losing their work.</p>
-        <h4>Key Details</h4>
-        <ul>
-          <li>Three states: "Saved at [time]" (default), highlighted "Saved at [time]" (just saved), and "Edited X mins ago" (unsaved changes)</li>
-          <li>Clock icon reinforces the time-based nature of the status at a glance</li>
-          <li>Tooltip on hover shows the last edit timestamp for additional context</li>
-          <li>Non-intrusive placement in the header keeps users informed without interrupting the build flow</li>
-        </ul>
-      </div>
-      <div class="cs-component-image">
-        <img src="/images/bm-ui-autosave.png" alt="Auto-save indicator showing saved timestamp, highlighted save state, and edited time ago states" class="cs-component-img" style="max-width: 280px;">
-      </div>
-    </div>
-
     <div class="cs-component-showcase cs-component-showcase--reverse" style="margin-top: 120px;">
       <div class="cs-component-details">
-        <h3 class="cs-component-title">Confirmation Dialogs</h3>
-        <p class="cs-component-desc">A consistent set of modal dialogs that appear before any destructive or significant action, ensuring users always have a chance to confirm or cancel.</p>
+        <h3 class="cs-component-title">Publish Success</h3>
+        <p class="cs-component-desc">The last screen in the build, and the only one whose job is emotional. Publishing is the highest-stakes moment in the builder, so the success state exists to confirm the milestone rather than dump the user back on a canvas.</p>
         <h4>Key Details</h4>
         <ul>
-          <li>Four dialog types cover key actions: Delete Workflow, Delete Trigger, Delete Step, and Exit Workflow</li>
-          <li>Each dialog uses plain language to explain exactly what will happen, with no ambiguity</li>
-          <li>Destructive actions use a red button to visually signal risk, while neutral exits use the same red for emphasis</li>
-          <li>"Delete Workflow" reassures users with a 30-day trash recovery window, reducing deletion anxiety</li>
-          <li>Cancel is always available as a safe escape, positioned as a secondary outlined button</li>
+          <li>A success checkmark and plain-language confirmation, so there is no doubt the workflow is live</li>
+          <li>Two exits — Go To Dashboard or Keep Working — so the user picks the next step instead of being redirected</li>
+          <li>Reuses the same dialog shell as the rest of the builder, so the moment feels part of the product, not bolted on</li>
         </ul>
       </div>
       <div class="cs-component-image">
-        <div class="cs-dialog-grid">
-          <img src="/images/bm-ui-delete-workflow.png" alt="Delete workflow confirmation dialog with Cancel and Delete buttons" class="cs-component-img">
-          <img src="/images/bm-ui-delete-trigger.png" alt="Delete trigger confirmation dialog with Cancel and Delete buttons" class="cs-component-img">
-          <img src="/images/bm-ui-delete-step.png" alt="Delete step confirmation dialog with Cancel and Delete buttons" class="cs-component-img">
-          <img src="/images/bm-ui-exit.png" alt="Exit workflow confirmation dialog with Cancel and Yes exit buttons" class="cs-component-img">
-        </div>
+        <img src="/images/bm-ui-publish-success.png" alt="Publish success state with congratulations message and Go To Dashboard or Keep Working options" class="cs-component-img" style="max-width: 440px;">
       </div>
     </div>
-
-    <div class="cs-component-showcase" style="margin-top: 120px;">
-      <div class="cs-component-details">
-        <h3 class="cs-component-title">Publish Workflow</h3>
-        <p class="cs-component-desc">A two-step publish flow that confirms the user's intent before going live, then celebrates the milestone with a clear success state and next-step options.</p>
-        <h4>Key Details</h4>
-        <ul>
-          <li>Pre-publish dialog explicitly states the workflow will become "live and available to your users," setting clear expectations</li>
-          <li>Blue "Yes, publish" button reinforces this as a positive, forward action rather than something risky</li>
-          <li>Success state features a green checkmark icon and congratulatory message to mark the accomplishment</li>
-          <li>Two post-publish options, "Go To Dashboard" and "Keep Working," let users choose their own next step without forcing a redirect</li>
-        </ul>
-      </div>
-      <div class="cs-component-image">
-        <div class="cs-dialog-grid">
-          <img src="/images/bm-ui-publish-workflow.png" alt="Publish workflow confirmation dialog with Cancel and Yes publish buttons" class="cs-component-img">
-          <img src="/images/bm-ui-publish-success.png" alt="Publish success state with congratulations message and Go To Dashboard or Keep Working options" class="cs-component-img">
-        </div>
-      </div>
-    </div>
-
   </SectionContent>
 
   <hr class="cs-section-divider">
