@@ -1212,7 +1212,7 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
       </div>
     </div>
 
-    <div class="cs-component-showcase" style="margin-top: 120px;">
+    <div class="cs-component-showcase cs-component-showcase--stack" style="margin-top: 120px;">
       <div class="cs-component-details">
         <h3 class="cs-component-title">Condition Builder</h3>
         <p class="cs-component-desc">Where AND/OR logic is actually assembled. This is the densest surface in the product and the one most likely to lose people, so the whole design is about keeping a complex rule readable at a glance.</p>
@@ -1232,7 +1232,7 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
       </div>
     </div>
 
-    <div class="cs-component-showcase cs-component-showcase--reverse" style="margin-top: 120px;">
+    <div class="cs-component-showcase cs-component-showcase--stack" style="margin-top: 120px;">
       <div class="cs-component-details">
         <h3 class="cs-component-title">Menus &amp; Flyouts</h3>
         <p class="cs-component-desc">The small surfaces that carry most of the configuration work. Each one had to open in place, stay scannable, and close without losing the user’s position in the sidebar.</p>
@@ -1253,19 +1253,20 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
       </div>
     </div>
 
-    <div class="cs-component-showcase" style="margin-top: 120px;">
+    <div class="cs-component-showcase cs-component-showcase--stack" style="margin-top: 120px;">
       <div class="cs-component-details">
-        <h3 class="cs-component-title">Canvas Toolbar</h3>
-        <p class="cs-component-desc">A minimal control bar anchored to the bottom-left of the workflow canvas, giving users quick access to zoom and search without cluttering the build space.</p>
+        <h3 class="cs-component-title">Drag &amp; Drop</h3>
+        <p class="cs-component-desc">How anything gets built. Dragging a step from the sidebar onto the canvas is the single most repeated action in the product, so the drop zone has to say what will happen before the user commits &mdash; not after.</p>
         <h4>Key Details</h4>
         <ul>
-          <li>Search icon opens a find-in-canvas overlay so users can locate specific nodes in complex workflows</li>
-          <li>Zoom controls with minus, plus, and a percentage dropdown let users scale the view precisely</li>
-          <li>Compact footprint keeps the toolbar out of the way while remaining instantly accessible</li>
+          <li>The drop zone is visible by default with a &ldquo;Drag Your Trigger Here&rdquo; prompt, so an empty canvas explains itself instead of waiting to be guessed at</li>
+          <li>Entering the zone changes its styling, confirming the drop will land before the user lets go &mdash; the difference between a confident drop and a hesitant one</li>
+          <li>Existing steps reflow to make room, so dropping into the middle of a built workflow never means rebuilding what came after</li>
+          <li>The three states &mdash; empty, hover, snapped &mdash; are one component, so the interaction stays consistent whether it is the first step or the tenth</li>
         </ul>
       </div>
       <div class="cs-component-image">
-        <img src="/images/bm-ui-canvas-toolbar.png" alt="Canvas toolbar with search icon and zoom controls showing 100% zoom level" class="cs-component-img" style="max-width: 400px;">
+        <img src="/images/bm-hifi-drag-sequence.png" alt="Drag and drop states: empty drop zone, hover with the node held over it, and the node snapped into the workflow" class="cs-component-img">
       </div>
     </div>
 
