@@ -11,18 +11,18 @@
       "description": "Redesigning the import contacts process to be more intuitive & seamless",
       "image": "/images/referrizer.webp",
       "imageAlt": "Referrizer case study preview",
-      "link": "#"
+      "link": "referrizer"
     },
     {
       "title": "Blend Metrics",
       "description": "New API Integration workflow builder to be more intuitive and flexible",
       "image": "/images/blend-metrics.webp",
       "imageAlt": "Blend Metrics case study preview",
-      "link": "#"
+      "link": "blend-metrics"
     },
     {
       "title": "Marketeq Projects",
-      "description": "Redesigning the project listing experience to build buyer confidence through clearer scope, pricing, and team transparency",
+      "description": "Redesigning the project listing experience to build buyer confidence",
       "image": "/images/marketeq-projects.webp",
       "imageAlt": "Marketeq Projects case study preview",
       "link": "marketeq-projects"

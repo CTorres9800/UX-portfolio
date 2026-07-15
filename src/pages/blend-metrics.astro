@@ -1,0 +1,1647 @@
+---
+import CaseStudy from '../layouts/CaseStudy.astro';
+import SectionHero from '../components/SectionHero.astro';
+import SectionAbout from '../components/SectionAbout.astro';
+import SectionContent from '../components/SectionContent.astro';
+import SectionCardSorting from '../components/SectionCardSorting.astro';
+import SectionSolution from '../components/SectionSolution.astro';
+import SectionWireframes from '../components/SectionWireframes.astro';
+import SectionGallery from '../components/SectionGallery.astro';
+import SectionUserJourney from '../components/SectionUserJourney.astro';
+
+// Inlined (not <img>) so the diagrams inherit the page's DM Sans webfont.
+import flow1 from '../assets/flows/bm-flow-1-creating.svg?raw';
+import flow2 from '../assets/flows/bm-flow-2-triggers-actions.svg?raw';
+import flow3 from '../assets/flows/bm-flow-3-split-paths.svg?raw';
+import flow4 from '../assets/flows/bm-flow-4-testing.svg?raw';
+import flow5 from '../assets/flows/bm-flow-5-publishing.svg?raw';
+import flowLegend from '../assets/flows/bm-flow-legend.svg?raw';
+
+// Grayscale wireframes — fidelity ramps V1 (low) -> V2 (medium) -> V3 (mid-fi replica)
+import wfCanvasV1 from '../assets/wireframes/bm-wf-canvas-v1.svg?raw';
+import wfCanvasV2 from '../assets/wireframes/bm-wf-canvas-v2.svg?raw';
+import wfCanvasV3 from '../assets/wireframes/bm-wf-canvas-v3.svg?raw';
+import wfSidebarV1 from '../assets/wireframes/bm-wf-sidebar-v1.svg?raw';
+import wfSidebarV2 from '../assets/wireframes/bm-wf-sidebar-v2.svg?raw';
+import wfSidebarV3 from '../assets/wireframes/bm-wf-sidebar-v3.svg?raw';
+import wfSplitV1 from '../assets/wireframes/bm-wf-split-v1.svg?raw';
+import wfSplitV2 from '../assets/wireframes/bm-wf-split-v2.svg?raw';
+import wfSplitV3 from '../assets/wireframes/bm-wf-split-v3.svg?raw';
+import wfTestV1 from '../assets/wireframes/bm-wf-test-v1.svg?raw';
+import wfTestV2 from '../assets/wireframes/bm-wf-test-v2.svg?raw';
+import wfTestV3 from '../assets/wireframes/bm-wf-test-v3.svg?raw';
+import wfTriggersV1 from '../assets/wireframes/bm-wf-triggers-v1.svg?raw';
+import wfTriggersV2 from '../assets/wireframes/bm-wf-triggers-v2.svg?raw';
+import wfTriggersV3 from '../assets/wireframes/bm-wf-triggers-v3.svg?raw';
+import wfAuthV1 from '../assets/wireframes/bm-wf-auth-v1.svg?raw';
+import wfAuthV2 from '../assets/wireframes/bm-wf-auth-v2.svg?raw';
+import wfAuthV3 from '../assets/wireframes/bm-wf-auth-v3.svg?raw';
+import wfNamingV1 from '../assets/wireframes/bm-wf-naming-v1.svg?raw';
+import wfNamingV2 from '../assets/wireframes/bm-wf-naming-v2.svg?raw';
+import wfNamingV3 from '../assets/wireframes/bm-wf-naming-v3.svg?raw';
+
+// Component-level wireframes, redrawn from the original Blend Metrics wireframes
+import cwTriggerPicker from '../assets/wireframes/bm-cw-trigger-picker.svg?raw';
+import cwTriggerSetup from '../assets/wireframes/bm-cw-trigger-setup.svg?raw';
+import cwConditionBuilder from '../assets/wireframes/bm-cw-condition-builder.svg?raw';
+import cwPopupGrid from '../assets/wireframes/bm-cw-popup-grid.svg?raw';
+import cwPopupList from '../assets/wireframes/bm-cw-popup-list.svg?raw';
+import cwPopupSearch from '../assets/wireframes/bm-cw-popup-search.svg?raw';
+import cwPopupEmpty from '../assets/wireframes/bm-cw-popup-empty.svg?raw';
+
+// Conditional logic — variant states and selectors (src: Conditional Logic/)
+import cwCondGroups from '../assets/wireframes/bm-cw-cond-groups.svg?raw';
+import cwCondOperator from '../assets/wireframes/bm-cw-cond-operator.svg?raw';
+import cwCondFields from '../assets/wireframes/bm-cw-cond-fields.svg?raw';
+import cwCondDatePicker from '../assets/wireframes/bm-cw-cond-datepicker.svg?raw';
+import cwCondSearch from '../assets/wireframes/bm-cw-cond-search.svg?raw';
+import cwCondSaveModal from '../assets/wireframes/bm-cw-cond-savemodal.svg?raw';
+
+// Final features — high-fidelity grayscale wireframes
+import finalCanvas from '../assets/final/bm-final-canvas.svg?raw';
+import finalTriggerSetup from '../assets/final/bm-final-trigger-setup.svg?raw';
+import finalSplitPath from '../assets/final/bm-final-split-path.svg?raw';
+import finalTesting from '../assets/final/bm-final-testing.svg?raw';
+import finalPublish from '../assets/final/bm-final-publish.svg?raw';
+import finalAuth from '../assets/final/bm-final-auth.svg?raw';
+import finalManage from '../assets/final/bm-final-manage.svg?raw';
+import finalSearch from '../assets/final/bm-final-search.svg?raw';
+import finalTabs from '../assets/final/bm-final-tabs.svg?raw';
+import finalVersion from '../assets/final/bm-final-version.svg?raw';
+import finalLibrary from '../assets/final/bm-final-library.svg?raw';
+import finalConfirm from '../assets/final/bm-final-confirm.svg?raw';
+
+// Matches the legend label on the Marketeq Projects case study
+const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.05em;';
+---
+
+<CaseStudy title="Blend Metrics">
+
+  <!-- 1. Hero -->
+  <SectionHero
+    label="BLEND METRICS"
+    title="New API Integration workflow builder to be more <strong>intuitive and flexible</strong>"
+    image="/images/bm-hero.webp"
+    imageAlt="Blend Metrics platform overview"
+  />
+
+  <!-- 2. About the Project -->
+  <SectionAbout
+    label="ABOUT THE PROJECT"
+    title="Designing for Control"
+    sidebar={[
+      { label: 'ROLE', items: ['Senior UX Architect', 'UX Strategy & Direction', 'UI Design System', 'Hi-Fidelity Visual Design'] },
+      { label: 'CLIENT', items: ['Blend Metrics'] },
+    ]}
+  >
+    <p>Blend Metrics is an API integration platform that helps businesses connect their tools through visual workflow automations. The existing builder worked, but it wasn't intuitive. Users struggled to set up conditional logic, couldn't easily test their workflows before publishing, and had no clear way to handle branching paths or error states.</p>
+    <p>So I was brought in to redesign the entire workflow builder experience from the ground up.</p>
+    <p>I led the UX strategy and visual design for a new drag-and-drop canvas, a smarter sidebar configuration system, conditional and percentage-based split paths, inline validation, and a full testing flow, all built on top of a custom design system I created specifically for this product.</p>
+    <p>The goal? Give users the confidence to build complex automations without second-guessing every step.</p>
+  </SectionAbout>
+
+  <hr class="cs-section-divider">
+
+  <!-- 3. The Problem -->
+  <SectionContent title="The Problem">
+    <div class="cs-body-text">
+      <p>The idea behind the workflow builder was straightforward: Pick a trigger &rarr; Add your steps &rarr; Publish.</p>
+      <p>But the actual experience was far from straightforward. The original builder tried to support everything, triggers, actions, conditional logic, split paths, testing, but without enough visual structure or feedback. During internal reviews and early user sessions, the same question kept coming up: "Wait... did this actually work?"</p>
+      <p>Users were building workflows but couldn't tell if they were configured correctly until something broke in production.</p>
+    </div>
+
+    <div class="cs-problems-grid">
+      <div class="cs-problem-card">
+        <h3><span class="cs-x-icon">&#10005;</span> Problem 01: Canvas Confusion</h3>
+        <p>Users didn't know where to start. The canvas had no empty states, no onboarding hints, and no visual hierarchy. Dropping a trigger onto a blank screen felt like guessing, not building.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3><span class="cs-x-icon">&#10005;</span> Problem 02: Invisible Logic</h3>
+        <p>Conditional branching was powerful but opaque. Users had no way to tell at a glance:</p>
+        <ul>
+          <li>Which path a condition would trigger</li>
+          <li>Whether their logic was complete</li>
+          <li>What happened to contacts who didn't match any rule</li>
+        </ul>
+        <p>Split paths were especially confusing. There was no visual distinction between conditional and percentage-based splits, and no inline validation to flag missing rules.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3><span class="cs-x-icon">&#10005;</span> Problem 03: Publish and Pray</h3>
+        <p>There was no way to test a workflow before it went live. Users would publish, wait for real data to flow through, and then discover broken connections or misconfigured steps after the fact. No test mode. No error preview. No safety net.</p>
+      </div>
+    </div>
+
+    <blockquote class="cs-pullquote">
+      <svg class="cs-pullquote-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/></svg>
+      I built the whole thing and hit publish,<br>but I have no idea if it actually works.
+    </blockquote>
+
+    <div class="cs-problem-item">
+      <h3 class="cs-problem-title"><span class="cs-eyes-icon">&#128064;</span> What We Noticed Early</h3>
+      <p>Even power users were avoiding the advanced features. They'd build simple linear workflows and skip conditional logic entirely because the interface made it feel too risky. That's when we knew the problem wasn't the feature set. It was the experience around it.</p>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 4. Design Requirements -->
+  <SectionContent title="Design Requirements">
+    <div class="cs-req-grid">
+      <div class="cs-problem-card">
+        <h3>&#129482; Show, Don't Tell</h3>
+        <p>The canvas should communicate workflow state visually. Connection lines, color-coded nodes, inline status badges, and error highlights should make the builder self-explanatory without documentation.</p>
+        <p class="cs-card-quote">"I shouldn't have to click into every node to know if my workflow is set up right." - Early tester</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>&#128737; Prevent Errors Before They Happen</h3>
+        <p>Inline validation, required-field indicators, and error states on the canvas should catch configuration issues before users ever hit "Publish." The system should protect users from shipping broken automations.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>&#128065; Make Complex Logic Approachable</h3>
+        <p>Conditional splits, percentage routing, and AND/OR logic are powerful features. But they shouldn't feel like writing code. The interface should make branching logic feel like a visual decision tree, not a spreadsheet formula.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>&#128172; Keep the Canvas Clean</h3>
+        <p>No matter how complex the workflow gets, the canvas should stay readable. Auto-layout, consistent node sizing, and curved connection lines should keep multi-step automations visually organized.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>Test Before You Ship</h3>
+        <p>Users need a way to validate their entire workflow before publishing. A built-in test runner that shows passed and failed connections, with inline error highlights, gives users the confidence to go live.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>Design for the Builder's Workflow</h3>
+        <p>Auto-save, version history, undo support, and contextual sidebars should let users build iteratively without fear of losing progress. The builder should feel like a creative tool, not a form.</p>
+      </div>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 5. The Solution -->
+  <SectionContent title="The Solution">
+    <div class="cs-body-text">
+      <p>We didn't just polish the existing builder. We rethought the entire workflow creation experience.</p>
+      <p>We rebuilt the canvas with drag-and-drop interactions, added a contextual sidebar that adapts to whatever node you're configuring, and introduced split paths with both conditional and percentage-based routing. Then we layered in a full test-before-publish flow so users could validate their automations before going live.</p>
+      <p>Every decision was guided by one question: "Can the user tell what's happening and feel confident it's correct?"</p>
+      <h3>Here's what changed:</h3>
+    </div>
+    <div class="cs-problems-grid" style="margin-top: 24px;">
+      <div class="cs-problem-card">
+        <h3>Visual Drag &amp; Drop Canvas</h3>
+        <p>A three-step interaction: empty drop zone appears, highlights on hover, snaps on release. Users always know where a node will land.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>Contextual Sidebar</h3>
+        <p>The sidebar adapts to the selected node, showing trigger setup, action configuration, or split path conditions with tabbed navigation.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>Conditional &amp; Percentage Splits</h3>
+        <p>Two split types give users full control over branching logic: route by data conditions or distribute traffic by percentage for A/B testing.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>Inline Validation</h3>
+        <p>Unconfigured nodes get red error borders and warning icons on the canvas. Users see problems before they publish, not after.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>Built-in Test Runner</h3>
+        <p>A pre-publish test panel shows passed and failed connections with expandable details. Error nodes are highlighted directly on the canvas.</p>
+      </div>
+      <div class="cs-problem-card">
+        <h3>Auto-save &amp; Version History</h3>
+        <p>A persistent save indicator in the header shows real-time status. Version history lets users roll back changes without losing their work.</p>
+      </div>
+    </div>
+    <div class="cs-body-text" style="margin-top: 32px;">
+      <p>The result was a builder where users could see their logic, validate their setup, and publish with confidence.</p>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 6. Market Research -->
+  <SectionContent title="Market Research">
+    <h3 class="cs-subtitle">Comparing the Competition</h3>
+    <div class="cs-body-text">
+      <p>Before committing to any design direction, we studied other workflow and automation platforms to see how they handle the same challenges we were solving.</p>
+      <p>We analyzed a mix of direct and indirect competitors:</p>
+      <ul>
+        <li>Zapier (the market leader, simple but limited visual feedback)</li>
+        <li>Make (formerly Integromat, powerful but visually dense)</li>
+        <li>n8n (open-source, developer-friendly, steep learning curve)</li>
+        <li>HubSpot Workflows (polished but rigid branching)</li>
+        <li>Workato, Tray.io (enterprise-grade, complex onboarding)</li>
+      </ul>
+    </div>
+
+    <div class="cs-subsection">
+      <h3 class="cs-subsection-title">&#128270; What We Were Looking For</h3>
+      <div class="cs-problems-grid cs-problems-grid--four">
+        <div class="cs-problem-card">
+          <h3>Canvas Clarity</h3>
+          <p>How readable is the workflow at a glance?</p>
+        </div>
+        <div class="cs-problem-card">
+          <h3>Error Visibility</h3>
+          <p>Can users spot broken connections before publishing?</p>
+        </div>
+        <div class="cs-problem-card">
+          <h3>Branching UX</h3>
+          <p>How intuitive is it to set up conditional or split-path logic?</p>
+        </div>
+        <div class="cs-problem-card">
+          <h3>Testing Support</h3>
+          <p>Can users validate workflows before they go live?</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-subsection">
+      <h3 class="cs-subsection-title">&#10006; Where They Fell Short</h3>
+      <div class="cs-problems-grid">
+        <div class="cs-problem-card">
+          <h3>&#129521; Zapier &amp; HubSpot</h3>
+          <ul>
+            <li>Linear step lists that don't scale visually for complex automations</li>
+            <li>Branching logic feels bolted on rather than native to the builder</li>
+            <li>No inline validation or canvas-level error highlighting</li>
+          </ul>
+        </div>
+        <div class="cs-problem-card">
+          <h3>&#129513; Make &amp; n8n</h3>
+          <ul>
+            <li>Powerful visual canvases, but overwhelming for non-technical users</li>
+            <li>Dense node configurations that require deep product knowledge to navigate</li>
+          </ul>
+        </div>
+        <div class="cs-problem-card">
+          <h3>&#128172; Workato &amp; Tray.io</h3>
+          <ul>
+            <li>Enterprise-grade features behind complex onboarding flows</li>
+            <li>Strong testing tools, but the setup process itself needs a tutorial</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 48px;">
+      <p>These gave us a clear benchmark: powerful logic needs an approachable interface, not just more features.</p>
+    </div>
+
+    <div class="cs-image-full">
+      <img src="/images/bm-research-competitors.png" alt="Competitor research board: Zapier, Make, n8n, HubSpot, Workato, Tray.io">
+    </div>
+    <div class="cs-image-full">
+      <img src="/images/bm-research-bestinclass.png" alt="Best in class research board: workflow builder patterns and UI benchmarks">
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 7. Affinity Mapping -->
+  <SectionContent title="Affinity Mapping">
+    <div class="cs-body-text">
+      <p>We gathered notes from user interviews, internal feedback sessions, and early usability tests, then grouped them to find the patterns.</p>
+      <p>Users were articulating frustrations differently, but the underlying themes were consistent. Whether they were talking about triggers, conditions, or testing, the same anxieties kept surfacing.</p>
+      <p>Once we clustered everything, it became clear: we weren't just solving for layout or interaction. We were solving for confidence.</p>
+    </div>
+
+    <h3 class="cs-subsection-title">Common Themes We Found</h3>
+    <div class="cs-themes-grid">
+      <div class="cs-theme">
+        <h4>&#128172; Configuration Clarity</h4>
+        <ul>
+          <li>"I set up the trigger but I'm not sure it's actually connected."</li>
+          <li>"Which fields are required vs. optional?"</li>
+        </ul>
+      </div>
+      <div class="cs-theme">
+        <h4>&#129513; Branching Anxiety</h4>
+        <ul>
+          <li>"I added a split path but I don't know what happens to contacts who don't match."</li>
+          <li>"Can I see all conditions at once without clicking into each path?"</li>
+          <li>"What if I accidentally delete a path with steps in it?"</li>
+        </ul>
+      </div>
+      <div class="cs-theme">
+        <h4>&#128101; Testing &amp; Validation</h4>
+        <ul>
+          <li>"How do I know this works before I publish it?"</li>
+          <li>"Can I run a test with sample data?"</li>
+          <li>"Where do I see what failed and why?"</li>
+        </ul>
+      </div>
+      <div class="cs-theme">
+        <h4>&#128184; Workflow Management</h4>
+        <ul>
+          <li>"Does it auto-save or do I have to manually save?"</li>
+          <li>"Can I go back to a previous version?"</li>
+          <li>"What happens if I accidentally close the tab?"</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title">&#128161; What This Told Us</h3>
+    <p class="cs-body-text">Users didn't want fewer features. They wanted more visibility. So every design decision from here on, inline validation, test runners, auto-save indicators, confirmation dialogs, was built to answer one question: "Can I trust what I just built?"</p>
+
+    <div class="cs-image-full">
+      <img src="/images/bm-affinity-map.png" alt="Affinity map: Canvas & Node Clarity, Configuration & Setup, Branching & Logic, Testing & Validation, Publish & Lifecycle, and Workflow Management themes">
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 8. Feature Prioritization -->
+  <SectionContent title="Feature Prioritization">
+    <div class="cs-body-text">
+      <p>Once we had a clearer picture of what users needed, we mapped out every possible feature and sorted them by impact, effort, and user confidence. The question at the center of every decision: "Will this help users build and publish workflows with less doubt?"</p>
+      <p>If the answer wasn't a clear yes, it didn't make the cut.</p>
+    </div>
+
+    <div class="cs-problems-grid">
+      <div class="cs-problem-card cs-card--green">
+        <h3>&#9989; Must-Have</h3>
+        <ul>
+          <li>Drag-and-drop canvas with visual drop zones</li>
+          <li>Contextual sidebar with Setup, Conditions, and Test tabs</li>
+          <li>Conditional split paths with AND/OR logic builder</li>
+          <li>Percentage-based split paths with auto-distribution</li>
+          <li>Inline validation with error borders and warning icons</li>
+          <li>Pre-publish test runner with pass/fail results</li>
+          <li>Auto-save indicator and confirmation dialogs</li>
+        </ul>
+      </div>
+      <div class="cs-problem-card cs-card--yellow">
+        <h3>&#129300; Nice-to-Have (Later)</h3>
+        <ul>
+          <li>Version history with rollback support</li>
+          <li>Workflow templates and cloning</li>
+          <li>Real-time collaboration on the canvas</li>
+          <li>Advanced analytics per workflow node</li>
+        </ul>
+      </div>
+      <div class="cs-problem-card cs-card--red">
+        <h3>&#10060; Will Not Have</h3>
+        <ul>
+          <li>Code-based workflow editor</li>
+          <li>Custom node creation from scratch</li>
+          <li>Cross-workflow dependency chains</li>
+          <li>AI-generated workflow suggestions</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 48px;">
+      <p>This helped us stay focused. We didn't chase power-user features. We prioritized clarity and validation at exactly the points where users tend to lose confidence.</p>
+    </div>
+
+    <div class="cs-image-full">
+      <img src="/images/bm-card-sorting-competitors.png" alt="Card sorting: Competitors - Must Have and Nice to Have features from Zapier, Make, n8n, HubSpot">
+    </div>
+    <div class="cs-image-full">
+      <img src="/images/bm-card-sorting-bestinclass.png" alt="Card sorting: Best in Class / Out of Category - UX patterns from top builder tools">
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 9. User Journey -->
+  <section class="cs-section">
+    <div class="container">
+      <h2 class="cs-section-title">User Journey</h2>
+
+      <div class="cs-body-text">
+        <p>We mapped out what it actually felt like to build a workflow in Blend Metrics, from opening a blank canvas to publishing a live automation. The journey revealed hidden friction points at every stage. Users weren't just clicking nodes. They were guessing, backtracking, and abandoning workflows they weren't sure would work.</p>
+      </div>
+
+      <div class="cs-two-card-grid">
+        <div class="cs-problem-card">
+          <h3>&#128161; Where Things Got Messy</h3>
+          <ul>
+            <li>No guided empty state on the blank canvas</li>
+            <li>No visual feedback when nodes were misconfigured</li>
+            <li>No way to test a workflow before publishing</li>
+            <li>No confirmation or success state after going live</li>
+          </ul>
+        </div>
+        <div class="cs-problem-card">
+          <h3>&#128560; What We Had to Fix</h3>
+          <p>To create a smoother, more confident builder flow, we focused on the moments that triggered doubt and redesigned them with clarity in mind:</p>
+          <ul>
+            <li>Added guided empty states and drop zone hints on the canvas</li>
+            <li>Introduced inline validation with red error borders and warning icons</li>
+            <li>Built a pre-publish test runner with pass/fail results per connection</li>
+            <li>Created confirmation dialogs and success states for every destructive or milestone action</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cs-body-text" style="margin-top: 48px;">
+        <p>We weren't just mapping clicks. We were mapping confidence levels. Because automation builders don't lose users at the start. They lose them in the middle, when things get complex and there's no feedback telling them they're on the right track.</p>
+      </div>
+
+      <!-- Journey Session Image -->
+      <div class="cs-image-full">
+        <img src="/images/bm-journey-session.png" alt="Workflow Builder Journey Session board">
+      </div>
+
+      <!-- Arrow pointing down to chart -->
+      <div class="cs-journey-arrow">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+      </div>
+
+      <!-- Journey Experience Map -->
+      <div class="cs-journey-map">
+
+        <!-- Phase Row -->
+        <div class="cs-journey-row">
+          <div class="cs-journey-label">Phase</div>
+          <div class="cs-journey-grid">
+            <div class="cs-journey-cell cs-journey-phase">1. Creating<br>a Workflow</div>
+            <div class="cs-journey-cell cs-journey-phase">2. Adding<br>Triggers &amp; Actions</div>
+            <div class="cs-journey-cell cs-journey-phase">3. Configuring<br>Split Paths</div>
+            <div class="cs-journey-cell cs-journey-phase">4. Testing</div>
+            <div class="cs-journey-cell cs-journey-phase">5. Publishing</div>
+            <div class="cs-journey-cell cs-journey-phase">6. Managing<br>Workflows</div>
+          </div>
+        </div>
+
+        <!-- Emotions Row (Curve) -->
+        <div class="cs-journey-row">
+          <div class="cs-journey-label">Emotions</div>
+          <div class="cs-journey-grid cs-journey-grid--curve">
+            <div class="cs-curve-area">
+              <div class="cs-curve-baseline"></div>
+              <svg class="cs-curve-svg" viewBox="0 0 1200 300" preserveAspectRatio="none">
+                <polyline
+                  points="100,200 300,190 500,160 700,185 900,230 1100,250"
+                  fill="none"
+                  stroke="var(--journey-color)"
+                  stroke-width="3"
+                />
+              </svg>
+              <div class="cs-curve-point" style="left: 8.3%; top: 62%;">
+                <div class="cs-curve-dot"></div>
+                <div class="cs-curve-tooltip cs-curve-tooltip--below">Uncertain where<br>to start building</div>
+              </div>
+              <div class="cs-curve-point" style="left: 25%; top: 58%;">
+                <div class="cs-curve-dot"></div>
+                <div class="cs-curve-tooltip cs-curve-tooltip--above">Focused but unsure<br>about node setup</div>
+              </div>
+              <div class="cs-curve-point" style="left: 41.6%; top: 48%;">
+                <div class="cs-curve-dot"></div>
+                <div class="cs-curve-tooltip cs-curve-tooltip--above">Cautious building<br>branching logic</div>
+              </div>
+              <div class="cs-curve-point" style="left: 58.3%; top: 56%;">
+                <div class="cs-curve-dot"></div>
+                <div class="cs-curve-tooltip cs-curve-tooltip--below">Anxious about<br>broken connections</div>
+              </div>
+              <div class="cs-curve-point" style="left: 75%; top: 72%;">
+                <div class="cs-curve-dot"></div>
+                <div class="cs-curve-tooltip cs-curve-tooltip--below">Hesitant to push<br>workflow live</div>
+              </div>
+              <div class="cs-curve-point" style="left: 91.6%; top: 80%;">
+                <div class="cs-curve-dot"></div>
+                <div class="cs-curve-tooltip cs-curve-tooltip--above">Frustrated tracking<br>multiple workflows</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Actions Row -->
+        <div class="cs-journey-row">
+          <div class="cs-journey-label">Actions</div>
+          <div class="cs-journey-grid">
+            <div class="cs-journey-cell">
+              <p><strong>1A.</strong> Name the workflow and land on a blank canvas.</p>
+              <p><strong>1B.</strong> Look for guidance on where to start. Try to find available triggers.</p>
+              <p><strong>1C.</strong> Drag a trigger onto the canvas and see it snap into place.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>2A.</strong> Open the sidebar to configure the trigger's event type and account.</p>
+              <p><strong>2B.</strong> Add action steps via the "+" button or by dragging from the panel.</p>
+              <p><strong>2C.</strong> Connect a third-party account using one of the authorization methods.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>3A.</strong> Add a Split Path node and choose conditional or percentage split.</p>
+              <p><strong>3B.</strong> Define conditions using the AND/OR logic builder for each path.</p>
+              <p><strong>3C.</strong> Add action steps to each branch. Toggle merge paths on or off.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>4A.</strong> Click "Test" to run the pre-publish validation.</p>
+              <p><strong>4B.</strong> Review passed and failed connections in the results panel.</p>
+              <p><strong>4C.</strong> Click error-highlighted nodes on the canvas to fix issues inline.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>5A.</strong> Click "Publish" and review the confirmation dialog.</p>
+              <p><strong>5B.</strong> Confirm the workflow will go live. See the success state.</p>
+              <p><strong>5C.</strong> Choose "Go to Dashboard" or "Keep Working" as next step.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>6A.</strong> Browse the workflow dashboard to find existing automations.</p>
+              <p><strong>6B.</strong> Use context menus to rename, duplicate, or delete workflows.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Thoughts Row -->
+        <div class="cs-journey-row">
+          <div class="cs-journey-label">Thoughts</div>
+          <div class="cs-journey-grid">
+            <div class="cs-journey-cell cs-journey-cell--italic">
+              <p><strong>1A.</strong> "This blank canvas is intimidating. Where do I even start?"</p>
+              <p><strong>1B.</strong> "I hope I don't break something by dragging the wrong thing."</p>
+            </div>
+            <div class="cs-journey-cell cs-journey-cell--italic">
+              <p><strong>2A.</strong> "Which fields are required? I don't want to miss something."</p>
+              <p><strong>2B.</strong> "I hope this auto-saves. I don't want to lose my setup."</p>
+            </div>
+            <div class="cs-journey-cell cs-journey-cell--italic">
+              <p><strong>3A.</strong> "I need conditional logic but I'm not sure which split type to use."</p>
+              <p><strong>3B.</strong> "What happens to contacts who don't match any condition?"</p>
+            </div>
+            <div class="cs-journey-cell cs-journey-cell--italic">
+              <p><strong>4A.</strong> "I really hope this works. I've spent too long setting this up to start over."</p>
+            </div>
+            <div class="cs-journey-cell cs-journey-cell--italic">
+              <p><strong>5A.</strong> "Is this actually going to go live right now? What if something's wrong?"</p>
+              <p><strong>5B.</strong> "I wish I could see a summary of everything before confirming."</p>
+            </div>
+            <div class="cs-journey-cell cs-journey-cell--italic">
+              <p><strong>6A.</strong> "I need to find the workflow I built last week but I can't remember what I named it."</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pain Points Row -->
+        <div class="cs-journey-row">
+          <div class="cs-journey-label">Pain Points</div>
+          <div class="cs-journey-grid">
+            <div class="cs-journey-cell">
+              <p><strong>1A.</strong> Blank canvas gives no guidance on first steps.</p>
+              <p><strong>1B.</strong> No empty state explaining the trigger-first workflow.</p>
+              <p><strong>1C.</strong> Drop zones aren't visible until you start dragging.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>2A.</strong> Required fields aren't clearly marked in the sidebar.</p>
+              <p><strong>2B.</strong> Account connection flow interrupts the configuration flow.</p>
+              <p><strong>2C.</strong> No indication of save status after making changes.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>3A.</strong> No explanation of when to use conditional vs. percentage split.</p>
+              <p><strong>3B.</strong> Complex AND/OR logic is hard to read at a glance.</p>
+              <p><strong>3C.</strong> Deleting a path with steps has no confirmation dialog.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>4A.</strong> No way to test before publishing.</p>
+              <p><strong>4B.</strong> Error messages are vague and don't point to specific nodes.</p>
+              <p><strong>4C.</strong> No visual indication of which connections failed.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>5A.</strong> No confirmation step before going live.</p>
+              <p><strong>5B.</strong> No success state or celebration after publishing.</p>
+              <p><strong>5C.</strong> No clear next-step options after publish.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>6A.</strong> No search or filter on the workflow dashboard.</p>
+              <p><strong>6B.</strong> No version history to roll back changes.</p>
+              <p><strong>6C.</strong> Deleting a workflow has no recovery option.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Insights/Opportunities Row -->
+        <div class="cs-journey-row">
+          <div class="cs-journey-label">Insights /<br>Opportunities</div>
+          <div class="cs-journey-grid">
+            <div class="cs-journey-cell">
+              <p><strong>1A.</strong> Add a guided empty state with "Add a Trigger" prompt.</p>
+              <p><strong>1B.</strong> Auto-open sidebar with available trigger types.</p>
+              <p><strong>1C.</strong> Show drop zones proactively on the canvas.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>2A.</strong> Mark required fields with clear visual indicators.</p>
+              <p><strong>2B.</strong> Keep account connection inline within the sidebar flow.</p>
+              <p><strong>2C.</strong> Add persistent auto-save indicator in the header.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>3A.</strong> Add descriptions under each split type explaining the use case.</p>
+              <p><strong>3B.</strong> Show condition summaries inline on the canvas paths.</p>
+              <p><strong>3C.</strong> Add confirmation dialog before deleting paths with content.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>4A.</strong> Build a pre-publish test runner with pass/fail per connection.</p>
+              <p><strong>4B.</strong> Highlight error nodes on the canvas with red borders.</p>
+              <p><strong>4C.</strong> Add "Test Again" for iterative debugging.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>5A.</strong> Add two-step confirmation dialog before publishing.</p>
+              <p><strong>5B.</strong> Celebrate with a success state and green checkmark.</p>
+              <p><strong>5C.</strong> Offer "Go to Dashboard" and "Keep Working" options.</p>
+            </div>
+            <div class="cs-journey-cell">
+              <p><strong>6A.</strong> Add search and filter to the workflow dashboard.</p>
+              <p><strong>6B.</strong> Add version history with rollback support.</p>
+              <p><strong>6C.</strong> 30-day trash recovery for deleted workflows.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="cs-section-divider">
+
+  <!-- 10. User Flows -->
+  <SectionContent title="User Flows">
+    <div class="cs-body-text">
+      <p>We mapped five core flows that represent the full lifecycle of building and managing a workflow automation. Each one was designed to reduce cognitive load at the exact moments where users tend to hesitate, second-guess, or abandon the process entirely.</p>
+    </div>
+
+    <!-- Flow 1: Creating a Workflow -->
+    <div class="cs-subsection">
+      <h3 class="cs-subsection-title">Flow 1: Creating a Workflow</h3>
+      <div class="cs-flow-pills">
+        <span><strong>Open Workflow Builder</strong> &rarr; Click "New Workflow" from the dashboard &rarr; Name the workflow in a modal dialog</span>
+        <span><strong>Land on Canvas</strong> &rarr; Guided empty state appears with "Add a Trigger" prompt &rarr; Dotted drop zone shows where to start</span>
+        <span><strong>Select First Trigger</strong> &rarr; Sidebar auto-opens with searchable trigger list (App Event, Webhook, Schedule, Forms) &rarr; Drag trigger onto the canvas drop zone</span>
+        <span><strong>Trigger Activates</strong> &rarr; Drop zone changes color to confirm placement &rarr; Sidebar switches to trigger setup with Setup/Conditions/Test tabs &rarr; Floating "+" button appears for adding next steps</span>
+      </div>
+      <div class="cs-body-text" style="margin-top: 24px;">
+        <p>The biggest risk here was the blank canvas. Early versions dropped users onto an empty screen with no guidance. We solved this with a guided empty state that tells users exactly what to do first, eliminating the "where do I even start?" moment.</p>
+      </div>
+      <div class="cs-image-full" style="margin-top: 32px;" set:html={flow1} />
+    </div>
+
+    <!-- Flow 2: Configuring Triggers & Actions -->
+    <div class="cs-subsection" style="margin-top: 48px;">
+      <h3 class="cs-subsection-title">Flow 2: Configuring Triggers & Actions</h3>
+      <div class="cs-flow-pills">
+        <span><strong>Configure Trigger</strong> &rarr; Select event type from dropdown &rarr; Connect account via inline OAuth flow &rarr; Required fields marked with clear indicators</span>
+        <span><strong>Add Action Steps</strong> &rarr; Click "+" button or drag from sidebar panel &rarr; Choose action type (Send Email, Save Data, API Call) &rarr; Each step auto-opens its setup sidebar</span>
+        <span><strong>Map Fields</strong> &rarr; Map data from trigger to action fields &rarr; Dynamic field suggestions based on connected apps &rarr; Live preview of mapped values</span>
+        <span><strong>Build the Sequence</strong> &rarr; Add multiple actions in sequence &rarr; Reorder via drag and drop &rarr; Live auto-save indicator confirms progress is preserved</span>
+      </div>
+      <div class="cs-body-text" style="margin-top: 24px;">
+        <p>Users needed to feel like they were making progress, not just filling out forms. The sidebar stays contextual to whatever node is selected, and the auto-save indicator removes the anxiety of losing work mid-setup.</p>
+      </div>
+      <div class="cs-image-full" style="margin-top: 32px;" set:html={flow2} />
+    </div>
+
+    <!-- Flow 3: Configuring Split Paths -->
+    <div class="cs-subsection" style="margin-top: 48px;">
+      <h3 class="cs-subsection-title">Flow 3: Configuring Split Paths (Branching Logic)</h3>
+      <div class="cs-flow-pills">
+        <span><strong>Add Split Path Node</strong> &rarr; Choose between Conditional Split or Percentage Split &rarr; Clear descriptions explain when to use each type</span>
+        <span><strong>Define Conditions</strong> &rarr; Build rules with AND/OR logic builder &rarr; Inline condition summaries appear on canvas paths &rarr; Readable at a glance without opening the sidebar</span>
+        <span><strong>Add Steps to Branches</strong> &rarr; Each branch gets its own "+" button for adding actions &rarr; Merge paths toggle controls whether branches rejoin downstream</span>
+        <span><strong>Validate Paths</strong> &rarr; Confirmation dialog before deleting paths with existing steps &rarr; Visual preview shows which contacts route down which path &rarr; Edit any branch without restarting from the beginning</span>
+      </div>
+      <div class="cs-body-text" style="margin-top: 24px;">
+        <p>Branching logic is where most workflow tools lose people. We made the split type decision easy with plain-language descriptions, kept conditions readable on the canvas itself, and added safeguards against accidental deletion of configured paths.</p>
+      </div>
+      <div class="cs-image-full" style="margin-top: 32px;" set:html={flow3} />
+    </div>
+
+    <!-- Flow 4: Testing a Workflow -->
+    <div class="cs-subsection" style="margin-top: 48px;">
+      <h3 class="cs-subsection-title">Flow 4: Testing a Workflow</h3>
+      <div class="cs-flow-pills">
+        <span><strong>Initiate Test</strong> &rarr; Click "Run Test" from the toolbar or right-click context menu &rarr; Choose test scope: single step, single trigger, or entire workflow</span>
+        <span><strong>Review Results</strong> &rarr; Pass/fail indicator per connection &rarr; Green checkmarks for successful steps, red error borders for failed nodes &rarr; Expandable details show exactly what went wrong</span>
+        <span><strong>Debug &amp; Fix</strong> &rarr; Click failed node to jump directly to its configuration &rarr; Fix the issue in the sidebar without leaving the test view &rarr; Error context preserved so users know what to change</span>
+        <span><strong>Re-test</strong> &rarr; "Test Again" button for iterative debugging &rarr; Results update in real-time &rarr; All steps must pass before the publish button becomes available</span>
+      </div>
+      <div class="cs-body-text" style="margin-top: 24px;">
+        <p>Testing was the biggest trust-builder in the entire flow. Users told us they would never publish something they couldn't verify first. The inline debugging loop (test, see error, fix, re-test) kept them in flow state instead of bouncing between screens.</p>
+      </div>
+      <div class="cs-image-full" style="margin-top: 32px;" set:html={flow4} />
+    </div>
+
+    <!-- Flow 5: Publishing & Managing Workflows -->
+    <div class="cs-subsection" style="margin-top: 48px;">
+      <h3 class="cs-subsection-title">Flow 5: Publishing & Managing Workflows</h3>
+      <div class="cs-flow-pills">
+        <span><strong>Publish</strong> &rarr; Two-step confirmation dialog: "This workflow will go live" in plain language &rarr; Blue "Yes, publish" button with cancel option &rarr; No ambiguity about what happens next</span>
+        <span><strong>Success State</strong> &rarr; "Congratulations, your workflow is now live!" celebration screen &rarr; "Go To Dashboard" or "Keep Working" options &rarr; Clear next steps instead of a dead end</span>
+        <span><strong>Manage from Dashboard</strong> &rarr; Track all workflows with status badges (Live, Draft, Paused) &rarr; Search, filter, and sort by name, status, or date &rarr; Context menus for rename, duplicate, pause, unpublish, and delete</span>
+        <span><strong>Lifecycle Actions</strong> &rarr; Pause or unpublish live workflows with confirmation &rarr; Version history with rollback to previous states &rarr; 30-day trash recovery for deleted workflows &rarr; Exit confirmation prevents accidental abandonment</span>
+      </div>
+      <div class="cs-body-text" style="margin-top: 24px;">
+        <p>Publishing should feel like a milestone, not a gamble. The two-step confirmation removes doubt, the success state provides emotional closure, and the dashboard gives users long-term control over everything they've built.</p>
+      </div>
+      <div class="cs-image-full" style="margin-top: 32px;" set:html={flow5} />
+    </div>
+
+    <p style={flowLabel}>Legend</p>
+    <div class="cs-image-full" style="max-width: 380px; margin-left: 0; margin-right: auto; margin-top: 0;" set:html={flowLegend} />
+
+    <blockquote class="cs-pullquote" style="margin-top: 48px;">
+      <svg class="cs-pullquote-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/></svg>
+      The hardest part wasn't building the features.<br>It was making complex logic feel effortless.
+    </blockquote>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- 11. Wireframe Iterations -->
+  <SectionWireframes
+    title="Wireframe Iterations"
+    groups={[
+      {
+        subtitle: 'Workflow Canvas',
+        description: 'V1 roughed out the empty state at low fidelity — a drop zone waiting for a trigger and a list docked to the right, with nothing named yet. V2 firmed it up: the drop zone got a prompt, a floating "+" hinted at the next step, and the trigger types got names. By V3 the blank page had become a guided starting point, with a clear "Add a Trigger" prompt, a searchable sidebar that opens on its own, and triggers you drag straight onto the canvas.',
+        versions: [
+          { label: 'Version 1', svg: wfCanvasV1, imageAlt: 'Wireframe: Workflow Canvas version 1' },
+          { label: 'Version 2', svg: wfCanvasV2, imageAlt: 'Wireframe: Workflow Canvas version 2' },
+          { label: 'Version 3', svg: wfCanvasV3, imageAlt: 'Wireframe: Workflow Canvas version 3' },
+        ],
+      },
+      {
+        subtitle: 'Sidebar Configuration',
+        description: 'V1 had a flat settings panel that showed all options at once. V2 introduced tabbed navigation (Setup, Conditions, Test) to organize complexity. By V3, the sidebar was fully contextual, adapting its content based on whether a trigger, action, or split path was selected, with inline validation for required fields.',
+        versions: [
+          { label: 'Version 1', svg: wfSidebarV1, imageAlt: 'Wireframe: Sidebar Configuration version 1' },
+          { label: 'Version 2', svg: wfSidebarV2, imageAlt: 'Wireframe: Sidebar Configuration version 2' },
+          { label: 'Version 3', svg: wfSidebarV3, imageAlt: 'Wireframe: Sidebar Configuration version 3' },
+        ],
+      },
+      {
+        subtitle: 'Split Path Builder',
+        description: 'V1 only supported linear workflows with no branching. V2 introduced a basic conditional split with two paths. By V3, users could choose between conditional and percentage splits, add unlimited paths, define AND/OR conditions, and toggle whether paths merge or stay independent downstream.',
+        versions: [
+          { label: 'Version 1', svg: wfSplitV1, imageAlt: 'Wireframe: Split Path Builder version 1' },
+          { label: 'Version 2', svg: wfSplitV2, imageAlt: 'Wireframe: Split Path Builder version 2' },
+          { label: 'Version 3', svg: wfSplitV3, imageAlt: 'Wireframe: Split Path Builder version 3' },
+        ],
+      },
+      {
+        subtitle: 'Test & Publish Flow',
+        description: 'V1 had no testing at all, just a publish button. V2 added a basic "run test" that showed pass/fail as text. By V3, the test panel showed expandable results per connection, the canvas highlighted error nodes in red, and a confirmation dialog with success state celebrated the publish milestone.',
+        versions: [
+          { label: 'Version 1', svg: wfTestV1, imageAlt: 'Wireframe: Test and Publish version 1' },
+          { label: 'Version 2', svg: wfTestV2, imageAlt: 'Wireframe: Test and Publish version 2' },
+          { label: 'Version 3', svg: wfTestV3, imageAlt: 'Wireframe: Test and Publish version 3' },
+        ],
+      },
+      {
+        subtitle: 'Multiple Triggers',
+        description: 'V1 allowed exactly one trigger per workflow, so anything with more than one entry point had to be rebuilt as a separate automation. V2 supported a second trigger, but the connectors met at right angles and it was hard to tell which trigger fed which step. By V3, a workflow could hold up to five triggers, with curved fan-in connectors converging cleanly on the first action, and the "Add Trigger" affordance disappearing once the fifth was placed.',
+        versions: [
+          { label: 'Version 1', svg: wfTriggersV1, imageAlt: 'Wireframe: Multiple Triggers version 1' },
+          { label: 'Version 2', svg: wfTriggersV2, imageAlt: 'Wireframe: Multiple Triggers version 2' },
+          { label: 'Version 3', svg: wfTriggersV3, imageAlt: 'Wireframe: Multiple Triggers version 3' },
+        ],
+      },
+      {
+        subtitle: 'Account Connection',
+        description: 'V1 pushed users out to a third-party consent screen and dropped them back on a blank canvas with no memory of what they were configuring. V2 pulled the account row inline next to a Connect button. By V3, authorization happened entirely in the sidebar: a checkmark on the Setup tab confirmed completion, and plain-language copy explained that credentials are encrypted and can be revoked at any time.',
+        versions: [
+          { label: 'Version 1', svg: wfAuthV1, imageAlt: 'Wireframe: Account Connection version 1' },
+          { label: 'Version 2', svg: wfAuthV2, imageAlt: 'Wireframe: Account Connection version 2' },
+          { label: 'Version 3', svg: wfAuthV3, imageAlt: 'Wireframe: Account Connection version 3' },
+        ],
+      },
+      {
+        subtitle: 'Path Naming & Merge Points',
+        description: 'V1 left branches unlabeled, so a workflow with two paths gave no clue which condition sent a contact down which route. V2 added Path 1 and Path 2 chips on the canvas. By V3, paths could be renamed, a catch-all "Other" path caught anything matching no condition, and a Single Endpoint toggle merged the branches back to one node, shown on the canvas as a dashed outline converging on a single "+".',
+        versions: [
+          { label: 'Version 1', svg: wfNamingV1, imageAlt: 'Wireframe: Path Naming and Merge version 1' },
+          { label: 'Version 2', svg: wfNamingV2, imageAlt: 'Wireframe: Path Naming and Merge version 2' },
+          { label: 'Version 3', svg: wfNamingV3, imageAlt: 'Wireframe: Path Naming and Merge version 3' },
+        ],
+      },
+      {
+        subtitle: 'Key Components',
+        description: 'Not every decision needed a full screen. These three panels carried the most weight in testing: the trigger type picker that answers "how does this workflow start?", the trigger event list that narrows an app down to a specific event, and the condition builder where AND/OR logic is actually assembled. Getting the density and hierarchy right at this level is what made the wider canvas readable.',
+        versions: [
+          { label: 'Trigger Type Picker', svg: cwTriggerPicker, imageAlt: 'Component wireframe: trigger type picker panel' },
+          { label: 'Trigger Event Setup', svg: cwTriggerSetup, imageAlt: 'Component wireframe: trigger event setup panel with Setup, Filters, Conditions and Test tabs' },
+          { label: 'Condition Builder', svg: cwConditionBuilder, imageAlt: 'Component wireframe: AND/OR condition builder panel' },
+        ],
+      },
+      {
+        subtitle: 'Step Library Popup',
+        // Near full-screen at 1300px wide — needs two columns to stay legible
+        columns: 2,
+        description: 'With 126 triggers, 52 conditions, 294 actions and 46 filters, the step library was the densest surface in the product. It had to stay browsable by category, scannable as a list, searchable across every type at once, and honest when a search returned nothing. These four states set the pattern for every picker in the builder.',
+        versions: [
+          { label: 'Browse by category', svg: cwPopupGrid, imageAlt: 'Component wireframe: step library popup, grid view of triggers by category' },
+          { label: 'List view', svg: cwPopupList, imageAlt: 'Component wireframe: step library popup, list view of actions' },
+          { label: 'Search results', svg: cwPopupSearch, imageAlt: 'Component wireframe: step library popup, search results across every category' },
+          { label: 'No results', svg: cwPopupEmpty, imageAlt: 'Component wireframe: step library popup, empty search results state' },
+        ],
+      },
+      {
+        subtitle: 'Conditional Logic — States & Selectors',
+        description: 'Conditional logic is where the builder either earns trust or loses it, and almost all of that happens inside small selectors. Users needed to nest AND/OR groups without losing the thread, pick an operator and a value in one motion, see what data a field actually holds before choosing it, and name a condition so it could be reused. These are the states that carried that weight.',
+        versions: [
+          { label: 'Nested AND/OR groups', svg: cwCondGroups, imageAlt: 'Component wireframe: nested AND/OR condition groups with the ANY/ALL selector open' },
+          { label: 'Operator dropdown', svg: cwCondOperator, imageAlt: 'Component wireframe: condition operator dropdown with a focused amount field' },
+          { label: 'Field picker flyout', svg: cwCondFields, imageAlt: 'Component wireframe: data field picker flyout showing example values' },
+          { label: 'Date picker menu', svg: cwCondDatePicker, imageAlt: 'Component wireframe: date picker menu with selected, hover and event-dot states' },
+          { label: 'Step search', svg: cwCondSearch, imageAlt: 'Component wireframe: step search with autocomplete results' },
+          { label: 'Save condition modal', svg: cwCondSaveModal, imageAlt: 'Component wireframe: save condition modal with a named-condition field' },
+        ],
+      },
+    ]}
+  />
+
+  <hr class="cs-section-divider">
+
+  <!-- 12. Final Features -->
+  <SectionContent title="Final Features">
+    <h3 class="cs-subsection-title">Workflow Canvas</h3>
+    <div class="cs-body-text">
+      <p>This is the core builder experience. Users land on a clean canvas with a guided empty state, add triggers and actions via drag-and-drop, and see their automation take shape in real time.</p>
+    </div>
+
+    <div class="cs-annotated-wrap">
+      <div class="cs-annotated-left">
+        <div class="cs-annotated-card">
+          <h4>Canvas Header &amp; Auto-save</h4>
+          <p>The top bar shows the workflow name, back navigation, and a persistent auto-save indicator so users always know their work is safe.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>Node Connection Lines</h4>
+          <p>Curved connection lines and consistent node sizing keep the workflow readable as complexity grows. The dotted drop zone guides placement.</p>
+        </div>
+      </div>
+
+      <div class="cs-annotated-center">
+        <div class="cs-annotated-img" role="img" aria-label="Final design: Workflow Canvas" set:html={finalCanvas} />
+        <span class="cs-dot cs-dot--1 cs-dot--bm-1"></span>
+        <span class="cs-dot cs-dot--2 cs-dot--bm-2"></span>
+        <span class="cs-dot cs-dot--3 cs-dot--bm-3"></span>
+        <span class="cs-dot cs-dot--4 cs-dot--bm-4"></span>
+      </div>
+
+      <div class="cs-annotated-right">
+        <div class="cs-annotated-card">
+          <h4>Contextual Sidebar</h4>
+          <p>The sidebar adapts to whatever node is selected, showing trigger setup, action configuration, or split path conditions with tabbed navigation.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>Canvas Toolbar</h4>
+          <p>Zoom controls and search live in a compact toolbar at the bottom-left, keeping the canvas uncluttered while remaining instantly accessible.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 120px;">Trigger &amp; Action Setup</h3>
+    <div class="cs-body-text">
+      <p>The sidebar walks users through every configuration step: selecting a trigger type, connecting an account, choosing an event, and mapping fields. Nothing is left ambiguous.</p>
+    </div>
+
+    <div class="cs-annotated-wrap cs-annotated-wrap--left-only">
+      <div class="cs-annotated-left">
+        <div class="cs-annotated-card">
+          <h4>Trigger Type Selection</h4>
+          <p>A searchable list of available triggers with icons and descriptions, so users can find the right starting point without guessing.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>Event &amp; Account Configuration</h4>
+          <p>Once a trigger is selected, the sidebar shows event type options, form selection, and account connection status with clear required-field indicators.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>Setup, Conditions &amp; Test Tabs</h4>
+          <p>Tabbed navigation organizes the configuration into logical steps: define the setup, add optional conditions, and test the connection, all within the same sidebar panel.</p>
+        </div>
+      </div>
+
+      <div class="cs-annotated-center">
+        <div class="cs-annotated-img" role="img" aria-label="Final design: Trigger and Action Setup sidebar" set:html={finalTriggerSetup} />
+        <span class="cs-dot cs-dot--left cs-dot--a"></span>
+        <span class="cs-dot cs-dot--left cs-dot--b"></span>
+        <span class="cs-dot cs-dot--left cs-dot--c"></span>
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 120px;">Split Path Configuration</h3>
+    <div class="cs-body-text">
+      <p>When workflows need to branch, the split path interface makes it visual and approachable. Users choose between conditional routing or percentage-based distribution, and the canvas reflects the decision in real time.</p>
+    </div>
+
+    <div class="cs-annotated-wrap cs-annotated-wrap--right-only">
+      <div class="cs-annotated-center">
+        <div class="cs-annotated-img" role="img" aria-label="Final design: Split Path Configuration" set:html={finalSplitPath} />
+        <span class="cs-dot cs-dot--right cs-dot--d"></span>
+        <span class="cs-dot cs-dot--right cs-dot--e"></span>
+      </div>
+
+      <div class="cs-annotated-right">
+        <div class="cs-annotated-card">
+          <h4>Conditional vs. Percentage Split</h4>
+          <p>Users select their split type upfront. Conditional paths use data-based rules, while percentage paths distribute traffic with sliders and auto-calculation.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>AND/OR Logic Builder</h4>
+          <p>Each conditional path gets its own rule set with inline AND/OR toggles and an "+ Add Condition" button for layered logic. Conditions can reference data from any upstream node.</p>
+        </div>
+      </div>
+    </div>
+    <h3 class="cs-subsection-title" style="margin-top: 120px;">Testing &amp; Validation</h3>
+    <div class="cs-body-text">
+      <p>The test runner gives users a clear picture of their workflow's health before publishing. Passed and failed connections are displayed with expandable details, and the canvas highlights error nodes so fixes happen in context.</p>
+    </div>
+
+    <div class="cs-annotated-wrap cs-annotated-wrap--left-only">
+      <div class="cs-annotated-left">
+        <div class="cs-annotated-card">
+          <h4>Test Results Panel</h4>
+          <p>A sidebar panel showing passed and failed connections with counts, expandable details, and a "Test Again" button for iterative debugging.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>Canvas Error Highlighting</h4>
+          <p>Failed nodes get a heavy error outline and a warning icon directly on the canvas, so users can spot and fix issues without switching contexts.</p>
+        </div>
+      </div>
+
+      <div class="cs-annotated-center">
+        <div class="cs-annotated-img" role="img" aria-label="Final design: Testing and Validation" set:html={finalTesting} />
+        <span class="cs-dot cs-dot--left cs-dot--f"></span>
+        <span class="cs-dot cs-dot--left cs-dot--g"></span>
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 120px;">Publish &amp; Confirmation</h3>
+    <div class="cs-body-text">
+      <p>Publishing is the highest-stakes moment in the builder. The two-step publish flow confirms intent with plain language, then celebrates the milestone with a clear success state and next-step options.</p>
+    </div>
+
+    <div class="cs-annotated-wrap cs-annotated-wrap--right-only">
+      <div class="cs-annotated-center">
+        <div class="cs-annotated-img" role="img" aria-label="Final design: Publish and Confirmation flow" set:html={finalPublish} />
+        <span class="cs-dot cs-dot--right cs-dot--h"></span>
+        <span class="cs-dot cs-dot--right cs-dot--i"></span>
+      </div>
+
+      <div class="cs-annotated-right">
+        <div class="cs-annotated-card">
+          <h4>Pre-publish Confirmation</h4>
+          <p>A modal dialog explicitly states the workflow will become "live and available to your users," with a primary "Yes, publish" button to reinforce this as a positive action.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>Success State</h4>
+          <p>A success checkmark, a congratulatory message, and two options, "Go To Dashboard" or "Keep Working," let users choose their own next step without a forced redirect.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 120px;">Authorization &amp; Account Connection</h3>
+    <div class="cs-body-text">
+      <p>Connecting third-party accounts is a required step for most triggers and actions. The authorization flow supports multiple methods so users can connect in whatever way their service requires.</p>
+    </div>
+
+    <div class="cs-annotated-wrap cs-annotated-wrap--left-only">
+      <div class="cs-annotated-left">
+        <div class="cs-annotated-card">
+          <h4>Multiple Auth Methods</h4>
+          <p>Three authorization types are supported: username/password login, email/API key authentication, and Google OAuth account picker. Each method adapts the form fields accordingly.</p>
+        </div>
+      </div>
+
+      <div class="cs-annotated-center">
+        <div class="cs-annotated-img" role="img" aria-label="Final design: Authorization and Account Connection" set:html={finalAuth} />
+        <span class="cs-dot cs-dot--left cs-dot--j"></span>
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 120px;">Workflow Management</h3>
+    <div class="cs-body-text">
+      <p>Beyond the canvas, users need tools to manage their workflows at scale. Context menus, version history, and rename modals give users control over their workflow library without cluttering the builder itself.</p>
+    </div>
+
+    <div class="cs-annotated-wrap cs-annotated-wrap--right-only">
+      <div class="cs-annotated-center">
+        <div class="cs-annotated-img" role="img" aria-label="Final design: Workflow Management tools" set:html={finalManage} />
+        <span class="cs-dot cs-dot--right cs-dot--k"></span>
+        <span class="cs-dot cs-dot--right cs-dot--l"></span>
+      </div>
+
+      <div class="cs-annotated-right">
+        <div class="cs-annotated-card">
+          <h4>Context Menus &amp; Modals</h4>
+          <p>Right-click context menus on nodes and workflows expose quick actions like rename, duplicate, and delete. Rename modals use inline editing for speed.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>Version History</h4>
+          <p>A filterable version history panel lets users browse, compare, and restore previous versions of their workflow with timestamps and change summaries.</p>
+        </div>
+      </div>
+    </div>
+  
+    <h3 class="cs-subsection-title" style="margin-top: 120px;">Workflow Searching</h3>
+    <div class="cs-body-text">
+      <p>Once a workflow grows past a handful of steps, finding a specific node by scrolling stops working. Search reads the whole canvas and returns matches grouped by type, so users can jump straight to the step they meant.</p>
+    </div>
+
+    <div class="cs-annotated-wrap cs-annotated-wrap--left-only">
+      <div class="cs-annotated-left">
+        <div class="cs-annotated-card">
+          <h4>Grouped, Counted Results</h4>
+          <p>Matches are split into Triggers and Actions with a count on each group and a total at the top, so users can tell at a glance whether the thing they want is a trigger or a step.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>Jump Straight to the Node</h4>
+          <p>Selecting a result highlights that node on the canvas and scrolls it into view. The canvas never resets, so users keep their place in the workflow.</p>
+        </div>
+      </div>
+
+      <div class="cs-annotated-center">
+        <div class="cs-annotated-img" role="img" aria-label="Final design: Workflow Search" set:html={finalSearch} />
+        <span class="cs-dot cs-dot--bm-l" style="top: 26.1%"></span>
+        <span class="cs-dot cs-dot--bm-l" style="top: 76.1%"></span>
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 120px;">Sidebar Tabs: Setup, Conditions &amp; Test</h3>
+    <div class="cs-body-text">
+      <p>Every node on the canvas is configured through the same three tabs. Splitting the work this way meant a node could be set up, gated, and verified without ever leaving the sidebar or losing canvas context.</p>
+    </div>
+
+    <div class="cs-annotated-wrap cs-annotated-wrap--left-only">
+      <div class="cs-annotated-left">
+        <div class="cs-annotated-card">
+          <h4>Setup Tab</h4>
+          <p>Defines what the node does: the event that fires it, the account it runs against, and its required fields. Anything missing is flagged inline and marks the tab itself, so an incomplete step is visible from the canvas.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>Conditions Tab</h4>
+          <p>Gates the node behind rules. Conditions are grouped, joined with AND/OR, and saved independently, so a step can be reused with different gating without rebuilding it.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>Test Tab</h4>
+          <p>Runs the step on its own and shows the sample payload it received. Testing one node at a time is what let users debug without publishing.</p>
+        </div>
+      </div>
+
+      <div class="cs-annotated-center">
+        <div class="cs-annotated-img" role="img" aria-label="Final design: the Setup, Conditions and Test sidebar tabs" set:html={finalTabs} />
+        <span class="cs-dot cs-dot--bm-l" style="top: 18.7%"></span>
+        <span class="cs-dot cs-dot--bm-l" style="top: 54.6%"></span>
+        <span class="cs-dot cs-dot--bm-l" style="top: 85.9%"></span>
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 120px;">Workflow Version Control</h3>
+    <div class="cs-body-text">
+      <p>Publishing is not the end of a workflow&rsquo;s life. Every publish is snapshotted so users can see what changed, who changed it, and roll back a bad edit without rebuilding from memory.</p>
+    </div>
+
+    <div class="cs-annotated-wrap cs-annotated-wrap--right-only">
+      <div class="cs-annotated-center">
+        <div class="cs-annotated-img" role="img" aria-label="Final design: Version History" set:html={finalVersion} />
+        <span class="cs-dot cs-dot--bm-r" style="top: 26.0%"></span>
+        <span class="cs-dot cs-dot--bm-r" style="top: 76.0%"></span>
+      </div>
+
+      <div class="cs-annotated-right">
+        <div class="cs-annotated-card">
+          <h4>Every Publish Snapshotted</h4>
+          <p>Each version records the author, timestamp and step count. The current draft sits at the top of the same timeline, so the relationship between what is live and what is being edited is never ambiguous.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>Restore Without Losing Work</h4>
+          <p>Preview shows a read-only version before committing to it. Restoring brings a version back as a new draft rather than overwriting the live workflow, and 30 days of history is kept.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 120px;">Step Library</h3>
+    <div class="cs-body-text">
+      <p>With 126 triggers, 52 conditions, 294 actions and 46 filters, the library is the densest surface in the product. It had to stay browsable for people exploring and instant for people who already know the step they want.</p>
+    </div>
+
+    <div class="cs-annotated-wrap cs-annotated-wrap--right-only">
+      <div class="cs-annotated-center">
+        <div class="cs-annotated-img" role="img" aria-label="Final design: Step Library" set:html={finalLibrary} />
+        <span class="cs-dot cs-dot--bm-r" style="top: 25.0%"></span>
+        <span class="cs-dot cs-dot--bm-r" style="top: 75.0%"></span>
+      </div>
+
+      <div class="cs-annotated-right">
+        <div class="cs-annotated-card">
+          <h4>Browse by Category</h4>
+          <p>Steps are grouped by source and purpose with a live count on every category, so the scale of the library reads as useful rather than overwhelming.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>Search Across Every Type</h4>
+          <p>Search cuts across triggers, conditions, actions and filters at once, and returns an honest empty state rather than a blank panel when nothing matches.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 120px;">Options Menu &amp; Confirmations</h3>
+    <div class="cs-body-text">
+      <p>Cloning, testing, pausing and deleting all live behind one options menu. Every action that is destructive or hard to undo is confirmed in the same shape, so the pattern is learned once and applies everywhere.</p>
+    </div>
+
+    <div class="cs-annotated-wrap cs-annotated-wrap--left-only">
+      <div class="cs-annotated-left">
+        <div class="cs-annotated-card">
+          <h4>One Menu, Every Action</h4>
+          <p>Clone, run a test, pause and search sit together, with the destructive action separated below a divider so it is never a mis-click away from a routine one.</p>
+        </div>
+        <div class="cs-annotated-card">
+          <h4>Consistent Confirmations</h4>
+          <p>Deleting a workflow, a trigger or a step, exiting with unsaved changes, and publishing all use the same dialog: what will happen, what is recoverable, and a clearly-labelled action.</p>
+        </div>
+      </div>
+
+      <div class="cs-annotated-center">
+        <div class="cs-annotated-img" role="img" aria-label="Final design: options menu and confirmation modals" set:html={finalConfirm} />
+        <span class="cs-dot cs-dot--bm-l" style="top: 23.8%"></span>
+        <span class="cs-dot cs-dot--bm-l" style="top: 73.8%"></span>
+      </div>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- UI Design System -->
+  <SectionContent title="UI Design System">
+    <div class="cs-body-text">
+      <p>Every component in the workflow builder is built from a unified design system I created specifically for this product. Colors, typography, buttons, form elements, and status indicators are all standardized to ensure visual consistency across the canvas, sidebar, and modal layers.</p>
+    </div>
+    <div class="cs-image-full" style="margin-top: 40px;">
+      <img src="/images/cs-ui-design-system.png" alt="UI Design System: colors, typography, buttons, tabs, and badges" width="1240" style="max-width: 100%; height: auto; border-radius: 4px;">
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <!-- Stylized UI Components -->
+  <SectionContent title="Stylized UI Components">
+
+    <div class="cs-component-showcase">
+      <div class="cs-component-details">
+        <h3 class="cs-component-title">Button System</h3>
+        <p class="cs-component-desc">A structured button matrix that defines every interactive state across three variant types, ensuring visual consistency and accessibility throughout the workflow builder.</p>
+        <h4>Key Details</h4>
+        <ul>
+          <li>Three variants cover every use case: primary (blue) for forward actions, secondary (outlined) for neutral options, and destructive (red) for irreversible actions</li>
+          <li>Each variant includes Default, Hover, Focused, and Disabled states so every interaction feels intentional</li>
+          <li>Focus rings on the Focused state ensure keyboard navigation is always visible and accessible</li>
+          <li>Disabled states use reduced opacity to clearly communicate when an action is unavailable without removing it from the layout</li>
+        </ul>
+      </div>
+      <div class="cs-component-image">
+        <img src="/images/bm-ui-buttons.png" alt="Button system showing primary, secondary, and destructive variants across default, hover, focused, and disabled states" class="cs-component-img">
+      </div>
+    </div>
+
+    <div class="cs-component-showcase cs-component-showcase--reverse" style="margin-top: 120px;">
+      <div class="cs-component-details">
+        <h3 class="cs-component-title">Canvas Toolbar</h3>
+        <p class="cs-component-desc">A minimal control bar anchored to the bottom-left of the workflow canvas, giving users quick access to zoom and search without cluttering the build space.</p>
+        <h4>Key Details</h4>
+        <ul>
+          <li>Search icon opens a find-in-canvas overlay so users can locate specific nodes in complex workflows</li>
+          <li>Zoom controls with minus, plus, and a percentage dropdown let users scale the view precisely</li>
+          <li>Compact footprint keeps the toolbar out of the way while remaining instantly accessible</li>
+        </ul>
+      </div>
+      <div class="cs-component-image">
+        <img src="/images/bm-ui-canvas-toolbar.png" alt="Canvas toolbar with search icon and zoom controls showing 100% zoom level" class="cs-component-img" style="max-width: 400px;">
+      </div>
+    </div>
+
+    <div class="cs-component-showcase" style="margin-top: 120px;">
+      <div class="cs-component-details">
+        <h3 class="cs-component-title">Auto-save Indicator</h3>
+        <p class="cs-component-desc">A persistent status element in the canvas header that communicates save state in real time, so users never worry about losing their work.</p>
+        <h4>Key Details</h4>
+        <ul>
+          <li>Three states: "Saved at [time]" (default), highlighted "Saved at [time]" (just saved), and "Edited X mins ago" (unsaved changes)</li>
+          <li>Clock icon reinforces the time-based nature of the status at a glance</li>
+          <li>Tooltip on hover shows the last edit timestamp for additional context</li>
+          <li>Non-intrusive placement in the header keeps users informed without interrupting the build flow</li>
+        </ul>
+      </div>
+      <div class="cs-component-image">
+        <img src="/images/bm-ui-autosave.png" alt="Auto-save indicator showing saved timestamp, highlighted save state, and edited time ago states" class="cs-component-img" style="max-width: 280px;">
+      </div>
+    </div>
+
+    <div class="cs-component-showcase cs-component-showcase--reverse" style="margin-top: 120px;">
+      <div class="cs-component-details">
+        <h3 class="cs-component-title">Confirmation Dialogs</h3>
+        <p class="cs-component-desc">A consistent set of modal dialogs that appear before any destructive or significant action, ensuring users always have a chance to confirm or cancel.</p>
+        <h4>Key Details</h4>
+        <ul>
+          <li>Four dialog types cover key actions: Delete Workflow, Delete Trigger, Delete Step, and Exit Workflow</li>
+          <li>Each dialog uses plain language to explain exactly what will happen, with no ambiguity</li>
+          <li>Destructive actions use a red button to visually signal risk, while neutral exits use the same red for emphasis</li>
+          <li>"Delete Workflow" reassures users with a 30-day trash recovery window, reducing deletion anxiety</li>
+          <li>Cancel is always available as a safe escape, positioned as a secondary outlined button</li>
+        </ul>
+      </div>
+      <div class="cs-component-image">
+        <div class="cs-dialog-grid">
+          <img src="/images/bm-ui-delete-workflow.png" alt="Delete workflow confirmation dialog with Cancel and Delete buttons" class="cs-component-img">
+          <img src="/images/bm-ui-delete-trigger.png" alt="Delete trigger confirmation dialog with Cancel and Delete buttons" class="cs-component-img">
+          <img src="/images/bm-ui-delete-step.png" alt="Delete step confirmation dialog with Cancel and Delete buttons" class="cs-component-img">
+          <img src="/images/bm-ui-exit.png" alt="Exit workflow confirmation dialog with Cancel and Yes exit buttons" class="cs-component-img">
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-component-showcase" style="margin-top: 120px;">
+      <div class="cs-component-details">
+        <h3 class="cs-component-title">Publish Workflow</h3>
+        <p class="cs-component-desc">A two-step publish flow that confirms the user's intent before going live, then celebrates the milestone with a clear success state and next-step options.</p>
+        <h4>Key Details</h4>
+        <ul>
+          <li>Pre-publish dialog explicitly states the workflow will become "live and available to your users," setting clear expectations</li>
+          <li>Blue "Yes, publish" button reinforces this as a positive, forward action rather than something risky</li>
+          <li>Success state features a green checkmark icon and congratulatory message to mark the accomplishment</li>
+          <li>Two post-publish options, "Go To Dashboard" and "Keep Working," let users choose their own next step without forcing a redirect</li>
+        </ul>
+      </div>
+      <div class="cs-component-image">
+        <div class="cs-dialog-grid">
+          <img src="/images/bm-ui-publish-workflow.png" alt="Publish workflow confirmation dialog with Cancel and Yes publish buttons" class="cs-component-img">
+          <img src="/images/bm-ui-publish-success.png" alt="Publish success state with congratulations message and Go To Dashboard or Keep Working options" class="cs-component-img">
+        </div>
+      </div>
+    </div>
+
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <SectionContent title="Hi Fi Designs">
+    <div class="cs-hifi-showcase">
+      <div class="cs-hifi-image">
+        <img src="/images/bm-hifi-workflow-canvas.png" alt="Workflow builder canvas showing a Form Trigger connected to an action node, with the sidebar drawer open to add workflow steps" width="1200" style="max-width: 100%;">
+      </div>
+      <div class="cs-hifi-content">
+        <h3 class="cs-hifi-title">Workflow Canvas</h3>
+        <p class="cs-hifi-desc">The core builder experience. Users start by adding a trigger, then drag action nodes onto the canvas. The sidebar stays contextually aware, showing available steps that can be added at any point in the workflow.</p>
+        <blockquote class="cs-hifi-quote">
+          The dotted drop zone and floating "+" button guide users through the build process without requiring a tutorial.
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="cs-hifi-showcase cs-hifi-showcase--reverse" style="margin-top: 120px;">
+      <div class="cs-hifi-content">
+        <h3 class="cs-hifi-title">Complex Workflows</h3>
+        <p class="cs-hifi-desc">Workflows scale gracefully. Multiple triggers fan into action chains with time delays, conditional logic, and third-party integrations like Gmail. The canvas auto-layouts nodes so the flow stays readable even as complexity grows.</p>
+        <blockquote class="cs-hifi-quote">
+          Curved connection lines and consistent node sizing keep multi-step automations visually clear instead of overwhelming.
+        </blockquote>
+      </div>
+      <div class="cs-hifi-image">
+        <img src="/images/bm-hifi-complex-workflow.png" alt="Complex workflow with five Form Triggers connected to Send Message, Time Delay, and Video Recording action nodes" width="1200" style="max-width: 100%;">
+      </div>
+    </div>
+
+    <div style="margin-top: 120px;">
+      <div class="cs-image-full" style="margin-top: 0;">
+        <img src="/images/bm-hifi-drag-sequence.png" alt="Three-state drag sequence showing empty drop zone, hover state with trigger being dragged, and completed workflow with conditional branching" width="1200" style="max-width: 100%;">
+      </div>
+      <h3 class="cs-hifi-title" style="margin-top: 32px;">Drag &amp; Drop Interaction</h3>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-top: 16px;">
+        <p class="cs-hifi-desc" style="margin: 0;">Building a workflow uses a three-step drag interaction: an empty drop zone appears, highlights on hover, and snaps the node into place on release. This pattern carries through for both triggers and action steps.</p>
+        <blockquote class="cs-hifi-quote" style="margin: 0;">
+          The blue highlight on the drop zone gives users clear visual feedback so they always know exactly where a node will land.
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="cs-hifi-showcase" style="margin-top: 120px;">
+      <div class="cs-hifi-image">
+        <img src="/images/bm-hifi-conditional-split.png" alt="Workflow canvas showing a conditional split path with Send Message action, two branching paths with Time Delay and Video Recording nodes, and sidebar showing path conditions" width="1200" style="max-width: 100%;">
+      </div>
+      <div class="cs-hifi-content">
+        <h3 class="cs-hifi-title">Conditional Split</h3>
+        <p class="cs-hifi-desc">When a workflow needs to branch based on data, the Split Path node lets users choose between conditional logic or percentage-based routing. Each path gets its own condition rules, and the sidebar shows a clear summary of which conditions trigger which path.</p>
+        <blockquote class="cs-hifi-quote">
+          The "Merge paths to a single endpoint" toggle gives users control over whether split paths reconverge or stay independent, reducing the need for duplicate nodes downstream.
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="cs-hifi-showcase cs-hifi-showcase--reverse" style="margin-top: 120px;">
+      <div class="cs-hifi-content">
+        <h3 class="cs-hifi-title">Percentage Split</h3>
+        <p class="cs-hifi-desc">For A/B testing or gradual rollouts, users can split traffic by percentage across multiple paths. Each path gets a slider and input field, and the system auto-distributes evenly or lets users set custom ratios. The canvas reflects the split with percentage labels on each branch.</p>
+        <blockquote class="cs-hifi-quote">
+          The "Switch to Manual" and "Distribute Evenly" controls give users flexibility without forcing them to do math. Adding a third path automatically recalculates the distribution.
+        </blockquote>
+      </div>
+      <div class="cs-hifi-image">
+        <img src="/images/bm-hifi-percentage-split.png" alt="Three-way percentage split workflow showing 33.3%, 33.3%, and 33.4% distribution across Path 1, Path 2, and Path 3 with Time Delay and Video Recording action nodes" width="1200" style="max-width: 100%;">
+      </div>
+    </div>
+
+    <div class="cs-hifi-showcase" style="margin-top: 120px;">
+      <div class="cs-hifi-image">
+        <img src="/images/bm-hifi-condition-builder.png" alt="Conditions tab showing AND/OR logic builder with multiple condition rules for Path 1, including Id contains filters with Add Condition and Clear All options" width="1200" style="max-width: 100%;">
+      </div>
+      <div class="cs-hifi-content">
+        <h3 class="cs-hifi-title">Condition Builder</h3>
+        <p class="cs-hifi-desc">The Conditions tab lets users define exactly when each path should activate. Rules are built with AND/OR logic, and each condition can reference data from upstream nodes. The interface supports nesting, so complex routing logic stays readable.</p>
+        <blockquote class="cs-hifi-quote">
+          Inline AND/OR toggles and the "+ Add Condition" button make it easy to build layered rules without navigating away from the canvas.
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="cs-hifi-showcase cs-hifi-showcase--reverse" style="margin-top: 120px;">
+      <div class="cs-hifi-content">
+        <h3 class="cs-hifi-title">Split Path Validation</h3>
+        <p class="cs-hifi-desc">When a Split Path node is added but not configured, the system flags it with a red error border and a warning icon. The sidebar prompts the user to select a split type before the workflow can be published, preventing incomplete automations from going live.</p>
+        <blockquote class="cs-hifi-quote">
+          Error states appear inline on the canvas and in the sidebar simultaneously, so users can spot and fix configuration gaps without hunting through the workflow.
+        </blockquote>
+      </div>
+      <div class="cs-hifi-image">
+        <img src="/images/bm-hifi-split-validation.png" alt="Complex workflow with an unconfigured Split Path node highlighted in red, showing error state with warning icon and sidebar prompting split type selection" width="1200" style="max-width: 100%;">
+      </div>
+    </div>
+
+    <div class="cs-hifi-showcase" style="margin-top: 120px;">
+      <div class="cs-hifi-image">
+        <img src="/images/bm-hifi-test-results.png" alt="Workflow test results showing 2 passed and 2 failed connections, with error-highlighted nodes on the canvas and sidebar setup panel" width="1200" style="max-width: 100%;">
+      </div>
+      <div class="cs-hifi-content">
+        <h3 class="cs-hifi-title">Workflow Testing</h3>
+        <p class="cs-hifi-desc">Before publishing, users can run a logic test across the entire workflow. The test panel shows passed and failed connections with expandable details, while the canvas highlights which nodes have errors so users can fix issues in context.</p>
+        <blockquote class="cs-hifi-quote">
+          Red-outlined nodes with error icons make failed steps immediately scannable. The "Test Again" button encourages iterative debugging.
+        </blockquote>
+      </div>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <SectionContent title="User Testing">
+    <div class="cs-body-text">
+      <p>Before handing anything off, I ran moderated usability tests with 5 participants to validate the core builder flows. Each session lasted about 20 minutes and followed a structured test guide. I tracked completion rate, error rate, time to success, and satisfaction level, then assigned severity ratings (1 = cosmetic, 4 = must fix) to prioritize what needed attention.</p>
+    </div>
+
+    <div class="cs-testing-metrics">
+      <div class="cs-metric-card">
+        <span class="cs-metric-number">5</span>
+        <span class="cs-metric-label">Participants</span>
+      </div>
+      <div class="cs-metric-card">
+        <span class="cs-metric-number">8</span>
+        <span class="cs-metric-label">Tasks Tested</span>
+      </div>
+      <div class="cs-metric-card">
+        <span class="cs-metric-number">91%</span>
+        <span class="cs-metric-label">Completion Rate</span>
+      </div>
+      <div class="cs-metric-card">
+        <span class="cs-metric-number">20 min</span>
+        <span class="cs-metric-label">Avg. Session</span>
+      </div>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 64px;">
+      <h3 class="cs-subsection-title">Task Results</h3>
+    </div>
+
+    <div class="cs-testing-table-wrap">
+      <table class="cs-testing-table">
+        <thead>
+          <tr>
+            <th class="cs-testing-th--task">Task</th>
+            <th>U1</th>
+            <th>U2</th>
+            <th>U3</th>
+            <th>U4</th>
+            <th>U5</th>
+            <th>Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cs-testing-td--task">Create a new workflow, add a trigger, and connect it to an action step using drag-and-drop.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate">5/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Configure a trigger's event type and connect a third-party account in the sidebar.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--iterate" title="Delayed"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate">4/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Add a conditional split path and define AND/OR conditions for two branches.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate">5/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Set up a percentage-based split with three paths and adjust the distribution manually.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--iterate" title="Delayed"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate">4/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Identify and fix an error-highlighted node on the canvas using the test runner.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate">5/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Use the canvas toolbar to zoom in and search for a specific node in a complex workflow.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--iterate" title="Delayed"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate">4/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Run the pre-publish test, review all results, and publish the workflow.</td>
+            <td><span class="cs-test-dot cs-test-dot--iterate" title="Delayed"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--fail" title="Failed"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--iterate" title="Delayed"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--iterate" title="Delayed"></span></td>
+            <td class="cs-testing-td--rate cs-testing-td--rate-low">1/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Delete a step using the confirmation dialog and verify the auto-save indicator updates.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--iterate" title="Delayed"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate">4/5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cs-testing-legend">
+      <div class="cs-legend-item"><span class="cs-test-dot cs-test-dot--pass"></span> Pass</div>
+      <div class="cs-legend-item"><span class="cs-test-dot cs-test-dot--iterate"></span> Delayed</div>
+      <div class="cs-legend-item"><span class="cs-test-dot cs-test-dot--fail"></span> Failed</div>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 64px;">
+      <h3 class="cs-subsection-title">Key Findings</h3>
+    </div>
+    <div class="cs-findings-grid">
+      <div class="cs-finding-card cs-finding-card--sev3">
+        <div class="cs-finding-header">
+          <span class="cs-finding-severity cs-finding-severity--3">Severity 3</span>
+          <span class="cs-finding-tag">Must Fix</span>
+        </div>
+        <h3>Publish Flow Hesitation</h3>
+        <p>3 out of 5 users hesitated at the publish step. They wanted to see test results summarized before confirming. We added a pre-publish check that shows pass/fail status alongside the confirmation dialog.</p>
+      </div>
+      <div class="cs-finding-card cs-finding-card--sev2">
+        <div class="cs-finding-header">
+          <span class="cs-finding-severity cs-finding-severity--2">Severity 2</span>
+          <span class="cs-finding-tag">Improve</span>
+        </div>
+        <h3>Split Path Selection</h3>
+        <p>1 user took extra time choosing between conditional and percentage splits. We added short descriptions under each option to clarify when to use which type.</p>
+      </div>
+      <div class="cs-finding-card cs-finding-card--sev1">
+        <div class="cs-finding-header">
+          <span class="cs-finding-severity cs-finding-severity--1">Severity 1</span>
+          <span class="cs-finding-tag">Cosmetic</span>
+        </div>
+        <h3>Auto-save Visibility</h3>
+        <p>1 user didn't notice the auto-save indicator in the header at first. We increased the contrast on the "Saved at" text and added a brief highlight animation when a save occurs.</p>
+      </div>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <SectionContent title="Developer Handoff">
+    <div class="cs-body-text">
+      <p>Every component in the workflow builder has a master component with clearly defined variants. All state management is laid out: default, hover, active, focused, and disabled states are accounted for across buttons, nodes, sidebar panels, and modals.</p>
+      <p>I organized every variant side by side so developers can reference them at a glance. The design files make front-end functionality and component architecture immediately clear.</p>
+    </div>
+
+    <h3 class="cs-subsection-title">Button States</h3>
+    <div class="cs-handoff-gallery">
+      <div class="cs-handoff-item">
+        <img src="/images/bm-handoff-buttons.png" alt="Button variants showing default, hover, focused, and disabled states for primary, secondary, and destructive styles" width="1022" style="max-width: 100%;">
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 80px;">Authorization Methods</h3>
+    <div class="cs-handoff-gallery">
+      <div class="cs-handoff-item">
+        <img src="/images/bm-hifi-authorization.png" alt="Three authorization methods: username/password login, email/API key authentication, and Google OAuth account picker" width="1200" style="max-width: 100%;" loading="lazy">
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 80px;">Sidebar Configuration</h3>
+    <div class="cs-handoff-gallery">
+      <div class="cs-handoff-item">
+        <img src="/images/bm-hifi-sidebar-config.png" alt="Sidebar panel showing trigger type selection list transitioning to trigger setup with event options, form selection, and account connection" width="442" style="max-width: 100%;" loading="lazy">
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 80px;">Trigger Setup</h3>
+    <div class="cs-handoff-gallery">
+      <div class="cs-handoff-item">
+        <img src="/images/bm-handoff-trigger-setup.png" alt="Trigger setup sidebar panel with event selection, account connection, and Setup, Conditions, Test tabs" width="404" style="max-width: 100%;" loading="lazy">
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 80px;">Add a New Trigger</h3>
+    <div class="cs-handoff-gallery">
+      <div class="cs-handoff-item">
+        <img src="/images/bm-handoff-add-trigger.png" alt="Add a New Trigger sidebar showing available trigger types with search and View All options" width="404" style="max-width: 100%;" loading="lazy">
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 80px;">Context Menus, Modals, Version History &amp; Dropdowns</h3>
+    <div class="cs-handoff-gallery">
+      <div class="cs-handoff-item">
+        <img src="/images/bm-handoff-components-web.png" alt="Context menus, rename/confirm modals, version history panels with filtering, and dropdown selection states" width="1200" style="max-width: 100%;" loading="lazy">
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 80px;">Test Results, Alert Bars, Workflow Modals &amp; Sidebar Forms</h3>
+    <div class="cs-handoff-gallery">
+      <div class="cs-handoff-item">
+        <img src="/images/bm-handoff-components-detail-web.png" alt="Test result panels, alert bars, workflow modals with expandable sections, and sidebar form fields" width="1200" style="max-width: 100%;" loading="lazy">
+      </div>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <SectionContent title="Final Takeaways">
+    <div class="cs-body-text">
+      <p>This project taught me that building powerful tools is only half the job. The other half is making people feel confident using them. What started as "let's improve the workflow builder" turned into a full UX rethink of how visual automation should feel. Every decision came back to the same principle: if users can see it, validate it, and trust it, they'll ship it.</p>
+    </div>
+
+    <div class="cs-subsection">
+      <h3 class="cs-subsection-title">What I Learned</h3>
+      <div class="cs-problems-grid cs-problems-grid--four">
+        <div class="cs-problem-card">
+          <p>Powerful features mean nothing if users can't tell whether they're configured correctly.</p>
+        </div>
+        <div class="cs-problem-card">
+          <p>Inline validation and visual error states prevent more support tickets than any documentation ever will.</p>
+        </div>
+        <div class="cs-problem-card">
+          <p>Auto-save and confirmation dialogs aren't just nice-to-haves. They're the difference between building with confidence and building with anxiety.</p>
+        </div>
+        <div class="cs-problem-card">
+          <p>"Publish" should never feel like a gamble. It should feel like a milestone.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-subsection">
+      <h3 class="cs-subsection-title">What's Next</h3>
+      <p class="cs-body-text" style="margin-bottom: 24px;">If I had more time (or dev resources), I'd love to explore:</p>
+      <div class="cs-problems-grid cs-problems-grid--four">
+        <div class="cs-problem-card">
+          <h3>Workflow Templates</h3>
+          <p>Pre-built automations users can clone and customize instead of starting from scratch.</p>
+        </div>
+        <div class="cs-problem-card">
+          <h3>Real-time Collaboration</h3>
+          <p>Let multiple users build on the same canvas simultaneously with live cursors.</p>
+        </div>
+        <div class="cs-problem-card">
+          <h3>Node Analytics</h3>
+          <p>Show per-node execution data so users can see which steps process the most volume.</p>
+        </div>
+        <div class="cs-problem-card">
+          <h3>AI Suggestions</h3>
+          <p>Recommend next steps or flag potential logic gaps based on the workflow structure.</p>
+        </div>
+      </div>
+      <div class="cs-body-text" style="margin-top: 32px;">
+        <p>All of these would keep building on the same idea: give users more visibility and confidence so they can build better automations faster. This project was never about adding features for the sake of it. It was about making the builder feel trustworthy enough to ship real workflows.</p>
+      </div>
+    </div>
+  </SectionContent>
+
+</CaseStudy>
