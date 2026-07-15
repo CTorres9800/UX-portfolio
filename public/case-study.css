@@ -2116,4 +2116,5 @@ div.cs-annotated-img svg {
 .cs-component-showcase--stack .cs-dialog-grid {
   grid-template-columns: 1fr;
   gap: 40px;
+  justify-items: center;
 }
