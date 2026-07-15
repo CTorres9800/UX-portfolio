@@ -1185,22 +1185,22 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
 
     <div class="cs-component-showcase">
       <div class="cs-component-details">
-        <h3 class="cs-component-title">Trigger Setup Panel</h3>
-        <p class="cs-component-desc">The sidebar panel where a trigger is turned into a working step. It carries the whole configuration flow — pick the event, connect the account, fill the required fields — without ever leaving the canvas.</p>
+        <h3 class="cs-component-title">App Picker</h3>
+        <p class="cs-component-desc">The first choice in every workflow: which app does this start from? With hundreds of integrations behind it, the picker has to answer that in one screen without turning into a directory.</p>
         <h4>Key Details</h4>
         <ul>
-          <li>Docked to the right of the canvas so the workflow stays visible while a step is configured</li>
-          <li>Tabbed into Setup, Conditions and Test, which keeps a long configuration from becoming one endless scroll</li>
-          <li>A radio list of trigger events with a description under each, so the choice is made on meaning rather than a name</li>
-          <li>Required fields are flagged inline and mark the tab itself, so an incomplete step is visible from the canvas</li>
+          <li>Popular Apps leads, because most workflows start from a handful of the same tools &mdash; the long tail sits behind search rather than in front of it</li>
+          <li>Search is the first control, so anyone who already knows their app never scrolls</li>
+          <li>Recently Used sits below, since building several workflows against the same app is the common case</li>
+          <li>View More defers the full catalogue instead of paginating it into the panel, keeping the picker one screen tall</li>
         </ul>
       </div>
       <div class="cs-component-image">
-        <img src="/images/bm-comp-trigger-setup.png" alt="Trigger setup sidebar panel with tabbed navigation and a trigger event list" class="cs-component-img" style="max-width: 360px;">
+        <img src="/images/bm-comp-trigger-setup.png" alt="App picker panel with search, a Popular Apps grid, Recently Used and View More" class="cs-component-img" style="max-width: 360px;">
       </div>
     </div>
 
-    <div class="cs-component-showcase cs-component-showcase--stack" style="margin-top: 120px;">
+    <div class="cs-component-showcase cs-component-showcase--full" style="margin-top: 120px;">
       <div class="cs-component-details">
         <h3 class="cs-component-title">Step Library Popup</h3>
         <p class="cs-component-desc">The picker behind every "add a step" action. With 126 triggers, 52 conditions, 294 actions and 46 filters, it had to stay browsable for people exploring and instant for people who already know what they want.</p>
@@ -1214,14 +1214,23 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
       </div>
       <div class="cs-component-image">
         <div class="cs-dialog-grid">
-          <img src="/images/bm-comp-step-library.png" alt="Step library popup browsing triggers by category with counts" class="cs-component-img">
-          <img src="/images/bm-comp-library-search.png" alt="Step library popup showing search results across every category" class="cs-component-img">
-          <img src="/images/bm-comp-library-empty.png" alt="Step library popup empty state for a search with no results" class="cs-component-img">
+          <figure class="cs-dialog-item">
+            <img src="/images/bm-comp-step-library.png" alt="Step library popup browsing triggers by category with counts" class="cs-component-img">
+            <figcaption>Browse by Category</figcaption>
+          </figure>
+          <figure class="cs-dialog-item">
+            <img src="/images/bm-comp-library-search.png" alt="Step library popup showing search results across every category" class="cs-component-img">
+            <figcaption>Search Results</figcaption>
+          </figure>
+          <figure class="cs-dialog-item">
+            <img src="/images/bm-comp-library-empty.png" alt="Step library popup empty state for a search with no results" class="cs-component-img">
+            <figcaption>Empty State</figcaption>
+          </figure>
         </div>
       </div>
     </div>
 
-    <div class="cs-component-showcase cs-component-showcase--stack" style="margin-top: 120px;">
+    <div class="cs-component-showcase cs-component-showcase--full" style="margin-top: 120px;">
       <div class="cs-component-details">
         <h3 class="cs-component-title">Condition Builder</h3>
         <p class="cs-component-desc">Where AND/OR logic is actually assembled. This is the densest surface in the product and the one most likely to lose people, so the whole design is about keeping a complex rule readable at a glance.</p>
@@ -1241,7 +1250,7 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
       </div>
     </div>
 
-    <div class="cs-component-showcase cs-component-showcase--stack" style="margin-top: 120px;">
+    <div class="cs-component-showcase cs-component-showcase--full" style="margin-top: 120px;">
       <div class="cs-component-details">
         <h3 class="cs-component-title">Menus &amp; Flyouts</h3>
         <p class="cs-component-desc">The small surfaces that carry most of the configuration work. Each one had to open in place, stay scannable, and close without losing the user’s position in the sidebar.</p>
@@ -1262,7 +1271,7 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
       </div>
     </div>
 
-    <div class="cs-component-showcase cs-component-showcase--stack" style="margin-top: 120px;">
+    <div class="cs-component-showcase cs-component-showcase--full" style="margin-top: 120px;">
       <div class="cs-component-details">
         <h3 class="cs-component-title">Drag &amp; Drop</h3>
         <p class="cs-component-desc">How anything gets built. Dragging a step from the sidebar onto the canvas is the single most repeated action in the product, so the drop zone has to say what will happen before the user commits &mdash; not after.</p>
