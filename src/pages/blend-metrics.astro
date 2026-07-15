@@ -972,18 +972,21 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
       <p>Publishing is the highest-stakes moment in the builder. The two-step publish flow confirms intent with plain language, then celebrates the milestone with a clear success state and next-step options.</p>
     </div>
 
-    <div class="cs-annotated-wrap cs-annotated-wrap--right-only">
-      <div class="cs-annotated-center">
-        <div class="cs-annotated-img" role="img" aria-label="Final design: Publish and Confirmation flow" set:html={finalPublish} />
-        <span class="cs-dot cs-dot--right cs-dot--h"></span>
-        <span class="cs-dot cs-dot--right cs-dot--i"></span>
-      </div>
-
-      <div class="cs-annotated-right">
+    <div class="cs-annotated-wrap">
+      <div class="cs-annotated-left">
         <div class="cs-annotated-card">
           <h4>Pre-publish Confirmation</h4>
           <p>A modal dialog explicitly states the workflow will become "live and available to your users," with a primary "Yes, publish" button to reinforce this as a positive action.</p>
         </div>
+      </div>
+
+      <div class="cs-annotated-center">
+        <div class="cs-annotated-img" role="img" aria-label="Final design: Publish and Confirmation flow" set:html={finalPublish} />
+        <span class="cs-dot cs-dot--bm-l" style="top: 43%"></span>
+        <span class="cs-dot cs-dot--bm-r" style="top: 43%"></span>
+      </div>
+
+      <div class="cs-annotated-right">
         <div class="cs-annotated-card">
           <h4>Success State</h4>
           <p>A success checkmark, a congratulatory message, and two options, "Go To Dashboard" or "Keep Working," let users choose their own next step without a forced redirect.</p>
