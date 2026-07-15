@@ -182,7 +182,9 @@ const trigSetup = (() => {
   s += appIcon(X + 14, 161, 30);
   s += t(X + 58, 182, 'Forms Trigger', { size: 13.5, weight: 700, fill: G.ink });
   s += t(R - 20, 182, '✕', { size: 12, anchor: 'middle', fill: G.body });
-  s += tabs(X, 232, R - X, ['Setup', 'Filters', 'Conditions', 'Test'], 0);
+  // Final design has three tabs. The four-tab version (with Filters) was the v1
+  // wireframe — Filters was dropped before ship, and every hi-fi screen shows three.
+  s += tabs(X, 232, R - X, ['Setup', 'Conditions', 'Test'], 0);
   s += t(X, 292, 'Choose a Trigger Event', { size: 14, weight: 700, fill: G.ink });
   const events = [
     ['New Form Submission', 'Triggers when a user submits a new form', true],
