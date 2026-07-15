@@ -2109,12 +2109,20 @@ div.cs-annotated-img svg {
 .cs-versions--1col {
   grid-template-columns: 1fr;
 }
-.cs-component-showcase--stack {
+/* Full-width variant. Only for showcases laying several designs out side by
+   side — the default 50/50 split squeezes them through two nested grids and
+   lands each one around 256px. Single designs stay in the 50/50 layout. */
+.cs-component-showcase--full {
   grid-template-columns: 1fr;
-  gap: 32px;
+  gap: 28px;
 }
-.cs-component-showcase--stack .cs-dialog-grid {
-  grid-template-columns: 1fr;
-  gap: 40px;
+.cs-component-showcase--full .cs-component-details {
+  max-width: 780px;
+}
+/* Designs sit side by side across the full width, never stacked vertically. */
+.cs-component-showcase--full .cs-dialog-grid {
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
   justify-items: center;
 }
