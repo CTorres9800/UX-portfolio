@@ -364,7 +364,11 @@ const splitV3 = (() => {
   s += nodeCard(112, 322, 'Time Delay', 'Wait for 2 days');
   s += ln(196, 362, 196, 396, { stroke: G.line });
   s += nodeCard(112, 396, 'Video Recording', 'Start a new video recording');
-  s += ln(484, 293, 484, 460, { stroke: G.line });
+  // Path 2 has no steps yet, so it ends in the add-node affordance rather than a
+  // line that stops in empty space.
+  s += ln(484, 293, 484, 326, { stroke: G.line });
+  s += cir(484, 342, 14, { fill: G.white, stroke: G.line });
+  s += `<path d="M484 335 v14 M477 342 h14" stroke="${G.body}" stroke-width="1.2" stroke-linecap="round"/>`;
   // sidebar
   s += iconSq(SBX + 16, 46, 24);
   s += t(SBX + 48, 56, 'Split Path', { size: 9, weight: 700, fill: G.ink });
