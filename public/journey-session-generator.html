@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    width: 2800px;
+    padding: 50px;
+    color: #333;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  /* ===== TOP AREA - matches original exactly ===== */
+  .top-area {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+  .left-side { width: 380px; flex-shrink: 0; }
+  .title-box {
+    border: 2px solid #333;
+    padding: 26px 24px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 28px;
+  }
+  .questions-area { font-size: 13px; line-height: 1.65; }
+  .questions-area h3 { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+  .questions-area p { margin-bottom: 12px; }
+
+  /* Top sticky notes - exact original layout */
+  .right-side { flex: 1; }
+  .top-notes-row {
+    display: flex;
+    gap: 14px;
+    align-items: flex-end;
+  }
+  .top-note-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  .top-badge {
+    background: #8EA9DB;
+    color: #fff;
+    font-size: 8px;
+    font-weight: 700;
+    padding: 3px 10px;
+    letter-spacing: 0.3px;
+  }
+  .top-note {
+    width: 170px;
+    min-height: 120px;
+    padding: 12px;
+    font-size: 11px;
+    line-height: 1.45;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.15);
+  }
+  .tn-blue { background: #DAE3F3; }
+  .tn-pink { background: #F2DCDB; }
+  .tn-purp { background: #E2D5F0; }
+  .bottom-badge {
+    background: #D6DCE4;
+    color: #555;
+    font-size: 7px;
+    font-weight: 600;
+    padding: 2px 8px;
+  }
+
+  /* ===== HEADER LABELS - same blue buttons as original ===== */
+  .front-label {
+    text-align: right;
+    font-size: 9px;
+    color: #888;
+    margin: 6px 0 4px;
+  }
+  .header-labels {
+    display: grid;
+    grid-template-columns: 140px 170px 200px 1fr 1fr 1fr 1fr 1fr 200px 110px 200px;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+  .hl-blank {}
+  .hl-btn {
+    background: #8EA9DB;
+    color: #fff;
+    text-align: center;
+    padding: 8px 6px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .hl-btn-sm {
+    background: #8EA9DB;
+    color: #fff;
+    text-align: center;
+    padding: 8px 4px;
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  /* ===== PERSONA BAR - dark navy like original ===== */
+  .persona-bar {
+    background: #44546A;
+    color: #fff;
+    text-align: center;
+    padding: 7px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+
+  /* ===== CONTENT GRID ===== */
+  .content-row {
+    display: grid;
+    grid-template-columns: 140px 170px 200px 1fr 1fr 1fr 1fr 1fr 200px 110px 200px;
+    gap: 10px;
+    margin-bottom: 24px;
+    align-items: start;
+  }
+
+  /* All cards share this base shadow */
+  .card {
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.15);
+    padding: 12px 10px;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  .card ul { padding-left: 14px; margin: 0; }
+  .card li { margin-bottom: 4px; }
+
+  /* Step agenda - light blue like original */
+  .step-card {
+    background: #B4C7E7;
+    min-height: 200px;
+  }
+  .step-card h4 { font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+
+  /* Stage card - white with border like original */
+  .stage-card {
+    background: #fff;
+    border: 1px solid #D6DCE4;
+    min-height: 200px;
+  }
+  .stage-card h4 {
+    font-size: 14px;
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+
+  /* Content sticky notes - colors match original exactly */
+  .note-green { background: #E2EFDA; min-height: 260px; }
+  .note-pink { background: #FCE4EC; min-height: 260px; }
+  .note-blue { background: #D6E4F0; min-height: 260px; }
+  .note-purp { background: #E2D5F0; min-height: 260px; }
+  .note-lpurp { background: #EDE7F5; min-height: 260px; }
+
+  /* Thinking sticky note */
+  .think-note { background: #FFF8E1; min-height: 200px; }
+
+  /* Feeling sticky note - square with centered emotion */
+  .feel-note {
+    min-height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .feel-peach { background: #F2DDD0; color: #6b3a20; }
+  .feel-blue { background: #C8D8F0; color: #2a4570; }
+  .feel-lav { background: #DDD5F0; color: #4a3570; }
+  .feel-rose { background: #F0C8D5; color: #6b2040; }
+  .feel-yel { background: #F2ECC8; color: #6b5a20; }
+  .feel-orange { background: #F2DDD0; color: #6b3a20; }
+
+  /* Needed sticky note */
+  .need-note { background: #D6E4F0; min-height: 200px; }
+
+  /* Step spanning 2 rows */
+  .span-2 { grid-row: span 2; }
+
+  /* Sub-label */
+  .sub { font-size: 8px; color: #aaa; margin-top: 8px; font-style: italic; }
+</style>
+</head>
+<body>
+
+<!-- ===== TOP AREA ===== -->
+<div class="top-area">
+  <div class="left-side">
+    <div class="title-box">Workflow Builder -<br>Journey Session</div>
+    <div class="questions-area">
+      <h3>Questions</h3>
+      <p><strong>1.</strong> What other key features would be useful for users building a workflow? Key features should reduce guesswork and surface validation at every step.</p>
+      <p><strong>2.</strong> Should users be required to test their workflow before publishing? Currently, the assumption is to encourage but not block publishing.</p>
+      <p><strong>3.</strong> Will users be confused if they see an unconfigured split path on the canvas but no error until they try to publish? How will users interpret this state?</p>
+    </div>
+  </div>
+
+  <div class="right-side">
+    <div class="top-notes-row">
+      <div class="top-note-group">
+        <div class="top-badge">UX/UI Features</div>
+        <div class="top-note tn-blue">what is desired outcome from the step... <strong>why</strong> are we doing this and what are we trying to achieve?<br><br><strong>No multiple goals.</strong></div>
+        <div class="bottom-badge">Goals</div>
+      </div>
+      <div class="top-note-group">
+        <div class="top-note tn-blue">Problems trying to solve?</div>
+        <div class="bottom-badge">Goals</div>
+      </div>
+      <div class="top-note-group">
+        <div class="top-note tn-blue">What are we supposed to do?<br><br>From idea name the software - locate the software for solutions</div>
+        <div class="bottom-badge">Goals</div>
+      </div>
+      <div class="top-note-group">
+        <div class="top-badge">UX/UI Features</div>
+        <div class="top-note tn-pink">What stopping you from exceeding the idea to solve the problem / accomplish the goal?</div>
+        <div class="bottom-badge">Goals</div>
+      </div>
+      <div class="top-note-group">
+        <div class="top-note tn-purp">How can we overcome the blocker tangibly? If you were able to find out if one of the other options...</div>
+        <div class="bottom-badge">Goals</div>
+      </div>
+      <div class="top-note-group">
+        <div class="top-note tn-purp">Thinking about pain points...</div>
+        <div class="bottom-badge">Goals</div>
+      </div>
+      <div class="top-note-group">
+        <div class="top-badge">UX/UI Features</div>
+        <div class="top-note tn-purp">ONE MORE EMOTION...</div>
+        <div class="bottom-badge">Goals</div>
+      </div>
+      <div class="top-note-group">
+        <div class="top-note tn-purp">what can we do based on the feeling?</div>
+        <div class="bottom-badge">Goals</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HEADER LABELS ===== -->
+<div class="header-labels">
+  <div class="hl-blank"></div>
+  <div class="hl-blank"></div>
+  <div class="hl-btn">Stages</div>
+  <div class="hl-btn">Goals</div>
+  <div class="hl-btn">Pain Points</div>
+  <div class="hl-btn">Ideas/Features</div>
+  <div class="hl-btn">Blockers</div>
+  <div class="hl-btn">Solutions</div>
+  <div class="hl-btn-sm">What are you thinking?</div>
+  <div class="hl-btn-sm">What are you feeling?</div>
+  <div class="hl-btn-sm">What is needed?</div>
+</div>
+
+<!-- ===== PERSONA BAR ===== -->
+<div class="persona-bar">Operations Manager Building First Workflow Automation</div>
+
+<!-- ===== ROW 1: Creating a Workflow ===== -->
+<div class="content-row">
+  <div class="card step-card span-2">
+    <h4>Step 1 Agenda</h4>
+    <ul>
+      <li>Decide if this automation tool meets my needs and explore the workflow builder.</li>
+      <li>Configure the trigger and add action steps to build the automation flow.</li>
+    </ul>
+  </div>
+
+  <div class="card stage-card">
+    <h4>Before Building</h4>
+  </div>
+
+  <div class="card stage-card">
+    <h4>Creating a Workflow</h4>
+    <p>Allow users to name a new workflow and land on the blank canvas to begin building.</p>
+  </div>
+
+  <div class="card note-green">
+    <ul>
+      <li>Understand what the workflow builder does and how it connects to my tools</li>
+      <li>Name the workflow and land on a canvas that guides me to the first step</li>
+      <li>Find available triggers quickly without searching through menus</li>
+    </ul>
+  </div>
+
+  <div class="card note-pink">
+    <ul>
+      <li>It's so hard to determine if this is what I'm looking for, if only I could change just one thing</li>
+      <li>The canvas is blank with no guidance. I don't know if I should drag or click</li>
+      <li>I didn't know there were other triggers available to me</li>
+    </ul>
+  </div>
+
+  <div class="card note-blue">
+    <ul>
+      <li>Guided empty state with "Add a Trigger" prompt</li>
+      <li>Auto-open sidebar with searchable trigger list</li>
+      <li>Dotted drop zones visible by default</li>
+      <li>Floating "+" button for adding steps inline</li>
+      <li>Live Chat to ask questions to support</li>
+    </ul>
+  </div>
+
+  <div class="card note-purp">
+    <ul>
+      <li>The canvas is too intimidating. I don't know if I should drag or click or what</li>
+      <li>Where are the other tools available?</li>
+    </ul>
+  </div>
+
+  <div class="card note-lpurp">
+    <ul>
+      <li>Organize the builder by sections to allow for easier navigation and exploration</li>
+      <li>Include an explanation of the process to immediately inform newcomers what to expect</li>
+      <li>I don't have the funds to fix issues that happen from misconfiguration. I just need to get it right the first time.</li>
+    </ul>
+  </div>
+
+  <div class="card think-note">Overwhelmed by the blank canvas, not sure where to start or what the first step should be. I feel like I need someone to hold my hand through the first setup.</div>
+
+  <div class="card feel-note feel-peach">uncertain</div>
+
+  <div class="card need-note">Guided empty state with trigger prompt and auto-opening sidebar. Visible drop zones and floating "+" buttons on the canvas.</div>
+</div>
+
+<!-- ===== ROW 2: Adding Triggers & Actions ===== -->
+<div class="content-row">
+  <div></div>
+
+  <div class="card stage-card">
+    <h4>After First Drop</h4>
+  </div>
+
+  <div class="card stage-card">
+    <h4>Adding Triggers &amp; Actions</h4>
+    <p>Allow users to configure trigger events, connect accounts, and add action steps.</p>
+  </div>
+
+  <div class="card note-green">
+    <ul>
+      <li>This sidebar is almost what I'm looking for, if only I could change just the event type</li>
+      <li>I could ask for a connection to an API with URLs, but that's such an unexpected way to connect</li>
+      <li>I didn't know I could change the account. Why did one just fill in?</li>
+    </ul>
+  </div>
+
+  <div class="card note-pink">
+    <ul>
+      <li>Clear required/optional field indicators</li>
+      <li>Multiple auth options for connecting accounts</li>
+      <li>Inline account connection within the sidebar flow</li>
+      <li>Live auto-save indicator in the header</li>
+    </ul>
+  </div>
+
+  <div class="card note-blue">
+    <ul>
+      <li>Clear required/optional field indicators</li>
+      <li>Multiple auth options for connecting accounts</li>
+      <li>Inline account connection within sidebar flow</li>
+      <li>Live auto-save indicator for clients to view as they're updating</li>
+    </ul>
+  </div>
+
+  <div class="card note-purp">
+    <ul>
+      <li>If I change the account, won't the prior setup change as well? How am I going to know how close to being done I am?</li>
+      <li>Is this saving my changes?</li>
+    </ul>
+  </div>
+
+  <div class="card note-lpurp">
+    <ul>
+      <li>Account editing should reflect the prior setup. Contextual sidebar to let me know I'm half done</li>
+      <li>Transparency about syncing should be available to me</li>
+      <li>Auto-save or at least a "save for later" feature</li>
+    </ul>
+  </div>
+
+  <div class="card think-note">Hoping the sidebar gives me enough control without being too complicated. I just want to connect my account and move on without second-guessing everything.</div>
+
+  <div class="card feel-note feel-blue">focused</div>
+
+  <div class="card need-note">Tabbed sidebar with Setup, Conditions, and Test tabs. Encourage ADD vs. REMOVE for a feeling of progress.</div>
+</div>
+
+<!-- ===== ROW 3: Configuring Split Paths ===== -->
+<div class="content-row">
+  <div></div>
+  <div></div>
+
+  <div class="card stage-card">
+    <h4>Configuring Split Paths</h4>
+    <p>Allow users to add conditional or percentage-based branching logic.</p>
+  </div>
+
+  <div class="card note-green">
+    <ul>
+      <li>Did I make sure to choose the right split type? I want to route by conditions, not percentages</li>
+      <li>AND/OR conditions should be readable at a glance</li>
+      <li>Confirmation before deleting a path with steps inside</li>
+    </ul>
+  </div>
+
+  <div class="card note-pink">
+    <ul>
+      <li>No explanation of when to use conditional vs. percentage split</li>
+      <li>Complex AND/OR logic is hard to read at a glance</li>
+      <li>Deleting a path with steps has no confirmation</li>
+    </ul>
+  </div>
+
+  <div class="card note-blue">
+    <ul>
+      <li>Clear descriptions under each split type</li>
+      <li>Inline condition summaries on canvas paths</li>
+      <li>Merge paths toggle for downstream control</li>
+      <li>Confirmation dialog before deleting paths</li>
+    </ul>
+  </div>
+
+  <div class="card note-purp">
+    <ul>
+      <li>If I edit, do I need to start at the beginning and navigate to the path I need to change? That might take a lot of scrolling</li>
+    </ul>
+  </div>
+
+  <div class="card note-lpurp">
+    <ul>
+      <li>I need to be confident that the split logic sends the right contacts down the right path</li>
+      <li>It better have a double check. Editing and preview should be seamless, so the same context is preserved</li>
+      <li>I really hope I don't have to start all over</li>
+    </ul>
+  </div>
+
+  <div class="card think-note">Worried I'll pick the wrong split type and have to redo the whole branch from scratch. The logic needs to be readable at a glance.</div>
+
+  <div class="card feel-note feel-lav">cautious</div>
+
+  <div class="card need-note">Condition summaries inline on canvas branches. Emphasized "Add Condition" buttons instead of "remove" formatting.</div>
+</div>
+
+<!-- ===== ROW 4: Testing ===== -->
+<div class="content-row">
+  <div></div>
+  <div></div>
+
+  <div class="card stage-card">
+    <h4>Testing</h4>
+    <p>Allow users to validate the entire workflow before publishing it live.</p>
+  </div>
+
+  <div class="card note-green">
+    <ul>
+      <li>This process is critical. I really want to see if the connections actually work</li>
+      <li>Is it clear? I'm not going to get surprised after publishing</li>
+      <li>Did I set all my fields and information correctly? I should double-check</li>
+    </ul>
+  </div>
+
+  <div class="card note-pink">
+    <ul>
+      <li>No way to test before publishing</li>
+      <li>Error messages are vague and don't point to specific nodes</li>
+      <li>No visual indication of which connections failed</li>
+    </ul>
+  </div>
+
+  <div class="card note-blue">
+    <ul>
+      <li>Pre-publish test runner with pass/fail per connection</li>
+      <li>Red error borders on misconfigured nodes</li>
+      <li>"Test Again" button for iterative debugging</li>
+      <li>Expandable details per failed connection</li>
+    </ul>
+  </div>
+
+  <div class="card note-purp">
+    <ul>
+      <li>No Blockers</li>
+    </ul>
+  </div>
+
+  <div class="card note-lpurp">
+    <ul>
+      <li>I'd like to make sure I understand the test results before publishing since this is a LIVE workflow</li>
+    </ul>
+  </div>
+
+  <div class="card think-note">If this test fails I need to know exactly what broke so I can fix it without guessing. I can't afford to publish something broken.</div>
+
+  <div class="card feel-note feel-rose">anxious</div>
+
+  <div class="card need-note">Inline test results with pass/fail counts and expandable details per failed connection.</div>
+</div>
+
+<!-- ===== ROW 5: Publishing ===== -->
+<div class="content-row">
+  <div class="card step-card span-2">
+    <h4>Step 2 Agenda</h4>
+    <ul>
+      <li>Publish the workflow and manage it going forward if there are any issues.</li>
+    </ul>
+  </div>
+
+  <div class="card stage-card">
+    <h4>After Testing</h4>
+  </div>
+
+  <div class="card stage-card">
+    <h4>Publishing</h4>
+    <p>Allow users to publish their workflow live after testing passes.</p>
+  </div>
+
+  <div class="card note-green">
+    <ul>
+      <li>I don't have time to second-guess. I need to know the test passed and then publish quickly</li>
+      <li>There needs to be some kind of confirmation so I know this is going live</li>
+      <li>I want options after publishing, not a dead end</li>
+    </ul>
+  </div>
+
+  <div class="card note-pink">
+    <ul>
+      <li>No confirmation step before going live</li>
+      <li>No success state or celebration after publishing</li>
+      <li>No clear next-step options. Just a blank canvas</li>
+    </ul>
+  </div>
+
+  <div class="card note-blue">
+    <ul>
+      <li>Two-step publish confirmation dialog</li>
+      <li>"This workflow will go live" in plain language</li>
+      <li>Success state with green checkmark</li>
+      <li>"Go To Dashboard" or "Keep Working" options</li>
+    </ul>
+  </div>
+
+  <div class="card note-purp">
+    <ul>
+      <li>Do I have to re-test after every edit? If so, how quickly?</li>
+      <li>Can I send invites to other people to review the workflow?</li>
+      <li>Why were these test results not shared with stakeholders?</li>
+    </ul>
+  </div>
+
+  <div class="card note-lpurp">
+    <ul>
+      <li>This part of getting my workflow live should feel like make or break. I want a graceful launch, not a silent button click</li>
+      <li>Seeing the success state helps confirm this is a real milestone</li>
+    </ul>
+  </div>
+
+  <div class="card think-note">This is the point of no return. I need to be absolutely sure everything is right before going live. One wrong setting and it affects real people.</div>
+
+  <div class="card feel-note feel-yel">hesitant</div>
+
+  <div class="card need-note">Two-step publish confirmation with plain-language summary. Success celebration with dashboard and continue options.</div>
+</div>
+
+<!-- ===== ROW 6: Managing Workflows ===== -->
+<div class="content-row">
+  <div></div>
+  <div></div>
+
+  <div class="card stage-card">
+    <h4>Managing Workflows</h4>
+    <p>Verify workflow is running correctly and manage existing automations.</p>
+  </div>
+
+  <div class="card note-green">
+    <ul>
+      <li>How will I know when a workflow stops or breaks after it's live? Is there a way to track it?</li>
+      <li>I don't have enough detail. How can I send more invites, and what's the recovery process?</li>
+    </ul>
+  </div>
+
+  <div class="card note-pink">
+    <ul>
+      <li>No search or filter on the workflow dashboard</li>
+      <li>No version history to roll back changes</li>
+      <li>Deleting a workflow has no recovery option</li>
+      <li>Can't easily find old workflows by name</li>
+    </ul>
+  </div>
+
+  <div class="card note-blue">
+    <ul>
+      <li>A screen where I can track all workflows, see status, and manage them</li>
+      <li>Search, filter, and sort by name, status, or date</li>
+      <li>Context menus for rename, duplicate, delete</li>
+      <li>Version history with rollback</li>
+    </ul>
+  </div>
+
+  <div class="card note-purp">
+    <ul>
+      <li>I want out of those workflows to know which ones are SUPPOSED to be available. Why is no one actually available? So annoying!</li>
+      <li>It should take into account last activity, confirmed availability, and recent changes</li>
+    </ul>
+  </div>
+
+  <div class="card note-lpurp">
+    <ul>
+      <li>I don't want to keep checking to see if someone has accepted my invite. I have other things to do!</li>
+    </ul>
+  </div>
+
+  <div class="card think-note">I just want to see at a glance which workflows are running and which ones need attention. Don't make me dig through menus.</div>
+
+  <div class="card feel-note feel-orange">frustrated</div>
+
+  <div class="card need-note">Workflow dashboard with search, filters, status badges, and 30-day trash recovery for deleted workflows.</div>
+</div>
+
+</body>
+</html>
