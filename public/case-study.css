@@ -2091,3 +2091,14 @@ div.cs-annotated-img svg {
     display: none;
   }
 }
+
+/* Blend Metrics: --left-only / --right-only zero the rail gap and lean on
+   justify-content: space-around for spacing. When the cards nearly fill the
+   rail there is no free space left to distribute, so they collapse into each
+   other. Restore a floor. gap is a *minimum*, so space-around still
+   distributes whatever slack remains — and the shared variants, which
+   marketeq-projects also uses, stay untouched. */
+.cs-annotated-wrap--spaced .cs-annotated-left,
+.cs-annotated-wrap--spaced .cs-annotated-right {
+  gap: 28px;
+}
