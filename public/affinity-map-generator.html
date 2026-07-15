@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    /* White ground with a dashed group border, matching the card-sorting boards
+       in the Feature Prioritization section. */
+    background: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    width: 1400px;
+    padding: 36px;
+    color: #222;
+  }
+  .map {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 34px 28px;
+  }
+  .theme {
+    border: 1.5px dashed #BBBBBB;
+    border-radius: 6px;
+    padding: 20px 18px 22px;
+  }
+  .theme h2 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #1a1a1a;
+  }
+  .notes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 9px;
+  }
+  .note {
+    padding: 11px 9px;
+    font-size: 11px;
+    line-height: 1.42;
+    min-height: 104px;
+    border-radius: 2px;
+  }
+  /* colours sampled from the previous board so nothing else shifts */
+  .t-yellow .note { background: #FFF3A8; }
+  .t-mint   .note { background: #A8E6CF; }
+  .t-blue   .note { background: #71B2CA; }
+  .t-salmon .note { background: #FFB5A7; }
+  .t-purple .note { background: #D4B5FF; }
+</style>
+</head>
+<body>
+
+<div class="map">
+
+  <div class="theme t-yellow">
+    <h2>🔍 Canvas &amp; Node Clarity</h2>
+    <div class="notes">
+      <div class="note">Guided empty state with "Add a Trigger" prompt</div>
+      <div class="note">Dotted drop zones that appear before dragging</div>
+      <div class="note">Curved connection lines between nodes</div>
+      <div class="note">Consistent node sizing across all step types</div>
+      <div class="note">Auto-layout to keep canvas readable at scale</div>
+      <div class="note">Floating "+" button for adding new steps inline</div>
+      <div class="note">Blue highlight on drop zone during hover</div>
+      <div class="note">Canvas toolbar with zoom controls and search</div>
+      <div class="note">Three-step drag interaction: empty, hover, snap</div>
+    </div>
+  </div>
+
+  <div class="theme t-mint">
+    <h2>⚙️ Configuration &amp; Setup</h2>
+    <div class="notes">
+      <div class="note">Contextual sidebar adapts to selected node type</div>
+      <div class="note">Tabbed navigation: Setup, Conditions, Test</div>
+      <div class="note">Searchable trigger type selection list</div>
+      <div class="note">Event type dropdown with clear labels</div>
+      <div class="note">Inline account connection within sidebar flow</div>
+      <div class="note">Three auth methods: login, API key, OAuth</div>
+      <div class="note">Required field indicators on all form inputs</div>
+      <div class="note">Form selection for trigger configuration</div>
+      <div class="note">Data mapping fields referencing upstream nodes</div>
+    </div>
+  </div>
+
+  <div class="theme t-blue">
+    <h2>🔀 Branching &amp; Logic</h2>
+    <div class="notes">
+      <div class="note">Conditional split with data-based routing rules</div>
+      <div class="note">Percentage split with slider and auto-distribution</div>
+      <div class="note">AND/OR logic builder for each condition path</div>
+      <div class="note">"+ Add Condition" button for layered rules</div>
+      <div class="note">Toggle: "Merge paths to single endpoint"</div>
+      <div class="note">Add unlimited paths with auto-recalculation</div>
+      <div class="note">"Switch to Manual" and "Distribute Evenly" controls</div>
+      <div class="note">Percentage labels visible on canvas branches</div>
+      <div class="note">Condition summaries inline on canvas paths</div>
+    </div>
+  </div>
+
+  <div class="theme t-yellow">
+    <h2>🔬 Testing &amp; Validation</h2>
+    <div class="notes">
+      <div class="note">Pre-publish test runner with pass/fail results</div>
+      <div class="note">Expandable details per connection test</div>
+      <div class="note">"Test Again" button for iterative debugging</div>
+      <div class="note">Red error borders on misconfigured nodes</div>
+      <div class="note">Warning icons on failed steps</div>
+      <div class="note">Inline validation on required sidebar fields</div>
+      <div class="note">Unconfigured split paths flagged before publish</div>
+      <div class="note">Error states on canvas and sidebar simultaneously</div>
+      <div class="note">Split path type selection required before proceeding</div>
+    </div>
+  </div>
+
+  <div class="theme t-salmon">
+    <h2>🚀 Publish &amp; Lifecycle</h2>
+    <div class="notes">
+      <div class="note">Two-step publish confirmation dialog</div>
+      <div class="note">"This workflow will go live" plain-language warning</div>
+      <div class="note">Blue "Yes, publish" button (positive action)</div>
+      <div class="note">Success state with green checkmark</div>
+      <div class="note">"Go To Dashboard" or "Keep Working" options</div>
+      <div class="note">Auto-save indicator: "Saved at [time]"</div>
+      <div class="note">Highlighted save state on recent save</div>
+      <div class="note">"Edited X mins ago" for unsaved changes</div>
+      <div class="note">Clock icon + tooltip with last edit timestamp</div>
+    </div>
+  </div>
+
+  <div class="theme t-purple">
+    <h2>🗂️ Workflow Management</h2>
+    <div class="notes">
+      <div class="note">Confirmation dialogs: delete workflow, trigger, step</div>
+      <div class="note">30-day trash recovery for deleted workflows</div>
+      <div class="note">Exit workflow dialog with unsaved changes warning</div>
+      <div class="note">Right-click context menus on nodes</div>
+      <div class="note">Inline rename modals for quick editing</div>
+      <div class="note">Version history with filterable timestamps</div>
+      <div class="note">Duplicate and delete via context menu</div>
+      <div class="note">Destructive actions use red button styling</div>
+      <div class="note">Cancel always available as safe escape</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
