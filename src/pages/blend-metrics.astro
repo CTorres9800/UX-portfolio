@@ -822,8 +822,8 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
       },
       {
         subtitle: 'Step Library Popup',
-        // Near full-screen at 1300px wide — needs two columns to stay legible
-        columns: 2,
+        // 1320px artwork — only legible at full width; two columns put it at 544px
+        columns: 1,
         description: 'With 126 triggers, 52 conditions, 294 actions and 46 filters, the step library was the densest surface in the product. It had to stay browsable by category, scannable as a list, searchable across every type at once, and honest when a search returned nothing. These four states set the pattern for every picker in the builder.',
         versions: [
           { label: 'Browse by category', svg: cwPopupGrid, imageAlt: 'Component wireframe: step library popup, grid view of triggers by category' },
@@ -1191,7 +1191,7 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
       </div>
     </div>
 
-    <div class="cs-component-showcase cs-component-showcase--reverse" style="margin-top: 120px;">
+    <div class="cs-component-showcase cs-component-showcase--stack" style="margin-top: 120px;">
       <div class="cs-component-details">
         <h3 class="cs-component-title">Step Library Popup</h3>
         <p class="cs-component-desc">The picker behind every "add a step" action. With 126 triggers, 52 conditions, 294 actions and 46 filters, it had to stay browsable for people exploring and instant for people who already know what they want.</p>
