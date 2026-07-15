@@ -14,14 +14,27 @@
     line-height: 1.5;
   }
 
-  /* ===== TOP AREA - matches original exactly ===== */
-  .top-area {
-    display: flex;
-    gap: 50px;
-    margin-bottom: 20px;
-    align-items: flex-start;
+  /* One column template shared by the top notes, the header labels and every
+     content row, so all four stay in lockstep. Columns 1-3 are the agenda and
+     stage cards; columns 4-11 are the eight sticky-note columns and are equal
+     width — Goals, Pain Points, Ideas/Features, Blockers, Solutions, Thinking,
+     Feeling, Needed. Every sticky note is therefore the same width; only
+     height varies with content. */
+  :root {
+    --journey-cols: 140px 170px 200px repeat(8, 1fr);
+    --journey-gap: 10px;
   }
-  .left-side { width: 380px; flex-shrink: 0; }
+
+  /* ===== TOP AREA ===== */
+  .top-area {
+    display: grid;
+    grid-template-columns: var(--journey-cols);
+    gap: var(--journey-gap);
+    margin-bottom: 20px;
+    align-items: end;
+  }
+  /* title + questions occupy the same span as the agenda/stage cards below */
+  .left-side { grid-column: 1 / 4; }
   .title-box {
     border: 2px solid #333;
     padding: 26px 24px;
@@ -35,17 +48,12 @@
   .questions-area h3 { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
   .questions-area p { margin-bottom: 12px; }
 
-  /* Top sticky notes - exact original layout */
-  .right-side { flex: 1; }
-  .top-notes-row {
-    display: flex;
-    gap: 14px;
-    align-items: flex-end;
-  }
+  /* Top sticky notes — one per sticky column, so each sits directly above the
+     column it belongs to. Width comes from the grid, never a fixed value. */
   .top-note-group {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     gap: 5px;
   }
   .top-badge {
@@ -55,9 +63,9 @@
     font-weight: 700;
     padding: 3px 10px;
     letter-spacing: 0.3px;
+    align-self: center;
   }
   .top-note {
-    width: 170px;
     min-height: 120px;
     padding: 12px;
     font-size: 11px;
@@ -73,6 +81,7 @@
     font-size: 7px;
     font-weight: 600;
     padding: 2px 8px;
+    align-self: center;
   }
 
   /* ===== HEADER LABELS - same blue buttons as original ===== */
@@ -84,8 +93,8 @@
   }
   .header-labels {
     display: grid;
-    grid-template-columns: 140px 170px 200px 1fr 1fr 1fr 1fr 1fr 200px 110px 200px;
-    gap: 10px;
+    grid-template-columns: var(--journey-cols);
+    gap: var(--journey-gap);
     margin-bottom: 4px;
   }
   .hl-blank {}
@@ -120,8 +129,8 @@
   /* ===== CONTENT GRID ===== */
   .content-row {
     display: grid;
-    grid-template-columns: 140px 170px 200px 1fr 1fr 1fr 1fr 1fr 200px 110px 200px;
-    gap: 10px;
+    grid-template-columns: var(--journey-cols);
+    gap: var(--journey-gap);
     margin-bottom: 24px;
     align-items: start;
   }
@@ -207,11 +216,9 @@
     </div>
   </div>
 
-  <div class="right-side">
-    <div class="top-notes-row">
-      <div class="top-note-group">
-        <div class="top-badge">UX/UI Features</div>
-        <div class="top-note tn-blue">what is desired outcome from the step... <strong>why</strong> are we doing this and what are we trying to achieve?<br><br><strong>No multiple goals.</strong></div>
+  <div class="top-note-group">
+    <div class="top-badge">UX/UI Features</div>
+    <div class="top-note tn-blue">what is desired outcome from the step... <strong>why</strong> are we doing this and what are we trying to achieve?<br><br><strong>No multiple goals.</strong></div>
         <div class="bottom-badge">Goals</div>
       </div>
       <div class="top-note-group">
@@ -243,8 +250,6 @@
       <div class="top-note-group">
         <div class="top-note tn-purp">what can we do based on the feeling?</div>
         <div class="bottom-badge">Goals</div>
-      </div>
-    </div>
   </div>
 </div>
 
