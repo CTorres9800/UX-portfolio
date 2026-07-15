@@ -480,19 +480,19 @@ const manageScreen = (() => {
 const searchScreen = (() => {
   const H = 880, PW = 380;
   let c = canvasBg(H);
-  c += node(520, 96, 'Save Data', 'Add a new category');
-  c += ln(640, 152, 640, 190, { stroke: G.line, sw: 1.4 });
-  c += node(520, 190, 'Condition', '2 or more settings applied');
-  c += ln(640, 246, 640, 284, { stroke: G.line, sw: 1.4 });
-  c += `<path d="M540 350 v-46 q0 -12 12 -12 h176 q12 0 12 12 v46" fill="none" stroke="${G.line}" stroke-width="1.4"/>`;
-  c += t(540, 342, 'Yes', { size: 10, anchor: 'middle', fill: G.mute });
-  c += t(740, 342, 'No', { size: 10, anchor: 'middle', fill: G.mute });
-  c += node(430, 350, 'Add Label To Email', 'Add a label to an email');
+  c += node(550, 96, 'Save Data', 'Add a new category');
+  c += ln(670, 152, 670, 190, { stroke: G.line, sw: 1.4 });
+  c += node(550, 190, 'Condition', '2 or more settings applied');
+  c += ln(670, 246, 670, 292, { stroke: G.line, sw: 1.4 });
+  c += `<path d="M520 350 v-46 q0 -12 12 -12 h276 q12 0 12 12 v46" fill="none" stroke="${G.line}" stroke-width="1.4"/>`;
+  c += t(520, 342, 'Yes', { size: 10, anchor: 'middle', fill: G.mute });
+  c += t(820, 342, 'No', { size: 10, anchor: 'middle', fill: G.mute });
+  c += node(400, 350, 'Add Label To Email', 'Add a label to an email');
   // the search hit, highlighted on canvas
-  c += node(660, 350, 'Send Message', 'Send email via Gmail', { stroke: G.ink, sw: 2.4, menu: true });
-  c += ln(780, 406, 780, 438, { stroke: G.line, sw: 1.4 });
-  c += cir(780, 456, 16, { fill: G.white, stroke: G.line });
-  c += `<path d="M780 448 v16 M772 456 h16" stroke="${G.body}" stroke-width="1.4" stroke-linecap="round"/>`;
+  c += node(700, 350, 'Send Message', 'Send email via Gmail', { stroke: G.ink, sw: 2.4, menu: true });
+  c += ln(820, 406, 820, 438, { stroke: G.line, sw: 1.4 });
+  c += cir(820, 456, 16, { fill: G.white, stroke: G.line });
+  c += `<path d="M820 448 v16 M812 456 h16" stroke="${G.body}" stroke-width="1.4" stroke-linecap="round"/>`;
   // search panel docked left
   c += box(0, TOP, PW, H - TOP, { r: 0, fill: G.white, stroke: 'none' });
   c += ln(PW, TOP, PW, H);
@@ -504,7 +504,7 @@ const searchScreen = (() => {
   c += t(24, 148, '12 Results', { size: 13, weight: 700, fill: G.ink });
   c += chevD(PW - 68, 142); c += `<path d="M${PW - 44} 148 l4 -4.6 4 4.6" stroke="${G.body}" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
   const groups = [
-    ['Triggers', '4', [['Send Massage', 'Create and send an email', true], ['Send Label From Email', 'Remove a label from an email message', false], ['Send Form', 'Triggers when new email appears in mailbox', false]]],
+    ['Triggers', '4', [['Send Message', 'Create and send an email', true], ['Send Label From Email', 'Remove a label from an email message', false], ['Send Form', 'Triggers when new email appears in mailbox', false]]],
     ['Actions', '8', [['Send Data', 'Triggers when new email appears in mailbox', false], ['Send Form', 'Triggers when new email appears in mailbox', false], ['Send Condition', 'Triggers when new email appears in mailbox', false]]],
   ];
   let gy = 184;
@@ -538,7 +538,8 @@ const searchScreen = (() => {
 // 9. SIDEBAR TABS — Setup / Conditions / Test, 1300x880
 // =====================================================================
 const tabsScreen = (() => {
-  const H = 1280, CW = 400, GAP = 24, X0 = 26;
+  // Panels end at 820 and their captions at 848 — H was 1280, leaving 432px blank.
+  const H = 880, CW = 400, GAP = 24, X0 = 26;
   let s = box(0, 0, W, H, { r: 0, fill: G.canvas, stroke: 'none' }) + dots(0, 0, W, H);
   const panels = ['Setup', 'Conditions', 'Test'];
   panels.forEach((active, i) => {
@@ -611,36 +612,38 @@ const tabsScreen = (() => {
 // 10. VERSION HISTORY — 1300x760
 // =====================================================================
 const versionScreen = (() => {
-  const H = 1020;
+  // Panel runs near full-bleed so the left rail and the Restore buttons sit close
+  // to the image edges — the annotation dots have something to reach.
+  const H = 700, PX = 40, PR = W - 40, RX = 72, RR = W - 72;
   let s = box(0, 0, W, H, { r: 0, fill: G.canvas, stroke: 'none' }) + dots(0, 0, W, H);
-  s += box(180, 40, 940, H - 90, { r: 12, fill: G.white, stroke: G.line });
-  s += t(212, 84, 'Version history', { size: 18, weight: 700, fill: G.ink });
-  s += t(212, 106, 'Every publish is snapshotted. Restore any version without losing your current draft.', { size: 11, fill: G.mute });
-  s += t(1088, 80, '✕', { size: 13, anchor: 'middle', fill: G.body });
-  s += ln(180, 130, 1120, 130, { stroke: G.soft });
+  s += box(PX, 40, PR - PX, 620, { r: 12, fill: G.white, stroke: G.line });
+  s += t(RX, 84, 'Version history', { size: 18, weight: 700, fill: G.ink });
+  s += t(RX, 106, 'Every publish is snapshotted. Restore any version without losing your current draft.', { size: 11, fill: G.mute });
+  s += t(PR - 32, 80, '\u2715', { size: 13, anchor: 'middle', fill: G.body });
+  s += ln(PX, 130, PR, 130, { stroke: G.soft });
   const versions = [
-    ['Current draft', 'You · edited 2 minutes ago', '4 steps', true, false],
-    ['v5 — Published', 'You · Today, 10:41AM', '4 steps', false, true],
-    ['v4 — Published', 'You · Yesterday, 4:12PM', '3 steps', false, false],
-    ['v3 — Published', 'Inna T. · 3 days ago', '3 steps', false, false],
-    ['v2 — Published', 'You · Last week', '2 steps', false, false],
+    ['Current draft', 'You \u00b7 edited 2 minutes ago', '4 steps', true, false],
+    ['v5 \u2014 Published', 'You \u00b7 Today, 10:41AM', '4 steps', false, true],
+    ['v4 \u2014 Published', 'You \u00b7 Yesterday, 4:12PM', '3 steps', false, false],
+    ['v3 \u2014 Published', 'Inna T. \u00b7 3 days ago', '3 steps', false, false],
+    ['v2 \u2014 Published', 'You \u00b7 Last week', '2 steps', false, false],
   ];
   versions.forEach(([name, meta, steps, isDraft, isLive], i) => {
     const y = 150 + i * 92;
-    s += box(212, y, 876, 76, { r: 8, fill: isDraft ? G.fill : G.white });
-    s += cir(240, y + 38, 6, { fill: isDraft ? G.solid : G.white, stroke: isDraft ? G.solid : G.faint });
-    if (i < versions.length - 1) s += ln(240, y + 46, 240, y + 92, { stroke: G.line, dash: '3 4' });
-    s += t(266, y + 32, name, { size: 12.5, weight: 700, fill: G.ink });
-    s += t(266, y + 50, meta, { size: 10, fill: G.mute });
-    s += t(620, y + 44, steps, { size: 11, fill: G.body });
-    if (isLive) { s += box(700, y + 27, 54, 22, { r: 11, fill: G.solid, stroke: G.solid }); s += t(727, y + 42, 'Live', { size: 9.6, weight: 700, fill: G.white, anchor: 'middle' }); }
-    if (isDraft) { s += box(700, y + 27, 68, 22, { r: 11, fill: G.white, stroke: G.line }); s += t(734, y + 42, 'Editing', { size: 9.6, weight: 700, fill: G.body, anchor: 'middle' }); }
+    s += box(RX, y, RR - RX, 76, { r: 8, fill: isDraft ? G.fill : G.white });
+    s += cir(RX + 28, y + 38, 6, { fill: isDraft ? G.solid : G.white, stroke: isDraft ? G.solid : G.faint });
+    if (i < versions.length - 1) s += ln(RX + 28, y + 46, RX + 28, y + 92, { stroke: G.line, dash: '3 4' });
+    s += t(RX + 54, y + 32, name, { size: 12.5, weight: 700, fill: G.ink });
+    s += t(RX + 54, y + 50, meta, { size: 10, fill: G.mute });
+    s += t(700, y + 44, steps, { size: 11, fill: G.body });
+    if (isLive) { s += box(820, y + 27, 54, 22, { r: 11, fill: G.solid, stroke: G.solid }); s += t(847, y + 42, 'Live', { size: 9.6, weight: 700, fill: G.white, anchor: 'middle' }); }
+    if (isDraft) { s += box(820, y + 27, 68, 22, { r: 11, fill: G.white, stroke: G.line }); s += t(854, y + 42, 'Editing', { size: 9.6, weight: 700, fill: G.body, anchor: 'middle' }); }
     if (!isDraft) {
-      s += btn(880, y + 22, 88, 32, 'Preview', { size: 10.5 });
-      s += btn(980, y + 22, 88, 32, 'Restore', { size: 10.5, primary: i === 1 });
+      s += btn(RR - 204, y + 22, 88, 32, 'Preview', { size: 10.5 });
+      s += btn(RR - 104, y + 22, 88, 32, 'Restore', { size: 10.5, primary: i === 1 });
     }
   });
-  s += t(212, H - 68, '30 days of history is kept on every workflow.', { size: 10, fill: G.mute });
+  s += t(RX, 628, '30 days of history is kept on every workflow.', { size: 10, fill: G.mute });
   return svg(W, H, s, 'Final feature: Version History — snapshot per publish with preview and restore');
 })();
 
@@ -712,10 +715,10 @@ const libraryScreen = (() => {
 // 12. OPTIONS MENU & CONFIRMATIONS — 1300x640
 // =====================================================================
 const confirmScreen = (() => {
-  const H = 860;
+  const H = 620;
   let s = box(0, 0, W, H, { r: 0, fill: G.canvas, stroke: 'none' }) + dots(0, 0, W, H);
   // options menu
-  s += box(60, 60, 300, 210, { r: 12, fill: G.white, stroke: G.line });
+  s += box(60, 60, 300, 236, { r: 12, fill: G.white, stroke: G.line });
   s += t(88, 96, 'Workflow options', { size: 11, weight: 700, fill: G.mute });
   ['Clone Workflow', 'Run Workflow Test', 'Pause Workflow', 'Search'].forEach((m, i) => {
     s += box(76, 108 + i * 34, 24, 24, { r: 5, stroke: G.line });
@@ -724,35 +727,35 @@ const confirmScreen = (() => {
   s += ln(76, 246, 344, 246, { stroke: G.soft });
   s += box(76, 254, 24, 24, { r: 5, stroke: G.ink });
   s += t(112, 271, 'Delete Workflow', { size: 12, weight: 700, fill: G.ink });
-  s += t(210, 306, 'Options menu', { size: 10.5, weight: 700, fill: G.mute, anchor: 'middle' });
+  s += t(210, 326, 'Options menu', { size: 10.5, weight: 700, fill: G.mute, anchor: 'middle' });
   // delete confirmation
-  s += box(420, 60, 400, 246, { r: 12, fill: G.white, stroke: G.line });
+  s += box(420, 60, 400, 212, { r: 12, fill: G.white, stroke: G.line });
   s += warn(460, 106, 16);
   s += t(492, 112, 'Delete this workflow?', { size: 16, weight: 700, fill: G.ink });
   s += t(452, 152, 'This workflow and its 5 steps will be moved to trash.', { size: 11.5, fill: G.body });
   s += t(452, 174, 'You can restore it for 30 days.', { size: 11.5, fill: G.body });
   s += btn(452, 210, 100, 38, 'Cancel');
   s += btn(564, 210, 100, 38, 'Delete', { primary: true });
-  s += t(620, 306, 'Destructive confirmation', { size: 10.5, weight: 700, fill: G.mute, anchor: 'middle' });
+  s += t(620, 326, 'Destructive confirmation', { size: 10.5, weight: 700, fill: G.mute, anchor: 'middle' });
   // exit confirmation
-  s += box(880, 60, 360, 246, { r: 12, fill: G.white, stroke: G.line });
+  s += box(880, 60, 360, 212, { r: 12, fill: G.white, stroke: G.line });
   s += t(912, 112, 'Exit without publishing?', { size: 16, weight: 700, fill: G.ink });
   s += t(912, 152, 'Your changes are saved as a draft. The live', { size: 11.5, fill: G.body });
   s += t(912, 174, 'workflow keeps running the last published version.', { size: 11.5, fill: G.body });
   s += btn(912, 210, 100, 38, 'Cancel');
   s += btn(1024, 210, 120, 38, 'Yes, exit', { primary: true });
-  s += t(1060, 306, 'Exit protection', { size: 10.5, weight: 700, fill: G.mute, anchor: 'middle' });
+  s += t(1060, 326, 'Exit protection', { size: 10.5, weight: 700, fill: G.mute, anchor: 'middle' });
   // node-level confirmations
   [['Delete this trigger?', 'The trigger and its setup will be removed.', 60],
    ['Delete this step?', 'Steps downstream keep their configuration.', 500],
    ['Publish this workflow?', 'It will go live immediately.', 940]].forEach(([title, body, x]) => {
-    s += box(x, 366, 300, 190, { r: 12, fill: G.white, stroke: G.line });
+    s += box(x, 366, 300, 168, { r: 12, fill: G.white, stroke: G.line });
     s += t(x + 28, 412, title, { size: 14, weight: 700, fill: G.ink });
     s += t(x + 28, 444, body, { size: 10.5, fill: G.mute });
     s += btn(x + 28, 476, 88, 34, 'Cancel', { size: 11 });
     s += btn(x + 128, 476, 100, 34, 'Confirm', { primary: true, size: 11 });
   });
-  s += t(650, 596, 'Every destructive or irreversible action is confirmed in the same shape', { size: 10.5, weight: 700, fill: G.mute, anchor: 'middle' });
+  s += t(650, 566, 'Every destructive or irreversible action is confirmed in the same shape', { size: 10.5, weight: 700, fill: G.mute, anchor: 'middle' });
   return svg(W, H, s, 'Final feature: options menu and confirmation modals for destructive and irreversible actions');
 })();
 

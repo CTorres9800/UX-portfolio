@@ -2046,3 +2046,48 @@ div.cs-annotated-img svg {
 }
 .cs-dot--bm-l::after { right: 50%; }
 .cs-dot--bm-r::after { left: 50%; }
+
+/* Blend Metrics: annotation cards laid out in a row beneath the image. For
+   artwork whose subjects sit side by side (e.g. the three sidebar tabs), a
+   left/right rail puts the cards nowhere near what they describe; a row under
+   the image lets each card point straight up at its own panel. */
+.cs-annotated-wrap--below {
+  display: block;
+}
+
+.cs-annotated-below {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 46px;
+}
+
+/* Dot on the image's bottom edge, dropping a leader down toward its card. */
+.cs-dot--bm-b {
+  top: auto;
+  bottom: 0;
+  right: auto;
+  transform: translate(-50%, 50%);
+}
+
+.cs-dot--bm-b::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1.5px;
+  height: 30px;
+  background: #306CFE;
+  transform: translateX(-50%);
+}
+
+/* Stacked single column: the horizontal dot positions no longer map to a card. */
+@media (max-width: 900px) {
+  .cs-annotated-below {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-annotated-wrap--below .cs-dot {
+    display: none;
+  }
+}
