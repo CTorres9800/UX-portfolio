@@ -2102,3 +2102,19 @@ div.cs-annotated-img svg {
 .cs-annotated-wrap--spaced .cs-annotated-right {
   gap: 28px;
 }
+
+/* Full-width variant. Near full-screen artwork (the ~1300px step library popup)
+   is unreadable in the default half-width column, which nests inside another
+   two-column grid and lands it at ~256px. */
+.cs-versions--1col {
+  grid-template-columns: 1fr;
+}
+.cs-component-showcase--stack {
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+.cs-component-showcase--stack .cs-dialog-grid {
+  grid-template-columns: 1fr;
+  gap: 40px;
+  justify-items: center;
+}

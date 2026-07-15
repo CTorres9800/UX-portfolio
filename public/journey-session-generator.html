@@ -23,6 +23,10 @@
   :root {
     --journey-cols: 140px 170px 200px repeat(8, 1fr);
     --journey-gap: 10px;
+    /* Body content is 2800 - 100 padding. Take out the three fixed columns and
+       the ten gaps; what remains divides into the eight equal sticky columns.
+       Derived from the same numbers as --journey-cols so the two cannot drift. */
+    --sticky-w: calc((2700px - 140px - 170px - 200px - (var(--journey-gap) * 10)) / 8);
   }
 
   /* ===== TOP AREA ===== */
@@ -56,17 +60,18 @@
     align-items: stretch;
     gap: 5px;
   }
+  /* Same treatment as the .hl-btn column labels below, so both rows of labels
+     read as one system instead of two sizes. Spans the column like they do. */
   .top-badge {
     background: #8EA9DB;
     color: #fff;
-    font-size: 8px;
+    text-align: center;
+    padding: 8px 6px;
+    font-size: 13px;
     font-weight: 700;
-    padding: 3px 10px;
-    letter-spacing: 0.3px;
-    align-self: center;
   }
   .top-note {
-    min-height: 120px;
+    min-height: var(--sticky-w);
     padding: 12px;
     font-size: 11px;
     line-height: 1.45;
@@ -75,14 +80,6 @@
   .tn-blue { background: #DAE3F3; }
   .tn-pink { background: #F2DCDB; }
   .tn-purp { background: #E2D5F0; }
-  .bottom-badge {
-    background: #D6DCE4;
-    color: #555;
-    font-size: 7px;
-    font-weight: 600;
-    padding: 2px 8px;
-    align-self: center;
-  }
 
   /* ===== HEADER LABELS - same blue buttons as original ===== */
   .front-label {
@@ -165,19 +162,21 @@
     margin-bottom: 6px;
   }
 
+  /* Content sticky notes. Every sticky is square at minimum (min-height equals the
+     column width) and grows taller only when its content needs the room. */
   /* Content sticky notes - colors match original exactly */
-  .note-green { background: #E2EFDA; min-height: 260px; }
-  .note-pink { background: #FCE4EC; min-height: 260px; }
-  .note-blue { background: #D6E4F0; min-height: 260px; }
-  .note-purp { background: #E2D5F0; min-height: 260px; }
-  .note-lpurp { background: #EDE7F5; min-height: 260px; }
+  .note-green { background: #E2EFDA; min-height: var(--sticky-w); }
+  .note-pink { background: #FCE4EC; min-height: var(--sticky-w); }
+  .note-blue { background: #D6E4F0; min-height: var(--sticky-w); }
+  .note-purp { background: #E2D5F0; min-height: var(--sticky-w); }
+  .note-lpurp { background: #EDE7F5; min-height: var(--sticky-w); }
 
   /* Thinking sticky note */
-  .think-note { background: #FFF8E1; min-height: 200px; }
+  .think-note { background: #FFF8E1; min-height: var(--sticky-w); }
 
   /* Feeling sticky note - square with centered emotion */
   .feel-note {
-    min-height: 110px;
+    min-height: var(--sticky-w);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -193,7 +192,7 @@
   .feel-orange { background: #F2DDD0; color: #6b3a20; }
 
   /* Needed sticky note */
-  .need-note { background: #D6E4F0; min-height: 200px; }
+  .need-note { background: #D6E4F0; min-height: var(--sticky-w); }
 
   /* Step spanning 2 rows */
   .span-2 { grid-row: span 2; }
@@ -219,37 +218,29 @@
   <div class="top-note-group">
     <div class="top-badge">UX/UI Features</div>
     <div class="top-note tn-blue">what is desired outcome from the step... <strong>why</strong> are we doing this and what are we trying to achieve?<br><br><strong>No multiple goals.</strong></div>
-        <div class="bottom-badge">Goals</div>
       </div>
       <div class="top-note-group">
         <div class="top-note tn-blue">Problems trying to solve?</div>
-        <div class="bottom-badge">Goals</div>
       </div>
       <div class="top-note-group">
         <div class="top-note tn-blue">What are we supposed to do?<br><br>From idea name the software - locate the software for solutions</div>
-        <div class="bottom-badge">Goals</div>
       </div>
       <div class="top-note-group">
         <div class="top-badge">UX/UI Features</div>
         <div class="top-note tn-pink">What stopping you from exceeding the idea to solve the problem / accomplish the goal?</div>
-        <div class="bottom-badge">Goals</div>
       </div>
       <div class="top-note-group">
         <div class="top-note tn-purp">How can we overcome the blocker tangibly? If you were able to find out if one of the other options...</div>
-        <div class="bottom-badge">Goals</div>
       </div>
       <div class="top-note-group">
         <div class="top-note tn-purp">Thinking about pain points...</div>
-        <div class="bottom-badge">Goals</div>
       </div>
       <div class="top-note-group">
         <div class="top-badge">UX/UI Features</div>
         <div class="top-note tn-purp">ONE MORE EMOTION...</div>
-        <div class="bottom-badge">Goals</div>
       </div>
       <div class="top-note-group">
         <div class="top-note tn-purp">what can we do based on the feeling?</div>
-        <div class="bottom-badge">Goals</div>
   </div>
 </div>
 
