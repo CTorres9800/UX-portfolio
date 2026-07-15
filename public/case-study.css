@@ -2166,15 +2166,14 @@ div.cs-annotated-img svg {
   max-width: 100%;
 }
 
-/* Menus & Flyouts: three small native assets (692 / 692 / 264 wide). Held to a
-   single shared scale inside the 1120px copy column, every image lands at 65%
-   and the filter dropdown renders 173px wide — its labels stop being readable.
-   The band is already 100% full, so nothing grows without widening it. Two
-   changes: let the media run wider than the copy, and stop giving the filter a
-   share of its raw pixel ratio, since it is the one asset with no headroom. */
+/* Menus & Flyouts: three columns of equal width. The weighted tracks held every
+   image to one shared scale, which made sense on paper but left the filter
+   dropdown visibly smaller than the other two in the row. Equal columns read
+   better even though the filter is a smaller component natively — its asset was
+   re-cropped from source (264 -> 326 wide) so it holds up at this size. */
 .cs-dialog-grid--menus,
 .cs-component-showcase--full .cs-dialog-grid--menus {
-  grid-template-columns: 2.4fr 2.4fr 1.2fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   align-items: start;
   justify-items: stretch;
