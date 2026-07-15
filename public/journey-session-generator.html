@@ -23,6 +23,10 @@
   :root {
     --journey-cols: 140px 170px 200px repeat(8, 1fr);
     --journey-gap: 10px;
+    /* Body content is 2800 - 100 padding. Take out the three fixed columns and
+       the ten gaps; what remains divides into the eight equal sticky columns.
+       Derived from the same numbers as --journey-cols so the two cannot drift. */
+    --sticky-w: calc((2700px - 140px - 170px - 200px - (var(--journey-gap) * 10)) / 8);
   }
 
   /* ===== TOP AREA ===== */
@@ -67,7 +71,7 @@
     font-weight: 700;
   }
   .top-note {
-    min-height: 120px;
+    min-height: var(--sticky-w);
     padding: 12px;
     font-size: 11px;
     line-height: 1.45;
@@ -158,19 +162,21 @@
     margin-bottom: 6px;
   }
 
+  /* Content sticky notes. Every sticky is square at minimum (min-height equals the
+     column width) and grows taller only when its content needs the room. */
   /* Content sticky notes - colors match original exactly */
-  .note-green { background: #E2EFDA; min-height: 260px; }
-  .note-pink { background: #FCE4EC; min-height: 260px; }
-  .note-blue { background: #D6E4F0; min-height: 260px; }
-  .note-purp { background: #E2D5F0; min-height: 260px; }
-  .note-lpurp { background: #EDE7F5; min-height: 260px; }
+  .note-green { background: #E2EFDA; min-height: var(--sticky-w); }
+  .note-pink { background: #FCE4EC; min-height: var(--sticky-w); }
+  .note-blue { background: #D6E4F0; min-height: var(--sticky-w); }
+  .note-purp { background: #E2D5F0; min-height: var(--sticky-w); }
+  .note-lpurp { background: #EDE7F5; min-height: var(--sticky-w); }
 
   /* Thinking sticky note */
-  .think-note { background: #FFF8E1; min-height: 200px; }
+  .think-note { background: #FFF8E1; min-height: var(--sticky-w); }
 
   /* Feeling sticky note - square with centered emotion */
   .feel-note {
-    min-height: 110px;
+    min-height: var(--sticky-w);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -186,7 +192,7 @@
   .feel-orange { background: #F2DDD0; color: #6b3a20; }
 
   /* Needed sticky note */
-  .need-note { background: #D6E4F0; min-height: 200px; }
+  .need-note { background: #D6E4F0; min-height: var(--sticky-w); }
 
   /* Step spanning 2 rows */
   .span-2 { grid-row: span 2; }
