@@ -2,8 +2,9 @@
 interface VersionGroup {
   subtitle: string;
   description?: string;
-  /** Grid columns for this group. Use 2 for near full-screen wireframes. Defaults to 3. */
-  columns?: 2 | 3;
+  /** Grid columns for this group. Use 2 for near full-screen wireframes,
+   *  1 for artwork that is unreadable at anything less than full width. Defaults to 3. */
+  columns?: 1 | 2 | 3;
   versions: {
     label: string;
     /** Path to a raster image. Ignored when `svg` is provided. */
@@ -32,7 +33,7 @@ const sectionClass = variant === 'gray' ? 'cs-section cs-section--gray' : varian
       <div class="cs-subsection">
         <h3 class="cs-subsection-title">{group.subtitle}</h3>
         {group.description && <p class="cs-body-text">{group.description}</p>}
-        <div class={group.columns === 2 ? 'cs-versions cs-versions--2col' : 'cs-versions'}>
+        <div class={group.columns === 1 ? 'cs-versions cs-versions--1col' : group.columns === 2 ? 'cs-versions cs-versions--2col' : 'cs-versions'}>
           {group.versions.map((v) => (
             <div class="cs-version">
               <h4>{v.label}</h4>
