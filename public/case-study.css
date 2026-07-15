@@ -2150,3 +2150,60 @@ div.cs-annotated-img svg {
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
+
+/* Three small components of differing native sizes (692 / 692 / 264 wide).
+   Across a full-width row they cover only ~62% of the band and the 264px one
+   would have to upscale to fill a track. Stack them in the image column
+   instead: a 2-col grid would leave an empty fourth slot. */
+.cs-dialog-grid--col {
+  grid-template-columns: 1fr;
+  gap: 20px;
+  justify-items: center;
+}
+
+.cs-dialog-grid--col .cs-component-img {
+  width: auto;
+  max-width: 100%;
+}
+
+/* Menus & Flyouts: three small native assets (692 / 692 / 264 wide). Held to a
+   single shared scale inside the 1120px copy column, every image lands at 65%
+   and the filter dropdown renders 173px wide — its labels stop being readable.
+   The band is already 100% full, so nothing grows without widening it. Two
+   changes: let the media run wider than the copy, and stop giving the filter a
+   share of its raw pixel ratio, since it is the one asset with no headroom. */
+.cs-dialog-grid--menus,
+.cs-component-showcase--full .cs-dialog-grid--menus {
+  grid-template-columns: 2.4fr 2.4fr 1.2fr;
+  gap: 24px;
+  align-items: start;
+  justify-items: stretch;
+}
+
+.cs-dialog-grid--menus .cs-component-img {
+  width: 100%;
+  height: auto;
+}
+
+/* Break the media band past the copy column, but only where there is room for
+   it — below this the band stays inside the container. */
+@media (min-width: 1360px) {
+  .cs-component-showcase--full .cs-dialog-grid--menus {
+    margin-inline: -100px;
+  }
+}
+
+/* Where the image column runs far taller than the copy — three stacked
+   components against four bullets — the text would sit in a pool of white with
+   nothing beside it. Pin it so it tracks the images instead of stranding them. */
+.cs-component-showcase--sticky .cs-component-details {
+  position: sticky;
+  top: 96px;
+  align-self: start;
+}
+
+@media (max-width: 900px) {
+  .cs-component-showcase--sticky .cs-component-details {
+    position: static;
+  }
+}
