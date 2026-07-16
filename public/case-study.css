@@ -2285,3 +2285,96 @@ div.cs-annotated-img svg {
   height: auto;
   display: block;
 }
+
+/* ============================================================
+   MOBILE POLISH PASS
+   Phone-only. Everything above (desktop + tablet) is untouched.
+   <=768px fixes structure (journey map, stacked comment cards,
+   three-up grids, card padding); <=600px steps the type scale down.
+   Appended last so it wins the cascade over higher-specificity
+   desktop rules like `.cs-component-showcase--full .cs-dialog-grid`.
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* Journey experience map. Stays a horizontal scroller, but the rotated
+     PHASE/EMOTIONS/ACTIONS gutter and the cells are tightened so more of the
+     matrix reads per screen and the next phase peeks in as a scroll cue.
+     The emotion curve gets min-width:0 so it fills its 1fr cell and lines up
+     with the phase columns instead of running 100px wider than them. */
+  .cs-journey-row { grid-template-columns: 52px 1fr; }
+  .cs-journey-label { font-size: 0.56rem; padding: 6px 2px; letter-spacing: 0.05em; }
+  .cs-journey-cell { padding: 12px 10px; font-size: 0.72rem; }
+  .cs-journey-cell p,
+  .cs-journey-cell li { font-size: 0.72rem; }
+  .cs-journey-arrow { padding: 20px 0; }
+  .cs-journey-map > * { min-width: 600px; }
+  .cs-curve-area,
+  .cs-journey-grid--curve { min-width: 0; }
+
+  /* Three-up dialog grids that outrank the earlier mobile rule on specificity
+     or source order. Force every variant to a single column on phones. */
+  .cs-dialog-grid,
+  .cs-dialog-grid--menus,
+  .cs-dialog-grid--col,
+  .cs-component-showcase--full .cs-dialog-grid,
+  .cs-component-showcase--full .cs-dialog-grid--menus {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Annotated "comment" cards. On desktop the left/right columns spread their
+     cards along a tall image (gap:0 + space-around). Stacked on mobile that
+     collapses to zero gap and the cards touch. Give every stacked card one
+     even 20px gap, top-aligned, and flatten the seam between the two groups. */
+  .cs-annotated-wrap,
+  .cs-annotated-wrap--left-only,
+  .cs-annotated-wrap--right-only,
+  .cs-annotated-wrap--spaced,
+  .cs-annotated-wrap--below {
+    gap: 20px;
+  }
+  .cs-annotated-left,
+  .cs-annotated-right,
+  .cs-annotated-wrap--left-only .cs-annotated-left,
+  .cs-annotated-wrap--right-only .cs-annotated-right,
+  .cs-annotated-wrap--spaced .cs-annotated-left,
+  .cs-annotated-wrap--spaced .cs-annotated-right {
+    padding-top: 0;
+    gap: 20px;
+    justify-content: flex-start;
+  }
+
+  /* Card padding trimmed for narrow screens. */
+  .cs-hifi-quote { padding: 24px; }
+  .cs-req-card { padding: 24px; }
+  .cs-callout { padding: 24px; }
+}
+
+@media (max-width: 600px) {
+  /* Type scale, stepped down one notch for phones only. */
+  .cs-title { font-size: 1.9rem; line-height: 1.3; }
+  .cs-section-title { font-size: 1.5rem; margin-bottom: 24px; }
+  .cs-subtitle { font-size: 1.3rem; margin-bottom: 24px; }
+  .cs-subsection-title { font-size: 1.05rem; }
+  .cs-problem-title { font-size: 1.05rem; }
+  .cs-component-title,
+  .cs-hifi-title,
+  .cs-two-col h3 { font-size: 1.25rem; }
+  .cs-pullquote { font-size: 1.2rem; padding: 40px 20px; }
+
+  .cs-body-text p,
+  .cs-body-text li,
+  .cs-problem-item p,
+  .cs-problem-item li,
+  .cs-two-col p,
+  .cs-two-col li,
+  .cs-component-desc,
+  .cs-hifi-desc,
+  .cs-hifi-quote,
+  .cs-req-card,
+  .cs-callout,
+  .cs-component-details ul li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+}
