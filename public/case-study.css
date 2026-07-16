@@ -2359,3 +2359,15 @@ div.cs-annotated-img svg {
   .cs-research-charts { grid-template-columns: 1fr; }
   .cs-research-chart h4 { min-height: 0; }
 }
+
+/* Two-up findings. The default grid is three columns; Referrizer surfaced two
+   findings, and a third empty cell reads as a missing card rather than a choice. */
+.cs-findings-grid--two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 900px) {
+  .cs-findings-grid--two {
+    grid-template-columns: 1fr;
+  }
+}
