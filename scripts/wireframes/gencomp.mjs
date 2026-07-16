@@ -51,9 +51,12 @@ function panel(w, h, pad = PANEL_PAD) {
   return box(pad, pad, w - pad * 2, h - pad * 2, { r: 12, fill: G.white, stroke: G.line });
 }
 // Collapse handle straddles the panel's left border, centred on it.
-function collapseHandle(y) {
-  return cir(PANEL_PAD, y, 13, { fill: G.white, stroke: G.line }) +
-    `<path d="M${PANEL_PAD - 2.5} ${y - 6} l5 6 -5 6" stroke="${G.body}" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+// The handle is centred on the panel's left border. At the default pad of 10 a
+// r=13 circle reaches x=-3 and its left side falls outside the viewBox, so the
+// caller passes a pad wide enough to hold it.
+function collapseHandle(y, cx = PANEL_PAD) {
+  return cir(cx, y, 13, { fill: G.white, stroke: G.line }) +
+    `<path d="M${cx - 2.5} ${y - 6} l5 6 -5 6" stroke="${G.body}" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
 }
 // horizontal tab strip
 function tabStrip(x, y, w, labels, active, warnIdx = []) {
@@ -151,14 +154,15 @@ const triggerSetup = (() => {
 // 3. CONDITION BUILDER  (src: Conditional Logic/Sidebar Master.png)
 // =====================================================================
 const conditionBuilder = (() => {
-  let s = panel(PW, PH);
+  const CB_PAD = 14;                       // >= handle radius, so nothing clips
+  let s = panel(PW, PH, CB_PAD);
   s += icon(30, 44, 44);
   s += t(86, 68, 'Trigger Name', { size: 16, weight: 700, fill: G.ink });
   s += t(86, 86, 'Trigger short description here', { size: 10.5, fill: G.mute });
   s += `<path d="M${PW - 92} 62 l-7 0 M${PW - 96} 58 l-4 4 4 4" stroke="${G.body}" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
   s += t(PW - 82, 66, 'Back', { size: 12, weight: 700, fill: G.body });
   s += ln(20, 108, PW - 20, 108, { stroke: G.soft });
-  s += collapseHandle(140);
+  s += collapseHandle(140, CB_PAD);
   s += tabStrip(30, 146, PW - 60, ['Setup', 'Conditions', 'Test'], 1, [0, 1]);
   s += t(30, 198, 'Only continue if', { size: 12.5, fill: G.body });
   s += box(126, 182, 74, 26, { r: 6, fill: G.white });
@@ -225,12 +229,18 @@ function popupTabs(active) {
   let s = '';
   const items = [['Triggers', '126'], ['Conditions', '52'], ['Actions', '294'], ['Filters', '46']];
   const colW = (QW - NAV) / items.length;
+  // Lay label + badge out as one unit measured off the label, rather than at fixed
+  // offsets: "Conditions" is long enough that a fixed badge x ran into it.
+  const SIZE = 12.5, GAP = 10;
   items.forEach(([lab, n], i) => {
     const cx = NAV + colW * i + colW / 2;
     const on = i === active;
-    s += t(cx - 18, 99, lab, { size: 12.5, weight: on ? 700 : 500, fill: on ? G.ink : G.mute, anchor: 'middle' });
-    s += box(cx + 12, 86, 38, 18, { r: 9, fill: G.ghost, stroke: 'none' });
-    s += t(cx + 31, 99, n, { size: 10, weight: 700, fill: G.body, anchor: 'middle' });
+    const labW = lab.length * SIZE * 0.58;
+    const badgeW = Math.max(34, n.length * 7 + 18);
+    const x0 = cx - (labW + GAP + badgeW) / 2;
+    s += t(x0, 99, lab, { size: SIZE, weight: on ? 700 : 500, fill: on ? G.ink : G.mute });
+    s += box(x0 + labW + GAP, 86, badgeW, 18, { r: 9, fill: G.ghost, stroke: 'none' });
+    s += t(x0 + labW + GAP + badgeW / 2, 99, n, { size: 10, weight: 700, fill: G.body, anchor: 'middle' });
     if (on) s += `<rect x="${NAV + colW * i + 4}" y="${112}" width="${colW - 8}" height="2.5" rx="1.2" fill="${G.ink}"/>`;
   });
   s += ln(NAV, 114, QW, 114, { stroke: G.soft });
@@ -456,7 +466,7 @@ const saveModal = (() => {
   s += t(X, Y + 48, 'File Name', { size: 12, weight: 500, fill: G.body });
   s += box(X, Y + 58, 356, 44, { r: 7, fill: G.white });
   s += t(X + 14, Y + 86, 'Condition Name', { size: 13, weight: 500, fill: G.ink });
-  s += ln(X + 104, Y + 72, X + 104, Y + 90, { stroke: G.ink, sw: 1.2 });
+  s += ln(X + 11, Y + 72, X + 11, Y + 90, { stroke: G.ink, sw: 1.2 });   // caret at the start of the value, not mid-word
   s += chevD(X + 330, Y + 76);
   s += box(X, Y + 122, 170, 44, { r: 7, fill: G.white });
   s += t(X + 85, Y + 150, 'Cancel', { size: 12.5, weight: 700, fill: G.ink, anchor: 'middle' });

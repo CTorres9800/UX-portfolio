@@ -172,7 +172,10 @@ const canvasScreen = (() => {
 // 2. TRIGGER & ACTION SETUP — 900x1240 sidebar panel, 3 dots left
 // =====================================================================
 const trigSetup = (() => {
-  const PW = 900, PH = 1240;
+  // 900x1240 was 0.73 w/h. Real sidebars sit near 0.5-0.6: the condition builder
+  // panel is 0.60, the trigger setup 0.51, our component wireframes 0.49. 740
+  // gives 0.60 — narrow enough to read as a sidebar, design otherwise untouched.
+  const PW = 740, PH = 1240;
   let s = box(24, 24, PW - 48, PH - 48, { r: 12, fill: G.white, stroke: G.line });
   const X = 60, R = PW - 60;
   s += `<path d="M${X + 10} 76 l-10 0 M${X + 4} 70 l-6 6 6 6" stroke="${G.body}" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
