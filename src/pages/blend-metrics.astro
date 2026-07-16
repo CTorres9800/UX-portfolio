@@ -1313,6 +1313,23 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
         <img src="/images/bm-ui-publish-success.png" alt="Publish success state with congratulations message and Go To Dashboard or Keep Working options" class="cs-component-img" style="max-width: 440px;">
       </div>
     </div>
+
+    <div class="cs-component-showcase cs-component-showcase--reverse" style="margin-top: 120px;">
+      <div class="cs-component-details">
+        <h3 class="cs-component-title">Version History</h3>
+        <p class="cs-component-desc">Publishing is not the end of a workflow&rsquo;s life. Every save is snapshotted, so a bad edit is a recoverable mistake rather than a rebuild from memory.</p>
+        <h4>Key Details</h4>
+        <ul>
+          <li>Autosaves and manual saves sit in one timeline, each carrying its author and timestamp, so &ldquo;who changed this&rdquo; is answered without asking</li>
+          <li>Versions can be starred, so the handful that matter stay findable in a list that only ever grows</li>
+          <li>A filter narrows the list by type, because a version history stops being useful the moment it outgrows the panel</li>
+          <li>Every row carries the same overflow menu &mdash; rename, restore, duplicate, copy link, delete &mdash; so the actions are learned once</li>
+        </ul>
+      </div>
+      <div class="cs-component-image">
+        <img src="/images/bm-comp-version-history.png" alt="Version History panel: a filterable timeline of autosaved and manually saved versions, each with author, timestamp and an overflow menu" class="cs-component-img">
+      </div>
+    </div>
   </SectionContent>
 
   <hr class="cs-section-divider">
@@ -1729,14 +1746,6 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
         <div class="cs-handoff-label">Logic Test (Loading Series)</div>
         <img src="/images/handoff/logic-test-loading-series.png" alt="Developer handoff spec: Logic Test (Loading Series)" width="4049" height="1632" loading="lazy">
       </figure>
-      <figure class="cs-handoff-fig" style="width: 3068px">
-        <div class="cs-handoff-label">Version History</div>
-        <img src="/images/handoff/version-history.png" alt="Developer handoff spec: Version History" width="3068" height="802" loading="lazy">
-      </figure>
-      <figure class="cs-handoff-fig" style="width: 1741px">
-        <div class="cs-handoff-label">Sidebar Master (variant 1)</div>
-        <img src="/images/handoff/sidebar-master-1-2.png" alt="Developer handoff spec: Sidebar Master (variant 1)" width="1741" height="1667" loading="lazy">
-      </figure>
       <figure class="cs-handoff-fig" style="width: 1826px">
         <div class="cs-handoff-label">Alert</div>
         <img src="/images/handoff/alert.png" alt="Developer handoff spec: Alert" width="1826" height="708" loading="lazy">
@@ -1760,11 +1769,14 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
         <div class="cs-handoff-label">Failed results</div>
         <img src="/images/handoff/failed-results.png" alt="Developer handoff spec: Failed results" width="1009" height="478" loading="lazy">
       </figure>
-      <figure class="cs-handoff-fig" style="width: 928px">
+    </div>
+    <h3 class="cs-subsection-title" style="margin-top: 80px;">Alert Bars</h3>
+    <div class="cs-handoff-figs">
+      <figure class="cs-handoff-fig" style="width: calc(50% - 12px)">
         <div class="cs-handoff-label">Alert — 1</div>
         <img src="/images/handoff/alert-error-1.png" alt="Developer handoff spec: Alert — 1" width="928" height="653" loading="lazy">
       </figure>
-      <figure class="cs-handoff-fig" style="width: 928px">
+      <figure class="cs-handoff-fig" style="width: calc(50% - 12px)">
         <div class="cs-handoff-label">Alert — Success</div>
         <img src="/images/handoff/alert-success.png" alt="Developer handoff spec: Alert — Success" width="928" height="645" loading="lazy">
       </figure>
@@ -1790,14 +1802,6 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
       <figure class="cs-handoff-fig" style="width: 426px">
         <div class="cs-handoff-label">Component 1010</div>
         <img src="/images/handoff/component-1010.png" alt="Developer handoff spec: Component 1010" width="426" height="326" loading="lazy">
-      </figure>
-      <figure class="cs-handoff-fig" style="width: 426px">
-        <div class="cs-handoff-label">Component 1011</div>
-        <img src="/images/handoff/component-1011.png" alt="Developer handoff spec: Component 1011" width="426" height="326" loading="lazy">
-      </figure>
-      <figure class="cs-handoff-fig" style="width: 424px">
-        <div class="cs-handoff-label">Version History (variant 1)</div>
-        <img src="/images/handoff/version-history-1.png" alt="Developer handoff spec: Version History (variant 1)" width="424" height="793" loading="lazy">
       </figure>
       <figure class="cs-handoff-fig" style="width: 358px">
         <div class="cs-handoff-label">Dropdown menu</div>
@@ -1834,10 +1838,6 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
         <div class="cs-handoff-label">option — Version named</div>
         <img src="/images/handoff/option-version-named.png" alt="Developer handoff spec: option — Version named" width="193" height="227" loading="lazy">
       </figure>
-      <figure class="cs-handoff-fig" style="width: 193px">
-        <div class="cs-handoff-label">option — Version unnamed</div>
-        <img src="/images/handoff/option-version-unnamed.png" alt="Developer handoff spec: option — Version unnamed" width="193" height="227" loading="lazy">
-      </figure>
       <figure class="cs-handoff-fig" style="width: 172px">
         <div class="cs-handoff-label">Button base — Collapse (variant 1)</div>
         <img src="/images/handoff/button-base-collapse-1.png" alt="Developer handoff spec: Button base — Collapse (variant 1)" width="172" height="102" loading="lazy">
@@ -1863,20 +1863,12 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
         <img src="/images/handoff/button-base-name.png" alt="Developer handoff spec: Button base — Name" width="100" height="190" loading="lazy">
       </figure>
       <figure class="cs-handoff-fig" style="width: 160px">
-        <div class="cs-handoff-label">Button base — Rename</div>
-        <img src="/images/handoff/button-base-rename.png" alt="Developer handoff spec: Button base — Rename" width="100" height="190" loading="lazy">
-      </figure>
-      <figure class="cs-handoff-fig" style="width: 160px">
         <div class="cs-handoff-label">Help icon</div>
         <img src="/images/handoff/help-icon.png" alt="Developer handoff spec: Help icon" width="84" height="56" loading="lazy">
       </figure>
       <figure class="cs-handoff-fig" style="width: 160px">
         <div class="cs-handoff-label">Component 1012</div>
         <img src="/images/handoff/component-1012.png" alt="Developer handoff spec: Component 1012" width="68" height="190" loading="lazy">
-      </figure>
-      <figure class="cs-handoff-fig" style="width: 160px">
-        <div class="cs-handoff-label">icon — Version history</div>
-        <img src="/images/handoff/icon-version-history.png" alt="Developer handoff spec: icon — Version history" width="16" height="16" loading="lazy">
       </figure>
     </div>
   </SectionContent>

@@ -572,7 +572,7 @@ const tabsScreen = (() => {
       s += t(bx + 108, 179, 'ALL', { size: 11, weight: 700, fill: G.ink }); s += chevD(bx + 146, 170);
       s += t(bx + 182, 176, 'of the following', { size: 11.5, fill: G.body });
       s += t(bx, 198, 'conditions are met:', { size: 11.5, fill: G.body });
-      s += box(bx, 214, bw, 108, { r: 8, fill: G.fill, stroke: G.soft });
+      s += box(bx, 214, bw, 120, { r: 8, fill: G.fill, stroke: G.soft });
       s += box(bx + 12, 226, 150, 28, { r: 6, fill: G.white });
       s += t(bx + 24, 245, 'Id contains', { size: 10.5, weight: 700, fill: G.ink });
       s += box(bx + 12, 262, 56, 26, { r: 6, fill: G.white });
@@ -581,14 +581,14 @@ const tabsScreen = (() => {
       s += t(bx + 88, 279, 'Sender contains', { size: 10.5, weight: 700, fill: G.ink });
       s += box(bx + 12, 296, 28, 26, { r: 6, fill: G.white });
       s += t(bx + 26, 314, '+', { size: 13, anchor: 'middle', fill: G.body });
-      s += box(bx + bw / 2 - 36, 334, 72, 28, { r: 6, fill: G.white });
-      s += t(bx + bw / 2 - 22, 353, 'AND', { size: 10.5, weight: 700, fill: G.ink }); s += chevD(bx + bw / 2 + 14, 344);
-      s += box(bx, 374, bw, 72, { r: 8, fill: G.fill, stroke: G.soft });
-      s += box(bx + 12, 386, 150, 28, { r: 6, fill: G.white });
-      s += t(bx + 24, 405, 'Id contains', { size: 10.5, weight: 700, fill: G.ink });
-      s += t(bx, 476, '+', { size: 13, weight: 700, fill: G.ink });
-      s += t(bx + 14, 476, 'Add Condition', { size: 11.5, weight: 700, fill: G.ink });
-      s += t(bx + bw, 476, 'Clear All Conditions', { size: 11.5, weight: 600, fill: G.mute, anchor: 'end' });
+      s += box(bx + bw / 2 - 36, 346, 72, 28, { r: 6, fill: G.white });
+      s += t(bx + bw / 2 - 22, 365, 'AND', { size: 10.5, weight: 700, fill: G.ink }); s += chevD(bx + bw / 2 + 14, 356);
+      s += box(bx, 386, bw, 72, { r: 8, fill: G.fill, stroke: G.soft });
+      s += box(bx + 12, 398, 150, 28, { r: 6, fill: G.white });
+      s += t(bx + 24, 417, 'Id contains', { size: 10.5, weight: 700, fill: G.ink });
+      s += t(bx, 488, '+', { size: 13, weight: 700, fill: G.ink });
+      s += t(bx + 14, 488, 'Add Condition', { size: 11.5, weight: 700, fill: G.ink });
+      s += t(bx + bw, 488, 'Clear All Conditions', { size: 11.5, weight: 600, fill: G.mute, anchor: 'end' });
       s += btn(bx + bw - 130, 700, 130, 36, 'Save Conditions');
     } else {
       s += t(bx, 176, 'Test this step', { size: 11.5, weight: 700, fill: G.ink });
