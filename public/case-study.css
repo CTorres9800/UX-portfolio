@@ -2224,3 +2224,11 @@ div.cs-annotated-img svg {
   height: auto;
   display: block;
 }
+
+/* Drag & Drop: the three states stack down the image column rather than running
+   across one wide strip, so each one sits at roughly half the content width
+   beside the copy. */
+.cs-dialog-grid--drag {
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
