@@ -2184,13 +2184,6 @@ div.cs-annotated-img svg {
   height: auto;
 }
 
-/* Break the media band past the copy column, but only where there is room for
-   it — below this the band stays inside the container. */
-@media (min-width: 1360px) {
-  .cs-component-showcase--full .cs-dialog-grid--menus {
-    margin-inline: -100px;
-  }
-}
 
 /* Where the image column runs far taller than the copy — three stacked
    components against four bullets — the text would sit in a pool of white with
@@ -2205,4 +2198,40 @@ div.cs-annotated-img svg {
   .cs-component-showcase--sticky .cs-component-details {
     position: static;
   }
+}
+
+/* Developer handoff grid. Every asset is a 1x export (the source files are 2x),
+   laid out at its own native size — max-width caps the oversized ones and
+   nothing is ever stretched up, so a 16px icon stays a 16px icon and the
+   aspect ratio is never touched. Column count per group is chosen to suit the
+   native widths in that group. */
+.cs-handoff-figs {
+  display: grid;
+  gap: 40px 24px;
+  margin-top: 40px;
+  align-items: start;
+}
+
+.cs-handoff-figs--1 { grid-template-columns: 1fr; }
+.cs-handoff-figs--2 { grid-template-columns: repeat(2, 1fr); }
+.cs-handoff-figs--3 { grid-template-columns: repeat(3, 1fr); }
+.cs-handoff-figs--4 { grid-template-columns: repeat(4, 1fr); }
+
+.cs-handoff-fig {
+  margin: 0;
+  min-width: 0;
+}
+
+.cs-handoff-fig img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid #e5e5e5;
+  background: var(--white);
+}
+
+@media (max-width: 900px) {
+  .cs-handoff-figs--3,
+  .cs-handoff-figs--4 { grid-template-columns: repeat(2, 1fr); }
+  .cs-handoff-figs--2 { grid-template-columns: 1fr; }
 }
