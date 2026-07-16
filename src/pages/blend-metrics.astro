@@ -948,22 +948,25 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
       <p>The test runner gives users a clear picture of their workflow's health before publishing. Passed and failed connections are displayed with expandable details, and the canvas highlights error nodes so fixes happen in context.</p>
     </div>
 
-    <div class="cs-annotated-wrap cs-annotated-wrap--left-only">
+    <div class="cs-annotated-wrap">
       <div class="cs-annotated-left">
         <div class="cs-annotated-card">
           <h4>Test Results Panel</h4>
           <p>A sidebar panel showing passed and failed connections with counts, expandable details, and a "Test Again" button for iterative debugging.</p>
         </div>
-        <div class="cs-annotated-card">
-          <h4>Canvas Error Highlighting</h4>
-          <p>Failed nodes get a heavy error outline and a warning icon directly on the canvas, so users can spot and fix issues without switching contexts.</p>
-        </div>
       </div>
 
       <div class="cs-annotated-center">
         <div class="cs-annotated-img" role="img" aria-label="Final design: Testing and Validation" set:html={finalTesting} />
-        <span class="cs-dot cs-dot--left cs-dot--f"></span>
-        <span class="cs-dot cs-dot--left cs-dot--g"></span>
+        <span class="cs-dot cs-dot--bm-l" style="top: 26.3%"></span>
+        <span class="cs-dot cs-dot--bm-r" style="top: 41%"></span>
+      </div>
+
+      <div class="cs-annotated-right">
+        <div class="cs-annotated-card">
+          <h4>Errors Flagged Where You Fix Them</h4>
+          <p>A failing step is outlined on the canvas and flagged again in its own sidebar, down to the exact field and a plain-language message. Finding an error and fixing it happen in the same place.</p>
+        </div>
       </div>
     </div>
 
