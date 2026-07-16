@@ -175,7 +175,7 @@ const canvasV1 = (() => {
     sb += bar(SBX + 48, y + 11, 52, 5);
     sb += bar(SBX + 48, y + 21, 92, 4, { fill: G.soft });
   }
-  return svg(topBar(1) + clipCanvas(c) + sb, 'Wireframe: Workflow Canvas v1 — low-fidelity empty state with a trigger drop zone and docked sidebar');
+  return svg(topBar(1) + clipCanvas(c) + sb, 'Wireframe: Workflow Canvas v1, low-fidelity empty state with a trigger drop zone and docked sidebar');
 })();
 
 const canvasV2 = (() => {
@@ -199,7 +199,7 @@ const canvasV2 = (() => {
     sb += iconSq(SBX + 24, y + 8, 18);
     sb += t(SBX + 48, y + 20, r, { size: 7.6, weight: 600, fill: G.ink });
   });
-  return svg(topBar(2) + clipCanvas(c) + sb, 'Wireframe: Workflow Canvas v2 — dotted drop zone, floating add button and a named trigger list');
+  return svg(topBar(2) + clipCanvas(c) + sb, 'Wireframe: Workflow Canvas v2, dotted drop zone, floating add button and a named trigger list');
 })();
 
 const canvasV3 = (() => {
@@ -236,7 +236,7 @@ const canvasV3 = (() => {
     sb += t(SBX + 48, y + 15, r, { size: 7.6, weight: 600, fill: G.ink });
     sb += t(SBX + 48, y + 25, 'Choose this to start your workflow', { size: 6, fill: G.mute });
   });
-  return svg(topBar(3) + clipCanvas(c) + sb, 'Wireframe: Workflow Canvas v3 — guided empty state with auto-opened trigger sidebar');
+  return svg(topBar(3) + clipCanvas(c) + sb, 'Wireframe: Workflow Canvas v3, guided empty state with auto-opened trigger sidebar');
 })();
 
 // =====================================================================
@@ -252,7 +252,7 @@ const sideV1 = (() => {
     s += bar(SBX + 16, y, 54, 4, { fill: G.soft });
     s += box(SBX + 16, y + 10, SBW - 32, 24, { r: 4, fill: G.white });
   }
-  return svg(s, 'Wireframe: Sidebar Configuration v1 — flat settings panel showing every option at once');
+  return svg(s, 'Wireframe: Sidebar Configuration v1, flat settings panel showing every option at once');
 })();
 
 const sideV2 = (() => {
@@ -271,7 +271,7 @@ const sideV2 = (() => {
     s += bar(SBX + 16, y, 46, 4, { fill: G.soft });
     s += box(SBX + 16, y + 8, SBW - 32, 22, { r: 4, fill: G.white });
   }
-  return svg(s, 'Wireframe: Sidebar Configuration v2 — tabbed navigation for Setup, Conditions and Test');
+  return svg(s, 'Wireframe: Sidebar Configuration v2, tabbed navigation for Setup, Conditions and Test');
 })();
 
 const sideV3 = (() => {
@@ -302,7 +302,7 @@ const sideV3 = (() => {
     s += box(SBX + 16, y + 8, SBW - 32, 22, { r: 4, fill: G.white });
   }
   s += zoom();
-  return svg(s, 'Wireframe: Sidebar Configuration v3 — contextual sidebar with inline validation');
+  return svg(s, 'Wireframe: Sidebar Configuration v3, contextual sidebar with inline validation');
 })();
 
 // =====================================================================
@@ -317,7 +317,7 @@ const splitV1 = (() => {
     if (i < 2) s += ln(465, y + 40, 465, y + 76, { stroke: G.line });
     y += 76;
   }
-  return svg(s, 'Wireframe: Split Path Builder v1 — linear workflow with no branching');
+  return svg(s, 'Wireframe: Split Path Builder v1, linear workflow with no branching');
 })();
 
 const splitV2 = (() => {
@@ -343,7 +343,7 @@ const splitV2 = (() => {
   s += box(SBX + 16, 238, SBW - 32, 30, { r: 5, fill: G.white });
   s += t(SBX + 26, 257, 'Path 2', { size: 7.4, weight: 600, fill: G.ink });
   s += zoom();
-  return svg(s, 'Wireframe: Split Path Builder v2 — basic conditional split with two paths');
+  return svg(s, 'Wireframe: Split Path Builder v2, basic conditional split with two paths');
 })();
 
 const splitV3 = (() => {
@@ -397,7 +397,7 @@ const splitV3 = (() => {
   s += box(W - 46, 415, 30, 14, { r: 7, fill: G.solid, stroke: G.solid });
   s += cir(W - 24, 422, 5, { fill: G.white, stroke: G.white });
   s += zoom();
-  return svg(s, 'Wireframe: Split Path Builder v3 — conditional and percentage splits with merge control');
+  return svg(s, 'Wireframe: Split Path Builder v3, conditional and percentage splits with merge control');
 })();
 
 // =====================================================================
@@ -412,7 +412,7 @@ const testV1 = (() => {
     if (i < 2) s += ln(465, y + 40, 465, y + 76, { stroke: G.line });
     y += 76;
   }
-  return svg(s, 'Wireframe: Test and Publish v1 — no testing, publish button only');
+  return svg(s, 'Wireframe: Test and Publish v1, no testing, publish button only');
 })();
 
 const testV2 = (() => {
@@ -428,7 +428,7 @@ const testV2 = (() => {
   s += box(44, 126, 54, 18, { r: 4, fill: G.solid, stroke: G.solid });
   s += t(71, 138, 'Run Test', { size: 7, weight: 600, fill: G.white, anchor: 'middle' });
   s += zoom();
-  return svg(s, 'Wireframe: Test and Publish v2 — basic run test with pass/fail as text');
+  return svg(s, 'Wireframe: Test and Publish v2, basic run test with pass/fail as text');
 })();
 
 const testV3 = (() => {
@@ -485,7 +485,7 @@ const testV3 = (() => {
   sb += t(SBX + 26, 268, 'Select Forms', { size: 7.4, fill: G.body });
   sb += warn(W - 40, 265, 5);
   sb += t(SBX + 16, 290, 'This is an error message.', { size: 6.8, weight: 600, fill: G.ink });
-  return svg(topBar(3) + clipCanvas(c) + sb, 'Wireframe: Test and Publish v3 — expandable results per connection with error nodes highlighted');
+  return svg(topBar(3) + clipCanvas(c) + sb, 'Wireframe: Test and Publish v3, expandable results per connection with error nodes highlighted');
 })();
 
 
@@ -497,7 +497,7 @@ const trigV1 = (() => {
   s += nodeCard(381, 90, '', '', { fid: 1 });
   s += ln(465, 130, 465, 170, { stroke: G.line });
   s += nodeCard(381, 170, '', '', { fid: 1 });
-  return svg(s, 'Wireframe: Multiple Triggers v1 — one trigger per workflow');
+  return svg(s, 'Wireframe: Multiple Triggers v1, one trigger per workflow');
 })();
 
 const trigV2 = (() => {
@@ -512,7 +512,7 @@ const trigV2 = (() => {
   s += cir(465, 296, 13, { fill: G.white, stroke: G.line });
   s += `<path d="M465 290 v12 M459 296 h12" stroke="${G.body}" stroke-width="1.2" stroke-linecap="round"/>`;
   s += zoom();
-  return svg(s, 'Wireframe: Multiple Triggers v2 — two triggers joined by straight connectors');
+  return svg(s, 'Wireframe: Multiple Triggers v2, two triggers joined by straight connectors');
 })();
 
 const trigV3 = (() => {
@@ -527,7 +527,7 @@ const trigV3 = (() => {
   s += cir(454, 306, 13, { fill: G.white, stroke: G.line });
   s += `<path d="M454 300 v12 M448 306 h12" stroke="${G.body}" stroke-width="1.2" stroke-linecap="round"/>`;
   s += zoom();
-  return svg(s, 'Wireframe: Multiple Triggers v3 — five triggers fanning into one action node');
+  return svg(s, 'Wireframe: Multiple Triggers v3, five triggers fanning into one action node');
 })();
 
 // =====================================================================
@@ -542,7 +542,7 @@ const authV1 = (() => {
   s += bar(SBX + 16, 126, 70, 4, { fill: G.soft });
   s += box(SBX + 16, 136, SBW - 32, 24, { r: 4, fill: G.white });
   s += box(SBX + 16, 180, 74, 20, { r: 4, fill: G.solid, stroke: G.solid });
-  return svg(s, 'Wireframe: Account Connection v1 — authorize off-platform, no inline context');
+  return svg(s, 'Wireframe: Account Connection v1, authorize off-platform, no inline context');
 })();
 
 const authV2 = (() => {
@@ -556,7 +556,7 @@ const authV2 = (() => {
   s += t(SBX + 50, 136, 'Connect your Gmail', { size: 7, fill: G.body });
   s += box(SBX + 16, 164, 60, 20, { r: 4, fill: G.solid, stroke: G.solid });
   s += t(SBX + 46, 177, 'Connect', { size: 7, weight: 600, fill: G.white, anchor: 'middle' });
-  return svg(s, 'Wireframe: Account Connection v2 — inline account row with a connect button');
+  return svg(s, 'Wireframe: Account Connection v2, inline account row with a connect button');
 })();
 
 const authV3 = (() => {
@@ -602,7 +602,7 @@ const authV3 = (() => {
   sb += t(L, 440, 'Gmail is a secure partner with Blend Metrics.', { size: 6, fill: G.mute });
   sb += t(L, 452, 'Your credentials are encrypted & can be', { size: 6, fill: G.mute });
   sb += t(L, 464, 'removed at any time.', { size: 6, fill: G.mute });
-  return svg(topBar(3) + clipCanvas(c) + sb, 'Wireframe: Account Connection v3 — inline authorization with trust copy');
+  return svg(topBar(3) + clipCanvas(c) + sb, 'Wireframe: Account Connection v3, inline authorization with trust copy');
 })();
 
 // =====================================================================
@@ -617,7 +617,7 @@ const nameV1 = (() => {
   s += nodeCard(376, 176, '', '', { fid: 1 });
   s += bar(SBX + 16, 50, 70, 6);
   for (let i = 0; i < 4; i++) s += box(SBX + 16, 70 + i * 40, SBW - 32, 30, { r: 4, fill: G.white });
-  return svg(s, 'Wireframe: Path Naming and Merge v1 — unlabeled branches');
+  return svg(s, 'Wireframe: Path Naming and Merge v1, unlabeled branches');
 })();
 
 const nameV2 = (() => {
@@ -642,7 +642,7 @@ const nameV2 = (() => {
   s += box(SBX + 16, 128, SBW - 32, 30, { r: 5, fill: G.white });
   s += t(SBX + 26, 147, 'Path 2', { size: 7.4, weight: 600, fill: G.ink });
   s += zoom();
-  return svg(s, 'Wireframe: Path Naming and Merge v2 — named Path 1 and Path 2 chips');
+  return svg(s, 'Wireframe: Path Naming and Merge v2, named Path 1 and Path 2 chips');
 })();
 
 const nameV3 = (() => {
@@ -694,7 +694,7 @@ const nameV3 = (() => {
   s += box(W - 46, 415, 30, 14, { r: 7, fill: G.solid, stroke: G.solid });
   s += cir(W - 24, 422, 5, { fill: G.white, stroke: G.white });
   s += zoom();
-  return svg(s, 'Wireframe: Path Naming and Merge v3 — named paths, catch-all Other, merged endpoint');
+  return svg(s, 'Wireframe: Path Naming and Merge v3, named paths, catch-all Other, merged endpoint');
 })();
 
 const files = {
