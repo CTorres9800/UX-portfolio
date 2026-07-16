@@ -84,89 +84,10 @@ import SectionContent from '../components/SectionContent.astro';
       <p>My design process is focused on user-centered design principles and involved several stages of development, including research, ideation, design, prototyping, and user testing. I started with research to understand our users' needs and pain points, and used tools like user interviews, surveys, and user behavior tracking to gather insights. This information was then used to inform our ideation process, where we brainstormed ideas and concepts for the solution.</p>
     </div>
 
-    <div class="cs-process">
-      <!-- Pills row. Same 6 column grid as the task lists below, so each step
-           sits over its own bullets. -->
-      <div class="cs-process-pills">
-        <div class="cs-process-step">
-          <div class="cs-process-pill">Learn</div>
-          <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
-        </div>
-        <div class="cs-process-step">
-          <div class="cs-process-pill">Define</div>
-          <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
-        </div>
-        <div class="cs-process-step">
-          <div class="cs-process-pill">Design
-            <!-- Iteration loop, Test back to Design. A true semicircle: radius and
-                 rise are both half the gap between the two pill centres. -->
-            <svg class="cs-process-arc" width="187" height="103" viewBox="0 0 187 103" fill="none" aria-hidden="true">
-              <path d="M181.5 97 A 88 88 0 0 0 5.5 97" stroke="#c8c8c8" stroke-width="1.5" fill="none" stroke-dasharray="5 4" stroke-linecap="round"/>
-              <path d="M5.5 99.5 L1 89 L10 89 Z" fill="#c8c8c8"/>
-            </svg>
-          </div>
-          <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
-        </div>
-        <div class="cs-process-step">
-          <div class="cs-process-pill">Test</div>
-          <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
-        </div>
-        <div class="cs-process-step">
-          <div class="cs-process-pill">Refine</div>
-          <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
-        </div>
-        <div class="cs-process-step">
-          <div class="cs-process-pill">Dev Handoff</div>
-        </div>
-      </div>
-
-      <!-- Task lists -->
-      <div class="cs-process-grid">
-        <ul class="cs-process-tasks">
-          <li>Conduct Research</li>
-          <li>Analyze Data</li>
-          <li>Competitor Analysis</li>
-          <li>Explore Solutions</li>
-          <li>Review Trends</li>
-        </ul>
-        <ul class="cs-process-tasks">
-          <li>Synthesize Research</li>
-          <li>Develop Personas</li>
-          <li>Set Goals</li>
-          <li>Create Roadmap</li>
-          <li>Define Challenge</li>
-        </ul>
-        <ul class="cs-process-tasks">
-          <li>Sketch Ideas</li>
-          <li>Test Design</li>
-          <li>Refine Prototype</li>
-          <li>Polished Design</li>
-          <li>Test Plan</li>
-        </ul>
-        <ul class="cs-process-tasks">
-          <li>User Testing</li>
-          <li>Gather Feedback</li>
-          <li>Analyze Results</li>
-          <li>Iterate Design</li>
-          <li>Prepare Launch</li>
-        </ul>
-        <ul class="cs-process-tasks">
-          <li>Review Feedback</li>
-          <li>Implement Changes</li>
-          <li>Finalize Design</li>
-          <li>Prepare Delivery</li>
-          <li>Conduct Retrospective</li>
-        </ul>
-        <ul class="cs-process-tasks">
-          <li>Design Specifications</li>
-          <li>Handoff Guidelines</li>
-          <li>Support Development</li>
-          <li>Review Implementation</li>
-          <li>Verify Against Design</li>
-        </ul>
-      </div>
-    </div>
-  </SectionContent>
+    <figure class="cs-process-figure">
+      <img src="/images/design-process.svg" alt="Design process: Learn, Define, Design, Test, Refine, then Dev Handoff, with an iteration loop from Refine back to Design. Each step lists its tasks below it." width="1280" height="453">
+    </figure>
+</SectionContent>
 
   <hr class="cs-section-divider">
 

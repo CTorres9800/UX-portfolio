@@ -1880,134 +1880,20 @@
    Process Diagram
    =========================== */
 
-.cs-process {
-  margin-top: 60px;
-  position: relative;
-}
 
 /* Pills row */
-.cs-process-pills {
-  /* Same 6 column track as .cs-process-grid below. The pills used to be a centred
-     flex row while the tasks were a grid, so no step lined up with its bullets:
-     Learn sat 117px right of its column, Dev Handoff 89px left of its own. */
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  align-items: center;
-  position: relative;
-  padding-top: 106px;
-  margin-bottom: 32px;
-}
 
-.cs-process-step {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-}
 
-.cs-process-pill {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 28px;
-  border: 1.5px solid #d0d0d0;
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-  font-weight: 400;
-  font-style: italic;
-  color: var(--black);
-  background: var(--white);
-  white-space: nowrap;
-  position: relative;
-  z-index: 1;
-}
 
-.cs-process-arrow {
-  display: flex;
-  align-items: center;
-  padding: 0 6px;
-  color: #999;
-  flex-shrink: 0;
-}
 
 /* Iteration arc */
-.cs-process-arc {
-  position: absolute;
-  /* Anchored inside the Design pill: left:50% puts the svg's left edge on the pill
-     centre, and -5.5px pulls the arc's own end point onto it. */
-  top: -99px;
-  left: 50%;
-  transform: translateX(-5.5px);
-  z-index: 0;
-  pointer-events: none;
-  overflow: visible;
-}
 
 /* Tasks grid */
-.cs-process-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 0;
-}
 
-.cs-process-tasks {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
 
-.cs-process-tasks li {
-  font-size: 0.82rem;
-  line-height: 1.7;
-  color: #777;
-  padding-left: 14px;
-  position: relative;
-}
 
-.cs-process-tasks li::before {
-  content: '\00B7';
-  position: absolute;
-  left: 2px;
-  font-size: 1.4rem;
-  line-height: 1.2;
-  color: #bbb;
-}
 
-@media (max-width: 1024px) {
-  .cs-process-pills {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
 
-  .cs-process-arrow {
-    display: none;
-  }
-
-  .cs-process-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-
-  .cs-process-arc {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .cs-process-pills {
-    gap: 8px;
-  }
-
-  .cs-process-pill {
-    padding: 8px 16px;
-    font-size: 0.85rem;
-  }
-
-  .cs-process-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-}
 
 /* Inline SVG wireframes — scale like the <img> variant they replace */
 .cs-version-svg svg {
@@ -2385,4 +2271,17 @@ div.cs-annotated-img svg {
   .cs-findings-grid--two {
     grid-template-columns: 1fr;
   }
+}
+
+/* The design process diagram is a single exported svg with its type outlined, so
+   it needs no font and no reconstruction. It replaces a hand-built version that
+   had the iteration arc looping the wrong two steps. */
+.cs-process-figure {
+  margin: 60px 0 0;
+}
+
+.cs-process-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
