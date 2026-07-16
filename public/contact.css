@@ -1,0 +1,238 @@
+/* Contact page. Leans on the tokens in styles.css and the story grid from
+   about.css; everything new is scoped to .ct-*. The centrepiece is the routes
+   list: big serif type, a rule per row, and an arrow that travels on hover. */
+
+.ct-hero {
+  padding: 88px 0 88px;
+}
+
+.ct-hero h1 {
+  max-width: 20ch;
+}
+
+/* Routes */
+.ct-routes {
+  border-top: 1px solid #ececec;
+  /* The hover wash bleeds 40px past the container so the row reads full width.
+     The container drops to 20px of padding on mobile, so that bleed would push
+     the document 20px wider and give the whole page a horizontal scrollbar.
+     Clip contains it without creating a scroll container the way hidden would. */
+  overflow-x: clip;
+}
+
+.ct-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ct-item + .ct-item {
+  border-top: 1px solid #ececec;
+}
+
+.ct-link {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) 300px 60px;
+  align-items: center;
+  gap: 32px;
+  padding: 40px 0;
+  text-decoration: none;
+  color: var(--black);
+  position: relative;
+}
+
+/* The wash bleeds past the container so the row reads as a full-width band. */
+.ct-link::before {
+  content: '';
+  position: absolute;
+  inset: 0 -40px;
+  background: #fafafa;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: -1;
+}
+
+.ct-link:hover::before,
+.ct-link:focus-visible::before {
+  opacity: 1;
+}
+
+.ct-k {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #999;
+  transition: color 0.25s ease;
+}
+
+.ct-link:hover .ct-k {
+  color: var(--black);
+}
+
+.ct-v {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 2.2vw, 1.85rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.ct-note {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #888;
+}
+
+.ct-arrow {
+  justify-self: end;
+  color: var(--black);
+  transform: translateX(-8px);
+  opacity: 0;
+  transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.3, 1), opacity 0.28s ease;
+}
+
+.ct-link:hover .ct-arrow,
+.ct-link:focus-visible .ct-arrow {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Call band */
+.ct-call {
+  border-top: 1px solid #ececec;
+  padding: 96px 0;
+}
+
+.ct-call-inner {
+  background: var(--black);
+  color: var(--white);
+  padding: 64px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+}
+
+.ct-call-copy h2 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.ct-call-copy p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 58ch;
+}
+
+.ct-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  padding: 18px 30px;
+  background: var(--white);
+  color: var(--black);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ct-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+}
+
+.ct-cta svg {
+  transition: transform 0.2s ease;
+}
+
+.ct-cta:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* Fit */
+.ct-fit {
+  border-top: 1px solid #ececec;
+  padding: 96px 0;
+}
+
+.ct-fit-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ct-fit-list li {
+  position: relative;
+  padding: 16px 0 16px 30px;
+  border-bottom: 1px solid #ececec;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.ct-fit-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 26px;
+  width: 12px;
+  height: 1.5px;
+  background: var(--black);
+}
+
+.ct-fit-note {
+  margin-top: 28px;
+  font-size: 0.95rem !important;
+  color: #888 !important;
+}
+
+/* Foot */
+.ct-foot {
+  border-top: 1px solid #ececec;
+  padding: 56px 0 88px;
+}
+
+.ct-foot-inner {
+  display: flex;
+  align-items: baseline;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.ct-foot-inner p {
+  font-size: 0.95rem;
+  color: #888;
+}
+
+.ct-foot-links {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .ct-link {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 28px 0;
+  }
+  .ct-arrow { display: none; }
+  .ct-note { max-width: 46ch; }
+  .ct-call-inner {
+    grid-template-columns: 1fr;
+    padding: 40px 28px;
+    gap: 28px;
+  }
+  .ct-cta { justify-self: start; }
+  .ct-call, .ct-fit { padding: 64px 0; }
+}

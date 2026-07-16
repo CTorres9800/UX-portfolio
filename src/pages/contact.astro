@@ -1,0 +1,143 @@
+---
+// Contact. Deliberately not a form: every route here is one Chris already uses
+// and can answer. A form would add a step and a place for mail to get lost.
+const routes = [
+  {
+    k: 'Email',
+    v: 'christophertorres17@gmail.com',
+    href: 'mailto:christophertorres17@gmail.com',
+    note: 'The surest way to reach me. I read everything.',
+  },
+  {
+    k: 'Phone',
+    v: '786.424.8475',
+    href: 'tel:+17864248475',
+    note: 'If it is quicker to say out loud than to type.',
+  },
+  {
+    k: 'LinkedIn',
+    v: 'in/christorres17',
+    href: 'https://www.linkedin.com/in/christorres17/',
+    note: 'Where 44 of the designers I trained left a recommendation.',
+    external: true,
+  },
+];
+
+const fits = [
+  'Fractional or contract UX, design and product leadership',
+  'Hands-on IC design work, which is the part I like most',
+  'Design org build-outs, hiring, SOPs and design systems',
+  'Marketplace, B2B SaaS and platform product work',
+];
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact, Christopher Torres</title>
+  <meta name="description" content="Get in touch with Christopher Torres. Available for contract and fractional UX, design and product leadership, and hands-on design work.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/about.css">
+  <link rel="stylesheet" href="/contact.css">
+  <style>html{opacity:0}html.fonts-loaded{opacity:1;transition:opacity .15s ease-in}</style>
+  <script is:inline>document.fonts.ready.then(()=>document.documentElement.classList.add('fonts-loaded'));</script>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <section class="hero ct-hero">
+    <div class="container">
+      <p class="about-eyebrow">Contact</p>
+      <h1>Tell me what you are building, and I will tell you whether I am the <span class="highlight">right</span> person for it.</h1>
+      <p class="hero-sub">Based in Atlanta, working on-site, hybrid or remote. Available for contract and fractional engagements, and for the hands-on work too.</p>
+    </div>
+  </section>
+
+  <section class="ct-routes">
+    <div class="container">
+      <ul class="ct-list">
+        {routes.map((r) => (
+          <li class="ct-item">
+            <a href={r.href} class="ct-link" {...(r.external ? { target: '_blank', rel: 'noopener' } : {})}>
+              <span class="ct-k">{r.k}</span>
+              <span class="ct-v">{r.v}</span>
+              <span class="ct-note">{r.note}</span>
+              <span class="ct-arrow" aria-hidden="true">
+                <svg width="34" height="12" viewBox="0 0 34 12" fill="none">
+                  <path d="M0 6h31M26 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="ct-call">
+    <div class="container">
+      <div class="ct-call-inner">
+        <div class="ct-call-copy">
+          <h2>Or skip the thread</h2>
+          <p>Fifteen minutes on a call is usually enough to work out whether there is something here worth building together. No deck, no discovery process, just the problem you are stuck on.</p>
+        </div>
+        <a href="https://tidycal.com/christopher-torres/15-minute-meeting" target="_blank" rel="noopener" class="ct-cta">
+          Book 15 minutes
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="ct-fit">
+    <div class="container">
+      <div class="about-story-grid">
+        <h2>What I am a fit for</h2>
+        <div class="about-story-body">
+          <ul class="ct-fit-list">
+            {fits.map((f) => <li>{f}</li>)}
+          </ul>
+          <p class="ct-fit-note">If it is none of these but you think I would be useful anyway, say so. Being wrong about my own edges is how most of the interesting work has found me.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ct-foot">
+    <div class="container">
+      <div class="ct-foot-inner">
+        <p>Prefer to read first?</p>
+        <div class="ct-foot-links">
+          <a href="/about" class="underline-link">About me</a>
+          <a href="/#work" class="underline-link">Case studies</a>
+          <a href="/Christopher-Torres-Resume.pdf" target="_blank" rel="noopener" class="underline-link">Resume (PDF)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script is:inline src="/components.js"></script>
+  <script is:inline>
+    document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey || e.metaKey) {
+        var k = e.key.toLowerCase();
+        if (k === 'a' || k === 'c' || k === 'u' || k === 's' || k === 'p') {
+          e.preventDefault();
+        }
+      }
+      if (e.key === 'PrintScreen') { e.preventDefault(); }
+    });
+    document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+  </script>
+</body>
+</html>
