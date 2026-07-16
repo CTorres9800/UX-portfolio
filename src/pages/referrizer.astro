@@ -93,10 +93,13 @@ import SectionContent from '../components/SectionContent.astro';
         <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
         <div class="cs-process-pill" style="position:relative;">
           Design
-          <!-- Iteration arc from Test back to Design -->
-          <svg class="cs-process-arc" width="320" height="44" viewBox="0 0 320 44" fill="none" style="left:50%;transform:translateX(-10%);">
-            <path d="M4 42 C60 0, 260 0, 316 42" stroke="#ccc" stroke-width="1.5" fill="none" stroke-dasharray="5 4"/>
-            <polyline points="0,36 4,44 10,38" fill="none" stroke="#ccc" stroke-width="1.5"/>
+          <!-- Iteration loop, Test back to Design. A true semicircle: the span between
+               the two pill centres is 141px, so the radius and the rise are both 70.5.
+               The old path was a cubic bezier 320 wide and 44 tall, which is why it read
+               as a squashed guess rather than an arc. -->
+          <svg class="cs-process-arc" width="151" height="85" viewBox="0 0 151 85" fill="none" aria-hidden="true">
+            <path d="M145.5 79 A 70.5 70.5 0 0 0 4.5 79" stroke="#c8c8c8" stroke-width="1.5" fill="none" stroke-dasharray="5 4" stroke-linecap="round"/>
+            <path d="M4.5 81.5 L0 71 L9 71 Z" fill="#c8c8c8"/>
           </svg>
         </div>
         <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
@@ -144,7 +147,13 @@ import SectionContent from '../components/SectionContent.astro';
           <li>Prepare Delivery</li>
           <li>Conduct Retrospective</li>
         </ul>
-        <ul class="cs-process-tasks"></ul>
+        <ul class="cs-process-tasks">
+          <li>Design Specifications</li>
+          <li>Handoff Guidelines</li>
+          <li>Support Development</li>
+          <li>Review Implementation</li>
+          <li>Verify Against Design</li>
+        </ul>
       </div>
     </div>
   </SectionContent>

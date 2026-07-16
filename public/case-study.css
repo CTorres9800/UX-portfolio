@@ -1892,6 +1892,9 @@
   justify-content: center;
   gap: 0;
   position: relative;
+  /* room for the 70.5px semicircle to sit above the row without colliding
+     with the paragraph above it */
+  padding-top: 88px;
   margin-bottom: 32px;
 }
 
@@ -1923,9 +1926,15 @@
 /* Iteration arc */
 .cs-process-arc {
   position: absolute;
-  top: -36px;
+  /* The svg is anchored inside the Design pill. left:50% puts its left edge on the
+     pill centre; the -4.5px pulls the arc's own start point onto that centre. The
+     old -10% translate was arbitrary and left the arc 32px off. */
+  top: -81px;
+  left: 50%;
+  transform: translateX(-4.5px);
   z-index: 0;
   pointer-events: none;
+  overflow: visible;
 }
 
 /* Tasks grid */
