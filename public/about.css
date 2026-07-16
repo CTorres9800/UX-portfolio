@@ -125,9 +125,12 @@
 }
 
 .about-caps-grid {
+  /* The grid paints the line colour behind the cards and lets it show through the
+     gaps, so the gap IS the internal border. It has to match the outer border
+     exactly: at 2px every line between cards rendered double the 1px edge. */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2px;
+  gap: 1px;
   background: #ececec;
   border: 1px solid #ececec;
 }
