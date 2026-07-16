@@ -85,29 +85,39 @@ import SectionContent from '../components/SectionContent.astro';
     </div>
 
     <div class="cs-process">
-      <!-- Pills row -->
+      <!-- Pills row. Same 6 column grid as the task lists below, so each step
+           sits over its own bullets. -->
       <div class="cs-process-pills">
-        <div class="cs-process-pill">Learn</div>
-        <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
-        <div class="cs-process-pill">Define</div>
-        <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
-        <div class="cs-process-pill" style="position:relative;">
-          Design
-          <!-- Iteration loop, Test back to Design. A true semicircle: the span between
-               the two pill centres is 141px, so the radius and the rise are both 70.5.
-               The old path was a cubic bezier 320 wide and 44 tall, which is why it read
-               as a squashed guess rather than an arc. -->
-          <svg class="cs-process-arc" width="151" height="85" viewBox="0 0 151 85" fill="none" aria-hidden="true">
-            <path d="M145.5 79 A 70.5 70.5 0 0 0 4.5 79" stroke="#c8c8c8" stroke-width="1.5" fill="none" stroke-dasharray="5 4" stroke-linecap="round"/>
-            <path d="M4.5 81.5 L0 71 L9 71 Z" fill="#c8c8c8"/>
-          </svg>
+        <div class="cs-process-step">
+          <div class="cs-process-pill">Learn</div>
+          <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
         </div>
-        <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
-        <div class="cs-process-pill">Test</div>
-        <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
-        <div class="cs-process-pill">Refine</div>
-        <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
-        <div class="cs-process-pill">Dev Handoff</div>
+        <div class="cs-process-step">
+          <div class="cs-process-pill">Define</div>
+          <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        </div>
+        <div class="cs-process-step">
+          <div class="cs-process-pill">Design
+            <!-- Iteration loop, Test back to Design. A true semicircle: radius and
+                 rise are both half the gap between the two pill centres. -->
+            <svg class="cs-process-arc" width="187" height="103" viewBox="0 0 187 103" fill="none" aria-hidden="true">
+              <path d="M181.5 97 A 88 88 0 0 0 5.5 97" stroke="#c8c8c8" stroke-width="1.5" fill="none" stroke-dasharray="5 4" stroke-linecap="round"/>
+              <path d="M5.5 99.5 L1 89 L10 89 Z" fill="#c8c8c8"/>
+            </svg>
+          </div>
+          <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        </div>
+        <div class="cs-process-step">
+          <div class="cs-process-pill">Test</div>
+          <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        </div>
+        <div class="cs-process-step">
+          <div class="cs-process-pill">Refine</div>
+          <span class="cs-process-arrow"><svg width="28" height="12" viewBox="0 0 28 12"><line x1="0" y1="6" x2="22" y2="6" stroke="currentColor" stroke-width="1.5"/><polyline points="19,2 24,6 19,10" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+        </div>
+        <div class="cs-process-step">
+          <div class="cs-process-pill">Dev Handoff</div>
+        </div>
       </div>
 
       <!-- Task lists -->
