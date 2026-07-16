@@ -165,7 +165,7 @@ const canvasScreen = (() => {
     sb += box(SBX + 24, 488 + i * 52, SBW - 48, 34, { r: 6, fill: G.white });
     sb += box(SBX + 36, 500 + i * 52, 70, 8, { r: 4, fill: G.block, stroke: 'none' });
   }
-  return svg(W, H1, topBar() + clipCanvas(c, H1) + sb, 'Final feature: Workflow Canvas — drag-and-drop builder with contextual sidebar');
+  return svg(W, H1, topBar() + clipCanvas(c, H1) + sb, 'Final feature: Workflow Canvas, drag-and-drop builder with contextual sidebar');
 })();
 
 // =====================================================================
@@ -219,7 +219,7 @@ const trigSetup = (() => {
     s += box(X + 14, 1052 + i * 60, 90, 10, { r: 5, fill: G.block, stroke: 'none' });
   }
   s += btn(R - 116, 1160, 96, 34, 'Continue', { primary: true });
-  return svg(PW, PH, s, 'Final feature: Trigger and Action Setup — event selection, required fields and account connection');
+  return svg(PW, PH, s, 'Final feature: Trigger and Action Setup, event selection, required fields and account connection');
 })();
 
 // =====================================================================
@@ -277,7 +277,7 @@ const splitScreen = (() => {
   sb += t(SBX + 24, 640, 'Single Endpoint', { size: 11.5, weight: 700, fill: G.ink });
   sb += box(SBX + SBW - 66, 630, 40, 20, { r: 10, fill: G.solid, stroke: G.solid });
   sb += cir(SBX + SBW - 36, 640, 7, { fill: G.white, stroke: G.white });
-  return svg(W, H3, topBar() + clipCanvas(c, H3) + sb, 'Final feature: Split Path Configuration — conditional and percentage routing with an AND/OR builder');
+  return svg(W, H3, topBar() + clipCanvas(c, H3) + sb, 'Final feature: Split Path Configuration, conditional and percentage routing with an AND/OR builder');
 })();
 
 // =====================================================================
@@ -336,7 +336,7 @@ const testScreen = (() => {
     sb += box(SBX + 24, 424 + i * 52, SBW - 48, 34, { r: 6, fill: G.white });
     sb += box(SBX + 36, 436 + i * 52, 76, 8, { r: 4, fill: G.block, stroke: 'none' });
   }
-  return svg(W, H4, topBar() + clipCanvas(c, H4) + sb, 'Final feature: Testing and Validation — test results panel with error nodes highlighted on the canvas');
+  return svg(W, H4, topBar() + clipCanvas(c, H4) + sb, 'Final feature: Testing and Validation, test results panel with error nodes highlighted on the canvas');
 })();
 
 // =====================================================================
@@ -367,9 +367,9 @@ const publishScreen = (() => {
   s += btn(760, 358, 190, 40, 'Go To Dashboard');
   s += btn(970, 358, 190, 40, 'Keep Working', { primary: true });
   s += t(960, 426, 'Published at 10:41AM', { size: 10, fill: G.faint, anchor: 'middle' });
-  s += t(340, 500, 'Step 1 — confirm intent', { size: 11, weight: 700, fill: G.mute, anchor: 'middle' });
-  s += t(960, 500, 'Step 2 — success + next step', { size: 11, weight: 700, fill: G.mute, anchor: 'middle' });
-  return svg(W, H, s, 'Final feature: Publish and Confirmation — two-step publish with a success state');
+  s += t(340, 500, 'Step 1, confirm intent', { size: 11, weight: 700, fill: G.mute, anchor: 'middle' });
+  s += t(960, 500, 'Step 2, success + next step', { size: 11, weight: 700, fill: G.mute, anchor: 'middle' });
+  return svg(W, H, s, 'Final feature: Publish and Confirmation, two-step publish with a success state');
 })();
 
 // =====================================================================
@@ -413,7 +413,7 @@ const authScreen = (() => {
   s += t(x + 28, 424, 'Blend Metrics will receive your name, email', { size: 9.6, fill: G.mute });
   s += t(x + 28, 440, 'address and profile picture.', { size: 9.6, fill: G.mute });
   s += t(x + 28, 466, 'Manage connected accounts', { size: 10, weight: 700, fill: G.ink });
-  return svg(W, H, s, 'Final feature: Authorization — username/password, API key and Google OAuth account picker');
+  return svg(W, H, s, 'Final feature: Authorization, username/password, API key and Google OAuth account picker');
 })();
 
 // =====================================================================
@@ -438,7 +438,7 @@ const manageScreen = (() => {
   s += ln(32, 104, W - 32, 104, { stroke: G.soft });
   const rows = [
     ['Test Workflow', 'Live', '4', '2 minutes ago'],
-    ['Lead routing — inbound', 'Live', '7', 'Yesterday'],
+    ['Lead routing, inbound', 'Live', '7', 'Yesterday'],
     ['Weekly digest', 'Paused', '3', '3 days ago'],
     ['Onboarding sequence', 'Draft', '5', 'Last week'],
     ['Churn alert', 'Live', '6', 'Last week'],
@@ -475,7 +475,7 @@ const manageScreen = (() => {
   s += t(392, 622, 'Version history keeps the last 30 days of changes.', { size: 10, fill: G.mute });
   s += btn(568, 640, 100, 38, 'Cancel');
   s += btn(680, 640, 108, 38, 'Save', { primary: true });
-  return svg(W, H, s, 'Final feature: Workflow Management — dashboard with search, filters, status, context menu and rename modal');
+  return svg(W, H, s, 'Final feature: Workflow Management, dashboard with search, filters, status, context menu and rename modal');
 })();
 
 
@@ -536,7 +536,7 @@ const searchScreen = (() => {
   sb += tabs(SBX + 16, 128, SBW - 32, ['Setup', 'Conditions', 'Test'], 0, [0]);
   sb += t(SBX + 24, 180, 'Which event will start the workflow?', { size: 11.5, weight: 700, fill: G.ink });
   for (let i = 0; i < 4; i++) sb += radio(SBX + 24, 194 + i * 54, SBW - 48, 'Option 1', 'Short description here', i === 0);
-  return svg(W, H, topBar() + clipCanvas(c, H) + sb, 'Final feature: Workflow Search — grouped, counted results that highlight the matching node');
+  return svg(W, H, topBar() + clipCanvas(c, H) + sb, 'Final feature: Workflow Search, grouped, counted results that highlight the matching node');
 })();
 
 // =====================================================================
@@ -610,7 +610,7 @@ const tabsScreen = (() => {
     }
     s += t(x + CW / 2, 848, `${active} tab`, { size: 11, weight: 700, fill: G.mute, anchor: 'middle' });
   });
-  return svg(W, H, s, 'Final feature: sidebar tabs — Setup, Conditions and Test each carry their own panel');
+  return svg(W, H, s, 'Final feature: sidebar tabs, Setup, Conditions and Test each carry their own panel');
 })();
 
 // =====================================================================
@@ -628,10 +628,10 @@ const versionScreen = (() => {
   s += ln(PX, 130, PR, 130, { stroke: G.soft });
   const versions = [
     ['Current draft', 'You \u00b7 edited 2 minutes ago', '4 steps', true, false],
-    ['v5 \u2014 Published', 'You \u00b7 Today, 10:41AM', '4 steps', false, true],
-    ['v4 \u2014 Published', 'You \u00b7 Yesterday, 4:12PM', '3 steps', false, false],
-    ['v3 \u2014 Published', 'Inna T. \u00b7 3 days ago', '3 steps', false, false],
-    ['v2 \u2014 Published', 'You \u00b7 Last week', '2 steps', false, false],
+    ['v5, Published', 'You \u00b7 Today, 10:41AM', '4 steps', false, true],
+    ['v4, Published', 'You \u00b7 Yesterday, 4:12PM', '3 steps', false, false],
+    ['v3, Published', 'Inna T. \u00b7 3 days ago', '3 steps', false, false],
+    ['v2, Published', 'You \u00b7 Last week', '2 steps', false, false],
   ];
   versions.forEach(([name, meta, steps, isDraft, isLive], i) => {
     const y = 150 + i * 92;
@@ -649,7 +649,7 @@ const versionScreen = (() => {
     }
   });
   s += t(RX, 628, '30 days of history is kept on every workflow.', { size: 10, fill: G.mute });
-  return svg(W, H, s, 'Final feature: Version History — snapshot per publish with preview and restore');
+  return svg(W, H, s, 'Final feature: Version History, snapshot per publish with preview and restore');
 })();
 
 // =====================================================================
@@ -713,7 +713,7 @@ const libraryScreen = (() => {
     s += box(x + 16, y + 16, 26, 26, { r: 5, fill: G.white, stroke: G.line });
     s += t(x + 16, y + 66, 'Trigger Name', { size: 11.5, weight: 700, fill: G.ink });
   });
-  return svg(W, H, s, 'Final feature: Step Library — 126 triggers, 52 conditions, 294 actions and 46 filters, browsable by category');
+  return svg(W, H, s, 'Final feature: Step Library, 126 triggers, 52 conditions, 294 actions and 46 filters, browsable by category');
 })();
 
 // =====================================================================

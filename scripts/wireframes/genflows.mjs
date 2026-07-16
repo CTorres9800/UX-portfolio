@@ -202,7 +202,7 @@ const flow1 = (() => {
     waypoints: [{ x: X(7), y: S - DEC_HALF - 8 }, { x: X(7), y: UP + AC_H / 2 + 6 }] });
   edges.push({ from: 'b1', to: 'a6', dashed: true,
     waypoints: [{ x: X(7) - AC_W / 2 - 10, y: UP }, { x: X(6), y: UP }, { x: X(6), y: S - SC_H / 2 - 6 }] });
-  return render({ nodes, edges, title: 'Flow 1 — Creating a Workflow: dashboard to first trigger on canvas' });
+  return render({ nodes, edges, title: 'Flow 1, Creating a Workflow: dashboard to first trigger on canvas' });
 })();
 
 // =====================  FLOW 2  =====================
@@ -234,7 +234,7 @@ const flow2 = (() => {
     waypoints: [{ x: X(4), y: S + DEC_HALF + 8 }, { x: X(4), y: L1 }, { x: X(1), y: L1 }, { x: X(1), y: S + SC_H / 2 + 8 }] });
   edges.push({ from: 'a10', to: 'a5', color: C.red, badge: 'no', badgeAt: { x: (X(10) + X(5)) / 2, y: L2 },
     waypoints: [{ x: X(10), y: S + DEC_HALF + 8 }, { x: X(10), y: L2 }, { x: X(5), y: L2 }, { x: X(5), y: S + AC_H / 2 + 8 }] });
-  return render({ nodes, edges, title: 'Flow 2 — Configuring Triggers and Actions: connect accounts, configure events, map fields' });
+  return render({ nodes, edges, title: 'Flow 2, Configuring Triggers and Actions: connect accounts, configure events, map fields' });
 })();
 
 // =====================  FLOW 3  =====================
@@ -283,7 +283,7 @@ const flow3 = (() => {
     { from: 'a10', to: 'a12', color: C.red, badge: 'no', badgeAt: { x: X(11), y: 300 },
       waypoints: [{ x: X(10), y: S - DEC_HALF - 8 }, { x: X(10), y: 300 }, { x: X(12), y: 300 }, { x: X(12), y: S - SE_R - 6 }] },
   ];
-  return render({ nodes, edges, title: 'Flow 3 — Configuring Split Paths: conditional and percentage branching logic' });
+  return render({ nodes, edges, title: 'Flow 3, Configuring Split Paths: conditional and percentage branching logic' });
 })();
 
 // =====================  FLOW 4  =====================
@@ -310,7 +310,7 @@ const flow4 = (() => {
   edges.push({ from: 'b2', to: 'b3', waypoints: [{ x: X(4) - SC_W / 2 - 10, y: UP }, { x: X(3) + AC_W / 2 + 6, y: UP }] });
   edges.push({ from: 'b3', to: 'a2', dashed: true,
     waypoints: [{ x: X(3) - AC_W / 2 - 10, y: UP }, { x: X(2), y: UP }, { x: X(2), y: S - AC_H / 2 - 6 }] });
-  return render({ nodes, edges, title: 'Flow 4 — Testing a Workflow: run test, review pass/fail, debug failed nodes' });
+  return render({ nodes, edges, title: 'Flow 4, Testing a Workflow: run test, review pass/fail, debug failed nodes' });
 })();
 
 // =====================  FLOW 5  =====================
@@ -338,7 +338,7 @@ const flow5 = (() => {
     waypoints: [{ x: X(3), y: S - DEC_HALF - 8 }, { x: X(3), y: UP + SE_R + 6 }] });
   edges.push({ from: 'a6', to: 'b2', color: C.red, badge: 'no', badgeAt: { x: X(6), y: 660 },
     waypoints: [{ x: X(6), y: S + DEC_HALF + 8 }, { x: X(6), y: LOW - SE_R - 6 }] });
-  return render({ nodes, edges, title: 'Flow 5 — Publishing and Managing Workflows: two-step confirmation and dashboard management' });
+  return render({ nodes, edges, title: 'Flow 5, Publishing and Managing Workflows: two-step confirmation and dashboard management' });
 })();
 
 const files = {

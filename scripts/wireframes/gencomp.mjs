@@ -118,7 +118,7 @@ const triggerPicker = (() => {
   types.forEach(([a, b], i) => { s += optionRow(30, 176 + i * 74, PW - 60, 62, a, b); });
   s += box(PW - 130, 810, 100, 30, { r: 7, fill: G.solid, stroke: G.solid });
   s += t(PW - 80, 830, 'Continue', { size: 11.5, weight: 600, fill: G.white, anchor: 'middle' });
-  return svg(PW, PH, s, 'Component wireframe: Trigger Type Picker — choose how a workflow starts');
+  return svg(PW, PH, s, 'Component wireframe: Trigger Type Picker, choose how a workflow starts');
 })();
 
 // =====================================================================
@@ -147,7 +147,7 @@ const triggerSetup = (() => {
     ['Specific Form Field', 'Triggers when a user enters specific data into a form field'],
   ];
   events.forEach(([a, b], i) => { s += optionRow(30, 276 + i * 62, PW - 60, 52, a, b, { radio: true }); });
-  return svg(PW, PH, s, 'Component wireframe: Trigger Event Setup — choose a trigger event');
+  return svg(PW, PH, s, 'Component wireframe: Trigger Event Setup, choose a trigger event');
 })();
 
 // =====================================================================
@@ -183,7 +183,7 @@ const conditionBuilder = (() => {
   s += box(PW - 160, 828, 130, 32, { r: 7, fill: G.white });
   s += box(PW - 148, 838, 12, 12, { r: 2, stroke: G.body });
   s += t(PW - 130, 849, 'Save Conditions', { size: 11.5, weight: 700, fill: G.ink });
-  return svg(PW, PH, s, 'Component wireframe: Condition Builder — AND/OR rules with save and clear actions');
+  return svg(PW, PH, s, 'Component wireframe: Condition Builder, AND/OR rules with save and clear actions');
 })();
 
 // =====================================================================
@@ -263,7 +263,7 @@ const popupGrid = (() => {
   s += t(NAV + 36, 512, 'Trigger From Webhook', { size: 14, weight: 700, fill: G.ink });
   s += t(NAV + 36, 532, 'Update your photo and personal details here.', { size: 10.5, fill: G.mute });
   [0, 1].forEach((c) => { s += trigCard(NAV + 36 + c * (cw + 36), 554, cw, 128); });
-  return svg(QW + 20, QH + 20, popupWrap(s), 'Component wireframe: Step Library popup — grid view of triggers by category');
+  return svg(QW + 20, QH + 20, popupWrap(s), 'Component wireframe: Step Library popup, grid view of triggers by category');
 })();
 const popupList = (() => {
   let s = popupShell('Add a workflow step') + popupTabs(2);
@@ -278,7 +278,7 @@ const popupList = (() => {
     s += t(NAV + 92, y + 44, 'Suscipit tortor in sagittis purus fringilla adipiscing urna.', { size: 10, fill: G.mute });
     s += t(QW - 56, y + 36, '›', { size: 14, fill: G.mute, anchor: 'middle' });
   });
-  return svg(QW + 20, QH + 20, popupWrap(s), 'Component wireframe: Step Library popup — list view of actions');
+  return svg(QW + 20, QH + 20, popupWrap(s), 'Component wireframe: Step Library popup, list view of actions');
 })();
 const popupEmpty = (() => {
   let s = popupShell('Add a workflow step', 'xxxx') + popupTabs(0);
@@ -295,7 +295,7 @@ const popupEmpty = (() => {
   const a = 22;
   s += `<path d="M${lensX - a} ${lensY - a} L${lensX + a} ${lensY + a} M${lensX + a} ${lensY - a} L${lensX - a} ${lensY + a}" stroke="${G.ghost}" stroke-width="${SW}" stroke-linecap="round"/>`;
   s += t(cx, cy + 190, "There are no search results for 'xxxx'", { size: 14, weight: 600, fill: G.ink, anchor: 'middle' });
-  return svg(QW + 20, QH + 20, popupWrap(s), 'Component wireframe: Step Library popup — empty search results state');
+  return svg(QW + 20, QH + 20, popupWrap(s), 'Component wireframe: Step Library popup, empty search results state');
 })();
 
 const popupSearch = (() => {
@@ -312,7 +312,7 @@ const popupSearch = (() => {
     const r = Math.floor(i / 2), c = i % 2;
     s += trigCard(NAV + 36 + c * (cw + 36), 152 + r * 160, cw, 140, lab);
   });
-  return svg(QW + 20, QH + 20, popupWrap(s), 'Component wireframe: Step Library popup — search results across every category');
+  return svg(QW + 20, QH + 20, popupWrap(s), 'Component wireframe: Step Library popup, search results across every category');
 })();
 
 

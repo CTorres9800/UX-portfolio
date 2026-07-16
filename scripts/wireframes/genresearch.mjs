@@ -36,7 +36,7 @@ function bars(title, rows) {
 
 const files = {
   'bm-survey-confidence.svg': bars('Confidence before publishing', [
-    { label: 'Not confident — I check it first', pct: 68, n: 23 },
+    { label: 'Not confident, I check it first', pct: 68, n: 23 },
     { label: 'Somewhat confident', pct: 23, n: 8 },
     { label: 'Very confident', pct: 9, n: 3 },
   ]),
