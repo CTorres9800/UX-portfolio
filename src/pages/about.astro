@@ -1,6 +1,5 @@
 ---
-// About. Content is drawn from the resume and cover letter; every number here
-// is one Chris states in those documents, nothing is inferred or rounded up.
+// About. Everything here is from the resume; nothing is inferred.
 const stats = [
   { n: '24',   l: 'Years in design, since 2002' },
   { n: '80+',  l: 'Designers trained and managed' },
@@ -11,35 +10,47 @@ const stats = [
 const capabilities = [
   {
     t: 'Design leadership',
-    d: 'Hiring, performance, mentorship and career development for teams of five to fifty. Twenty plus SOPs, training programmes and design system standards written so that junior designers ship senior quality work.',
+    d: "Hiring, performance, mentorship and career development for teams of five to fifty. Twenty plus SOPs, training programmes and design system standards, written so junior designers ship senior work.",
   },
   {
     t: 'Product and squad management',
-    d: 'Cross-functional squads across design, engineering, QA, PM and product ops. Roadmaps, backlog, MVP scoping, sprint cadence and scrum of scrums across parallel teams.',
+    d: "Cross-functional squads across design, engineering, QA, PM and product ops. Roadmaps, backlog, MVP scoping, sprint cadence, and scrum of scrums across parallel teams.",
   },
   {
-    t: 'Hands-on craft',
-    d: 'Research, journeys, information architecture, flows, interaction design and design systems in advanced Figma. The part of the job I have never handed off.',
+    t: 'Design craft',
+    d: "Research, journeys, information architecture, flows, interaction design and design systems. Advanced Figma: components, variants, auto-layout, tokens, dev mode.",
+  },
+  {
+    t: 'Growth and conversion',
+    d: "Product-led growth, conversion optimisation, customer lifecycle and retention. I came up through SEO and sales funnels, so I tend to ask what a screen is meant to earn before I ask what it should look like.",
   },
   {
     t: 'AI-native execution',
-    d: 'I architected and shipped the Marketeq marketplace MVP with AI-assisted tooling, then codified the whole build into prompt libraries and runbooks so the team could carry it. Claude, Claude CLI, Codex and MCP servers are daily tools, not a slide.',
+    d: "I architected and shipped the Marketeq marketplace MVP with AI-assisted tooling, then codified the build into prompt libraries and runbooks so the team could carry it. Claude, Claude CLI, Codex and MCP servers are daily tools, not a slide.",
+  },
+  {
+    t: 'Mentorship and training',
+    d: "SOPs, hiring pipelines, onboarding systems and design QA frameworks. Sixty plus designers mentored, and 44 of them left a public recommendation.",
   },
 ];
 
 const roles = [
   { co: 'Marketeq Digital', role: 'Founder and CEO', when: 'Nov 2014 to present', where: 'Remote',
-    d: 'Built a virtual product organisation of 240 people across 30 disciplines. Personally recruited, trained and managed 60 plus designers, and serve as their design manager, strategy lead and quality reviewer.' },
+    d: "Built a virtual product organisation of 240 people across 30 disciplines. Recruited, trained and managed 60 plus designers, and I'm still their design manager, strategy lead and quality reviewer." },
   { co: 'Referrizer', role: 'Chief Product Officer', when: 'Jul 2021 to Nov 2023', where: 'Remote',
-    d: 'Reported to the CEO. Hired and managed around 20 designers, owned the roadmap and design quality across dashboards, marketing site and brand, and ran the product-led growth strategy.' },
-  { co: 'LTI / Larsen & Toubro Infotech', role: 'Senior UX Solutions Architect', when: 'Jul 2019 to Oct 2019', where: 'New York, contract',
-    d: 'UX lead on the City National Bank enterprise platform, defining internal tools used globally and mapping complex process on Salesforce in a heavily matrixed organisation.' },
-  { co: 'Photon', role: 'Senior User Experience Designer', when: 'Mar 2020 to May 2020', where: 'Remote contract',
-    d: 'Scoped and led UX for a prescription drug pricing platform, turning dense technical and business constraints into something a person could read at a glance.' },
+    d: "Reported to the CEO. Hired and managed around 20 designers, owned the roadmap and design quality across dashboards, marketing site and brand, and ran the product-led growth strategy." },
   { co: 'Uptu', role: 'Founder and Senior UX Lead', when: 'May 2020 to Apr 2021', where: 'San Francisco',
-    d: 'Led designers and analysts building the MVP for a social platform: mobile app, web app, advertising platform and business site.' },
+    d: "Led designers and analysts building the MVP for a social platform: mobile app, web app, advertising platform and business site." },
+  { co: 'Photon', role: 'Senior User Experience Designer', when: 'Mar 2020 to May 2020', where: 'Remote contract',
+    d: "Scoped and led UX for a prescription drug pricing platform. The whole problem was making dense clinical and commercial rules readable at a glance." },
+  { co: 'LTI / Larsen & Toubro Infotech', role: 'Senior UX Solutions Architect', when: 'Jul 2019 to Oct 2019', where: 'New York, contract',
+    d: "UX lead on the City National Bank enterprise platform, defining internal tools used globally and mapping complex process on Salesforce in a heavily matrixed organisation." },
   { co: 'Blend Metrics', role: 'Senior UX Architect and UI Designer', when: 'Feb 2014 to Aug 2014', where: 'Miami',
-    d: 'UX strategy, wireframes and visual design for an advanced design and prototyping tool, plus the marketplace spanning its add-ons and extensions.' },
+    d: "UX strategy, wireframes and visual design for an advanced design and prototyping tool, plus the marketplace spanning its add-ons and extensions." },
+  { co: 'Ninseb Enterprises', role: 'Managing Partner and Lead UX Architect', when: 'Jun 2013 to Jan 2014', where: 'Miami, contract',
+    d: "Designed the first social platform for automotive sales and marketing, and built the pitch deck that drew investment offers over $25M. All the UX, UI, branding and growth strategy." },
+  { co: 'Mass Nutrition', role: 'Graphic Designer and Digital Marketing Director', when: 'May 2007 to Apr 2012', where: 'Miami',
+    d: "Where I learned the commercial half of this job. SEO and keyword research, link building, email campaigns, landing pages and opt-in forms, brand work plus 120 category banners, and the analytics that told me which of it actually moved e-commerce conversion." },
 ];
 
 const alumni = ['TELUS Digital', 'AOL', 'Accolade', 'Cisco', 'IBM', 'Pratt Institute'];
@@ -50,7 +61,7 @@ const alumni = ['TELUS Digital', 'AOL', 'Accolade', 'Cisco', 'IBM', 'Pratt Insti
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About, Christopher Torres</title>
-  <meta name="description" content="Christopher Torres is a senior UX design and product leader. Designing since 2002, UX since 2011, across fintech, healthcare, enterprise, social and platform products.">
+  <meta name="description" content="Christopher Torres. Designing since 2002, UX since 2011. Came up through graphic design and digital marketing. Fintech, healthcare, enterprise, social and platform work.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -66,8 +77,8 @@ const alumni = ['TELUS Digital', 'AOL', 'Accolade', 'Cisco', 'IBM', 'Pratt Insti
   <section class="hero about-hero">
     <div class="container">
       <p class="about-eyebrow">About</p>
-      <h1>Design since 2002. UX since 2011. Still <span class="highlight">hands-on</span>.</h1>
-      <p class="hero-sub">Senior UX design and product leader. Founder of Marketeq Digital, former Chief Product Officer at Referrizer, senior UX architect on the City National Bank platform at LTI. Fintech, healthcare, enterprise, social, marketing automation and platform work. Based in Atlanta, working on-site, hybrid or remote.</p>
+      <h1>Design since 2002. I learned what it&rsquo;s <span class="highlight">for</span> in the nine years before anyone called it UX.</h1>
+      <p class="hero-sub">Founder of Marketeq Digital. Former Chief Product Officer at Referrizer. Senior UX architect on the City National Bank platform at LTI. Fintech, healthcare, enterprise, social, marketing automation and platform work. Based in Atlanta, on-site, hybrid or remote.</p>
     </div>
   </section>
 
@@ -89,10 +100,10 @@ const alumni = ['TELUS Digital', 'AOL', 'Accolade', 'Cisco', 'IBM', 'Pratt Insti
       <div class="about-story-grid">
         <h2>The short version</h2>
         <div class="about-story-body">
-          <p>I started in graphic design in 2002 and moved into UX in 2011, which is why the craft end of this still holds my attention. The work has never stayed in one category. Banking tools for City National Bank at LTI, built on Salesforce and used by their people worldwide. A prescription drug pricing platform at Photon, where the whole problem was making dense clinical and commercial rules readable at a glance. A social platform at Uptu, mobile and web and the advertising side of it. Marketing automation at Referrizer. A design and prototyping tool at Blend Metrics. Information architecture at Interval International.</p>
-          <p>Marketplaces run through a good deal of it, including the talent marketplace MVP I architected and built myself at Marketeq, but they are one thread rather than the whole of it.</p>
-          <p>Alongside that I have built the organisation around the work. Sixty plus designers recruited, trained and managed at Marketeq inside a 240-person product org spanning 30 disciplines, and around 20 more hired at Referrizer. Twenty plus SOPs, design system standards and training programmes written so that a junior designer could produce senior quality output on a Tuesday without me in the room.</p>
-          <p>I have held CPO and founder titles, and I want to be direct about what I actually enjoy: the hands-on kind of work. The MVP I built myself. The flows, the IA and the interaction design. Having run the strategy floor is what makes me useful on the craft floor, not a reason to leave it.</p>
+          <p>I started in graphic design in 2002. By 2007 I was running digital marketing for a supplement company: SEO and keyword research, link building, email campaigns, landing pages, the brand work, and 120 category banners. I also owned the analytics that told me which of it actually worked, which is the part that mattered. It&rsquo;s an unglamorous education. It&rsquo;s also the best one I could&rsquo;ve had. Once you&rsquo;ve watched a beautiful page convert worse than an ugly one, you stop confusing taste with results.</p>
+          <p>UX arrived in 2011 and it was the same job with better tools. I&rsquo;d already spent years on the commercial end by then: sales funnels, conversion strategy, retention, and the pitch deck for Ninseb that pulled investment offers north of $25M. So when a stakeholder asks what a redesign is worth, that isn&rsquo;t a question I dread. It&rsquo;s the question I started with.</p>
+          <p>Since then the work has gone where the interesting problems are. Banking tools for City National Bank at LTI, built on Salesforce and used by their people worldwide. A prescription drug pricing platform at Photon, where the whole job was making dense clinical and commercial rules readable at a glance. A social platform at Uptu, mobile and web and the advertising side of it. Marketing automation at Referrizer. A design and prototyping tool at Blend Metrics. Information architecture at Interval International. Marketplaces run through a good deal of it, including the talent marketplace MVP I architected and built at Marketeq, but they&rsquo;re one thread rather than the whole of it.</p>
+          <p>I&rsquo;ve built the organisation around the work too. Sixty plus designers recruited, trained and managed at Marketeq inside a 240-person product org spanning 30 disciplines, and around 20 more hired at Referrizer. Twenty plus SOPs, design system standards and training programmes, written so a junior designer could produce senior work on a Tuesday without me in the room.</p>
         </div>
       </div>
     </div>
@@ -135,7 +146,7 @@ const alumni = ['TELUS Digital', 'AOL', 'Accolade', 'Cisco', 'IBM', 'Pratt Insti
       <div class="about-story-grid">
         <h2>Where they went</h2>
         <div class="about-story-body">
-          <p>Forty four of the designers I trained have publicly recommended my leadership on LinkedIn. That number matters more to me than any single screen in this portfolio, because it is the part of the job that outlives the project.</p>
+          <p>Forty four of the designers I trained have publicly recommended my leadership on LinkedIn. That number matters more to me than any single screen in this portfolio, because it&rsquo;s the part of the job that outlives the project.</p>
           <p>Alumni now design at:</p>
           <ul class="about-alumni-list">
             {alumni.map((a) => <li>{a}</li>)}
@@ -150,14 +161,14 @@ const alumni = ['TELUS Digital', 'AOL', 'Accolade', 'Cisco', 'IBM', 'Pratt Insti
     <div class="container contact-grid">
       <div class="contact-info">
         <h2>Get in touch</h2>
-        <p>Available for contract and fractional UX, design and product leadership, and for the hands-on work too. The fastest way to reach me is email, or find me on <a href="https://www.linkedin.com/in/christorres17/" target="_blank" rel="noopener" class="underline-link">Linkedin</a>.</p>
+        <p>Available for contract and fractional UX, design and product leadership. Fastest way to reach me is email, or find me on <a href="https://www.linkedin.com/in/christorres17/" target="_blank" rel="noopener" class="underline-link">Linkedin</a>.</p>
         <p class="contact-detail">christophertorres17@gmail.com</p>
         <p class="contact-detail">786.424.8475</p>
         <a href="/Christopher-Torres-Resume.pdf" target="_blank" rel="noopener" class="contact-detail download-link">Download Resume (PDF)</a>
       </div>
       <div class="contact-cta">
         <h2>Rather talk?</h2>
-        <p>Fifteen minutes is usually enough to work out whether there is something here worth building together.</p>
+        <p>Fifteen minutes is usually enough to work out whether there&rsquo;s something here worth building together.</p>
         <a href="https://tidycal.com/christopher-torres/15-minute-meeting" target="_blank" rel="noopener" class="underline-link">Book a 15 minute call</a>
       </div>
     </div>
