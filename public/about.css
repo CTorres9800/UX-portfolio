@@ -1,0 +1,226 @@
+/* About page. Uses the tokens and furniture from styles.css; everything here is
+   scoped to .about-* so nothing leaks into the homepage or the case studies. */
+
+.about-hero {
+  padding: 88px 0 96px;
+}
+
+.about-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 28px;
+}
+
+.about-hero h1 {
+  max-width: 17ch;
+}
+
+/* Numbers. Every one is stated in the resume; none is inferred. */
+.about-stats {
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+  padding: 56px 0;
+}
+
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.about-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about-stat-n {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 3.4vw, 3rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.about-stat-l {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #777;
+  max-width: 18ch;
+}
+
+/* A two-column band: heading left, prose right. Reused by three sections. */
+.about-story,
+.about-alumni,
+.about-personal {
+  padding: 104px 0;
+}
+
+.about-alumni {
+  background: #fafafa;
+}
+
+.about-story-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.about-story-grid h2 {
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  position: sticky;
+  top: 120px;
+}
+
+.about-story-body p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #333;
+  max-width: 68ch;
+}
+
+.about-story-body p + p {
+  margin-top: 26px;
+}
+
+.about-alumni-list {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.about-alumni-list li {
+  padding: 9px 18px;
+  border: 1px solid #dcdcdc;
+  border-radius: 999px;
+  background: var(--white);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Capabilities */
+.about-caps {
+  padding: 104px 0;
+  border-top: 1px solid #ececec;
+}
+
+.about-caps h2,
+.about-work h2 {
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 48px;
+}
+
+.about-caps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: #ececec;
+  border: 1px solid #ececec;
+}
+
+.about-cap {
+  background: var(--white);
+  padding: 40px;
+}
+
+.about-cap h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.about-cap p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #555;
+}
+
+/* Experience */
+.about-work {
+  padding: 104px 0;
+  border-top: 1px solid #ececec;
+}
+
+.about-roles {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: role;
+}
+
+.about-role {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 48px;
+  padding: 34px 0;
+  border-top: 1px solid #ececec;
+  align-items: start;
+}
+
+.about-role:last-child {
+  border-bottom: 1px solid #ececec;
+}
+
+.about-role-head h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.about-role-head h3 span {
+  display: block;
+  font-weight: 400;
+  color: #666;
+}
+
+.about-role-meta {
+  margin-top: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #999;
+}
+
+.about-role-meta i {
+  font-style: normal;
+  margin: 0 4px;
+}
+
+.about-role-body {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #555;
+  max-width: 66ch;
+}
+
+.about-contact {
+  border-top: 1px solid #ececec;
+}
+
+@media (max-width: 900px) {
+  .about-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .about-story-grid { grid-template-columns: 1fr; gap: 28px; }
+  .about-story-grid h2 { position: static; }
+  .about-caps-grid { grid-template-columns: 1fr; }
+  .about-role { grid-template-columns: 1fr; gap: 14px; }
+  .about-story,
+  .about-alumni,
+  .about-personal,
+  .about-caps,
+  .about-work { padding: 72px 0; }
+}

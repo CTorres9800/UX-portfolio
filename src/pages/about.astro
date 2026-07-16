@@ -1,0 +1,193 @@
+---
+// About. Content is drawn from the resume and cover letter; every number here
+// is one Chris states in those documents, nothing is inferred or rounded up.
+const stats = [
+  { n: '15+',  l: 'Years designing' },
+  { n: '80+',  l: 'Designers trained and managed' },
+  { n: '240',  l: 'Person product org built' },
+  { n: '44',   l: 'Public recommendations' },
+];
+
+const capabilities = [
+  {
+    t: 'Design leadership',
+    d: 'Hiring, performance, mentorship and career development for teams of five to fifty. Twenty plus SOPs, training programmes and design system standards written so that junior designers ship senior quality work.',
+  },
+  {
+    t: 'Product and squad management',
+    d: 'Cross-functional squads across design, engineering, QA, PM and product ops. Roadmaps, backlog, MVP scoping, sprint cadence and scrum of scrums across parallel teams.',
+  },
+  {
+    t: 'Hands-on craft',
+    d: 'Research, journeys, information architecture, flows, interaction design and design systems in advanced Figma. The part of the job I have never handed off.',
+  },
+  {
+    t: 'AI-native execution',
+    d: 'I architected and shipped the Marketeq marketplace MVP with AI-assisted tooling, then codified the whole build into prompt libraries and runbooks so the team could carry it. Claude, Claude CLI, Codex and MCP servers are daily tools, not a slide.',
+  },
+];
+
+const roles = [
+  { co: 'Marketeq Digital', role: 'Founder and CEO', when: 'Nov 2014 to present', where: 'Remote',
+    d: 'Built a virtual product organisation of 240 people across 30 disciplines. Personally recruited, trained and managed 60 plus designers, and serve as their design manager, strategy lead and quality reviewer.' },
+  { co: 'Referrizer', role: 'Chief Product Officer', when: 'Jul 2021 to Nov 2023', where: 'Remote',
+    d: 'Reported to the CEO. Hired and managed around 20 designers, owned the roadmap and design quality across dashboards, marketing site and brand, and ran the product-led growth strategy.' },
+  { co: 'LTI / Larsen & Toubro Infotech', role: 'Senior UX Solutions Architect', when: 'Jul 2019 to Oct 2019', where: 'New York, contract',
+    d: 'UX lead on the City National Bank enterprise platform, defining internal tools used globally and mapping complex process on Salesforce in a heavily matrixed organisation.' },
+  { co: 'Photon', role: 'Senior User Experience Designer', when: 'Mar 2020 to May 2020', where: 'Remote contract',
+    d: 'Scoped and led UX for a prescription drug pricing platform, turning dense technical and business constraints into something a person could read at a glance.' },
+  { co: 'Uptu', role: 'Founder and Senior UX Lead', when: 'May 2020 to Apr 2021', where: 'San Francisco',
+    d: 'Led designers and analysts building the MVP for a social platform: mobile app, web app, advertising platform and business site.' },
+  { co: 'Blend Metrics', role: 'Senior UX Architect and UI Designer', when: 'Feb 2014 to Aug 2014', where: 'Miami',
+    d: 'UX strategy, wireframes and visual design for an advanced design and prototyping tool, plus the marketplace spanning its add-ons and extensions.' },
+];
+
+const alumni = ['TELUS Digital', 'AOL', 'Accolade', 'Cisco', 'IBM', 'Pratt Institute'];
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About, Christopher Torres</title>
+  <meta name="description" content="Christopher Torres is a senior UX design and product leader with 15+ years building UX organisations, and a hands-on designer who still draws the flows.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/about.css">
+  <style>html{opacity:0}html.fonts-loaded{opacity:1;transition:opacity .15s ease-in}</style>
+  <script is:inline>document.fonts.ready.then(()=>document.documentElement.classList.add('fonts-loaded'));</script>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <section class="hero about-hero">
+    <div class="container">
+      <p class="about-eyebrow">About</p>
+      <h1>I have spent fifteen years building design teams, and I never stopped drawing the work <span class="highlight">myself</span>.</h1>
+      <p class="hero-sub">Senior UX design and product leader. Founder of Marketeq Digital, former Chief Product Officer at Referrizer, senior UX architect on the City National Bank platform. Based in Atlanta, working on-site, hybrid or remote.</p>
+    </div>
+  </section>
+
+  <section class="about-stats">
+    <div class="container">
+      <div class="about-stats-grid">
+        {stats.map((s) => (
+          <div class="about-stat">
+            <span class="about-stat-n">{s.n}</span>
+            <span class="about-stat-l">{s.l}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="about-story">
+    <div class="container">
+      <div class="about-story-grid">
+        <h2>The short version</h2>
+        <div class="about-story-body">
+          <p>Most of my last decade is marketplaces. At Marketeq I architected and built the MVP for our global talent marketplace myself: profiles, search, authentication, onboarding and the transaction flows that tie them together. At Blend Metrics I built the marketplace spanning hundreds of add-ons. At Referrizer I rebuilt the company marketplace to cut the barrier to entry and rework the funnel.</p>
+          <p>Alongside that I have built the organisation around the work. Sixty plus designers recruited, trained and managed at Marketeq inside a 240-person product org spanning 30 disciplines, and around 20 more hired at Referrizer. Twenty plus SOPs, design system standards and training programmes written so that a junior designer could produce senior quality output on a Tuesday without me in the room.</p>
+          <p>I have held CPO and founder titles, and I want to be direct about what I actually enjoy: the hands-on kind of work. The MVP I built myself. The flows I drew myself. Having run the strategy floor is what makes me useful on the craft floor, not a reason to leave it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-caps">
+    <div class="container">
+      <h2>What I do</h2>
+      <div class="about-caps-grid">
+        {capabilities.map((c) => (
+          <div class="about-cap">
+            <h3>{c.t}</h3>
+            <p>{c.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="about-work">
+    <div class="container">
+      <h2>Selected experience</h2>
+      <ol class="about-roles">
+        {roles.map((r) => (
+          <li class="about-role">
+            <div class="about-role-head">
+              <h3>{r.role}, <span>{r.co}</span></h3>
+              <p class="about-role-meta">{r.when} <i>&middot;</i> {r.where}</p>
+            </div>
+            <p class="about-role-body">{r.d}</p>
+          </li>
+        ))}
+      </ol>
+      <a href="/Christopher-Torres-Resume.pdf" target="_blank" rel="noopener" class="btn-outline">FULL RESUME (PDF)</a>
+    </div>
+  </section>
+
+  <section class="about-alumni">
+    <div class="container">
+      <div class="about-story-grid">
+        <h2>Where they went</h2>
+        <div class="about-story-body">
+          <p>Forty four of the designers I trained have publicly recommended my leadership on LinkedIn. That number matters more to me than any single screen in this portfolio, because it is the part of the job that outlives the project.</p>
+          <p>Alumni now design at:</p>
+          <ul class="about-alumni-list">
+            {alumni.map((a) => <li>{a}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-personal">
+    <div class="container">
+      <div class="about-story-grid">
+        <h2>Off the clock</h2>
+        <div class="about-story-body">
+          <p>I collect 90s basketball cards. It is a hobby that turns out to be a design problem in disguise. Print runs went vertical in that era, then inserts and parallels fractured the market into a thousand micro-scarcities, so intuition about value is almost always wrong and condition swings a card by an order of magnitude.</p>
+          <p>The honest answer to what is this worth is still half an hour of cross-referencing sold listings against population reports, hoping you are comparing like with like. Which is to say: I spend my spare time doing manual work that a better interface would delete. That is more or less the whole job.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact about-contact">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <h2>Get in touch</h2>
+        <p>Available for contract and fractional UX, design and product leadership, and for the hands-on work too. The fastest way to reach me is email, or find me on <a href="https://www.linkedin.com/in/christorres17/" target="_blank" rel="noopener" class="underline-link">Linkedin</a>.</p>
+        <p class="contact-detail">christophertorres17@gmail.com</p>
+        <p class="contact-detail">786.424.8475</p>
+        <a href="/Christopher-Torres-Resume.pdf" target="_blank" rel="noopener" class="contact-detail download-link">Download Resume (PDF)</a>
+      </div>
+      <div class="contact-cta">
+        <h2>Rather talk?</h2>
+        <p>Fifteen minutes is usually enough to work out whether there is something here worth building together.</p>
+        <a href="https://tidycal.com/christopher-torres/15-minute-meeting" target="_blank" rel="noopener" class="underline-link">Book a 15 minute call</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script is:inline src="/components.js"></script>
+  <script is:inline>
+    document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey || e.metaKey) {
+        var k = e.key.toLowerCase();
+        if (k === 'a' || k === 'c' || k === 'u' || k === 's' || k === 'p') {
+          e.preventDefault();
+        }
+      }
+      if (e.key === 'PrintScreen') { e.preventDefault(); }
+    });
+    document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+  </script>
+</body>
+</html>

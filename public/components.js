@@ -18,7 +18,7 @@
             '</svg>' +
           '</button>' +
           '<nav class="nav">' +
-            '<a href="/#about">ABOUT</a>' +
+            '<a href="/about">ABOUT</a>' +
             '<a href="/#work">WORK</a>' +
             '<a href="/Christopher-Torres-Resume.pdf" target="_blank" rel="noopener">RESUME</a>' +
             '<a href="/#contact">CONTACT</a>' +
