@@ -2378,3 +2378,123 @@ div.cs-annotated-img svg {
     line-height: 1.7;
   }
 }
+
+/* ============================================================
+   JOURNEY MAP — MOBILE / TABLET STACK
+   The desktop matrix is a horizontal scroller on small screens, which clips
+   columns mid-word. components.js transposes it into per-phase cards; this
+   shows those cards and hides the matrix at <=900px (covers phone + tablet
+   portrait). The :has() guard means if the JS ever fails to build the stack,
+   the matrix stays visible and simply scrolls, so nothing disappears.
+   Desktop (>900px) is completely unaffected: the stack stays display:none.
+   ============================================================ */
+.cs-journey-mobile { display: none; }
+
+@media (max-width: 900px) {
+  .cs-journey-map:has(+ .cs-journey-mobile) { display: none; }
+
+  .cs-journey-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .cs-jm-phase {
+    border: 1px solid #e5e5e5;
+    border-left: 3px solid #306CFE;
+    border-radius: 8px;
+    padding: 20px;
+    background: var(--white);
+  }
+
+  .cs-jm-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .cs-jm-num {
+    flex: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #306CFE;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  .cs-jm-title {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--black);
+    line-height: 1.35;
+  }
+
+  .cs-jm-emotion {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #eef3ff;
+    border: 1px solid #d3e0ff;
+    border-radius: 6px;
+    padding: 9px 12px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--black);
+    margin-bottom: 16px;
+  }
+
+  .cs-jm-emotion-dot {
+    flex: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #306CFE;
+  }
+
+  .cs-jm-block + .cs-jm-block {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #f0f0f0;
+  }
+
+  .cs-jm-block-label {
+    display: block;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 6px;
+  }
+
+  .cs-jm-block-body p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #444;
+    margin: 0 0 8px;
+  }
+
+  .cs-jm-block-body p:last-child { margin-bottom: 0; }
+  .cs-jm-block-body strong { color: var(--black); }
+
+  .cs-jm-block-body ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  .cs-jm-block-body li {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: #444;
+    margin-bottom: 4px;
+  }
+}
