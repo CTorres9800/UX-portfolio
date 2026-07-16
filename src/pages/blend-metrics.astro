@@ -10,6 +10,9 @@ import SectionGallery from '../components/SectionGallery.astro';
 import SectionUserJourney from '../components/SectionUserJourney.astro';
 
 // Inlined (not <img>) so the diagrams inherit the page's DM Sans webfont.
+import surveyConfidence from '../assets/research/bm-survey-confidence.svg?raw';
+import surveyTimeLost from '../assets/research/bm-survey-timelost.svg?raw';
+import surveyDebug from '../assets/research/bm-survey-debug.svg?raw';
 import flow1 from '../assets/flows/bm-flow-1-creating.svg?raw';
 import flow2 from '../assets/flows/bm-flow-2-triggers-actions.svg?raw';
 import flow3 from '../assets/flows/bm-flow-3-split-paths.svg?raw';
@@ -295,6 +298,76 @@ const flowLabel = 'margin-top: 48px; margin-bottom: 4px; font-size: 13px; font-w
     <p style={flowLabel}>Best In Class</p>
     <div class="cs-image-full" style="margin-top: 0;">
       <img src="/images/bm-research-bestinclass.png" alt="Best in class board: workflow builder patterns and UI benchmarks">
+    </div>
+  </SectionContent>
+
+    <hr class="cs-section-divider">
+
+  <!-- User Research -->
+  <SectionContent title="User Research">
+    <div class="cs-body-text">
+      <p>Competitor teardowns told me what the category had settled on. They could not tell me why Blend Metrics&rsquo; own users were abandoning workflows halfway through. For that I ran a survey to size the problem, then interviews to understand it.</p>
+      <p><strong>34 survey responses</strong> from people who had built at least one workflow in the previous month, and <strong>8 follow-up interviews</strong> of roughly 30 minutes each with the operations and marketing people who live in this tool daily.</p>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 72px;">What the Survey Told Us</h3>
+    <div class="cs-body-text">
+      <p>The survey was deliberately short &mdash; five questions, all about the moment before and after publishing, because that is where the support tickets clustered.</p>
+    </div>
+
+    <div class="cs-research-charts">
+      <figure class="cs-research-chart">
+        <h4>Before publishing, how confident are you that the workflow is set up correctly?</h4>
+        <div class="cs-research-chart-svg" role="img" aria-label="68% not confident and check it manually first, 23% somewhat confident, 9% very confident, of 34 responses" set:html={surveyConfidence} />
+        <figcaption>n = 34</figcaption>
+      </figure>
+      <figure class="cs-research-chart">
+        <h4>Where do you lose the most time in the builder?</h4>
+        <div class="cs-research-chart-svg" role="img" aria-label="35% working out why a step failed, 26% setting up conditions and branches, 21% finding the right trigger or action, 18% re-checking before publishing, of 34 responses" set:html={surveyTimeLost} />
+        <figcaption>n = 34, single choice</figcaption>
+      </figure>
+      <figure class="cs-research-chart">
+        <h4>When a workflow fails, how do you find the problem?</h4>
+        <div class="cs-research-chart-svg" role="img" aria-label="62% click into each step one by one, 23% check the logs, 15% rebuild the workflow from scratch, of 34 responses" set:html={surveyDebug} />
+        <figcaption>n = 34, single choice</figcaption>
+      </figure>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: 48px;">
+      <p>Two numbers reframed the project. <strong>68% would not publish without manually checking the workflow first</strong>, and <strong>62% debug by opening every step in turn</strong>. People were not asking for more power. They were doing the builder&rsquo;s job for it &mdash; holding the whole workflow&rsquo;s state in their head because the canvas would not show it to them.</p>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: 96px;">What We Asked in Interviews</h3>
+    <div class="cs-body-text">
+      <p>The survey said where time went. The interviews said why. I kept the questions behavioural &mdash; what people actually did last time, not what they think of the product.</p>
+    </div>
+
+    <ol class="cs-research-questions">
+      <li>Walk me through the last workflow you built. Where did you get stuck?</li>
+      <li>How do you know a workflow is working before you turn it on?</li>
+      <li>Tell me about a time one broke. How did you find out, and what did you do next?</li>
+      <li>When a workflow needs to do different things for different people, how do you set that up today?</li>
+      <li>What goes through your head right before you hit publish?</li>
+    </ol>
+
+    <h3 class="cs-subsection-title" style="margin-top: 96px;">What They Told Us</h3>
+    <div class="cs-body-text">
+      <p>Different words, same three frustrations &mdash; and each one maps to a theme that came out of the affinity map.</p>
+    </div>
+
+    <div class="cs-research-quotes">
+      <figure class="cs-research-quote">
+        <blockquote>I click into every single step before I publish, just to be sure. That takes longer than building the thing did.</blockquote>
+        <figcaption><span>Operations lead, 40-person SaaS</span><em>Configuration clarity</em></figcaption>
+      </figure>
+      <figure class="cs-research-quote">
+        <blockquote>I avoid branching. If I need two paths I build two separate workflows, because at least then I know which one broke.</blockquote>
+        <figcaption><span>Marketing operations manager</span><em>Branching anxiety</em></figcaption>
+      </figure>
+      <figure class="cs-research-quote">
+        <blockquote>You publish it and wait to see if someone complains. That is the test.</blockquote>
+        <figcaption><span>Automation specialist, agency</span><em>Testing &amp; validation</em></figcaption>
+      </figure>
     </div>
   </SectionContent>
 
