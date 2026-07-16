@@ -2232,3 +2232,130 @@ div.cs-annotated-img svg {
   grid-template-columns: 1fr;
   gap: 20px;
 }
+
+/* User Research: survey charts, interview questions and pull quotes. */
+.cs-research-charts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 24px;
+  margin-top: 44px;
+  align-items: start;
+}
+
+.cs-research-chart {
+  margin: 0;
+}
+
+.cs-research-chart h4 {
+  margin: 0 0 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--black);
+  min-height: 3.9em;
+}
+
+.cs-research-chart-svg svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cs-research-chart figcaption {
+  margin-top: 14px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #AAAAAA;
+}
+
+.cs-research-questions {
+  margin: 36px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: q;
+  max-width: 780px;
+}
+
+.cs-research-questions li {
+  counter-increment: q;
+  position: relative;
+  padding: 18px 0 18px 52px;
+  border-bottom: 1px solid #ECECEC;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--black);
+}
+
+.cs-research-questions li::before {
+  content: counter(q);
+  position: absolute;
+  left: 0;
+  top: 18px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(48, 108, 254, 0.1);
+  border: 1.5px solid #306CFE;
+  color: #306CFE;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cs-research-quotes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+  align-items: start;
+}
+
+.cs-research-quote {
+  margin: 0;
+  padding: 28px;
+  background: #FAFAFA;
+  border-left: 3px solid #306CFE;
+  border-radius: 0 8px 8px 0;
+}
+
+.cs-research-quote blockquote {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--black);
+}
+
+.cs-research-quote blockquote::before { content: '\201C'; }
+.cs-research-quote blockquote::after  { content: '\201D'; }
+
+.cs-research-quote figcaption {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cs-research-quote figcaption span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #888888;
+}
+
+.cs-research-quote figcaption em {
+  font-style: normal;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #306CFE;
+}
+
+@media (max-width: 900px) {
+  .cs-research-quotes { grid-template-columns: 1fr; }
+  .cs-research-charts { grid-template-columns: 1fr; }
+  .cs-research-chart h4 { min-height: 0; }
+}
