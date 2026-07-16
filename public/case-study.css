@@ -2200,38 +2200,27 @@ div.cs-annotated-img svg {
   }
 }
 
-/* Developer handoff grid. Every asset is a 1x export (the source files are 2x),
-   laid out at its own native size — max-width caps the oversized ones and
-   nothing is ever stretched up, so a 16px icon stays a 16px icon and the
-   aspect ratio is never touched. Column count per group is chosen to suit the
-   native widths in that group. */
+/* Developer handoff. Every asset is a 1x export (the sources are 2x) and sits
+   at its own native width — images flow along the row and wrap to the next one
+   when they no longer fit, rather than being forced into fixed columns. Nothing
+   is stretched up and no aspect ratio is touched; the only images that scale are
+   the ones wider than the row, which max-width shrinks proportionally to fit. */
 .cs-handoff-figs {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 40px 24px;
+  align-items: flex-start;
   margin-top: 40px;
-  align-items: start;
 }
-
-.cs-handoff-figs--1 { grid-template-columns: 1fr; }
-.cs-handoff-figs--2 { grid-template-columns: repeat(2, 1fr); }
-.cs-handoff-figs--3 { grid-template-columns: repeat(3, 1fr); }
-.cs-handoff-figs--4 { grid-template-columns: repeat(4, 1fr); }
 
 .cs-handoff-fig {
   margin: 0;
-  min-width: 0;
+  flex: 0 0 auto;          /* keep native width — never shrink to pack a row */
+  max-width: 100%;         /* except when wider than the row: scale down to fit */
 }
 
 .cs-handoff-fig img {
   max-width: 100%;
   height: auto;
   display: block;
-  border: 1px solid #e5e5e5;
-  background: var(--white);
-}
-
-@media (max-width: 900px) {
-  .cs-handoff-figs--3,
-  .cs-handoff-figs--4 { grid-template-columns: repeat(2, 1fr); }
-  .cs-handoff-figs--2 { grid-template-columns: 1fr; }
 }
