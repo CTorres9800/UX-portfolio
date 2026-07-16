@@ -1887,15 +1887,22 @@
 
 /* Pills row */
 .cs-process-pills {
+  /* Same 6 column track as .cs-process-grid below. The pills used to be a centred
+     flex row while the tasks were a grid, so no step lined up with its bullets:
+     Learn sat 117px right of its column, Dev Handoff 89px left of its own. */
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  position: relative;
+  padding-top: 106px;
+  margin-bottom: 32px;
+}
+
+.cs-process-step {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0;
-  position: relative;
-  /* room for the 70.5px semicircle to sit above the row without colliding
-     with the paragraph above it */
-  padding-top: 88px;
-  margin-bottom: 32px;
+  gap: 10px;
+  min-width: 0;
 }
 
 .cs-process-pill {
@@ -1926,12 +1933,11 @@
 /* Iteration arc */
 .cs-process-arc {
   position: absolute;
-  /* The svg is anchored inside the Design pill. left:50% puts its left edge on the
-     pill centre; the -4.5px pulls the arc's own start point onto that centre. The
-     old -10% translate was arbitrary and left the arc 32px off. */
-  top: -81px;
+  /* Anchored inside the Design pill: left:50% puts the svg's left edge on the pill
+     centre, and -5.5px pulls the arc's own end point onto it. */
+  top: -99px;
   left: 50%;
-  transform: translateX(-4.5px);
+  transform: translateX(-5.5px);
   z-index: 0;
   pointer-events: none;
   overflow: visible;
