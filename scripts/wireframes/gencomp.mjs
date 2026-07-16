@@ -346,7 +346,7 @@ const condGroups = (() => {
   s += t(SEL_X + SEL_W + 20, Y + 14, 'of the following', { size: 11, fill: G.body });
   s += t(X, Y + 36, 'conditions are met:', { size: 11, fill: G.body });
   // group 1 — OR chain
-  s += box(X, Y + 50, W2, 118, { r: 8, fill: G.fill, stroke: G.soft });
+  s += box(X, Y + 50, W2, 124, { r: 8, fill: G.fill, stroke: G.soft });
   s += chip(X + 12, Y + 60, 150, 'Id contains');
   s += selectBox(X + 12, Y + 96, 56, 'OR');
   s += chip(X + 80, Y + 96, 150, 'Id contains');
@@ -355,17 +355,17 @@ const condGroups = (() => {
   s += box(X + 242, Y + 132, 28, 30, { r: 6, fill: G.white });
   s += t(X + 256, Y + 151, '+', { size: 13, anchor: 'middle', fill: G.body });
   // AND between groups
-  s += selectBox(X + W2 / 2 - 33, Y + 180, 66, 'AND');
+  s += selectBox(X + W2 / 2 - 33, Y + 186, 66, 'AND');
   // group 2
-  s += box(X, Y + 224, W2, 82, { r: 8, fill: G.fill, stroke: G.soft });
-  s += chip(X + 12, Y + 234, 150, 'Id contains');
-  s += selectBox(X + 12, Y + 270, 56, 'OR');
-  s += chip(X + 80, Y + 270, 150, 'Id contains');
-  s += box(X + 242, Y + 270, 28, 30, { r: 6, fill: G.white });
-  s += t(X + 256, Y + 289, '+', { size: 13, anchor: 'middle', fill: G.body });
-  s += t(X, Y + 336, '+', { size: 13, weight: 700, fill: G.ink });
-  s += t(X + 14, Y + 336, 'Add Condition', { size: 11.5, weight: 700, fill: G.ink });
-  s += t(X + W2, Y + 336, 'Clear All Conditions', { size: 11.5, weight: 600, fill: G.mute, anchor: 'end' });
+  s += box(X, Y + 230, W2, 88, { r: 8, fill: G.fill, stroke: G.soft });
+  s += chip(X + 12, Y + 240, 150, 'Id contains');
+  s += selectBox(X + 12, Y + 276, 56, 'OR');
+  s += chip(X + 80, Y + 276, 150, 'Id contains');
+  s += box(X + 242, Y + 276, 28, 30, { r: 6, fill: G.white });
+  s += t(X + 256, Y + 295, '+', { size: 13, anchor: 'middle', fill: G.body });
+  s += t(X, Y + 348, '+', { size: 13, weight: 700, fill: G.ink });
+  s += t(X + 14, Y + 348, 'Add Condition', { size: 11.5, weight: 700, fill: G.ink });
+  s += t(X + W2, Y + 348, 'Clear All Conditions', { size: 11.5, weight: 600, fill: G.mute, anchor: 'end' });
   // the open ANY/ALL popover sits above the groups
   s += box(SEL_X, Y + 34, 108, 62, { r: 8, fill: G.white, stroke: G.line });
   s += t(SEL_X + 14, Y + 55, 'ANY', { size: 11.5, weight: 600, fill: G.body });
