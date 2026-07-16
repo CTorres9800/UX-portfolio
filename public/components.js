@@ -52,82 +52,46 @@
       '</footer>';
   }
 
-  // Journey experience map -> mobile stack.
-  // The desktop map is a row-major matrix (Phase / Emotions / Actions / ...),
-  // which can't be regrouped by phase with CSS alone. Rather than duplicate the
-  // journey content per page, transpose the existing matrix DOM into per-phase
-  // cards on the client. The desktop matrix markup is never touched; CSS hides it
-  // on mobile only when this stack was actually built (:has fallback to scroller).
-  function buildJourneyMobile() {
-    var maps = document.querySelectorAll('.cs-journey-map');
-    maps.forEach(function (map) {
-      if (map.dataset.mobileBuilt) return;
-      var rows = map.querySelectorAll(':scope > .cs-journey-row');
-      if (!rows.length) return;
+  // Journey experience map on small screens: keep the real matrix — phases,
+  // the emotion curve that rises and falls, the points, everything — so it still
+  // reads as a journey session. It's just laid out at a fixed design width and
+  // scaled down to fit the viewport (pinch-zoom reads the detail). The desktop
+  // markup is untouched; a display:contents wrapper is layout-neutral above 900px.
+  var JOURNEY_DESIGN_WIDTH = 1000;
 
-      var phaseTitles = [];
-      var emotions = [];
-      var dataRows = []; // { label, cells: [html, ...] }
-
-      rows.forEach(function (row) {
-        var labelEl = row.querySelector('.cs-journey-label');
-        var label = labelEl ? labelEl.textContent.trim() : '';
-        var curve = row.querySelector('.cs-curve-area');
-        if (curve) {
-          curve.querySelectorAll('.cs-curve-tooltip').forEach(function (t) {
-            emotions.push(t.innerHTML.replace(/<br\s*\/?>/gi, ' ').trim());
-          });
-          return;
-        }
-        var cells = row.querySelectorAll('.cs-journey-cell');
-        if (!cells.length) return;
-        if (cells[0].classList.contains('cs-journey-phase')) {
-          cells.forEach(function (c) {
-            phaseTitles.push(c.innerHTML.replace(/<br\s*\/?>/gi, ' ').trim());
-          });
-        } else {
-          var arr = [];
-          cells.forEach(function (c) { arr.push(c.innerHTML); });
-          dataRows.push({ label: label, cells: arr });
-        }
-      });
-
-      var n = phaseTitles.length;
-      if (!n) return;
-
-      var html = '';
-      for (var i = 0; i < n; i++) {
-        var raw = phaseTitles[i];
-        // Strip a leading phase number in either "1." or "Step 1" form so the
-        // number badge doesn't repeat inside the title.
-        var m = raw.match(/^(?:step\s+)?(\d+)[.:]?\s+(.+)$/i);
-        var num = m ? m[1] : (i + 1);
-        var title = m ? m[2] : raw;
-        html += '<div class="cs-jm-phase">';
-        html += '<div class="cs-jm-head"><span class="cs-jm-num">' + num + '</span>' +
-                '<h4 class="cs-jm-title">' + title + '</h4></div>';
-        if (emotions[i]) {
-          html += '<div class="cs-jm-emotion"><span class="cs-jm-emotion-dot"></span>' +
-                  emotions[i] + '</div>';
-        }
-        dataRows.forEach(function (dr) {
-          var cell = dr.cells[i];
-          if (cell && cell.trim()) {
-            html += '<div class="cs-jm-block"><span class="cs-jm-block-label">' + dr.label +
-                    '</span><div class="cs-jm-block-body">' + cell + '</div></div>';
-          }
-        });
-        html += '</div>';
+  function fitJourneyMaps() {
+    var isSmall = window.matchMedia('(max-width: 900px)').matches;
+    document.querySelectorAll('.cs-journey-map').forEach(function (map) {
+      var scaler = map.parentNode;
+      if (!scaler.classList || !scaler.classList.contains('cs-journey-scaler')) {
+        scaler = document.createElement('div');
+        scaler.className = 'cs-journey-scaler';
+        map.parentNode.insertBefore(scaler, map);
+        scaler.appendChild(map);
       }
 
-      var wrap = document.createElement('div');
-      wrap.className = 'cs-journey-mobile';
-      wrap.innerHTML = html;
-      map.parentNode.insertBefore(wrap, map.nextSibling);
-      map.dataset.mobileBuilt = '1';
+      if (!isSmall) {
+        map.style.width = '';
+        map.style.transform = '';
+        map.style.transformOrigin = '';
+        scaler.style.height = '';
+        return;
+      }
+
+      map.style.width = JOURNEY_DESIGN_WIDTH + 'px';
+      map.style.transformOrigin = 'top left';
+      map.style.transform = 'none';
+      var scale = scaler.clientWidth / JOURNEY_DESIGN_WIDTH;
+      map.style.transform = 'scale(' + scale + ')';
+      scaler.style.height = (map.offsetHeight * scale) + 'px';
     });
   }
-  buildJourneyMobile();
+
+  fitJourneyMaps();
+  window.addEventListener('resize', fitJourneyMaps);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(fitJourneyMaps);
+  }
 
   // Mobile menu toggle
   var header = document.querySelector('.header');
