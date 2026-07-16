@@ -55,8 +55,7 @@
 
 /* A two-column band: heading left, prose right. Reused by three sections. */
 .about-story,
-.about-alumni,
-.about-personal {
+.about-alumni {
   padding: 104px 0;
 }
 
@@ -220,7 +219,6 @@
   .about-role { grid-template-columns: 1fr; gap: 14px; }
   .about-story,
   .about-alumni,
-  .about-personal,
   .about-caps,
   .about-work { padding: 72px 0; }
 }
