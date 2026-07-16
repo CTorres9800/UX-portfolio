@@ -2377,6 +2377,15 @@ div.cs-annotated-img svg {
     font-size: 0.95rem;
     line-height: 1.7;
   }
+
+  /* Spacing: tighten the CSS-defined margins/padding that were sized for desktop
+     so the mobile rhythm isn't cavernous. (The big inline margins in the markup
+     are handled with clamp() at the source.) */
+  .cs-pullquote { margin: 32px 0; padding: 32px 16px; }
+  .cs-divider { margin: 32px 0; }
+  .cs-finding-card { padding: 24px; }
+  .cs-problem-item { margin-bottom: 28px; }
+  .cs-callout { margin-top: 32px; }
 }
 
 /* ============================================================
