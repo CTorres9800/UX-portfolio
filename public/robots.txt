@@ -1,4 +1,6 @@
-# This site is private and should not be crawled or indexed by any search engine.
-# Every page also carries a <meta name="robots" content="noindex"> tag.
+# Crawling is intentionally allowed so that search engines always read the
+# <meta name="robots" content="noindex"> tag on every page. That noindex is what
+# keeps this site out of search results. Blocking crawling here would stop
+# engines from seeing the noindex, which is the opposite of what we want.
 User-agent: *
-Disallow: /
+Allow: /
