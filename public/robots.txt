@@ -1,0 +1,4 @@
+# This site is private and should not be crawled or indexed by any search engine.
+# Every page also carries a <meta name="robots" content="noindex"> tag.
+User-agent: *
+Disallow: /
