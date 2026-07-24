@@ -132,6 +132,40 @@ body {
 /* Hero */
 .hero {
   padding: 100px 0 120px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ninja peeking in from the right edge. Desktop only (>=1000px), where the
+   headline is capped to a left column so the ninja gets its own lane. Hidden
+   below that so it never touches the mobile/tablet layout. */
+.hero-ninja {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  height: min(66vh, 500px);
+  width: auto;
+  pointer-events: none;
+  user-select: none;
+  transform: translateY(-50%);
+}
+
+@media (min-width: 1000px) {
+  .hero .container h1 { max-width: 780px; }
+  .hero-ninja {
+    display: block;
+    animation: ninja-peek 0.85s cubic-bezier(0.2, 0.75, 0.3, 1) 0.35s both;
+  }
+}
+
+@keyframes ninja-peek {
+  from { transform: translate(115%, -50%); }
+  to   { transform: translate(0, -50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ninja { animation: none; }
 }
 
 .hero h1 {
