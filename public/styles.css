@@ -227,7 +227,7 @@ body {
 .hero-more:hover { color: var(--black); }
 
 .hero-more svg {
-  animation: hero-more-bounce 3s ease-in-out infinite;
+  animation: hero-more-bounce 2s ease-in-out infinite;
 }
 
 /* Two quick down-bounces, then rest, over a 3s cycle. */
