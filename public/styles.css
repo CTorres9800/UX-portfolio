@@ -164,9 +164,10 @@ body {
   }
 }
 
-/* Rise up from below the hero (which clips overflow) into the resting position. */
+/* Rise up from just below the resting position (the hero clips the overflow),
+   so there's no big empty gap while he slides in. */
 @keyframes ninja-rise {
-  from { transform: translateY(calc(-50% + 60vh)); }
+  from { transform: translateY(calc(-50% + 100%)); }
   to   { transform: translateY(-50%); }
 }
 
