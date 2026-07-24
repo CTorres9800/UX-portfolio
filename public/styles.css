@@ -132,6 +132,11 @@ body {
 /* Hero */
 .hero {
   padding: 100px 0 120px;
+}
+
+/* Homepage hero only: containing block for the peeking ninja (About/Contact
+   also use .hero and must not get the headline cap or clipping). */
+.hero--home {
   position: relative;
   overflow: hidden;
 }
@@ -142,8 +147,8 @@ body {
 .hero-ninja {
   display: none;
   position: absolute;
-  right: 0;
-  top: 50%;
+  right: 40px;
+  top: 45%;
   height: min(66vh, 500px);
   width: auto;
   pointer-events: none;
@@ -151,8 +156,12 @@ body {
   transform: translateY(-50%);
 }
 
+/* v2 variant: the headline is shorter, so pull the ninja in closer to the text
+   (clears the description, which is the widest line). Homepage / is unaffected. */
+.hero--v2 .hero-ninja { right: 150px; }
+
 @media (min-width: 1000px) {
-  .hero .container h1 { max-width: 780px; }
+  .hero--home .container h1 { max-width: 940px; }
   .hero-ninja {
     display: block;
     animation: ninja-peek 0.85s cubic-bezier(0.2, 0.75, 0.3, 1) 0.35s both;
