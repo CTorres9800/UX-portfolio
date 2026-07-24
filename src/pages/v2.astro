@@ -1,0 +1,95 @@
+---
+import { createReader } from '@keystatic/core/reader';
+import keystaticConfig from '../../keystatic.config';
+
+const reader = createReader(process.cwd(), keystaticConfig);
+const homepage = await reader.singletons.homepage.read();
+
+const data = homepage!;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <title>Christopher Torres — Product Designer & UX Strategy Coach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>html{opacity:0}html.fonts-loaded{opacity:1;transition:opacity .15s ease-in}</style>
+  <script is:inline>document.fonts.ready.then(()=>document.documentElement.classList.add('fonts-loaded'));</script>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <!-- Hero -->
+  <section id="about" class="hero hero--home">
+    <div class="container">
+      <h1><strong>Director of UX &amp; product strategy</strong> <span class="highlight">expert</span>. Not a ninja.</h1>
+      <p class="hero-sub">For the past 15 years I have lead teams to design premium user experiences that maximize growth, retention, and customer satisfaction. I&rsquo;m currently based in Atlanta, GA, working as Director of User Experience for Marketeq Digital Inc. Obsessed with creating optimized human experiences.</p>
+    </div>
+    <img class="hero-ninja" src="/images/ninja-peek.png" alt="" aria-hidden="true">
+  </section>
+
+  <!-- Work / Case Studies -->
+  <section id="work" class="work">
+    <div class="container">
+      {data.caseStudies.map((study) => (
+        <article class="case-study">
+          <a href={study.link} class="case-study-image">
+            <img src={study.image} alt={study.imageAlt}>
+          </a>
+          <div class="case-study-info">
+            <h2>{study.title}</h2>
+            <p>{study.description}</p>
+            <a href={study.link} class="btn-outline">VIEW CASE STUDY</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <h2>Contact</h2>
+        <p>
+          <Fragment set:html={data.contactDescription.replace('Linkedin', '<a href="https://www.linkedin.com/in/christorres17/" target="_blank" rel="noopener" class="underline-link">Linkedin</a>')} />
+        </p>
+        <p class="contact-detail">{data.contactEmail}</p>
+        <p class="contact-detail">{data.contactPhone}</p>
+        <a href="/Christopher-Torres-Resume.pdf" target="_blank" rel="noopener" class="contact-detail download-link">Download Resume (PDF)</a>
+      </div>
+      <div class="contact-cta">
+        <h2>{data.ctaHeading}</h2>
+        <p>{data.ctaDescription}</p>
+        <a href="https://tidycal.com/christopher-torres/15-minute-meeting" target="_blank" rel="noopener" class="underline-link">{data.ctaLinkText}</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script is:inline src="/components.js"></script>
+  <script is:inline>
+    document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey || e.metaKey) {
+        var k = e.key.toLowerCase();
+        if (k === 'a' || k === 'c' || k === 'u' || k === 's' || k === 'p') {
+          e.preventDefault();
+        }
+      }
+      if (e.key === 'PrintScreen') { e.preventDefault(); }
+    });
+    document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+  </script>
+</body>
+</html>
