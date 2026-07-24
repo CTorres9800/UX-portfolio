@@ -147,7 +147,7 @@ body {
 .hero-ninja {
   display: none;
   position: absolute;
-  right: 40px;
+  right: 80px;
   top: 45%;
   height: min(66vh, 500px);
   width: auto;
