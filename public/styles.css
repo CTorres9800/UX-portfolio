@@ -159,15 +159,13 @@ body {
   .hero--home .container h1 { max-width: 860px; }
   .hero-ninja {
     display: block;
-    animation: ninja-rise 2s cubic-bezier(0.7, 0, 0.3, 1) 0.35s both;
+    animation: ninja-rise 3.5s cubic-bezier(0.7, 0, 0.3, 1) 0.35s both;
   }
 }
 
-/* A contained rise into the resting position. The travel is kept small so the
-   ninja never spills below the hero (which would need clipping and create a
-   gap) and is never itself clipped. */
+/* Rise up from the bottom into the resting position. */
 @keyframes ninja-rise {
-  from { transform: translateY(calc(-50% + 26%)); }
+  from { transform: translateY(calc(-50% + 60vh)); }
   to   { transform: translateY(-50%); }
 }
 
