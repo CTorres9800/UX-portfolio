@@ -210,6 +210,35 @@ body {
   color: #333;
 }
 
+.hero-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 44px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.hero-more:hover { color: var(--black); }
+
+.hero-more svg {
+  animation: hero-more-bounce 2s ease-in-out infinite;
+}
+
+@keyframes hero-more-bounce {
+  0%, 45%, 100% { transform: translateY(0); }
+  62%          { transform: translateY(5px); }
+  80%          { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-more svg { animation: none; }
+}
+
 .underline-link {
   color: var(--black);
   text-decoration: underline;
