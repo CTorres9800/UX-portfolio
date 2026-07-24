@@ -138,7 +138,6 @@ body {
    also use .hero and must not get the headline cap or clipping). */
 .hero--home {
   position: relative;
-  overflow: hidden;
 }
 
 /* Ninja peeking in from the right edge. Desktop only (>=1000px), where the
@@ -160,14 +159,15 @@ body {
   .hero--home .container h1 { max-width: 860px; }
   .hero-ninja {
     display: block;
-    animation: ninja-rise 3.5s cubic-bezier(0.7, 0, 0.3, 1) 0.35s both;
+    animation: ninja-rise 2s cubic-bezier(0.7, 0, 0.3, 1) 0.35s both;
   }
 }
 
-/* Rise up from just below the resting position (the hero clips the overflow),
-   so there's no big empty gap while he slides in. */
+/* A contained rise into the resting position. The travel is kept small so the
+   ninja never spills below the hero (which would need clipping and create a
+   gap) and is never itself clipped. */
 @keyframes ninja-rise {
-  from { transform: translateY(calc(-50% + 100%)); }
+  from { transform: translateY(calc(-50% + 26%)); }
   to   { transform: translateY(-50%); }
 }
 
