@@ -160,13 +160,14 @@ body {
   .hero--home .container h1 { max-width: 860px; }
   .hero-ninja {
     display: block;
-    animation: ninja-peek 0.85s cubic-bezier(0.2, 0.75, 0.3, 1) 0.35s both;
+    animation: ninja-rise 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
   }
 }
 
-@keyframes ninja-peek {
-  from { transform: translate(115%, -50%); }
-  to   { transform: translate(0, -50%); }
+/* Rise up from below the hero (which clips overflow) into the resting position. */
+@keyframes ninja-rise {
+  from { transform: translateY(calc(-50% + 60vh)); }
+  to   { transform: translateY(-50%); }
 }
 
 @media (prefers-reduced-motion: reduce) {
