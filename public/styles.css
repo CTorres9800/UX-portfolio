@@ -156,10 +156,6 @@ body {
   transform: translateY(-50%);
 }
 
-/* v2 variant: the headline is shorter, so pull the ninja in closer to the text
-   (clears the description, which is the widest line). Homepage / is unaffected. */
-.hero--v2 .hero-ninja { right: 150px; }
-
 @media (min-width: 1000px) {
   .hero--home .container h1 { max-width: 940px; }
   .hero-ninja {
