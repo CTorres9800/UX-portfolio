@@ -157,7 +157,7 @@ body {
 }
 
 @media (min-width: 1000px) {
-  .hero--home .container h1 { max-width: 940px; }
+  .hero--home .container h1 { max-width: 860px; }
   .hero-ninja {
     display: block;
     animation: ninja-peek 0.85s cubic-bezier(0.2, 0.75, 0.3, 1) 0.35s both;
