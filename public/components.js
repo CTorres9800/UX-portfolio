@@ -104,6 +104,8 @@
     var chevL = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>';
     var chevR = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>';
     var xIcon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>';
+    var zoomInIcon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>';
+    var zoomOutIcon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/><line x1="8" y1="11" x2="14" y2="11"/></svg>';
 
     var multi = imgs.length > 1;
     var lb = document.createElement('div');
@@ -113,20 +115,31 @@
     lb.setAttribute('aria-hidden', 'true');
     lb.innerHTML =
       '<button class="lb-close" aria-label="Close">' + xIcon + '</button>' +
+      '<button class="lb-zoom" aria-label="Zoom to full width">' + zoomInIcon + '</button>' +
       (multi ? '<button class="lb-nav lb-prev" aria-label="Previous image">' + chevL + '</button>' : '') +
-      '<img class="lb-img" alt="">' +
+      '<div class="lb-frame"><img class="lb-img" alt=""></div>' +
       (multi ? '<button class="lb-nav lb-next" aria-label="Next image">' + chevR + '</button>' : '') +
       (multi ? '<div class="lb-counter"><span class="lb-i"></span> / <span class="lb-t"></span></div>' : '');
     document.body.appendChild(lb);
 
     var lbImg = lb.querySelector('.lb-img');
+    var frame = lb.querySelector('.lb-frame');
+    var zoomBtn = lb.querySelector('.lb-zoom');
     var iEl = lb.querySelector('.lb-i'), tEl = lb.querySelector('.lb-t');
-    var cur = 0;
+    var cur = 0, zoomed = false;
     function pad(n) { return (n < 10 ? '0' : '') + n; }
+    function setZoom(on) {
+      zoomed = on;
+      lb.classList.toggle('is-zoomed', on);
+      zoomBtn.innerHTML = on ? zoomOutIcon : zoomInIcon;
+      zoomBtn.setAttribute('aria-label', on ? 'Fit image' : 'Zoom to full width');
+      frame.scrollTop = 0;
+    }
     if (tEl) tEl.textContent = pad(imgs.length);
 
     function show(n) {
       cur = (n + imgs.length) % imgs.length;
+      setZoom(false);
       var src = imgs[cur].currentSrc || imgs[cur].src;
       lbImg.style.opacity = '0';
       var pre = new Image();
@@ -158,6 +171,8 @@
       img.addEventListener('click', function () { openLb(i); });
     });
     lb.querySelector('.lb-close').addEventListener('click', closeLb);
+    zoomBtn.addEventListener('click', function (e) { e.stopPropagation(); setZoom(!zoomed); });
+    frame.addEventListener('click', function (e) { e.stopPropagation(); setZoom(!zoomed); });
     if (multi) {
       lb.querySelector('.lb-prev').addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
       lb.querySelector('.lb-next').addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
