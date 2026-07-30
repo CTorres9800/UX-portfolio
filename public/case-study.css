@@ -205,7 +205,7 @@
   height: 26px;
   margin: 0 0 12px;
   vertical-align: baseline;
-  color: #306CFE;
+  color: var(--black);
   stroke-width: 1.75;
 }
 
