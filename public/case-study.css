@@ -110,6 +110,7 @@
 
 /* Problem Items */
 .cs-problem-item {
+  margin-top: clamp(40px, 8vw, 72px);
   margin-bottom: 40px;
 }
 
@@ -323,6 +324,83 @@
   cursor: zoom-in;
 }
 .mi-shot--mobile img { height: 380px; }
+
+/* Grouping + labels for the plain galleries underneath the Hi-Fi showcases */
+.mi-rest { margin-top: clamp(56px, 14vw, 140px); }
+.mi-group { margin-top: 56px; }
+.mi-group:first-child { margin-top: 0; }
+.mi-variant {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a8a8a;
+  margin: 22px 0 10px;
+}
+/* Client feedback rating highlights */
+.mi-ratings {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 8px;
+}
+.mi-rating {
+  border: 1px solid #e6e6e9;
+  border-radius: 12px;
+  padding: 24px;
+  background: #fff;
+}
+.mi-rating-value {
+  display: block;
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1.25;
+}
+.mi-rating-label {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: #777;
+}
+.mi-attr {
+  display: block;
+  margin-top: 18px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #888;
+}
+@media (max-width: 900px) {
+  .mi-ratings { grid-template-columns: 1fr 1fr; }
+}
+
+
+/* Complex-component images in the Stylized Components section */
+.mi-comp-img {
+  width: 100%;
+  max-width: 560px;
+  max-height: 520px;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid #e6e6e9;
+  border-radius: 10px;
+}
+
+/* Cap the tall full-page screenshots used in the Hi-Fi showcase blocks */
+.mi-hifi-img {
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid #e6e6e9;
+  border-radius: 10px;
+}
 
 @media (max-width: 900px) {
   .mi-shots { grid-template-columns: 1fr; }
