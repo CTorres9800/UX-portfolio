@@ -1,0 +1,1038 @@
+{
+ "Drug Price Check": {
+  "slug": "drug-price-check",
+  "desktop": [
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/account-menu.png",
+    "alt": "MedImpact Drug Price Check \u2014 Account Menu"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/cart-menu.png",
+    "alt": "MedImpact Drug Price Check \u2014 Cart menu"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/change-pharmacy-dropdown-2.png",
+    "alt": "MedImpact Drug Price Check \u2014 Change pharmacy dropdown 2"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/component-106.png",
+    "alt": "MedImpact Drug Price Check \u2014 Component 106"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/component-107.png",
+    "alt": "MedImpact Drug Price Check \u2014 Component 107"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/component-108.png",
+    "alt": "MedImpact Drug Price Check \u2014 Component 108"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/component-2.png",
+    "alt": "MedImpact Drug Price Check \u2014 Component 2"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/disclaimer-popup.png",
+    "alt": "MedImpact Drug Price Check \u2014 Disclaimer popup"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/documents.png",
+    "alt": "MedImpact Drug Price Check \u2014 Documents"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/esc.png",
+    "alt": "MedImpact Drug Price Check \u2014 Esc"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/frame-291.png",
+    "alt": "MedImpact Drug Price Check \u2014 Frame 291"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/frame-299.png",
+    "alt": "MedImpact Drug Price Check \u2014 Frame 299"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/frame-301.png",
+    "alt": "MedImpact Drug Price Check \u2014 Frame 301"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/general.png",
+    "alt": "MedImpact Drug Price Check \u2014 General"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/header.png",
+    "alt": "MedImpact Drug Price Check \u2014 Header"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/mail-order-price.png",
+    "alt": "MedImpact Drug Price Check \u2014 Mail Order Price"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/map-expanded.png",
+    "alt": "MedImpact Drug Price Check \u2014 Map - expanded"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/map.png",
+    "alt": "MedImpact Drug Price Check \u2014 Map"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/menu-drug-price-pharmacy.png",
+    "alt": "MedImpact Drug Price Check \u2014 Menu - drug price / pharmacy"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/menu-select-brand.png",
+    "alt": "MedImpact Drug Price Check \u2014 Menu - Select Brand"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/menu-select-days.png",
+    "alt": "MedImpact Drug Price Check \u2014 Menu - Select Days"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/menu-select-dosage.png",
+    "alt": "MedImpact Drug Price Check \u2014 Menu - Select Dosage"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/menu-select-form.png",
+    "alt": "MedImpact Drug Price Check \u2014 Menu - Select Form"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/menu-select-quanity.png",
+    "alt": "MedImpact Drug Price Check \u2014 Menu - Select Quanity"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/my-prescriptions.png",
+    "alt": "MedImpact Drug Price Check \u2014 My Prescriptions"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/notifications-menu.png",
+    "alt": "MedImpact Drug Price Check \u2014 Notifications menu"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/savings-calculator.png",
+    "alt": "MedImpact Drug Price Check \u2014 Savings Calculator"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/desktop/tabs.png",
+    "alt": "MedImpact Drug Price Check \u2014 Tabs"
+   }
+  ],
+  "mobile": [
+   {
+    "src": "/images/medimpact/drug-price-check/mobile/1-1-1-dpc-best-local-price-320.png",
+    "alt": "MedImpact Drug Price Check \u2014 1.1.1_DPC_Best Local Price 320"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/mobile/1-2-1-dpc-best-local-price-list-expanded-320.png",
+    "alt": "MedImpact Drug Price Check \u2014 1.2.1_DPC_Best Local Price_List Expanded 320"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/mobile/1-3-1-dpc-best-local-price-map-view-320.png",
+    "alt": "MedImpact Drug Price Check \u2014 1.3.1_DPC_Best Local Price_Map view 320"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/mobile/1-4-1-dpc-best-local-price-map-view-full-screen-320.png",
+    "alt": "MedImpact Drug Price Check \u2014 1.4.1_DPC_Best Local Price_Map view_Full Screen 320"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/mobile/1-5-1-dpc-mail-order-320.png",
+    "alt": "MedImpact Drug Price Check \u2014 1.5.1_DPC_Mail Order 320"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/mobile/1-6-1-dpc-savings-calculator-320.png",
+    "alt": "MedImpact Drug Price Check \u2014 1.6.1_DPC_Savings Calculator 320"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/mobile/add-sort-option.png",
+    "alt": "MedImpact Drug Price Check \u2014 Add sort option"
+   },
+   {
+    "src": "/images/medimpact/drug-price-check/mobile/frame-23.png",
+    "alt": "MedImpact Drug Price Check \u2014 Frame 23"
+   }
+  ]
+ },
+ "Vaccine Module": {
+  "slug": "vaccine-module",
+  "desktop": [
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/13.png",
+    "alt": "MedImpact Vaccine Module \u2014 13"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/15.png",
+    "alt": "MedImpact Vaccine Module \u2014 15"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/16.png",
+    "alt": "MedImpact Vaccine Module \u2014 16"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/17.png",
+    "alt": "MedImpact Vaccine Module \u2014 17"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/19.png",
+    "alt": "MedImpact Vaccine Module \u2014 19"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/22.png",
+    "alt": "MedImpact Vaccine Module \u2014 22"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/23.png",
+    "alt": "MedImpact Vaccine Module \u2014 23"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/24.png",
+    "alt": "MedImpact Vaccine Module \u2014 24"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/26.png",
+    "alt": "MedImpact Vaccine Module \u2014 26"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/28.png",
+    "alt": "MedImpact Vaccine Module \u2014 28"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/29.png",
+    "alt": "MedImpact Vaccine Module \u2014 29"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/30.png",
+    "alt": "MedImpact Vaccine Module \u2014 30"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/31.png",
+    "alt": "MedImpact Vaccine Module \u2014 31"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/32.png",
+    "alt": "MedImpact Vaccine Module \u2014 32"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/33.png",
+    "alt": "MedImpact Vaccine Module \u2014 33"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/34.png",
+    "alt": "MedImpact Vaccine Module \u2014 34"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/countries-2.png",
+    "alt": "MedImpact Vaccine Module \u2014 Countries 2"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/countries-3.png",
+    "alt": "MedImpact Vaccine Module \u2014 Countries 3"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/countries-dropdown-fifth.png",
+    "alt": "MedImpact Vaccine Module \u2014 Countries dropdown - Fifth"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/countries-dropdown-first.png",
+    "alt": "MedImpact Vaccine Module \u2014 Countries dropdown - first"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/countries-dropdown-fourth.png",
+    "alt": "MedImpact Vaccine Module \u2014 Countries dropdown - Fourth"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/countries-dropdown-second.png",
+    "alt": "MedImpact Vaccine Module \u2014 Countries dropdown - Second"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/countries-dropdown-third.png",
+    "alt": "MedImpact Vaccine Module \u2014 Countries dropdown - Third"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/frame-318.png",
+    "alt": "MedImpact Vaccine Module \u2014 Frame 318"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/frame-319.png",
+    "alt": "MedImpact Vaccine Module \u2014 Frame 319"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/map-1.png",
+    "alt": "MedImpact Vaccine Module \u2014 Map-1"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/map.png",
+    "alt": "MedImpact Vaccine Module \u2014 Map"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/menu-select-dosage.png",
+    "alt": "MedImpact Vaccine Module \u2014 Menu - Select Dosage"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/next-steps-popup.png",
+    "alt": "MedImpact Vaccine Module \u2014 Next Steps popup"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/desktop/tabs.png",
+    "alt": "MedImpact Vaccine Module \u2014 Tabs"
+   }
+  ],
+  "mobile": [
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/component-23.png",
+    "alt": "MedImpact Vaccine Module \u2014 Component 23"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/countries-dropdown-fifth.png",
+    "alt": "MedImpact Vaccine Module \u2014 Countries dropdown - Fifth"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/countries-dropdown-first.png",
+    "alt": "MedImpact Vaccine Module \u2014 Countries dropdown - first"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/countries-dropdown-fourth.png",
+    "alt": "MedImpact Vaccine Module \u2014 Countries dropdown - Fourth"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/countries-dropdown-second.png",
+    "alt": "MedImpact Vaccine Module \u2014 Countries dropdown - Second"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/countries-dropdown-third.png",
+    "alt": "MedImpact Vaccine Module \u2014 Countries dropdown - Third"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/for-travelers-1.png",
+    "alt": "MedImpact Vaccine Module \u2014 For Travelers-1"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/for-travelers-2.png",
+    "alt": "MedImpact Vaccine Module \u2014 For Travelers-2"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/for-travelers-3.png",
+    "alt": "MedImpact Vaccine Module \u2014 For Travelers-3"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/for-travelers-4.png",
+    "alt": "MedImpact Vaccine Module \u2014 For Travelers-4"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/for-travelers-5.png",
+    "alt": "MedImpact Vaccine Module \u2014 For Travelers-5"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/for-travelers-6.png",
+    "alt": "MedImpact Vaccine Module \u2014 For Travelers-6"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/for-travelers.png",
+    "alt": "MedImpact Vaccine Module \u2014 For Travelers"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/map-view-full-screen.png",
+    "alt": "MedImpact Vaccine Module \u2014 Map View Full Screen"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/past-recommendations.png",
+    "alt": "MedImpact Vaccine Module \u2014 Past Recommendations"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/recommended-vaccines-1.png",
+    "alt": "MedImpact Vaccine Module \u2014 Recommended Vaccines-1"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/recommended-vaccines-2.png",
+    "alt": "MedImpact Vaccine Module \u2014 Recommended Vaccines-2"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/recommended-vaccines-3.png",
+    "alt": "MedImpact Vaccine Module \u2014 Recommended Vaccines-3"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/recommended-vaccines-4.png",
+    "alt": "MedImpact Vaccine Module \u2014 Recommended Vaccines-4"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/recommended-vaccines-5.png",
+    "alt": "MedImpact Vaccine Module \u2014 Recommended Vaccines-5"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/recommended-vaccines-extended.png",
+    "alt": "MedImpact Vaccine Module \u2014 Recommended Vaccines - Extended"
+   },
+   {
+    "src": "/images/medimpact/vaccine-module/mobile/recommended-vaccines.png",
+    "alt": "MedImpact Vaccine Module \u2014 Recommended Vaccines"
+   }
+  ]
+ },
+ "Dashboard": {
+  "slug": "dashboard",
+  "desktop": [
+   {
+    "src": "/images/medimpact/dashboard/desktop/account-menu.png",
+    "alt": "MedImpact Dashboard \u2014 Account Menu"
+   },
+   {
+    "src": "/images/medimpact/dashboard/desktop/cart-menu.png",
+    "alt": "MedImpact Dashboard \u2014 Cart menu"
+   },
+   {
+    "src": "/images/medimpact/dashboard/desktop/dashboard-settings-grab.png",
+    "alt": "MedImpact Dashboard \u2014 Dashboard Settings - Grab"
+   },
+   {
+    "src": "/images/medimpact/dashboard/desktop/dashboard-settings-hover.png",
+    "alt": "MedImpact Dashboard \u2014 Dashboard Settings - Hover"
+   },
+   {
+    "src": "/images/medimpact/dashboard/desktop/dashboard-settings-link-hover.png",
+    "alt": "MedImpact Dashboard \u2014 Dashboard Settings - Link Hover"
+   },
+   {
+    "src": "/images/medimpact/dashboard/desktop/dashboard-settings.png",
+    "alt": "MedImpact Dashboard \u2014 Dashboard Settings"
+   },
+   {
+    "src": "/images/medimpact/dashboard/desktop/dashboard-tab-my-account.png",
+    "alt": "MedImpact Dashboard \u2014 Dashboard tab - My Account"
+   },
+   {
+    "src": "/images/medimpact/dashboard/desktop/dashboard-tab-my-profile.png",
+    "alt": "MedImpact Dashboard \u2014 Dashboard Tab - My Profile"
+   },
+   {
+    "src": "/images/medimpact/dashboard/desktop/dashboard-tab-to-do-next.png",
+    "alt": "MedImpact Dashboard \u2014 Dashboard Tab - To Do Next"
+   },
+   {
+    "src": "/images/medimpact/dashboard/desktop/desktop-hd-1.png",
+    "alt": "MedImpact Dashboard \u2014 Desktop HD-1"
+   },
+   {
+    "src": "/images/medimpact/dashboard/desktop/desktop-hd.png",
+    "alt": "MedImpact Dashboard \u2014 Desktop HD"
+   },
+   {
+    "src": "/images/medimpact/dashboard/desktop/disabled-my-benefits.png",
+    "alt": "MedImpact Dashboard \u2014 Disabled My Benefits"
+   },
+   {
+    "src": "/images/medimpact/dashboard/desktop/footer.png",
+    "alt": "MedImpact Dashboard \u2014 Footer"
+   },
+   {
+    "src": "/images/medimpact/dashboard/desktop/module-options.png",
+    "alt": "MedImpact Dashboard \u2014 Module options"
+   },
+   {
+    "src": "/images/medimpact/dashboard/desktop/my-savings.png",
+    "alt": "MedImpact Dashboard \u2014 My Savings"
+   },
+   {
+    "src": "/images/medimpact/dashboard/desktop/notifications-menu.png",
+    "alt": "MedImpact Dashboard \u2014 Notifications menu"
+   },
+   {
+    "src": "/images/medimpact/dashboard/desktop/on-link-hover-100-opacity.png",
+    "alt": "MedImpact Dashboard \u2014 On Link Hover 100% opacity"
+   },
+   {
+    "src": "/images/medimpact/dashboard/desktop/vector-2.png",
+    "alt": "MedImpact Dashboard \u2014 Vector 2"
+   },
+   {
+    "src": "/images/medimpact/dashboard/desktop/vector-3.png",
+    "alt": "MedImpact Dashboard \u2014 Vector 3"
+   }
+  ],
+  "mobile": [
+   {
+    "src": "/images/medimpact/dashboard/mobile/1-1-1-dashboard-tab-320.png",
+    "alt": "MedImpact Dashboard \u2014 1.1.1_Dashboard Tab 320"
+   },
+   {
+    "src": "/images/medimpact/dashboard/mobile/1-2-1-dashboard-tab-to-do-next-320.png",
+    "alt": "MedImpact Dashboard \u2014 1.2.1_Dashboard Tab - To Do Next 320"
+   },
+   {
+    "src": "/images/medimpact/dashboard/mobile/1-3-1-dashboard-tab-my-profile-320.png",
+    "alt": "MedImpact Dashboard \u2014 1.3.1_Dashboard Tab - My Profile 320"
+   },
+   {
+    "src": "/images/medimpact/dashboard/mobile/1-4-1-dashboard-tab-my-account-320.png",
+    "alt": "MedImpact Dashboard \u2014 1.4.1_Dashboard Tab - My Account 320"
+   },
+   {
+    "src": "/images/medimpact/dashboard/mobile/1-5-1-dashboard-tab-no-prescription-datas-320.png",
+    "alt": "MedImpact Dashboard \u2014 1.5.1_Dashboard Tab - No Prescription datas 320"
+   },
+   {
+    "src": "/images/medimpact/dashboard/mobile/1-6-1-dashboard-tab-all-widgets-hidden-320.png",
+    "alt": "MedImpact Dashboard \u2014 1.6.1_Dashboard Tab - All Widgets Hidden 320"
+   },
+   {
+    "src": "/images/medimpact/dashboard/mobile/account-menu.png",
+    "alt": "MedImpact Dashboard \u2014 Account Menu"
+   },
+   {
+    "src": "/images/medimpact/dashboard/mobile/cart-menu.png",
+    "alt": "MedImpact Dashboard \u2014 Cart menu"
+   },
+   {
+    "src": "/images/medimpact/dashboard/mobile/drug-info-widget.png",
+    "alt": "MedImpact Dashboard \u2014 drug info widget"
+   },
+   {
+    "src": "/images/medimpact/dashboard/mobile/edge-case-components-320.png",
+    "alt": "MedImpact Dashboard \u2014 Edge_Case_Components 320"
+   },
+   {
+    "src": "/images/medimpact/dashboard/mobile/frame-392.png",
+    "alt": "MedImpact Dashboard \u2014 Frame 392"
+   },
+   {
+    "src": "/images/medimpact/dashboard/mobile/group-341.png",
+    "alt": "MedImpact Dashboard \u2014 Group 341"
+   },
+   {
+    "src": "/images/medimpact/dashboard/mobile/notifications-menu.png",
+    "alt": "MedImpact Dashboard \u2014 Notifications menu"
+   }
+  ]
+ },
+ "Claims History": {
+  "slug": "claims-history",
+  "desktop": [
+   {
+    "src": "/images/medimpact/claims-history/desktop/c.png",
+    "alt": "MedImpact Claims History \u2014 c"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/calendar-1440.png",
+    "alt": "MedImpact Claims History \u2014 Calendar / 1440"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/change-pharmacy-dropdown-2.png",
+    "alt": "MedImpact Claims History \u2014 Change pharmacy dropdown 2"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/claims-history-keyword-pills.png",
+    "alt": "MedImpact Claims History \u2014 Claims History - keyword pills"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/drug-name.png",
+    "alt": "MedImpact Claims History \u2014 Drug Name"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/filters-locator-copy-2.png",
+    "alt": "MedImpact Claims History \u2014 Filters / Locator Copy 2"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/group-249.png",
+    "alt": "MedImpact Claims History \u2014 Group 249"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/loading.png",
+    "alt": "MedImpact Claims History \u2014 Loading"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/on-click-change-text-to-loading.png",
+    "alt": "MedImpact Claims History \u2014 On Click_ Change text to Loading..."
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/pharmacies.png",
+    "alt": "MedImpact Claims History \u2014 Pharmacies"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/physician.png",
+    "alt": "MedImpact Claims History \u2014 Physician"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/price-1.png",
+    "alt": "MedImpact Claims History \u2014 Price-1"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/price-2.png",
+    "alt": "MedImpact Claims History \u2014 Price-2"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/price.png",
+    "alt": "MedImpact Claims History \u2014 Price"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/share-access.png",
+    "alt": "MedImpact Claims History \u2014 Share access"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/share-popup-1.png",
+    "alt": "MedImpact Claims History \u2014 Share popup-1"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/share-popup-2.png",
+    "alt": "MedImpact Claims History \u2014 Share popup-2"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/share-popup-3.png",
+    "alt": "MedImpact Claims History \u2014 Share popup-3"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/share-popup-4.png",
+    "alt": "MedImpact Claims History \u2014 Share popup-4"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/share-popup-5.png",
+    "alt": "MedImpact Claims History \u2014 Share popup-5"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/share-popup.png",
+    "alt": "MedImpact Claims History \u2014 Share popup"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/sort-by.png",
+    "alt": "MedImpact Claims History \u2014 Sort by"
+   },
+   {
+    "src": "/images/medimpact/claims-history/desktop/vector-2.png",
+    "alt": "MedImpact Claims History \u2014 Vector 2"
+   }
+  ],
+  "mobile": [
+   {
+    "src": "/images/medimpact/claims-history/mobile/change-pharmacy-dropdown-2.png",
+    "alt": "MedImpact Claims History \u2014 Change pharmacy dropdown 2"
+   },
+   {
+    "src": "/images/medimpact/claims-history/mobile/claims-history-filters-enabled.png",
+    "alt": "MedImpact Claims History \u2014 Claims History - Filters Enabled"
+   },
+   {
+    "src": "/images/medimpact/claims-history/mobile/claims-history.png",
+    "alt": "MedImpact Claims History \u2014 Claims History"
+   },
+   {
+    "src": "/images/medimpact/claims-history/mobile/convert-to-radio-buttons.png",
+    "alt": "MedImpact Claims History \u2014 convert to radio buttons"
+   },
+   {
+    "src": "/images/medimpact/claims-history/mobile/filters-1.png",
+    "alt": "MedImpact Claims History \u2014 Filters-1"
+   },
+   {
+    "src": "/images/medimpact/claims-history/mobile/filters-2.png",
+    "alt": "MedImpact Claims History \u2014 Filters-2"
+   },
+   {
+    "src": "/images/medimpact/claims-history/mobile/filters-3.png",
+    "alt": "MedImpact Claims History \u2014 Filters-3"
+   },
+   {
+    "src": "/images/medimpact/claims-history/mobile/filters-4.png",
+    "alt": "MedImpact Claims History \u2014 Filters-4"
+   },
+   {
+    "src": "/images/medimpact/claims-history/mobile/filters.png",
+    "alt": "MedImpact Claims History \u2014 Filters"
+   },
+   {
+    "src": "/images/medimpact/claims-history/mobile/share-popup.png",
+    "alt": "MedImpact Claims History \u2014 Share popup"
+   },
+   {
+    "src": "/images/medimpact/claims-history/mobile/sort-by.png",
+    "alt": "MedImpact Claims History \u2014 Sort by"
+   }
+  ]
+ },
+ "Mobile Navigation": {
+  "slug": "mobile",
+  "desktop": [],
+  "mobile": [
+   {
+    "src": "/images/medimpact/mobile/mobile/1-1-1-manage-profile.png",
+    "alt": "MedImpact Mobile Navigation \u2014 1.1.1_Manage_Profile"
+   },
+   {
+    "src": "/images/medimpact/mobile/mobile/1-2-1-dashboard-1.png",
+    "alt": "MedImpact Mobile Navigation \u2014 1.2.1_Dashboard-1"
+   },
+   {
+    "src": "/images/medimpact/mobile/mobile/1-2-1-dashboard.png",
+    "alt": "MedImpact Mobile Navigation \u2014 1.2.1_Dashboard"
+   },
+   {
+    "src": "/images/medimpact/mobile/mobile/1-2-1-manage-profile.png",
+    "alt": "MedImpact Mobile Navigation \u2014 1.2.1_Manage_Profile"
+   },
+   {
+    "src": "/images/medimpact/mobile/mobile/1-2-1-notification-settings.png",
+    "alt": "MedImpact Mobile Navigation \u2014 1.2.1_Notification_Settings"
+   },
+   {
+    "src": "/images/medimpact/mobile/mobile/navigation-footer-menu-03.png",
+    "alt": "MedImpact Mobile Navigation \u2014 Navigation / Footer_Menu / 03"
+   },
+   {
+    "src": "/images/medimpact/mobile/mobile/navigation-top-bar-menu-transparent.png",
+    "alt": "MedImpact Mobile Navigation \u2014 Navigation / Top Bar / Menu Transparent"
+   }
+  ]
+ },
+ "My Prescriptions": {
+  "slug": "my-prescriptions",
+  "desktop": [
+   {
+    "src": "/images/medimpact/my-prescriptions/desktop/1-1-1-my-prescriptions-1.png",
+    "alt": "MedImpact My Prescriptions \u2014 1.1.1_My_Prescriptions-1"
+   },
+   {
+    "src": "/images/medimpact/my-prescriptions/desktop/1-1-1-my-prescriptions.png",
+    "alt": "MedImpact My Prescriptions \u2014 1.1.1_My_Prescriptions"
+   },
+   {
+    "src": "/images/medimpact/my-prescriptions/desktop/drug-name.png",
+    "alt": "MedImpact My Prescriptions \u2014 Drug Name"
+   },
+   {
+    "src": "/images/medimpact/my-prescriptions/desktop/header.png",
+    "alt": "MedImpact My Prescriptions \u2014 Header"
+   },
+   {
+    "src": "/images/medimpact/my-prescriptions/desktop/last-fill.png",
+    "alt": "MedImpact My Prescriptions \u2014 Last Fill"
+   },
+   {
+    "src": "/images/medimpact/my-prescriptions/desktop/loading.png",
+    "alt": "MedImpact My Prescriptions \u2014 Loading"
+   },
+   {
+    "src": "/images/medimpact/my-prescriptions/desktop/pharmacies.png",
+    "alt": "MedImpact My Prescriptions \u2014 Pharmacies"
+   },
+   {
+    "src": "/images/medimpact/my-prescriptions/desktop/physician.png",
+    "alt": "MedImpact My Prescriptions \u2014 Physician"
+   },
+   {
+    "src": "/images/medimpact/my-prescriptions/desktop/price-1.png",
+    "alt": "MedImpact My Prescriptions \u2014 Price-1"
+   },
+   {
+    "src": "/images/medimpact/my-prescriptions/desktop/price-2.png",
+    "alt": "MedImpact My Prescriptions \u2014 Price-2"
+   },
+   {
+    "src": "/images/medimpact/my-prescriptions/desktop/price.png",
+    "alt": "MedImpact My Prescriptions \u2014 Price"
+   },
+   {
+    "src": "/images/medimpact/my-prescriptions/desktop/show-all.png",
+    "alt": "MedImpact My Prescriptions \u2014 Show All"
+   },
+   {
+    "src": "/images/medimpact/my-prescriptions/desktop/sort-by.png",
+    "alt": "MedImpact My Prescriptions \u2014 Sort by"
+   }
+  ],
+  "mobile": [
+   {
+    "src": "/images/medimpact/my-prescriptions/mobile/filters-1.png",
+    "alt": "MedImpact My Prescriptions \u2014 Filters-1"
+   },
+   {
+    "src": "/images/medimpact/my-prescriptions/mobile/filters-2.png",
+    "alt": "MedImpact My Prescriptions \u2014 Filters-2"
+   },
+   {
+    "src": "/images/medimpact/my-prescriptions/mobile/filters.png",
+    "alt": "MedImpact My Prescriptions \u2014 Filters"
+   },
+   {
+    "src": "/images/medimpact/my-prescriptions/mobile/loading.png",
+    "alt": "MedImpact My Prescriptions \u2014 Loading"
+   },
+   {
+    "src": "/images/medimpact/my-prescriptions/mobile/my-prescriptions-1.png",
+    "alt": "MedImpact My Prescriptions \u2014 My Prescriptions-1"
+   },
+   {
+    "src": "/images/medimpact/my-prescriptions/mobile/my-prescriptions-2.png",
+    "alt": "MedImpact My Prescriptions \u2014 My Prescriptions-2"
+   },
+   {
+    "src": "/images/medimpact/my-prescriptions/mobile/my-prescriptions.png",
+    "alt": "MedImpact My Prescriptions \u2014 My Prescriptions"
+   },
+   {
+    "src": "/images/medimpact/my-prescriptions/mobile/sort-by.png",
+    "alt": "MedImpact My Prescriptions \u2014 Sort by"
+   }
+  ]
+ },
+ "Open Enrollment": {
+  "slug": "open-enrollment",
+  "desktop": [
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/1-4-1-benefit-highlights-oe.png",
+    "alt": "MedImpact Open Enrollment \u2014 1.4.1_Benefit Highlights OE"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/benefit-highlights-1.png",
+    "alt": "MedImpact Open Enrollment \u2014 Benefit Highlights-1"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/benefit-highlights-comparison.png",
+    "alt": "MedImpact Open Enrollment \u2014 Benefit Highlights - Comparison"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/benefit-highlights.png",
+    "alt": "MedImpact Open Enrollment \u2014 Benefit Highlights"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/best-local-price-expanded.png",
+    "alt": "MedImpact Open Enrollment \u2014 Best Local Price - expanded"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/best-local-price.png",
+    "alt": "MedImpact Open Enrollment \u2014 Best Local Price"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/component-189.png",
+    "alt": "MedImpact Open Enrollment \u2014 Component 189"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/disclaimer-popup.png",
+    "alt": "MedImpact Open Enrollment \u2014 Disclaimer popup"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/drug-price-check-1.png",
+    "alt": "MedImpact Open Enrollment \u2014 Drug Price Check-1"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/drug-price-check.png",
+    "alt": "MedImpact Open Enrollment \u2014 Drug Price Check"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/esc.png",
+    "alt": "MedImpact Open Enrollment \u2014 Esc"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/frame-189.png",
+    "alt": "MedImpact Open Enrollment \u2014 Frame 189"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/header-1.png",
+    "alt": "MedImpact Open Enrollment \u2014 Header-1"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/header.png",
+    "alt": "MedImpact Open Enrollment \u2014 Header"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/home-1.png",
+    "alt": "MedImpact Open Enrollment \u2014 Home-1"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/home.png",
+    "alt": "MedImpact Open Enrollment \u2014 Home"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/landing-page.png",
+    "alt": "MedImpact Open Enrollment \u2014 Landing Page"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/mail-order-price.png",
+    "alt": "MedImpact Open Enrollment \u2014 Mail Order Price"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/map-1.png",
+    "alt": "MedImpact Open Enrollment \u2014 Map-1"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/map-2.png",
+    "alt": "MedImpact Open Enrollment \u2014 Map-2"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/map-expanded.png",
+    "alt": "MedImpact Open Enrollment \u2014 Map - expanded"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/map.png",
+    "alt": "MedImpact Open Enrollment \u2014 Map"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/menu-drug-price-pharmacy.png",
+    "alt": "MedImpact Open Enrollment \u2014 Menu - drug price / pharmacy"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/menu-select-brand.png",
+    "alt": "MedImpact Open Enrollment \u2014 Menu - Select Brand"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/menu-select-days.png",
+    "alt": "MedImpact Open Enrollment \u2014 Menu - Select Days"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/menu-select-dosage.png",
+    "alt": "MedImpact Open Enrollment \u2014 Menu - Select Dosage"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/menu-select-form.png",
+    "alt": "MedImpact Open Enrollment \u2014 Menu - Select Form"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/menu-select-quanity.png",
+    "alt": "MedImpact Open Enrollment \u2014 Menu - Select Quanity"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/pharmacy-locator-1.png",
+    "alt": "MedImpact Open Enrollment \u2014 Pharmacy Locator-1"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/pharmacy-locator.png",
+    "alt": "MedImpact Open Enrollment \u2014 Pharmacy Locator"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/please-provide-your-drug-name-and-location-to-get-the-drug-price-results.png",
+    "alt": "MedImpact Open Enrollment \u2014 Please provide your drug name and location to get the drug price results"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/popup-compare.png",
+    "alt": "MedImpact Open Enrollment \u2014 Popup - Compare"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/popup-selected.png",
+    "alt": "MedImpact Open Enrollment \u2014 Popup - Selected"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/popup.png",
+    "alt": "MedImpact Open Enrollment \u2014 Popup"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/desktop/savings-calculator.png",
+    "alt": "MedImpact Open Enrollment \u2014 Savings Calculator"
+   }
+  ],
+  "mobile": [
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/benefit-highlights-comparison.png",
+    "alt": "MedImpact Open Enrollment \u2014 Benefit Highlights - Comparison"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/benefit-highlights.png",
+    "alt": "MedImpact Open Enrollment \u2014 Benefit Highlights"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/co-pay-sections-will-snap-in-place-whenyou-swipe-horizontally-and-dynamically-resize-height-based-on-content.png",
+    "alt": "MedImpact Open Enrollment \u2014 Co-pay sections will snap in place whenyou swipe horizontally and dynamically resize height based on content"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/disclaimer-popup.png",
+    "alt": "MedImpact Open Enrollment \u2014 Disclaimer popup"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/drug-price-check-1.png",
+    "alt": "MedImpact Open Enrollment \u2014 Drug Price Check-1"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/drug-price-check-2.png",
+    "alt": "MedImpact Open Enrollment \u2014 Drug Price Check-2"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/drug-price-check-3.png",
+    "alt": "MedImpact Open Enrollment \u2014 Drug Price Check-3"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/drug-price-check-4.png",
+    "alt": "MedImpact Open Enrollment \u2014 Drug Price Check-4"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/drug-price-check-5.png",
+    "alt": "MedImpact Open Enrollment \u2014 Drug Price Check-5"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/drug-price-check-6.png",
+    "alt": "MedImpact Open Enrollment \u2014 Drug Price Check-6"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/drug-price-check.png",
+    "alt": "MedImpact Open Enrollment \u2014 Drug Price Check"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/frame-23.png",
+    "alt": "MedImpact Open Enrollment \u2014 Frame 23"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/frame-245.png",
+    "alt": "MedImpact Open Enrollment \u2014 Frame 245"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/frame-322.png",
+    "alt": "MedImpact Open Enrollment \u2014 Frame 322"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/frame-323.png",
+    "alt": "MedImpact Open Enrollment \u2014 Frame 323"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/frame-324.png",
+    "alt": "MedImpact Open Enrollment \u2014 Frame 324"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/frame-369.png",
+    "alt": "MedImpact Open Enrollment \u2014 Frame 369"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/frame-384.png",
+    "alt": "MedImpact Open Enrollment \u2014 Frame 384"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/headers-will-resize-height-when-pinned-to-the-top.png",
+    "alt": "MedImpact Open Enrollment \u2014 Headers will resize height when pinned to the top"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/landing-page.png",
+    "alt": "MedImpact Open Enrollment \u2014 Landing Page"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/minimized-module-header.png",
+    "alt": "MedImpact Open Enrollment \u2014 Minimized module header"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/pharmacy-locator-expanded.png",
+    "alt": "MedImpact Open Enrollment \u2014 Pharmacy Locator - Expanded"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/pharmacy-locator-map-view-1.png",
+    "alt": "MedImpact Open Enrollment \u2014 Pharmacy Locator - Map View-1"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/pharmacy-locator-map-view-2.png",
+    "alt": "MedImpact Open Enrollment \u2014 Pharmacy Locator - Map View-2"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/pharmacy-locator-map-view.png",
+    "alt": "MedImpact Open Enrollment \u2014 Pharmacy Locator - Map View"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/pharmacy-locator.png",
+    "alt": "MedImpact Open Enrollment \u2014 Pharmacy Locator"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/popup-compare-plans.png",
+    "alt": "MedImpact Open Enrollment \u2014 Popup - Compare Plans"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/popup-select-plan.png",
+    "alt": "MedImpact Open Enrollment \u2014 Popup - Select Plan"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/savings-calculator.png",
+    "alt": "MedImpact Open Enrollment \u2014 Savings Calculator"
+   },
+   {
+    "src": "/images/medimpact/open-enrollment/mobile/select-plan.png",
+    "alt": "MedImpact Open Enrollment \u2014 Select Plan"
+   }
+  ]
+ }
+}

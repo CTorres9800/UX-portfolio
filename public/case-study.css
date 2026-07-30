@@ -290,6 +290,47 @@
   box-shadow: 0 8px 32px rgba(0,0,0,0.08);
 }
 
+/* MedImpact screen galleries — capped thumbnails that open full-size in the lightbox */
+.mi-shots {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 8px;
+}
+.mi-shots--mobile {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.mi-shot {
+  margin: 0;
+  border: 1px solid #e6e6e9;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.06);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.mi-shot:hover {
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.12);
+  transform: translateY(-2px);
+}
+.mi-shot img {
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: top center;
+  cursor: zoom-in;
+}
+.mi-shot--mobile img { height: 380px; }
+
+@media (max-width: 900px) {
+  .mi-shots { grid-template-columns: 1fr; }
+  .mi-shots--mobile { grid-template-columns: repeat(2, 1fr); }
+  .mi-shot img { height: 260px; }
+  .mi-shot--mobile img { height: 320px; }
+}
+
 .cs-problem-card h3 {
   font-family: var(--font-sans);
   font-size: 1.1rem;
