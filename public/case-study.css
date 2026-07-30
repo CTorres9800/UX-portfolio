@@ -285,6 +285,11 @@
   border-left: 4px solid #d32f2f;
 }
 
+/* Color-code the priority (MoSCoW) card icons to match their card accent */
+.cs-card--green .cs-ico { color: #2e7d32; }
+.cs-card--yellow .cs-ico { color: #f9a825; }
+.cs-card--red .cs-ico { color: #d32f2f; }
+
 /* Subsections */
 .cs-subsection {
   margin-top: 60px;
