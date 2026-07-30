@@ -159,11 +159,11 @@
   gap: 8px;
 }
 .cs-logo {
-  height: 1.3em;
+  height: 1.4em;
   width: auto;
   display: inline-block;
 }
-.cs-logo--wide { height: 1em; }
+.cs-logo--wide { height: 1.4em; }
 .cs-brand-name {
   font-family: var(--font-sans);
   font-weight: 700;
@@ -196,6 +196,17 @@
 .cs-eyes-icon .cs-ico {
   margin-right: 0;
   vertical-align: -0.14em;
+}
+
+/* Lead icon for heading-less info cards (e.g. Final Takeaways lessons) */
+.cs-ico--lead {
+  display: block;
+  width: 26px;
+  height: 26px;
+  margin: 0 0 12px;
+  vertical-align: baseline;
+  color: #306CFE;
+  stroke-width: 1.75;
 }
 
 /* Pull Quote */
@@ -2272,44 +2283,72 @@ div.cs-annotated-img svg {
   align-items: start;
 }
 
+/* Research quotes rendered as chat-message bubbles */
 .cs-research-quote {
   margin: 0;
-  padding: 28px;
-  background: #FAFAFA;
-  border-left: 3px solid #306CFE;
-  border-radius: 0 8px 8px 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .cs-research-quote blockquote {
+  position: relative;
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.55;
+  padding: 16px 20px;
+  background: #EEF2F8;
   color: var(--black);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  border-radius: 18px 18px 18px 5px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06);
 }
 
-.cs-research-quote blockquote::before { content: '\201C'; }
-.cs-research-quote blockquote::after  { content: '\201D'; }
+/* speech-bubble tail on the bottom-left */
+.cs-research-quote blockquote::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 16px;
+  height: 14px;
+  background: #EEF2F8;
+  clip-path: polygon(0 0, 100% 0, 100% 55%);
+}
+.cs-research-quote blockquote::after { content: none; }
 
 .cs-research-quote figcaption {
-  margin-top: 18px;
+  margin: 16px 0 0 4px;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+/* small avatar dot, like a chat sender */
+.cs-research-quote figcaption::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #306CFE, #8AB0FF);
+  flex-shrink: 0;
 }
 
 .cs-research-quote figcaption span {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  color: #888888;
+  color: #555555;
 }
 
 .cs-research-quote figcaption em {
   font-style: normal;
-  font-size: 0.7rem;
+  font-size: 0.64rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #306CFE;
+  color: #2F62E6;
+  background: #E8EFFF;
+  padding: 3px 9px;
+  border-radius: 999px;
 }
 
 @media (max-width: 900px) {
