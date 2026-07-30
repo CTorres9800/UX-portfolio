@@ -146,6 +146,40 @@
   margin-right: 6px;
 }
 
+/* Competitor brand logos (full colour) as the card heading */
+.cs-logos {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+}
+.cs-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.cs-logo {
+  height: 1.3em;
+  width: auto;
+  display: inline-block;
+}
+.cs-logo--wide { height: 1em; }
+.cs-brand-name {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.94em;
+  color: var(--black);
+  white-space: nowrap;
+}
+.cs-brand-name--solo { font-weight: 800; }
+.cs-wordmark {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 1em;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
 /* Inline Lucide icons that replace the old heading emojis */
 .cs-ico {
   display: inline-block;
