@@ -146,6 +146,24 @@
   margin-right: 6px;
 }
 
+/* Inline Lucide icons that replace the old heading emojis */
+.cs-ico {
+  display: inline-block;
+  width: 1.05em;
+  height: 1.05em;
+  vertical-align: -0.15em;
+  margin-right: 9px;
+  flex-shrink: 0;
+  stroke-width: 2;
+}
+
+/* Icons inside the coloured marker spans inherit the span's colour + spacing */
+.cs-x-icon .cs-ico,
+.cs-eyes-icon .cs-ico {
+  margin-right: 0;
+  vertical-align: -0.14em;
+}
+
 /* Pull Quote */
 .cs-pullquote {
   text-align: center;

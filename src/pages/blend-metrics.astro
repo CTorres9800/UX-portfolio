@@ -115,11 +115,11 @@ const flowLabel = 'margin-top: clamp(26px, 4.8vw, 48px); margin-bottom: 4px; fon
 
     <div class="cs-problems-grid">
       <div class="cs-problem-card">
-        <h3><span class="cs-x-icon">&#10005;</span> Problem 01: Canvas Confusion</h3>
+        <h3><span class="cs-x-icon"><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span> Problem 01: Canvas Confusion</h3>
         <p>Users didn't know where to start. The canvas had no empty states, no onboarding hints, and no visual hierarchy. Dropping a trigger onto a blank screen felt like guessing, not building.</p>
       </div>
       <div class="cs-problem-card">
-        <h3><span class="cs-x-icon">&#10005;</span> Problem 02: Invisible Logic</h3>
+        <h3><span class="cs-x-icon"><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span> Problem 02: Invisible Logic</h3>
         <p>Conditional branching was powerful but opaque. Users had no way to tell at a glance:</p>
         <ul>
           <li>Which path a condition would trigger</li>
@@ -129,7 +129,7 @@ const flowLabel = 'margin-top: clamp(26px, 4.8vw, 48px); margin-bottom: 4px; fon
         <p>Split paths were especially confusing. There was no visual distinction between conditional and percentage-based splits, and no inline validation to flag missing rules.</p>
       </div>
       <div class="cs-problem-card">
-        <h3><span class="cs-x-icon">&#10005;</span> Problem 03: Publish and Pray</h3>
+        <h3><span class="cs-x-icon"><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span> Problem 03: Publish and Pray</h3>
         <p>There was no way to test a workflow before it went live. Users would publish, wait for real data to flow through, and then discover broken connections or misconfigured steps after the fact. No test mode. No error preview. No safety net.</p>
       </div>
     </div>
@@ -140,7 +140,7 @@ const flowLabel = 'margin-top: clamp(26px, 4.8vw, 48px); margin-bottom: 4px; fon
     </blockquote>
 
     <div class="cs-problem-item">
-      <h3 class="cs-problem-title"><span class="cs-eyes-icon">&#128064;</span> What We Noticed Early</h3>
+      <h3 class="cs-problem-title"><span class="cs-eyes-icon"><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></span> What We Noticed Early</h3>
       <p>Even power users were avoiding the advanced features. They'd build simple linear workflows and skip conditional logic entirely because the interface made it feel too risky. That's when we knew the problem wasn't the feature set. It was the experience around it.</p>
     </div>
   </SectionContent>
@@ -151,20 +151,20 @@ const flowLabel = 'margin-top: clamp(26px, 4.8vw, 48px); margin-bottom: 4px; fon
   <SectionContent title="Design Requirements">
     <div class="cs-req-grid">
       <div class="cs-problem-card">
-        <h3>&#129482; Show, Don't Tell</h3>
+        <h3><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2"/><path d="M6.453 15h11.094"/><path d="M8.5 2h7"/></svg>Show, Don't Tell</h3>
         <p>The canvas should communicate workflow state visually. Connection lines, color-coded nodes, inline status badges, and error highlights should make the builder self-explanatory without documentation.</p>
         <p class="cs-card-quote">"I shouldn't have to click into every node to know if my workflow is set up right." - Early tester</p>
       </div>
       <div class="cs-problem-card">
-        <h3>&#128737; Prevent Errors Before They Happen</h3>
+        <h3><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Prevent Errors Before They Happen</h3>
         <p>Inline validation, required-field indicators, and error states on the canvas should catch configuration issues before users ever hit "Publish." The system should protect users from shipping broken automations.</p>
       </div>
       <div class="cs-problem-card">
-        <h3>&#128065; Make Complex Logic Approachable</h3>
+        <h3><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>Make Complex Logic Approachable</h3>
         <p>Conditional splits, percentage routing, and AND/OR logic are powerful features. But they shouldn't feel like writing code. The interface should make branching logic feel like a visual decision tree, not a spreadsheet formula.</p>
       </div>
       <div class="cs-problem-card">
-        <h3>&#128172; Keep the Canvas Clean</h3>
+        <h3><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/></svg>Keep the Canvas Clean</h3>
         <p>No matter how complex the workflow gets, the canvas should stay readable. Auto-layout, consistent node sizing, and curved connection lines should keep multi-step automations visually organized.</p>
       </div>
       <div class="cs-problem-card">
@@ -249,7 +249,7 @@ const flowLabel = 'margin-top: clamp(26px, 4.8vw, 48px); margin-bottom: 4px; fon
     </div>
 
     <div class="cs-subsection">
-      <h3 class="cs-subsection-title">&#128270; What We Were Looking For</h3>
+      <h3 class="cs-subsection-title"><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>What We Were Looking For</h3>
       <div class="cs-problems-grid cs-problems-grid--four">
         <div class="cs-problem-card">
           <h3>Canvas Clarity</h3>
@@ -271,10 +271,10 @@ const flowLabel = 'margin-top: clamp(26px, 4.8vw, 48px); margin-bottom: 4px; fon
     </div>
 
     <div class="cs-subsection">
-      <h3 class="cs-subsection-title">&#10006; Where They Fell Short</h3>
+      <h3 class="cs-subsection-title"><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Where They Fell Short</h3>
       <div class="cs-problems-grid">
         <div class="cs-problem-card">
-          <h3>&#129521; Zapier &amp; HubSpot</h3>
+          <h3><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 9v6"/><path d="M16 15v6"/><path d="M16 3v6"/><path d="M3 15h18"/><path d="M3 9h18"/><path d="M8 15v6"/><path d="M8 3v6"/></svg>Zapier &amp; HubSpot</h3>
           <ul>
             <li>Linear step lists that don't scale visually for complex automations</li>
             <li>Branching logic feels bolted on rather than native to the builder</li>
@@ -282,14 +282,14 @@ const flowLabel = 'margin-top: clamp(26px, 4.8vw, 48px); margin-bottom: 4px; fon
           </ul>
         </div>
         <div class="cs-problem-card">
-          <h3>&#129513; Make &amp; n8n</h3>
+          <h3><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68z"/></svg>Make &amp; n8n</h3>
           <ul>
             <li>Powerful visual canvases, but overwhelming for non-technical users</li>
             <li>Dense node configurations that require deep product knowledge to navigate</li>
           </ul>
         </div>
         <div class="cs-problem-card">
-          <h3>&#128172; Workato &amp; Tray.io</h3>
+          <h3><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/></svg>Workato &amp; Tray.io</h3>
           <ul>
             <li>Enterprise-grade features behind complex onboarding flows</li>
             <li>Strong testing tools, but the setup process itself needs a tutorial</li>
@@ -396,14 +396,14 @@ const flowLabel = 'margin-top: clamp(26px, 4.8vw, 48px); margin-bottom: 4px; fon
     <h3 class="cs-subsection-title">Common Themes We Found</h3>
     <div class="cs-themes-grid">
       <div class="cs-theme">
-        <h4>&#128172; Configuration Clarity</h4>
+        <h4><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/></svg>Configuration Clarity</h4>
         <ul>
           <li>"I set up the trigger but I'm not sure it's actually connected."</li>
           <li>"Which fields are required vs. optional?"</li>
         </ul>
       </div>
       <div class="cs-theme">
-        <h4>&#129513; Branching Anxiety</h4>
+        <h4><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68z"/></svg>Branching Anxiety</h4>
         <ul>
           <li>"I added a split path but I don't know what happens to contacts who don't match."</li>
           <li>"Can I see all conditions at once without clicking into each path?"</li>
@@ -411,7 +411,7 @@ const flowLabel = 'margin-top: clamp(26px, 4.8vw, 48px); margin-bottom: 4px; fon
         </ul>
       </div>
       <div class="cs-theme">
-        <h4>&#128101; Testing &amp; Validation</h4>
+        <h4><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>Testing &amp; Validation</h4>
         <ul>
           <li>"How do I know this works before I publish it?"</li>
           <li>"Can I run a test with sample data?"</li>
@@ -419,7 +419,7 @@ const flowLabel = 'margin-top: clamp(26px, 4.8vw, 48px); margin-bottom: 4px; fon
         </ul>
       </div>
       <div class="cs-theme">
-        <h4>&#128184; Workflow Management</h4>
+        <h4><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>Workflow Management</h4>
         <ul>
           <li>"Does it auto-save or do I have to manually save?"</li>
           <li>"Can I go back to a previous version?"</li>
@@ -428,7 +428,7 @@ const flowLabel = 'margin-top: clamp(26px, 4.8vw, 48px); margin-bottom: 4px; fon
       </div>
     </div>
 
-    <h3 class="cs-subsection-title">&#128161; What This Told Us</h3>
+    <h3 class="cs-subsection-title"><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>What This Told Us</h3>
     <p class="cs-body-text">Users didn't want fewer features. They wanted more visibility. So every design decision from here on, inline validation, test runners, auto-save indicators, confirmation dialogs, was built to answer one question: "Can I trust what I just built?"</p>
 
     <div class="cs-image-full">
@@ -459,7 +459,7 @@ const flowLabel = 'margin-top: clamp(26px, 4.8vw, 48px); margin-bottom: 4px; fon
         </ul>
       </div>
       <div class="cs-problem-card cs-card--yellow">
-        <h3>&#129300; Nice-to-Have (Later)</h3>
+        <h3><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>Nice-to-Have (Later)</h3>
         <ul>
           <li>Version history with rollback support</li>
           <li>Workflow templates and cloning</li>
@@ -468,7 +468,7 @@ const flowLabel = 'margin-top: clamp(26px, 4.8vw, 48px); margin-bottom: 4px; fon
         </ul>
       </div>
       <div class="cs-problem-card cs-card--red">
-        <h3>&#10060; Will Not Have</h3>
+        <h3><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>Will Not Have</h3>
         <ul>
           <li>Code-based workflow editor</li>
           <li>Custom node creation from scratch</li>
@@ -503,7 +503,7 @@ const flowLabel = 'margin-top: clamp(26px, 4.8vw, 48px); margin-bottom: 4px; fon
 
       <div class="cs-two-card-grid">
         <div class="cs-problem-card">
-          <h3>&#128161; Where Things Got Messy</h3>
+          <h3><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>Where Things Got Messy</h3>
           <ul>
             <li>No guided empty state on the blank canvas</li>
             <li>No visual feedback when nodes were misconfigured</li>
@@ -512,7 +512,7 @@ const flowLabel = 'margin-top: clamp(26px, 4.8vw, 48px); margin-bottom: 4px; fon
           </ul>
         </div>
         <div class="cs-problem-card">
-          <h3>&#128560; What We Had to Fix</h3>
+          <h3><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></svg>What We Had to Fix</h3>
           <p>To create a smoother, more confident builder flow, we focused on the moments that triggered doubt and redesigned them with clarity in mind:</p>
           <ul>
             <li>Added guided empty states and drop zone hints on the canvas</li>
