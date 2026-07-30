@@ -32,6 +32,34 @@ const miComponents = [
   { src: "/images/medimpact/vaccine-module/desktop/next-steps-popup.png", title: "How To Get This Vaccine", desc: "For a recommended vaccine, this module explains how to get it, shows a nearby pharmacy with hours and contact details, and provides next-step actions.", bullets: ["Covers walk-in options and how to schedule", "Shows the nearest pharmacy with address, hours, and phone", "Actions include get directions, call a ride, and schedule an appointment"] },
   { src: "/images/medimpact/open-enrollment/desktop/popup-compare.png", title: "Plan Comparison Selector", desc: "During open enrollment, members select up to three plans to compare. Each plan card summarizes its deductible and pharmacy-benefit rules in plain language before it is added to the comparison.", bullets: ["Members can compare up to three plans at a time", "Each plan is summarized in plain language", "Selecting a plan adds it to the side-by-side comparison"] },
 ];
+const miSurvey = [
+  { group: "Overall", items: [
+    { q: "Overall, how do you feel about your experience working with Christopher Torres as your UX/UI design service provider?", a: "Excellent" },
+  ]},
+  { group: "UX / UI design services", items: [
+    { q: "Innovation / Creativity", a: "Excellent" },
+    { q: "Reliability", a: "Excellent" },
+    { q: "Speed of project completion", a: "Excellent" },
+    { q: "Support provided", a: "Excellent" },
+  ]},
+  { group: "Working with Christopher", items: [
+    { q: "Would you rate Christopher Torres as easy, or difficult to work with?", a: "Excellent - Very easy to work with" },
+    { q: "How do you feel about the way Christopher performed in your team environment?", a: "Excellent - An amazing team player" },
+    { q: "Friendliness", a: "Very friendly" },
+    { q: "Professionalism", a: "Extremely Professional" },
+  ]},
+  { group: "Solving the problem", items: [
+    { q: "Do you feel that Christopher was interested in solving your UX/UI challenges?", a: "Very interested" },
+    { q: "When solving UX/UI problems, how would you rate the solutions that Christopher provided?", a: "Extremely well presented and understandable" },
+    { q: "How would you rate Christopher's understanding of your UX/UI challenges?", a: "Very satisfied that my UX/UI challenges were understood" },
+  ]},
+  { group: "Outcome", items: [
+    { q: "Were all of your UX/UI challenges solved during this engagement? (that were included in your original project scope)", a: "Yes" },
+    { q: "How would you rate Christopher's UX/UI skills as compared to that of other designers you have worked with?", a: "Better than other designers I have worked with" },
+    { q: "If you were given the opportunity, would you hire another UX/UI designer to redesign the work Christopher provided to you?", a: "No" },
+    { q: "If given the opportunity, would you work with Christopher again?", a: "Absolutely Yes" },
+  ]},
+];
 ---
 
 <CaseStudy title="MedImpact">
@@ -290,21 +318,36 @@ const miComponents = [
 
   <SectionContent title="Client Feedback">
     <div class="cs-body-text">
-      <p>After the project, the product manager I worked with completed a client feedback survey and left a recommendation on my LinkedIn. All survey categories received the highest available rating. A selection is shown below.</p>
+      <p>After the project, the product manager I worked with completed a UX/UI client feedback survey and left a recommendation on my LinkedIn. Here is the full response.</p>
     </div>
-    <div class="mi-ratings">
-      <div class="mi-rating"><span class="mi-rating-value">Excellent</span><span class="mi-rating-label">Overall experience</span></div>
-      <div class="mi-rating"><span class="mi-rating-value">Absolutely yes</span><span class="mi-rating-label">Would work together again</span></div>
-      <div class="mi-rating"><span class="mi-rating-value">Extremely professional</span><span class="mi-rating-label">Professionalism</span></div>
-      <div class="mi-rating"><span class="mi-rating-value">Amazing team player</span><span class="mi-rating-label">In a team environment</span></div>
-      <div class="mi-rating"><span class="mi-rating-value">Better than others</span><span class="mi-rating-label">Compared to other designers</span></div>
-      <div class="mi-rating"><span class="mi-rating-value">All of them</span><span class="mi-rating-label">In-scope UX/UI challenges solved</span></div>
+    <div class="mi-survey">
+      <div class="mi-survey-head">
+        <div>
+          <p class="mi-survey-title">UX / UI Client Feedback Survey</p>
+          <p class="mi-survey-sub">1 response &middot; Product Manager, Photon</p>
+        </div>
+        <span class="mi-survey-badge">Overall rating: Excellent</span>
+      </div>
+      <div class="mi-survey-body">
+        {miSurvey.map((g) => (
+          <div class="mi-survey-group">
+            <p class="mi-survey-group-label">{g.group}</p>
+            <div class="mi-survey-qs">
+              {g.items.map((it) => (
+                <div class="mi-survey-q">
+                  <p class="mi-survey-question">{it.q}</p>
+                  <span class="mi-survey-answer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>{it.a}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+        <div class="mi-survey-note">
+          <p class="mi-survey-note-label">In their words &mdash; would you hire another designer to redesign the work?</p>
+          <p class="mi-survey-note-text">&ldquo;The work done was thorough and meets our needs. I don't see a reason to have another designer to perform a redesign.&rdquo;</p>
+        </div>
+      </div>
     </div>
-    <blockquote class="cs-pullquote">
-      <svg class="cs-pullquote-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/></svg>
-      The work done was thorough and meets our needs. I don't see a reason to have another designer to perform a redesign.
-      <span class="mi-attr">Product Manager, Photon</span>
-    </blockquote>
   </SectionContent>
 
   <hr class="cs-section-divider">
