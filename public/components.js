@@ -93,6 +93,78 @@
     document.fonts.ready.then(fitJourneyMaps);
   }
 
+  // Lightbox for case-study portfolio images. Scoped to `.cs-section img`, which
+  // only exists on case-study pages and excludes the hero/header image (that
+  // lives in .cs-hero). Linked images are skipped.
+  (function () {
+    var imgs = Array.prototype.slice.call(document.querySelectorAll('.cs-section img'))
+      .filter(function (img) { return !img.closest('a') && !img.closest('.cs-hero-image'); });
+    if (!imgs.length) return;
+
+    var chevL = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>';
+    var chevR = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>';
+    var xIcon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>';
+
+    var multi = imgs.length > 1;
+    var lb = document.createElement('div');
+    lb.className = 'lb';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-hidden', 'true');
+    lb.innerHTML =
+      '<button class="lb-close" aria-label="Close">' + xIcon + '</button>' +
+      (multi ? '<button class="lb-nav lb-prev" aria-label="Previous image">' + chevL + '</button>' : '') +
+      '<img class="lb-img" alt="">' +
+      (multi ? '<button class="lb-nav lb-next" aria-label="Next image">' + chevR + '</button>' : '') +
+      (multi ? '<div class="lb-counter"><span class="lb-i"></span> / <span class="lb-t"></span></div>' : '');
+    document.body.appendChild(lb);
+
+    var lbImg = lb.querySelector('.lb-img');
+    var iEl = lb.querySelector('.lb-i'), tEl = lb.querySelector('.lb-t');
+    var cur = 0;
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+    if (tEl) tEl.textContent = pad(imgs.length);
+
+    function show(n) {
+      cur = (n + imgs.length) % imgs.length;
+      var src = imgs[cur].currentSrc || imgs[cur].src;
+      lbImg.style.opacity = '0';
+      var pre = new Image();
+      pre.onload = function () { lbImg.src = src; lbImg.alt = imgs[cur].alt || ''; lbImg.style.opacity = '1'; };
+      pre.src = src;
+      if (iEl) iEl.textContent = pad(cur + 1);
+    }
+    function onKey(e) {
+      if (e.key === 'Escape') closeLb();
+      else if (multi && e.key === 'ArrowRight') show(cur + 1);
+      else if (multi && e.key === 'ArrowLeft') show(cur - 1);
+    }
+    function openLb(n) {
+      show(n);
+      lb.classList.add('is-open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lb-lock');
+      document.addEventListener('keydown', onKey);
+    }
+    function closeLb() {
+      lb.classList.remove('is-open');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lb-lock');
+      document.removeEventListener('keydown', onKey);
+    }
+
+    imgs.forEach(function (img, i) {
+      img.classList.add('zoomable');
+      img.addEventListener('click', function () { openLb(i); });
+    });
+    lb.querySelector('.lb-close').addEventListener('click', closeLb);
+    if (multi) {
+      lb.querySelector('.lb-prev').addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
+      lb.querySelector('.lb-next').addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
+    }
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+  })();
+
   // Mobile menu toggle
   var header = document.querySelector('.header');
   var toggle = document.querySelector('.menu-toggle');
