@@ -12,6 +12,56 @@ import SectionUserJourney from '../components/SectionUserJourney.astro';
 
 <CaseStudy title="Marketeq Projects">
 
+  <!-- Password gate -->
+  <div id="mq-gate" class="mq-gate">
+    <form class="mq-gate-card" id="mq-gate-form" autocomplete="off">
+      <p class="mq-gate-eyebrow">Protected case study</p>
+      <h1 class="mq-gate-title">This case study is password protected</h1>
+      <p class="mq-gate-sub">Enter the password to view the Marketeq Projects case study.</p>
+      <input type="password" id="mq-gate-input" class="mq-gate-input" placeholder="Password" aria-label="Password" autofocus>
+      <button type="submit" class="mq-gate-btn">View case study</button>
+      <p class="mq-gate-error" id="mq-gate-error">Incorrect password. Please try again.</p>
+    </form>
+  </div>
+  <script is:inline>
+    (function () {
+      var HASH = '8823d9f7f061526272da818c208d73acc4ce67cf2ba8652a5638833bfc0f506a';
+      var KEY = 'mq_unlocked';
+      var gate = document.getElementById('mq-gate');
+      var form = document.getElementById('mq-gate-form');
+      var input = document.getElementById('mq-gate-input');
+      var err = document.getElementById('mq-gate-error');
+      function unlock() {
+        gate.remove();
+        document.documentElement.classList.remove('mq-locked');
+      }
+      try {
+        if (sessionStorage.getItem(KEY) === '1') { unlock(); return; }
+      } catch (e) {}
+      document.documentElement.classList.add('mq-locked');
+      async function sha256(str) {
+        var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+        return Array.prototype.map.call(new Uint8Array(buf), function (b) {
+          return b.toString(16).padStart(2, '0');
+        }).join('');
+      }
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var val = (input.value || '').trim();
+        var hex;
+        try { hex = await sha256(val); } catch (e2) { hex = ''; }
+        if (hex === HASH) {
+          try { sessionStorage.setItem(KEY, '1'); } catch (e3) {}
+          unlock();
+        } else {
+          err.style.display = 'block';
+          input.value = '';
+          input.focus();
+        }
+      });
+    })();
+  </script>
+
   <!-- 1. Hero -->
   <SectionHero
     label="MARKETEQ PROJECTS"
