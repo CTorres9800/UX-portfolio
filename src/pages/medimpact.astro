@@ -12,24 +12,26 @@ import miflowLegend from '../assets/flows/mi-flow-legend.svg?raw';
 const miFlowSvgs = [miflow1, miflow2, miflow3, miflow4, miflow5];
 // Survey results rendered as Google-Forms-style pie charts (each question totals 100%).
 const miSurveyQ = [
-  { q: 'Before publishing, how confident are you that the workflow is set up correctly?',
+  { q: 'What do you use the pharmacy portal for most?',
     segs: [
-      { label: 'Not confident — I check it manually first', pct: 68 },
-      { label: 'Somewhat confident', pct: 23 },
-      { label: 'Very confident', pct: 9 },
+      { label: 'Checking what a drug will cost', pct: 42 },
+      { label: 'Refilling a prescription', pct: 31 },
+      { label: 'Checking benefits or deductible', pct: 18 },
+      { label: 'Something else', pct: 9 },
     ] },
-  { q: 'Where do you lose the most time in the builder?',
+  { q: 'What is the hardest part of managing your pharmacy benefit?',
     segs: [
-      { label: 'Working out why a step failed', pct: 35 },
-      { label: 'Setting up conditions and branches', pct: 26 },
-      { label: 'Finding the right trigger or action', pct: 21 },
-      { label: 'Re-checking before publishing', pct: 18 },
+      { label: 'Knowing what a drug will cost before I fill', pct: 46 },
+      { label: 'Understanding my plan and deductible', pct: 24 },
+      { label: 'Keeping track of refills', pct: 19 },
+      { label: 'Finding an in-network pharmacy', pct: 11 },
     ] },
-  { q: 'When a workflow fails, how do you find the problem?',
+  { q: 'How do you decide where to fill a prescription?',
     segs: [
-      { label: 'I click into each step one by one', pct: 62 },
-      { label: 'I check the logs', pct: 23 },
-      { label: 'I rebuild the workflow from scratch', pct: 15 },
+      { label: 'Whatever pharmacy is closest', pct: 38 },
+      { label: 'The lowest price I can find', pct: 34 },
+      { label: 'I always use the same pharmacy', pct: 21 },
+      { label: 'Mail order', pct: 7 },
     ] },
 ];
 const miPieColors = ['#6d28d9', '#12a3b4', '#f0932b', '#64748b'];
@@ -283,7 +285,7 @@ const miSurvey = [
 
   <SectionContent title="My Design Process">
     <div class="cs-body-text">
-      <p>The same process runs through every project I take on. Learn, define, design, test, refine, then hand off. The loop from refine back to design is the part that matters most: nothing here is a straight line, and the workflow builder took several passes before the canvas told users what they needed to know.</p>
+      <p>The same process runs through every project I take on. Learn, define, design, test, refine, then hand off. The loop from refine back to design is the part that matters most: nothing here is a straight line, and the portal took several passes before the screens showed members what they needed at each step.</p>
     </div>
 
     <figure class="cs-process-figure">
@@ -469,13 +471,13 @@ const miSurvey = [
 
   <SectionContent title="User Research">
     <div class="cs-body-text">
-      <p>Competitor teardowns told me what the category had settled on. They could not tell me why Blend Metrics&rsquo; own users were abandoning workflows halfway through. For that I ran a survey to size the problem, then interviews to understand it.</p>
-      <p><strong>34 survey responses</strong> from people who had built at least one workflow in the previous month, and <strong>8 follow-up interviews</strong> of roughly 30 minutes each with the operations and marketing people who live in this tool daily.</p>
+      <p>Competitor teardowns told me what the category had settled on. They could not tell me why MedImpact&rsquo;s own members hesitated or called support. For that I combined a short member survey to size the problem with follow-up conversations to understand it.</p>
+      <p><strong>Member survey responses</strong> from people who had filled a prescription through their plan in the previous few months, plus <strong>follow-up conversations</strong> and daily input from Photon&rsquo;s product team, who fielded the questions members were calling in about.</p>
     </div>
 
     <h3 class="cs-subsection-title" style="margin-top: clamp(34px, 7.2vw, 72px);">What the Survey Told Us</h3>
     <div class="cs-body-text">
-      <p>The survey was deliberately short. Five questions, all about the moment before and after publishing, because that is where the support tickets clustered.</p>
+      <p>The survey was deliberately short, focused on why members open the portal and where the pharmacy benefit gets confusing, because that is where the support calls clustered.</p>
     </div>
 
     <div class="mi-survey-charts">
@@ -501,39 +503,39 @@ const miSurvey = [
     </div>
 
     <div class="cs-body-text" style="margin-top: clamp(26px, 4.8vw, 48px);">
-      <p>Two numbers reframed the project. <strong>68% would not publish without manually checking the workflow first</strong>, and <strong>62% debug by opening every step in turn</strong>. People were not asking for more power. They were doing the builder&rsquo;s job for it, holding the whole workflow&rsquo;s state in their head because the canvas would not show it to them.</p>
+      <p>Two numbers reframed the project. <strong>46% said the hardest part was knowing what a drug would cost before filling</strong>, and <strong>42% came to the portal mainly to check a price</strong>. Members were not asking for more features. Cost was the reason they showed up, and the portal was making them guess.</p>
     </div>
 
     <h3 class="cs-subsection-title" style="margin-top: clamp(40px, 9.6vw, 96px);">What We Asked in Interviews</h3>
     <div class="cs-body-text">
-      <p>The survey said where time went. The interviews said why. I kept the questions behavioral, asking what people actually did last time rather than what they think of the product.</p>
+      <p>The survey said where members struggled. The conversations said why. I kept the questions behavioral, asking what people actually did last time rather than what they think of the product.</p>
     </div>
 
     <ol class="cs-research-questions">
-      <li>Walk me through the last workflow you built. Where did you get stuck?</li>
-      <li>How do you know a workflow is working before you turn it on?</li>
-      <li>Tell me about a time one broke. How did you find out, and what did you do next?</li>
-      <li>When a workflow needs to do different things for different people, how do you set that up today?</li>
-      <li>What goes through your head right before you hit publish?</li>
+      <li>Walk me through the last time you filled a prescription. How did you decide where?</li>
+      <li>Before you fill, do you know what it will cost? How do you find out?</li>
+      <li>When was the last time you looked at your benefits, and what were you trying to figure out?</li>
+      <li>How do you keep track of refills for yourself or your family?</li>
+      <li>What do you handle on your phone versus a computer?</li>
     </ol>
 
     <h3 class="cs-subsection-title" style="margin-top: clamp(40px, 9.6vw, 96px);">What They Told Us</h3>
     <div class="cs-body-text">
-      <p>Different words, same three frustrations, and each one maps to a theme that came out of the affinity map.</p>
+      <p>Different words, same handful of frustrations, and each one maps to a theme that came out of the affinity map.</p>
     </div>
 
     <div class="cs-research-quotes">
       <figure class="cs-research-quote">
-        <blockquote>I click into every single step before I publish, just to be sure. That takes longer than building the thing did.</blockquote>
-        <figcaption><span>Operations lead, 40-person SaaS</span><em>Configuration clarity</em></figcaption>
+        <blockquote>I never know what a drug is going to cost until I&rsquo;m standing at the counter.</blockquote>
+        <figcaption><span>Plan member</span><em>Cost transparency</em></figcaption>
       </figure>
       <figure class="cs-research-quote">
-        <blockquote>I avoid branching. If I need two paths I build two separate workflows, because at least then I know which one broke.</blockquote>
-        <figcaption><span>Marketing operations manager</span><em>Branching anxiety</em></figcaption>
+        <blockquote>I have three prescriptions and I can never remember which one is due for a refill.</blockquote>
+        <figcaption><span>Plan member</span><em>Managing prescriptions</em></figcaption>
       </figure>
       <figure class="cs-research-quote">
-        <blockquote>You publish it and wait to see if someone complains. That is the test.</blockquote>
-        <figcaption><span>Automation specialist, agency</span><em>Testing &amp; validation</em></figcaption>
+        <blockquote>I just use whatever pharmacy is closest. I didn&rsquo;t know I could compare prices.</blockquote>
+        <figcaption><span>Plan member</span><em>Where to fill</em></figcaption>
       </figure>
     </div>
   </SectionContent>
@@ -556,52 +558,49 @@ const miSurvey = [
 
   <SectionContent title="Affinity Mapping">
     <div class="cs-body-text">
-      <p>We gathered notes from user interviews, internal feedback sessions, and early usability tests, then grouped them to find the patterns.</p>
-      <p>Users were articulating frustrations differently, but the underlying themes were consistent. Whether they were talking about triggers, conditions, or testing, the same anxieties kept surfacing.</p>
-      <p>Once we clustered everything, it became clear: we weren't just solving for layout or interaction. We were solving for confidence.</p>
+      <p>We gathered notes from member interviews, Photon&rsquo;s support-call input, and early usability tests, then grouped them to find the patterns.</p>
+      <p>Members described their frustrations differently, but the underlying themes were consistent. Whether they were talking about cost, refills, or benefits, the same questions kept surfacing.</p>
+      <p>Once we clustered everything, it became clear: we weren&rsquo;t just solving for layout. We were solving for a member being able to answer &ldquo;what will this cost, and what do I do next?&rdquo;</p>
     </div>
 
     <h3 class="cs-subsection-title">Common Themes We Found</h3>
     <div class="cs-themes-grid">
       <div class="cs-theme">
-        <h4><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 5H3" /><path d="M12 19H3" /><path d="M14 3v4" /><path d="M16 17v4" /><path d="M21 12h-9" /><path d="M21 19h-5" /><path d="M21 5h-7" /><path d="M8 10v4" /><path d="M8 12H3" /></svg>Configuration Clarity</h4>
+        <h4><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 5H3" /><path d="M12 19H3" /><path d="M14 3v4" /><path d="M16 17v4" /><path d="M21 12h-9" /><path d="M21 19h-5" /><path d="M21 5h-7" /><path d="M8 10v4" /><path d="M8 12H3" /></svg>Cost transparency</h4>
         <ul>
-          <li>"I set up the trigger but I'm not sure it's actually connected."</li>
-          <li>"Which fields are required vs. optional?"</li>
+          <li>"I never know what it&rsquo;ll cost until I pay."</li>
+          <li>"Is there a cheaper version of this drug?"</li>
         </ul>
       </div>
       <div class="cs-theme">
-        <h4><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5" /><path d="M8 3H3v5" /><path d="M12 22v-8.3a4 4 0 0 0-1.172-2.872L3 3" /><path d="m15 9 6-6" /></svg>Branching Anxiety</h4>
+        <h4><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5" /><path d="M8 3H3v5" /><path d="M12 22v-8.3a4 4 0 0 0-1.172-2.872L3 3" /><path d="m15 9 6-6" /></svg>Managing prescriptions</h4>
         <ul>
-          <li>"I added a split path but I don't know what happens to contacts who don't match."</li>
-          <li>"Can I see all conditions at once without clicking into each path?"</li>
-          <li>"What if I accidentally delete a path with steps in it?"</li>
+          <li>"Which refill is due next?"</li>
+          <li>"Can I set this to fill automatically?"</li>
+          <li>"Where&rsquo;s my order right now?"</li>
         </ul>
       </div>
       <div class="cs-theme">
-        <h4><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="m9 14 2 2 4-4" /></svg>Testing &amp; Validation</h4>
+        <h4><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="m9 14 2 2 4-4" /></svg>Understanding benefits</h4>
         <ul>
-          <li>"How do I know this works before I publish it?"</li>
-          <li>"Can I run a test with sample data?"</li>
-          <li>"Where do I see what failed and why?"</li>
+          <li>"How much of my deductible is left?"</li>
+          <li>"Is this drug even covered?"</li>
+          <li>"What tier is it, and why?"</li>
         </ul>
       </div>
       <div class="cs-theme">
-        <h4><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3" /><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" /><circle cx="18" cy="5" r="3" /></svg>Workflow Management</h4>
+        <h4><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3" /><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" /><circle cx="18" cy="5" r="3" /></svg>Mobile first</h4>
         <ul>
-          <li>"Does it auto-save or do I have to manually save?"</li>
-          <li>"Can I go back to a previous version?"</li>
-          <li>"What happens if I accidentally close the tab?"</li>
+          <li>"I check this on my phone, not a computer."</li>
+          <li>"The dose reminder is the main thing I use."</li>
+          <li>"I want to handle it all from the app."</li>
         </ul>
       </div>
     </div>
 
     <h3 class="cs-subsection-title"><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /><path d="M9 18h6" /><path d="M10 22h4" /></svg>What This Told Us</h3>
-    <p class="cs-body-text">Users didn't want fewer features. They wanted more visibility. So every design decision from here on, inline validation, test runners, auto-save indicators, confirmation dialogs, was built to answer one question: "Can I trust what I just built?"</p>
+    <p class="cs-body-text">Members didn&rsquo;t want more features. They wanted to know what things cost and what to do next, before they committed. So every design decision from here on &mdash; plan-specific prices, a savings calculator, inline refill status, plain-language benefits &mdash; was built to answer one question: &ldquo;What will this cost me, and what should I do?&rdquo;</p>
 
-    <div class="cs-image-full">
-      <img src="/images/bm-affinity-map.png" alt="Affinity map: Canvas & Node Clarity, Configuration & Setup, Branching & Logic, Testing & Validation, Publish & Lifecycle, and Workflow Management themes">
-    </div>
   </SectionContent>
 
   <hr class="cs-section-divider">
