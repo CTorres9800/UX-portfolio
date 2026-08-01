@@ -3,34 +3,166 @@ import CaseStudy from '../layouts/CaseStudy.astro';
 import SectionHero from '../components/SectionHero.astro';
 import SectionAbout from '../components/SectionAbout.astro';
 import SectionContent from '../components/SectionContent.astro';
-import miData from '../data/medimpact.json';
+import miflow1 from '../assets/flows/mi-flow-1.svg?raw';
+import miflow2 from '../assets/flows/mi-flow-2.svg?raw';
+import miflow3 from '../assets/flows/mi-flow-3.svg?raw';
+import miflow4 from '../assets/flows/mi-flow-4.svg?raw';
+import miflow5 from '../assets/flows/mi-flow-5.svg?raw';
+import miflowLegend from '../assets/flows/mi-flow-legend.svg?raw';
+const miFlowSvgs = [miflow1, miflow2, miflow3, miflow4, miflow5];
+// Survey results rendered as Google-Forms-style pie charts (each question totals 100%).
+const miSurveyQ = [
+  { q: 'Before publishing, how confident are you that the workflow is set up correctly?',
+    segs: [
+      { label: 'Not confident — I check it manually first', pct: 68 },
+      { label: 'Somewhat confident', pct: 23 },
+      { label: 'Very confident', pct: 9 },
+    ] },
+  { q: 'Where do you lose the most time in the builder?',
+    segs: [
+      { label: 'Working out why a step failed', pct: 35 },
+      { label: 'Setting up conditions and branches', pct: 26 },
+      { label: 'Finding the right trigger or action', pct: 21 },
+      { label: 'Re-checking before publishing', pct: 18 },
+    ] },
+  { q: 'When a workflow fails, how do you find the problem?',
+    segs: [
+      { label: 'I click into each step one by one', pct: 62 },
+      { label: 'I check the logs', pct: 23 },
+      { label: 'I rebuild the workflow from scratch', pct: 15 },
+    ] },
+];
+const miPieColors = ['#6d28d9', '#12a3b4', '#f0932b', '#64748b'];
+function miPiePaths(segs) {
+  const cx = 90, cy = 90, r = 88;
+  let a = -Math.PI / 2;
+  return segs.map((s, i) => {
+    const frac = s.pct / 100;
+    const a2 = a + frac * Math.PI * 2;
+    const x1 = (cx + r * Math.cos(a)).toFixed(2), y1 = (cy + r * Math.sin(a)).toFixed(2);
+    const x2 = (cx + r * Math.cos(a2)).toFixed(2), y2 = (cy + r * Math.sin(a2)).toFixed(2);
+    const large = frac > 0.5 ? 1 : 0;
+    const d = segs.length === 1
+      ? `M ${cx} ${cy - r} A ${r} ${r} 0 1 1 ${cx - 0.01} ${cy - r} Z`
+      : `M ${cx} ${cy} L ${x1} ${y1} A ${r} ${r} 0 ${large} 1 ${x2} ${y2} Z`;
+    a = a2;
+    return { d, color: miPieColors[i % miPieColors.length], pct: s.pct, label: s.label };
+  });
+}
+const miSurveyCharts = miSurveyQ.map((item) => ({ ...item, paths: miPiePaths(item.segs) }));
+// MedImpact user flows — one per core member task, shown with the existing cs-flow-pills component.
+const miFlows = [
+  {
+    title: 'Checking a drug price',
+    pills: [
+      '<strong>Start a price check</strong> &rarr; From the dashboard, search a drug by name &rarr; Choose the specific drug, form, and dosage',
+      '<strong>Best Local Price</strong> &rarr; See nearby pharmacies and their price for the drug &rarr; The lowest local price is highlighted and pinned on the map',
+      '<strong>Compare the options</strong> &rarr; Switch to Mail Order Price to see the mail-order cost in the same layout &rarr; Open the Savings Calculator to estimate savings by adjusting the drug or pharmacy',
+      '<strong>Act on it</strong> &rarr; Pick a pharmacy from the map &rarr; Add the medication to the cart',
+    ],
+    note: 'The three pricing views sit under one set of tabs, so a member can compare the best local price, mail order, and potential savings without leaving the page.',
+  },
+  {
+    title: 'Refilling a prescription',
+    pills: [
+      '<strong>Open prescriptions</strong> &rarr; From the dashboard, go to My Prescriptions &rarr; Active prescriptions list the drug, last fill date, pharmacy, and prescriber',
+      '<strong>Choose a prescription</strong> &rarr; Refill and auto-refill status show inline &rarr; Select the prescription that needs a refill',
+      '<strong>Set the refill</strong> &rarr; Request a one-time refill, or turn on auto-refill &rarr; Confirm the pharmacy and day supply',
+      '<strong>Check out</strong> &rarr; Add the refill to the cart &rarr; Review quantity, day supply, and estimated copay &rarr; Complete checkout',
+    ],
+    note: 'Refill and auto-refill status show inline on the prescription list, so a member can act without opening each prescription first.',
+  },
+  {
+    title: 'Getting a recommended vaccine',
+    pills: [
+      '<strong>See recommendations</strong> &rarr; From the dashboard, open Recommended Vaccines &rarr; Each vaccine shows eligibility and a short, plain-language summary',
+      '<strong>Read the details</strong> &rarr; Open a vaccine for why it is recommended and who needs it &rarr; Read-more expands the clinical detail without leaving the screen',
+      '<strong>How to get it</strong> &rarr; See the nearest pharmacy with address, hours, and phone &rarr; Covers walk-in options and how to schedule',
+      '<strong>Take the next step</strong> &rarr; Schedule an appointment, get directions, or call a ride &rarr; Mark the vaccine as taken once done',
+    ],
+    note: 'The clinical detail is written in plain language, and the next steps sit on the same screen instead of being links away.',
+  },
+  {
+    title: 'Comparing plans at open enrollment',
+    pills: [
+      '<strong>Review benefits</strong> &rarr; From the dashboard, open Benefit Highlights &rarr; A plain-language summary of what the plan covers',
+      '<strong>Pick plans to compare</strong> &rarr; Select up to three plans &rarr; Each plan card summarizes its deductible and pharmacy rules before it is added',
+      '<strong>Compare side by side</strong> &rarr; Plans are shown next to each other across benefits and cost &rarr; The differences are visible in one view',
+      '<strong>Choose a plan</strong> &rarr; Select the plan that fits &rarr; Continue with enrollment',
+    ],
+    note: 'Each plan is summarized in plain language before it is added, then plans are compared next to each other rather than reviewed one at a time.',
+  },
+  {
+    title: 'Reviewing and sharing claims',
+    pills: [
+      '<strong>Open claims</strong> &rarr; From the dashboard, go to Claims History &rarr; Claims list the drug, date, pharmacy, and cost',
+      '<strong>Narrow the list</strong> &rarr; Filter claims; active filters appear as removable keyword pills &rarr; Adjust exactly which filters are on',
+      '<strong>Share</strong> &rarr; Invite someone by email, or copy a shareable link &rarr; Used to send records to a caregiver or provider',
+      '<strong>Control access</strong> &rarr; Set what the recipient can do, such as view-only &rarr; Revoke access when it is no longer needed',
+    ],
+    note: 'Active filters appear as removable pills, and sharing lets a member send records to a caregiver or provider with controlled, view-only access.',
+  },
+];
+import miGallery from '../data/medimpact-gallery.json';
 
 const miOrder = ['Dashboard','My Prescriptions','Drug Price Check','Claims History','Vaccine Module','Open Enrollment','Mobile Navigation'];
-const miFeatures = miOrder.filter((k) => miData[k]).map((k) => ({ name: k, ...miData[k] }));
+const miFeatures = miOrder.filter((k) => miGallery[k]).map((k) => ({ name: k, ...miGallery[k] }));
 const miShowcase = [
-  { src: "/images/medimpact/dashboard/desktop/desktop-hd.png", title: "Dashboard", desc: "The dashboard shows to-do items, savings, and prescription status when a member logs in.", comment: "The most common next actions are placed on the first screen rather than behind navigation." },
-  { src: "/images/medimpact/dashboard/desktop/dashboard-tab-to-do-next.png", title: "To Do Next", desc: "The To Do Next area lists tasks a member should handle, such as verifying an email, checking benefits, or setting up a refill.", comment: "Outstanding tasks are grouped in one place instead of scattered across the portal." },
-  { src: "/images/medimpact/my-prescriptions/desktop/1-1-1-my-prescriptions.png", title: "My Prescriptions", desc: "Active prescriptions are listed with drug name, last fill date, pharmacy, and prescriber, along with refill and auto-refill status.", comment: "Refill status is shown inline so members do not need to open each prescription." },
-  { src: "/images/medimpact/drug-price-check/desktop/frame-299.png", title: "Drug Price Check: Best Local Price", desc: "The Best Local Price tab lists nearby pharmacies and their price for the drug, with the lowest local price highlighted and shown on a map.", comment: "The three pricing views — Best Local Price, Mail Order Price, and Savings Calculator — sit under one set of tabs." },
-  { src: "/images/medimpact/drug-price-check/desktop/mail-order-price.png", title: "Drug Price Check: Mail Order Price", desc: "The Mail Order Price tab shows the cost of filling the same drug through mail order.", comment: "Mail order uses the same layout as local pricing, so the two are easy to compare." },
-  { src: "/images/medimpact/drug-price-check/desktop/savings-calculator.png", title: "Drug Price Check: Savings Calculator", desc: "The Savings Calculator tab estimates how much a member can save by adjusting the drug details or pharmacy.", comment: "Members can move between the three pricing views without leaving the page." },
-  { src: "/images/medimpact/claims-history/desktop/claims-history-keyword-pills.png", title: "Claims History", desc: "Claims are listed and can be narrowed with filters, shown as removable keyword pills above the results.", comment: "Members can see and adjust exactly which filters are active." },
-  { src: "/images/medimpact/vaccine-module/desktop/13.png", title: "Vaccine Module", desc: "The vaccine module lists recommended vaccines with eligibility and details, and lets members schedule one.", comment: "Clinical detail is written in plain language, with the option to read more." },
-  { src: "/images/medimpact/open-enrollment/desktop/benefit-highlights.png", title: "Open Enrollment", desc: "Benefit highlights summarize what a plan covers during open enrollment.", comment: "The summary leads, with full detail available below it." },
-  { src: "/images/medimpact/open-enrollment/desktop/benefit-highlights-comparison.png", title: "Plan Comparison", desc: "Plans are compared side by side across benefits and cost so members can see the differences in one view.", comment: "Plans are shown next to each other rather than one at a time." },
+  { src: "/images/medimpact/dashboard/desktop/desktop-hd.png", w: 2880, h: 3852, title: "Dashboard", desc: "The dashboard shows to-do items, savings, and prescription status when a member logs in.", comment: "The most common next actions are placed on the first screen rather than behind navigation.",
+    leftCards: [ { h: "Prescriptions first", p: "Prescriptions lead — status and refills, or a prompt to find your drugs if none are on file.", top: 19 }, { h: "Savings up front", p: "Savings Opportunities suggests a generic, a similar drug, or an alternate dosage to lower cost.", top: 66 } ],
+    rightCards: [ { h: "Notifications and cart", p: "Alerts and the medication cart stay one tap away in the top bar.", top: 4 }, { h: "Next Steps", p: "A to-do panel: verify email, add dependants, check benefits, set up the medicine chest.", top: 30 } ] },
+  { src: "/images/medimpact/dashboard/desktop/dashboard-tab-to-do-next.png", w: 2880, h: 3852, title: "To Do Next", desc: "The To Do Next area lists tasks a member should handle, such as verifying an email, checking benefits, or setting up a refill.", comment: "Outstanding tasks are grouped in one place instead of scattered across the portal.",
+    leftCards: [ { h: "Refill from the dashboard", p: "Prescription Info shows suggested refill dates and an Add to Cart button.", top: 19 }, { h: "Manage dependants", p: "View a dependant's profile or switch into their account from the dashboard.", top: 51 } ],
+    rightCards: [ { h: "Next Steps", p: "The to-do list leads with the tasks a member should handle next.", top: 21 }, { h: "Switch users", p: "Parent accounts and dependants are listed so a member can switch who they manage.", top: 52 } ] },
+  { src: "/images/medimpact/my-prescriptions/desktop/1-1-1-my-prescriptions.png", w: 2880, h: 4712, title: "My Prescriptions", desc: "Active prescriptions are listed with drug name, last fill date, pharmacy, and prescriber, along with refill and auto-refill status.", comment: "Refill status is shown inline so members do not need to open each prescription.",
+    leftCards: [ { h: "Filters as pills", p: "Active filters show as removable pills under the filter row.", top: 20 }, { h: "Refill status inline", p: "Each row shows refills left, recommended refill date, pharmacy, and an auto-refill toggle.", top: 41 } ],
+    rightCards: [ { h: "Refill or request", p: "Refill an existing prescription or request a new one from the top of the page.", top: 13 }, { h: "Act from the list", p: "Add to Cart and Get Pricing sit on every row, no drill-down needed.", top: 41 } ] },
+  { src: "/images/medimpact/drug-price-check/desktop/frame-299.png", w: 2920, h: 4190, title: "Drug Price Check: Best Local Price", desc: "The Best Local Price tab lists nearby pharmacies and their price for the drug, with the lowest local price highlighted and shown on a map.", comment: "The three pricing views — Best Local Price, Mail Order Price, and Savings Calculator — sit under one set of tabs.",
+    leftCards: [ { h: "Three pricing tabs", p: "Best Local Price, Mail Order Price, and Savings Calculator sit under one set of tabs.", top: 21 }, { h: "Lowest local price", p: "Nearby pharmacies are listed with their price, the best local price flagged.", top: 47 } ],
+    rightCards: [ { h: "Filter the results", p: "Sort by distance and limit to preferred pharmacies only.", top: 28 }, { h: "Prices on the map", p: "The same pharmacies and prices are pinned on a map beside the list.", top: 52 } ] },
+  { src: "/images/medimpact/drug-price-check/desktop/mail-order-price.png", w: 2880, h: 2968, title: "Drug Price Check: Mail Order Price", desc: "The Mail Order Price tab shows the cost of filling the same drug through mail order.", comment: "Mail order uses the same layout as local pricing, so the two are easy to compare.",
+    leftCards: [ { h: "Same tabs, mail order", p: "The mail-order view uses the same tabs and layout as local pricing.", top: 29 }, { h: "One mail-order price", p: "The best mail-order price and plan share are shown in the same format.", top: 52 } ],
+    rightCards: [ { h: "Preferred pharmacies", p: "Limit results to preferred pharmacies only.", top: 36 }, { h: "Order online", p: "Order the mail-order fill directly from the result.", top: 52 } ] },
+  { src: "/images/medimpact/drug-price-check/desktop/savings-calculator.png", w: 2920, h: 4666, title: "Drug Price Check: Savings Calculator", desc: "The Savings Calculator tab estimates how much a member can save by adjusting the drug details or pharmacy.", comment: "Members can move between the three pricing views without leaving the page.",
+    leftCards: [ { h: "Brand vs. generic", p: "Switching between a brand and its generic is compared side by side.", top: 40 }, { h: "Similar and alternate drugs", p: "Similar drugs and alternate dosages are listed with their cost.", top: 64 } ],
+    rightCards: [ { h: "Savings per option", p: "Each option shows the percentage and dollar savings versus the current drug.", top: 44 }, { h: "Get pricing", p: "Get Pricing on any option carries it into the price check.", top: 64 } ] },
+  { src: "/images/medimpact/claims-history/desktop/claims-history-keyword-pills.png", w: 2880, h: 3954, title: "Claims History", desc: "Claims are listed and can be narrowed with filters, shown as removable keyword pills above the results.", comment: "Members can see and adjust exactly which filters are active.",
+    leftCards: [ { h: "Filters as pills", p: "Active filters show as removable keyword pills above the results.", top: 21 }, { h: "Every transaction", p: "Each claim lists the drug, fill date, and pharmacy.", top: 48 } ],
+    rightCards: [ { h: "Print, share, download", p: "Claims can be printed, shared, or downloaded from the top of the page.", top: 15 }, { h: "Member vs. plan share", p: "The right column shows what the member paid versus the plan.", top: 48 } ] },
+  { src: "/images/medimpact/vaccine-module/desktop/13.png", w: 2880, h: 3910, title: "Vaccine Module", desc: "The vaccine module lists recommended vaccines with eligibility and details, and lets members schedule one.", comment: "Clinical detail is written in plain language, with the option to read more.",
+    leftCards: [ { h: "Recommended for you", p: "Vaccines are grouped into Recommended, For Travelers, and Past Recommendations.", top: 30 }, { h: "Why you need it", p: "Each vaccine explains why it is recommended, with a short video and read-more.", top: 46 } ],
+    rightCards: [ { h: "CDC info", p: "A link to the CDC's page sits on every vaccine.", top: 38 }, { h: "Act on it", p: "Show Me More, I Don't Need It, or Mark as Taken on each card.", top: 72 } ] },
+  { src: "/images/medimpact/open-enrollment/desktop/benefit-highlights.png", w: 2880, h: 5796, title: "Open Enrollment", desc: "Benefit highlights summarize what a plan covers during open enrollment.", comment: "The summary leads, with full detail available below it.",
+    leftCards: [ { h: "Deductibles", p: "Individual and family deductibles are shown in plain dollars.", top: 20 }, { h: "Copay by tier", p: "Retail, mail-order, and specialty copays are broken out by drug tier.", top: 40 } ],
+    rightCards: [ { h: "Add a plan to compare", p: "Start a side-by-side comparison from the top of the page.", top: 6 }, { h: "Out-of-pocket max", p: "The prescription-plus-medical out-of-pocket maximum sits beside the deductible.", top: 20 } ] },
+  { src: "/images/medimpact/open-enrollment/desktop/benefit-highlights-comparison.png", w: 2880, h: 9910, title: "Plan Comparison", desc: "Plans are compared side by side across benefits and cost so members can see the differences in one view.", comment: "Plans are shown next to each other rather than one at a time.",
+    leftCards: [ { h: "Up to three plans", p: "A member can line up as many as three plans at once.", top: 5 }, { h: "Deductibles compared", p: "Deductibles and out-of-pocket maximums are compared across plans.", top: 13 } ],
+    rightCards: [ { h: "Remove a plan", p: "Any plan can be removed from the comparison in one tap.", top: 5 }, { h: "Copays side by side", p: "Retail, mail-order, and specialty copays line up column by column.", top: 32 } ] },
 ];
 const miShowcaseSrcs = new Set(miShowcase.map((s) => s.src));
+const miClaimsDropdowns = [
+  { src: "/images/medimpact/claims-history/desktop/filter-drug-name.png", alt: "Claims filter — drug name", w: 560, h: 868 },
+  { src: "/images/medimpact/claims-history/desktop/filter-pharmacies.png", alt: "Claims filter — pharmacies", w: 520, h: 868 },
+  { src: "/images/medimpact/claims-history/desktop/filter-physician.png", alt: "Claims filter — physician", w: 526, h: 868 },
+  { src: "/images/medimpact/claims-history/desktop/filter-price.png", alt: "Claims filter — price", w: 480, h: 868 },
+  { src: "/images/medimpact/claims-history/desktop/sort-by.png", alt: "Claims sort dropdown", w: 480, h: 920 },
+  { src: "/images/medimpact/claims-history/desktop/date-picker.png", alt: "Claims date range picker", w: 826, h: 694 },
+  { src: "/images/medimpact/claims-history/desktop/share-popup.png", alt: "Claims share popup", w: 1413, h: 838 },
+  { src: "/images/medimpact/claims-history/desktop/share-popup-expanded.png", alt: "Claims share popup expanded", w: 1414, h: 1316 },
+  { src: "/images/medimpact/claims-history/desktop/share-access.png", alt: "Claims share access options", w: 456, h: 304 },
+];
 const miRest = miFeatures.map((f) => ({
   name: f.name,
   desktop: f.desktop.filter((img) => !miShowcaseSrcs.has(img.src)),
   mobile: f.mobile.filter((img) => !miShowcaseSrcs.has(img.src)),
 }));
 const miComponents = [
-  { src: "/images/medimpact/dashboard/desktop/my-savings.png", title: "My Savings", desc: "The My Savings widget surfaces the cheapest pharmacy for a member's drug, the least expensive version of it, and a lower-cost alternate drug with the potential savings.", bullets: ["Points to the least expensive pharmacy and drug", "Suggests a lower-cost alternate drug with the percentage saved", "Shows the co-pay for each option"] },
-  { src: "/images/medimpact/drug-price-check/desktop/map-expanded.png", title: "Pharmacy Price Map", desc: "The pharmacy map plots nearby pharmacies with their price for the selected drug, so members can compare cost and location at the same time. It can be expanded to full screen.", bullets: ["Each pharmacy pin shows its price for the drug", "Sortable by distance, with a location search", "Expands to full screen and stays in sync with the price list"] },
-  { src: "/images/medimpact/claims-history/desktop/share-popup.png", title: "Share Claims History", desc: "Members can share their claims history by email invite or by link, and control what a recipient is able to do with it.", bullets: ["Invite someone by email, or copy a shareable link", "Set link access, such as view-only", "Used when a member needs to send records to a caregiver or provider"] },
-  { src: "/images/medimpact/vaccine-module/desktop/next-steps-popup.png", title: "How To Get This Vaccine", desc: "For a recommended vaccine, this module explains how to get it, shows a nearby pharmacy with hours and contact details, and provides next-step actions.", bullets: ["Covers walk-in options and how to schedule", "Shows the nearest pharmacy with address, hours, and phone", "Actions include get directions, call a ride, and schedule an appointment"] },
-  { src: "/images/medimpact/open-enrollment/desktop/popup-compare.png", title: "Plan Comparison Selector", desc: "During open enrollment, members select up to three plans to compare. Each plan card summarizes its deductible and pharmacy-benefit rules in plain language before it is added to the comparison.", bullets: ["Members can compare up to three plans at a time", "Each plan is summarized in plain language", "Selecting a plan adds it to the side-by-side comparison"] },
+  { src: "/images/medimpact/dashboard/desktop/my-savings.png", halfW: 1156, plain: true, title: "My Savings", desc: "The My Savings widget surfaces the cheapest pharmacy for a member's drug, the least expensive version of it, and a lower-cost alternate drug with the potential savings.", bullets: ["Points to the least expensive pharmacy and drug", "Suggests a lower-cost alternate drug with the percentage saved", "Shows the co-pay for each option"] },
+  { src: "/images/medimpact/claims-history/desktop/share-popup.png", halfW: 706, title: "Share Claims History", desc: "Members can share their claims history by email invite or by link, and control what a recipient is able to do with it.", bullets: ["Invite someone by email, or copy a shareable link", "Set link access, such as view-only", "Used when a member needs to send records to a caregiver or provider"] },
+  { src: "/images/medimpact/vaccine-module/desktop/next-steps-popup.png", halfW: 635, title: "How To Get This Vaccine", desc: "For a recommended vaccine, this module explains how to get it, shows a nearby pharmacy with hours and contact details, and provides next-step actions.", bullets: ["Covers walk-in options and how to schedule", "Shows the nearest pharmacy with address, hours, and phone", "Actions include get directions, call a ride, and schedule an appointment"] },
+  { src: "/images/medimpact/open-enrollment/desktop/popup-compare.png", halfW: 1229, title: "Plan Comparison Selector", desc: "During open enrollment, members select up to three plans to compare. Each plan card summarizes its deductible and pharmacy-benefit rules in plain language before it is added to the comparison.", bullets: ["Members can compare up to three plans at a time", "Each plan is summarized in plain language", "Selecting a plan adds it to the side-by-side comparison"] },
+  { src: "/images/medimpact/dashboard/desktop/notifications-menu.png", plain: true, halfW: 476, title: "Notifications", desc: "Notifications are grouped by status, each pairing an icon, a short message, and a timestamp, with a link to the full list.", bullets: ["New notifications are grouped at the top", "Each item has an icon, message, and timestamp", "Links out to the full notifications list"] },
+  { src: "/images/medimpact/dashboard/desktop/cart-menu.png", plain: true, halfW: 476, title: "Shopping Cart", desc: "The cart lists the medications a member has added, with quantity, day supply, and estimated copay, and lets them remove an item or open the full cart.", bullets: ["Shows quantity, day supply, and estimated copay per item", "Items can be removed inline", "Links to the full cart"] },
 ];
 const miSurvey = [
   { group: "Overall", items: [
@@ -71,7 +203,7 @@ const miSurvey = [
     imageAlt="MedImpact member portal, desktop and mobile screens"
   />
 
-  <SectionAbout
+<SectionAbout
     label="ABOUT THE PROJECT"
     title="A member portal for pharmacy benefits"
     sidebar={[
@@ -89,7 +221,7 @@ const miSurvey = [
 
   <hr class="cs-section-divider">
 
-  <SectionContent title="The Problem">
+<SectionContent title="The Problem">
     <div class="cs-body-text">
       <p>A pharmacy plan involves cost, health information, and plan rules at the same time, which makes it easy for members to lose track of what matters to them. The design had to take that complexity and present it in a way that answered the member's immediate question.</p>
       <p>Three problems were central to the work.</p>
@@ -149,10 +281,260 @@ const miSurvey = [
 
   <hr class="cs-section-divider">
 
+  <SectionContent title="My Design Process">
+    <div class="cs-body-text">
+      <p>The same process runs through every project I take on. Learn, define, design, test, refine, then hand off. The loop from refine back to design is the part that matters most: nothing here is a straight line, and the workflow builder took several passes before the canvas told users what they needed to know.</p>
+    </div>
+
+    <figure class="cs-process-figure">
+      <img src="/images/design-process.svg" alt="Design process: Learn, Define, Design, Test, Refine, then Dev Handoff, with an iteration loop from Refine back to Design. Each step lists its tasks below it." width="1280" height="453" loading="lazy">
+    </figure>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
   <SectionContent title="How I Worked">
     <div class="cs-body-text">
       <p>I worked as a Senior UX Designer through Photon, on a remote contract. I met with the product team every day and worked with product managers, researchers, visual designers, and developers throughout. Part of the role was reviewing work from the development team and other designers.</p>
       <p>Each area followed the same process: define the task, design it for desktop and mobile, review it with the team, and revise. Much of the work involved keeping plan logic &mdash; eligibility, pricing tiers, and coverage rules &mdash; accurate in the background while keeping the interface straightforward.</p>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <SectionContent title="Market Research">
+    <h3 class="cs-subtitle">Comparing the Competition</h3>
+    <div class="cs-body-text">
+      <p>MedImpact's Drug Price Check competes on the job members care about most: finding out what a prescription will actually cost. Two very different kinds of tools were already doing part of that job, and neither did all of it.</p>
+      <p>We looked at both fronts:</p>
+      <ul>
+        <li>GoodRx and SingleCare, the consumer prescription-discount leaders</li>
+        <li>Blink Health and RxSaver, other discount-card tools</li>
+        <li>CVS Caremark, Express Scripts, and OptumRx, the &ldquo;Big Three&rdquo; PBM member portals</li>
+      </ul>
+    </div>
+
+    <div class="cs-subsection">
+      <h3 class="cs-subsection-title"><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></svg>What We Were Looking For</h3>
+      <div class="cs-problems-grid cs-problems-grid--four">
+        <div class="cs-problem-card">
+          <h3><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /><path d="M12 18V6" /></svg>Real Cost</h3>
+          <p>Does it show the member's actual price under their plan, not just a cash coupon?</p>
+        </div>
+        <div class="cs-problem-card">
+          <h3><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg>Price Before Filling</h3>
+          <p>Can a member see the cost before they commit to a prescription?</p>
+        </div>
+        <div class="cs-problem-card">
+          <h3><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>Across Pharmacies</h3>
+          <p>Can they compare the price across nearby pharmacies and mail order?</p>
+        </div>
+        <div class="cs-problem-card">
+          <h3><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></svg>Connected to Benefits</h3>
+          <p>Is pricing tied to the member's claims, refills, and coverage?</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-subsection">
+      <h3 class="cs-subsection-title"><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>Where They Fell Short</h3>
+                  <div class="cs-problems-grid">
+        <div class="cs-problem-card">
+          <h3><span class="cs-logos"><span class="cs-brand"><svg class="cs-logo" role="img" viewBox="0 0 705.1 366.5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMid meet" aria-label="GoodRx"><rect x="-.0002136" width="705.1" height="366.5" fill="#f9e54f" fill-opacity=".9912"/>
+ <g transform="translate(110.8 119.2)">
+  <g>
+   <path d="m77.33 36.17c-1.71-7.33-5.77-12.47-12.47-15.28a31.53 31.53 0 0 0-12.32-2.34 26.46 26.46 0 0 0-21.2 9.83c-5.61 6.54-8.26 16.21-8.26 29.31s3 22.45 9 27.91a29.45 29.45 0 0 0 20.42 8.26c7.49 0 13.72-2.18 18.4-6.39a27.85 27.85 0 0 0 8.89-17h-24.79v-18.08h44.63v57.37h-14.81l-2.19-13.4c-4.36 5-8.11 8.57-11.69 10.75-5.92 3.59-13.1 5.46-21.83 5.46-14.19 0-25.72-4.83-34.92-14.66-9.51-9.82-14.19-23.39-14.19-40.53 0-17.31 4.83-31.18 14.34-41.63s22.14-15.75 37.89-15.75q20.34 0 32.77 10.29a38.34 38.34 0 0 1 14.16 25.88z"/>
+   <path d="m181.6 100.1c-6.7 8.27-16.83 12.32-30.4 12.32s-23.69-4-30.4-12.32-10-18.24-10-29.78c0-11.38 3.27-21.36 10-29.62 6.7-8.42 16.84-12.47 30.4-12.47s23.7 4.2 30.4 12.47c6.71 8.42 10 18.24 10 29.62-0.02 11.54-3.45 21.52-10 29.78zm-16.63-11.38c3.28-4.36 4.83-10.44 4.83-18.39s-1.56-14-4.83-18.24-7.95-6.4-13.87-6.4c-6.08 0-10.76 2.19-14 6.4s-4.83 10.44-4.83 18.24c0 8 1.56 14 4.83 18.39s8 6.39 14 6.39 10.7-2.18 13.87-6.39z"/>
+   <path d="m269.9 100.1c-6.71 8.27-16.84 12.32-30.4 12.32s-23.7-4-30.4-12.32-10-18.24-10-29.78c0-11.38 3.27-21.36 10-29.62 6.7-8.42 16.83-12.47 30.4-12.47s23.69 4.2 30.4 12.47c6.7 8.42 10 18.24 10 29.62-0.02 11.54-3.3 21.52-10 29.78zm-16.53-11.38c3.27-4.36 4.83-10.44 4.83-18.39s-1.56-14-4.83-18.24-7.95-6.4-13.88-6.4c-6.08 0-10.75 2.19-14 6.4s-4.83 10.44-4.83 18.24c0 8 1.56 14 4.83 18.39s7.95 6.39 14 6.39c5.93 0 10.6-2.18 13.88-6.39z"/>
+   <path d="m334.3 32a25.55 25.55 0 0 1 9.05 8.73v-37.73h21.05v106.8h-20.12v-10.95a30.49 30.49 0 0 1-10.13 10.29c-3.75 2.18-8.42 3.12-14 3.12q-13.8 0-23.39-11.23c-6.4-7.48-9.51-17-9.51-28.84q0-20.36 9.35-31.81c6.24-7.79 14.5-11.69 25-11.69a25.1 25.1 0 0 1 12.7 3.31zm5 56.28c3.12-4.36 4.52-10 4.52-16.84 0-9.66-2.5-16.52-7.33-20.73a15.9 15.9 0 0 0-10.45-3.78c-6.08 0-10.44 2.34-13.25 6.86s-4.21 10.29-4.21 17c0 7.33 1.41 13.1 4.37 17.46q4.21 6.54 13.09 6.55c5.77 0 10.29-2.19 13.26-6.55z"/>
+   <path d="m390.9 62.05v48.65l-10.14-0.16v-107h41.94q17.77 0 27.13 6.55t9.36 21.51c0 6.71-1.41 12.16-4 16.06s-7.23 7.29-13.31 10.14a16.89 16.89 0 0 1 7.49 4.83 23.15 23.15 0 0 1 4.05 7.17c0.93 2.65 24 49.58 24.63 51.14a16.86 16.86 0 0 0 3.12 4.52 11 11 0 0 0 2.5 1.56v0.93l-11.23 0.16a19.46 19.46 0 0 1-4.83-7.48c-1.25-3.44-25.1-50.67-26.35-52.39a12.67 12.67 0 0 0-4.83-3.89 16.83 16.83 0 0 0-6.39-1.72 54 54 0 0 0-7.17-0.47h-32zm31.49-8.73a43.63 43.63 0 0 0 10.45-1.25 23.25 23.25 0 0 0 8.42-3.74 19 19 0 0 0 5.61-6.55 20.6 20.6 0 0 0 2-9.66 20.73 20.73 0 0 0-2.19-9.83 15.53 15.53 0 0 0-5.77-6.08 24 24 0 0 0-8.26-3.12 49.85 49.85 0 0 0-9.67-0.93h-32.08v41.16z"/>
+   <path d="m483.3 64.23a14.53 14.53 0 0 0-4.83 3.9c-1.4 1.71-32 49.11-33.83 52.38-1.56 2.81-3.12 5.77-4.83 7.49l-11.23-0.16v-0.94a15 15 0 0 0 2.5-1.56 20.91 20.91 0 0 0 3.12-4.52c0.62-1.56 30.55-48.8 32.11-51.13 2-3 2-3 3.74-5.15 1.72-2 10-1.71 13.26-1.71z"/>
+  </g>
+ </g></svg></span><span class="cs-brand"><svg class="cs-logo" role="img" viewBox="0 0 166 28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMid meet" aria-label="SingleCare"><title>SingleCare</title>
+    <g id="sc_Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="sc_Nav_OnHover" transform="translate(-72.000000, -25.000000)" fill-rule="nonzero">
+            <g id="sc_SingleCare-Logo-White" transform="translate(72.000000, 25.000000)">
+                <g id="sc_Logotype" transform="translate(29.969730, 1.344213)" fill="#152238">
+                    <path d="M16.2244645,6.07782398 L16.2244645,19.8811642 L19.4115315,19.8811642 L19.4115315,6.07782398 L16.2244645,6.07782398 Z M35.5113714,11.9989605 C35.5113714,8.1378517 33.2764364,5.8370201 29.6756156,5.8370201 C27.8128929,5.8370201 26.2825025,6.61880804 25.454995,8.22031878 L25.454995,6.07782398 L22.2679279,6.07782398 L22.2679279,19.8811642 L25.454995,19.8811642 L25.454995,12.4508801 C25.454995,10.2325156 26.9504905,8.54853777 29.0142743,8.54853777 C31.0780581,8.54853777 32.3243043,10.1104643 32.3243043,12.2875953 L32.3243043,19.8877616 L35.5113714,19.8877616 L35.5113714,11.9989605 L35.5113714,11.9989605 Z M49.1702302,6.07782398 L49.1702302,8.17248787 L49.0871471,8.17248787 C48.3842643,6.73426195 46.5630831,5.83042273 44.4511111,5.83042273 C40.5196196,5.8370201 37.4937337,9.124158 37.4937337,12.9852668 C37.4937337,17.2999446 40.4315516,19.9289951 44.0739139,19.9289951 C46.3088488,19.9289951 48.1715716,19.1043243 49.0821622,17.4632294 L49.1652452,17.4632294 L49.1652452,18.4528344 C49.1652452,19.7261261 48.915996,20.6299653 48.4191592,21.2880527 C47.6331932,22.3551767 46.3088488,23.013264 44.2816216,23.013264 C42.4537938,23.013264 40.8453053,22.5184615 39.6871271,21.6937907 L38.1583984,23.9962717 C39.6904505,25.2695634 42.0915516,25.8105475 44.2849449,25.8105475 C47.0981381,25.8105475 49.5407808,24.7434234 50.8651251,23.1006791 C51.8172573,21.9082051 52.3606206,20.430395 52.3606206,18.0883299 L52.3606206,6.07782398 L49.1702302,6.07782398 Z M49.1702302,12.8566182 C49.1702302,15.2382675 47.4321321,17.1696466 44.8648649,17.1696466 C42.3408008,17.1696466 40.7273273,15.1558004 40.7273273,12.8566182 C40.7273273,10.4733195 42.4238839,8.5419404 44.8648649,8.5419404 C47.4321321,8.5419404 49.1702302,10.5211504 49.1702302,12.8566182 Z M58.3990991,0.291933472 L55.212032,0.291933472 L55.212032,19.8877616 L58.3990991,19.8877616 L58.3990991,0.291933472 Z M103.968509,6.07782398 L103.968509,8.17248787 L103.885425,8.17248787 C103.180881,6.73426195 101.3597,5.83042273 99.2493894,5.83042273 C95.3195596,5.8370201 92.296997,9.04663895 92.296997,13.0677339 C92.296997,17.4632294 95.2763564,20.1335135 99.0018018,20.1335135 C101.278278,20.1335135 103.016376,19.1439085 103.885425,17.5456965 L103.968509,17.5456965 L103.968509,19.8877616 L107.153914,19.8877616 L107.153914,6.07782398 L103.968509,6.07782398 Z M118.748989,6.24275814 C118.138763,5.96532736 117.474338,5.82509238 116.803183,5.83207207 C115.354214,5.83207207 113.863704,6.69467775 113.202362,8.00920305 L113.202362,6.07782398 L110.01031,6.07782398 L110.01031,19.8811642 L113.197377,19.8811642 L113.197377,12.5333472 C113.197377,10.0692308 114.769309,8.79593902 116.467528,8.79593902 C116.976992,8.78612219 117.483928,8.8694261 117.963023,9.04169092 L118.748989,6.24275814 Z M16.0184184,2.7560499 C16.0184184,3.74565489 16.8043844,4.48126126 17.8462462,4.48126126 C18.8061713,4.48126126 19.5843443,3.70885782 19.5843443,2.7560499 C19.5843443,1.80324197 18.8061713,1.03083853 17.8462462,1.03083853 C16.8492492,1.03083853 16.0184184,1.76974359 16.0184184,2.7560499 Z M103.968509,12.9819681 C103.968509,15.4065003 102.228749,17.4186972 99.6631431,17.4186972 C97.1390791,17.4186972 95.5239439,15.3240333 95.5239439,12.9819681 C95.5239439,10.5590852 97.2221622,8.54523909 99.6631431,8.54523909 C102.228749,8.54523909 103.968509,10.6003188 103.968509,12.9819681 L103.968509,12.9819681 Z M90.3927327,16.1454054 C89.1099299,16.925544 87.3302903,17.2554123 85.8397798,17.2554123 C82.4865465,17.2554123 79.341021,14.946334 79.341021,9.983465 C79.341021,5.87495495 82.322042,3.00015246 86.211992,3.00015246 C87.7074875,3.00015246 89.0683884,3.28713791 90.1434835,3.90399168 L91.9713113,1.520693 C90.1916717,0.32986833 88.0398198,0 86.094014,0 C80.465966,0 75.8714715,4.47796258 75.8714715,10.0246985 C75.8714715,12.8599168 76.5361361,15.1590991 78.0316316,16.925544 C79.6932933,18.904754 82.2123724,20.1714484 85.440981,20.1714484 C87.881962,20.1714484 90.0354755,19.6766459 91.7735736,18.446237 L90.4076877,16.1371587 L90.3927327,16.1454054 Z M13.6588589,1.52399168 C12.3295295,0.62015246 10.2657457,0.0032986833 7.90618619,0.0032986833 C4.18074074,0.0032986833 0.704544545,2.2216632 0.704544545,5.8370201 C0.704544545,9.6585447 3.6839039,10.7256687 6.49875876,11.4662231 C9.3966967,12.2463617 10.6794995,12.6982814 10.6794995,14.4234927 C10.6794995,16.1487041 9.23053053,17.3395288 6.58184184,17.3395288 C4.92018018,17.3395288 2.98102102,16.8067914 1.73975976,15.8204851 L0,18.243368 C1.32932933,19.435842 3.56094094,20.1747471 6.37413413,20.1747471 C10.8024625,20.1747471 13.9895295,17.7106306 13.9895295,14.0128067 C13.9895295,10.0279972 11.2162162,9.32867637 7.57551552,8.3440194 C5.42366366,7.72716563 4.01623624,7.27524602 4.01623624,5.46756757 C4.01623624,3.61865558 6.04346346,2.83851698 7.57551552,2.83851698 C9.60274274,2.83851698 10.8024625,3.24920305 12.1683483,3.90729037 L13.6638438,1.52399168 L13.6588589,1.52399168 Z M131.945906,13.7654054 C132.070531,13.3547193 132.070531,12.7395149 132.070531,12.3700624 C132.070531,8.46607069 129.214134,5.8370201 125.448809,5.8370201 C121.30961,5.8370201 118.288709,9.16539155 118.288709,13.1914345 C118.288709,17.58693 121.184985,20.1335135 125.19956,20.1335135 C127.642202,20.1335135 129.918679,19.4737769 131.326106,18.0388496 L129.715956,16.1487041 C128.805365,16.8876091 127.191892,17.4219958 125.618298,17.4219958 C123.218859,17.4219958 121.603724,16.0250035 121.439219,13.7654054 L131.945906,13.7654054 Z M121.598739,11.3425225 C122.012492,9.61731116 123.461461,8.46607069 125.324184,8.46607069 C127.392953,8.46607069 128.841922,9.57607762 129.008088,11.3425225 L121.598739,11.3425225 Z M74.0021021,13.7654054 C74.1267267,13.3547193 74.1267267,12.7395149 74.1267267,12.3700624 C74.1267267,8.46607069 71.271992,5.8370201 67.505005,5.8370201 C63.3658058,5.8370201 60.3449049,9.16539155 60.3449049,13.1914345 C60.3449049,17.58693 63.2411812,20.1335135 67.2557558,20.1335135 C69.6983984,20.1335135 71.9748749,19.4737769 73.3823023,18.0388496 L71.7671672,16.1487041 C70.8565766,16.8876091 69.2431031,17.4219958 67.6711712,17.4219958 C65.2700701,17.4219958 63.6549349,16.0250035 63.4904304,13.7654054 L74.0021021,13.7654054 Z M63.6549349,11.3425225 C64.0703504,9.61731116 65.5176577,8.46607069 67.3803804,8.46607069 C69.4508108,8.46607069 70.8981181,9.57607762 71.0642843,11.3425225 L63.6549349,11.3425225 Z" id="sc_Shape"></path>
+                </g>
+                <g id="sc_Symbol">
+                    <path d="M17.3843043,11.9346362 C14.4348448,11.9391772 12.0449753,14.3113275 12.0404004,17.2389189 L12.0404004,22.5432017 C14.9891031,22.5368518 17.377907,20.1657591 17.3843043,17.2389189 C20.333007,17.232569 22.7218109,14.8614764 22.7282082,11.9346362 L17.3843043,11.9346362 Z M0.12960961,11.9346362 C0.135096286,14.8618519 2.52443253,17.2334729 5.47351351,17.2389189 C5.47900019,20.1661346 7.86833643,22.5377557 10.8174174,22.5432017 L10.8174174,17.2389189 C10.8119307,14.3117032 8.4225945,11.9400822 5.47351351,11.9346362 L0.12960961,11.9346362 Z M22.7282082,10.7207207 C22.7227215,7.79350503 20.3333853,5.42188397 17.3843043,5.41643798 C17.3788176,2.48922228 14.9894814,0.117601229 12.0404004,0.112155232 L12.0404004,5.41643798 C12.0449753,8.34402943 14.4348448,10.7161797 17.3843043,10.7207207 L22.7282082,10.7207207 Z M5.47351351,10.7207207 C8.4225945,10.7152747 10.8119307,8.34365367 10.8174174,5.41643798 L10.8174174,0.112155232 C7.86795787,0.116696254 5.47808846,2.48884652 5.47351351,5.41643798 C2.52405396,5.420979 0.134184551,7.79312927 0.12960961,10.7207207 L5.47351351,10.7207207 Z" id="sc_Shape" fill="#21CFFF"></path>
+                    <path d="M164.188789,5.77269577 C165.170961,5.78090352 165.960732,6.57737258 165.953396,7.5522702 C165.946061,8.52716783 165.144394,9.31183953 164.162207,9.30548547 C163.180021,9.2991314 162.388726,8.50415433 162.394166,7.52924463 C162.394166,7.05906055 162.584012,6.60848489 162.921299,6.27834758 C163.258587,5.94821027 163.71514,5.76607346 164.188789,5.77269577 L164.188789,5.77269577 Z M164.188789,9.0449896 C164.587213,9.04306303 164.967757,8.88057138 165.243153,8.59477793 C165.518549,8.30898448 165.665169,7.92440922 165.649389,7.52924463 C165.649389,6.72582533 164.993224,6.07452529 164.183804,6.07452529 C163.374383,6.07452529 162.718218,6.72582533 162.718218,7.52924463 C162.700496,7.92709086 162.84768,8.31478678 163.125511,8.6020871 C163.403342,8.88938742 163.787581,9.05122835 164.188789,9.04994529 L164.188789,9.0449896 Z M163.494214,6.50335412 L164.298458,6.50335412 C164.796957,6.50335412 165.026266,6.69797644 165.026266,7.09381843 C165.026266,7.48966043 164.788649,7.6232571 164.477918,7.65624394 L165.072793,8.57657658 L164.725506,8.57657658 L164.160541,7.68923077 L163.816577,7.68923077 L163.816577,8.57657658 L163.494214,8.57657658 L163.494214,6.50335412 Z M163.816577,7.42203742 L164.148909,7.42203742 C164.434715,7.42203742 164.695596,7.40719335 164.695596,7.08227304 C164.695596,6.80848233 164.457978,6.76559945 164.238639,6.76559945 L163.80993,6.76559945 L163.816577,7.42203742 Z" id="sc_Shape" fill="#152238"></path>
+                </g>
+            </g>
+        </g>
+    </g></svg></span></span></h3>
+          <p class="cs-card-sub">Consumer discount cards</p>
+          <ul>
+            <li>Show cash and coupon prices, not the member's plan-specific copay</li>
+            <li>Aren't tied to the member's actual coverage, claims, or refills</li>
+            <li>A separate errand from actually managing the prescription</li>
+          </ul>
+        </div>
+        <div class="cs-problem-card">
+          <h3><span class="cs-logos"><span class="cs-brand"><svg class="cs-logo" role="img" viewBox="0 0 100 28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMid meet" aria-label="RxSaver"><g fill-rule="nonzero" fill="none"><path fill="#602D6C" d="M33.3 11.55c.53.88.79 1.9.75 2.93a5.88 5.88 0 01-2.23 4.9c-.7.54-1.5.95-2.37 1.2-.9.26-1.83.4-2.77.39a9.16 9.16 0 01-3.57-.62 8.46 8.46 0 01-2.46-1.8.3.3 0 01.02-.43l2.05-2.82a.3.3 0 01.47.05 4.3 4.3 0 004.67 1.73c.36-.1.7-.25 1-.45.3-.2.53-.44.7-.74.18-.3.27-.65.26-1a1.73 1.73 0 00-.57-1.4c-.48-.4-1.02-.71-1.6-.93-.67-.26-1.4-.51-2.19-.74a9.58 9.58 0 01-2.28-1A5.7 5.7 0 0121.4 9.1a5.23 5.23 0 01-.73-2.92A5.55 5.55 0 0123 1.5c.72-.52 1.52-.9 2.38-1.13 1.88-.52 3.88-.48 5.75.11.92.25 1.76.73 2.46 1.38.12.12.13.31.02.43l-2.28 2.88a.3.3 0 01-.47-.04 2.89 2.89 0 00-1.32-1.05 4.84 4.84 0 00-2.9-.22c-.33.08-.63.21-.91.4-.26.17-.48.4-.64.67-.16.3-.24.64-.23.98-.03.5.18.96.56 1.26.5.37 1.04.66 1.62.86.66.25 1.4.5 2.19.73.8.24 1.57.58 2.28 1.02a5.8 5.8 0 011.79 1.77zm14.47-.09l.02 1.1v7.54a.3.3 0 01-.3.31h-2.95a.3.3 0 01-.3-.3v-1c-.4.47-.9.84-1.45 1.1-.8.36-1.66.54-2.53.53-.63 0-1.25-.08-1.84-.26a5.08 5.08 0 01-1.63-.78 3.82 3.82 0 01-1.61-3.2 4.3 4.3 0 01.41-1.97c.27-.52.65-.99 1.11-1.35.48-.37 1-.66 1.57-.86.6-.2 1.2-.36 1.82-.46.62-.1 1.24-.17 1.87-.2.63-.03 1.21-.04 1.76-.04h.51v-.05a1.83 1.83 0 00-.72-1.6 3.3 3.3 0 00-1.98-.55 4.76 4.76 0 00-3.27 1.28.3.3 0 01-.42 0l-1.72-1.73a.3.3 0 010-.43 6.68 6.68 0 012.67-1.7 9.7 9.7 0 015.55-.17c.6.18 1.17.47 1.67.85.44.34.8.76 1.05 1.24.23.43.4.9.52 1.38.1.43.16.88.19 1.32zm-5.6 3.13c-.53.03-1.04.11-1.54.25-.42.1-.82.3-1.16.55-.27.2-.42.53-.4.86-.01.22.04.43.15.6.12.19.27.34.45.45.2.13.4.22.63.28.25.05.5.08.75.08.83.08 1.65-.18 2.28-.71.5-.54.76-1.26.71-1.99v-.43h-.37c-.44 0-.95.02-1.5.05zm20.72-7.46a.31.31 0 00-.25-.13h-3.36a.31.31 0 00-.28.2l-3.26 8.5-3.23-8.5a.3.3 0 00-.29-.2h-3.57a.3.3 0 00-.3.31c0 .04 0 .08.02.12l5.34 13.13c.05.12.16.2.28.19h3.5a.3.3 0 00.28-.2l5.15-13.14a.3.3 0 00-.03-.28zm13.54 3.5c.32 1.03.48 2.09.46 3.16v.9a.3.3 0 01-.3.31h-9.63c.11.69.46 1.3.99 1.75.61.51 1.38.78 2.17.75.67.03 1.32-.13 1.9-.46.53-.32 1-.72 1.38-1.2a.3.3 0 01.43-.05l2.34 1.78a.3.3 0 01.06.43 6.97 6.97 0 01-5.77 2.74c-.99 0-1.97-.17-2.89-.51-1.78-.64-3.2-2-3.95-3.73a7.76 7.76 0 010-5.92c.37-.85.9-1.63 1.58-2.27a7.01 7.01 0 012.37-1.45c.92-.35 1.9-.53 2.88-.52.9-.01 1.79.16 2.62.5.78.33 1.48.82 2.04 1.46a6.74 6.74 0 011.32 2.33zm-3.44 1.29a2.65 2.65 0 00-.78-1.75 3.1 3.1 0 00-2.22-.75 2.86 2.86 0 00-2.12.76 3.37 3.37 0 00-.9 1.74H73zm14.63-5.05c-.21-.06-.41-.1-.6-.14a4.6 4.6 0 00-3.12.62 4.3 4.3 0 00-1.15 1.03V7.3a.3.3 0 00-.3-.3h-3.29a.3.3 0 00-.3.3v13.14c0 .17.14.3.3.3h3.28a.3.3 0 00.3-.3V13.4c.02-.26.06-.51.12-.76a2.94 2.94 0 013.1-2.25 8.27 8.27 0 011.5.24c.1.02.19 0 .27-.06a.3.3 0 00.12-.24V7.17a.3.3 0 00-.23-.3zm6.52-4.07h.9l1.72 4.01h.02l1.74-4.01h.88v5.12h-.6v-4.3h-.02l-1.83 4.3h-.37l-1.83-4.3h-.01v4.3h-.6zm-.86.56h-1.69v4.56H91V3.36H89.3V2.8h3.98z"/><path fill="#F23466" d="M21.66 27.41l-5.27-7.23 4.4-6.03a.33.33 0 00-.08-.46.34.34 0 00-.2-.06h-4.2c-.1 0-.2.05-.26.13l-2.16 2.98-3.2-4.43a5.47 5.47 0 004.3-5.58 5.4 5.4 0 00-2.4-4.74A7.4 7.4 0 0010.1.97C9.18.77 8.23.66 7.28.66H.23C.1.66 0 .76 0 .88v18.96c0 .21.17.38.38.38h3.3c.21 0 .38-.17.38-.37v-7H6.1l5.29 7.33-5.27 7.23a.33.33 0 00.27.52h4.2c.1 0 .2-.05.27-.13l3-4.14c.02-.01.04-.02.06 0l3.02 4.14c.06.08.16.13.26.13h4.2c.13 0 .24-.07.3-.18a.33.33 0 00-.03-.34zM4.06 4.16H7.1c.47 0 .93.04 1.39.12.43.06.85.2 1.23.4.35.2.64.46.87.78.24.37.35.8.33 1.24.02.49-.1.97-.36 1.38-.24.36-.56.64-.93.83-.42.21-.86.35-1.32.41-.5.08-1 .11-1.51.11H4.06V4.16z"/></g></svg></span><span class="cs-brand"><span class="cs-brand-img" role="img" aria-label="BlinkRx" style="background-image:url(/images/medimpact/competitors/blinkrx.webp);width:78px;height:22px;"></span></span></span></h3>
+          <p class="cs-card-sub">Discount marketplaces</p>
+          <ul>
+            <li>Same coupon model, a different storefront</li>
+            <li>Prices swing pharmacy to pharmacy with no plan context</li>
+            <li>Nothing a member saves carries back into their benefit</li>
+          </ul>
+        </div>
+        <div class="cs-problem-card">
+          <h3><span class="cs-logos"><span class="cs-brand"><svg class="cs-logo" role="img" viewBox="0 0 305 37.2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMid meet" aria-label="CVS Caremark"><style type="text/css">
+	.st0{fill:#CC0000;}
+</style>
+<g>
+	<path class="st0" d="M66.1,0.1h1.5c3.3,0.1,6.7,0.8,9.6,2.6c2.4,1.5,4.2,3.7,5.2,6.3c0.7,1.7,1.1,3.6,1.2,5.4c-3.6,0-7.2,0-10.8,0
+		c-0.1-1.5-0.6-3.1-1.8-4.1c-1.2-1.1-2.9-1.4-4.5-1.3c-1.4,0-2.8,0.5-3.8,1.5c-1.2,1.2-1.8,2.8-2.1,4.4c-0.4,1.9-0.4,3.9-0.2,5.8
+		c0.2,1.9,0.6,3.9,1.8,5.4c0.9,1.2,2.2,1.9,3.7,2.1c1.5,0.2,3.1,0.1,4.5-0.6c1.1-0.6,1.9-1.6,2.3-2.7c0.3-0.7,0.4-1.5,0.5-2.3
+		c3.6,0,7.1,0,10.7,0c-0.2,3.1-1.1,6.2-2.9,8.7c-1.7,2.3-4.1,3.9-6.8,4.9c-2,0.7-4.2,1-6.3,1.1h-1.7c-2.9-0.1-5.8-0.7-8.4-2
+		c-2.6-1.3-4.7-3.3-6.2-5.8c-1.8-3-2.6-6.6-2.7-10C48.7,15.7,49.3,12,51,8.8c1.3-2.6,3.3-4.8,5.8-6.2C59.6,0.9,62.8,0.1,66.1,0.1z"
+		/>
+	<path class="st0" d="M129,0.1h1.6c3.2,0.1,6.5,0.7,9.2,2.5c1.4,0.9,2.6,2.1,3.4,3.5c0.9,1.6,1.4,3.3,1.6,5.1c-3.6,0-7.1,0-10.7,0
+		c-0.1-0.8-0.5-1.5-1-2c-0.7-0.7-1.8-0.9-2.8-1c-0.9-0.1-1.9,0-2.8,0.2c-0.6,0.2-1.2,0.6-1.4,1.3c-0.2,0.6-0.2,1.4,0.2,1.9
+		c0.3,0.5,0.9,0.8,1.5,1c1,0.4,2,0.6,3,0.9c2.1,0.6,4.2,1,6.3,1.6c1.4,0.4,2.7,0.9,3.9,1.6c1.3,0.8,2.5,1.9,3.4,3.2
+		c0.9,1.3,1.3,2.9,1.4,4.5c0.1,1.9-0.2,3.9-1,5.7c-0.6,1.4-1.6,2.7-2.8,3.7c-2.3,1.8-5.1,2.7-8,3.1c-1.1,0.1-2.1,0.2-3.2,0.2h-1.6
+		c-2.6-0.1-5.2-0.5-7.6-1.6c-2.3-1-4.4-2.8-5.6-5c-0.9-1.6-1.4-3.5-1.6-5.3c3.7,0,7.3,0,11,0c0.2,0.8,0.5,1.7,1.1,2.3
+		c0.5,0.5,1.1,0.9,1.8,1c0.9,0.2,1.9,0.3,2.8,0.2c0.9-0.1,1.9-0.2,2.7-0.7c0.5-0.3,0.9-0.9,1-1.5c0.1-0.6,0-1.3-0.5-1.8
+		c-0.4-0.5-1.1-0.7-1.7-0.9c-1.1-0.3-2.1-0.6-3.2-0.9c-2-0.5-3.9-1-5.9-1.7c-1.4-0.5-2.8-0.9-4.1-1.7c-1.4-0.9-2.6-2.1-3.4-3.6
+		c-0.8-1.6-1.1-3.5-1.1-5.3c0.1-1.7,0.5-3.3,1.3-4.8c0.8-1.4,2-2.6,3.4-3.5C122.4,0.7,125.7,0.2,129,0.1z"/>
+	<path class="st0" d="M8.9,1.6c0.9-0.9,2.2-1.5,3.6-1.5c1.4,0,2.8,0.5,3.8,1.5c2,2,4.1,4.1,6.1,6.1c2-2,4.1-4.1,6.1-6.1
+		c0.9-0.9,2.3-1.5,3.6-1.5c1.4,0,2.7,0.5,3.7,1.5c2.5,2.5,5,5,7.5,7.5c1,1,1.6,2.5,1.5,3.9c-0.1,1.3-0.6,2.5-1.5,3.4
+		c-7,6.9-13.9,13.9-20.9,20.8h0c-7-6.9-13.9-13.9-20.9-20.8c-0.9-0.9-1.4-2.1-1.5-3.3v-0.8C0.1,11.1,0.6,9.9,1.5,9
+		C4,6.6,6.4,4.1,8.9,1.6z"/>
+	<path class="st0" d="M81.3,1c3.8,0,7.7,0,11.5,0c2,7.6,3.9,15.1,5.9,22.7c2.1-7.6,4.2-15.1,6.3-22.7c3.7,0,7.4,0,11.1,0
+		c-3.9,11.7-7.9,23.4-11.9,35.1c-3.8,0-7.5,0-11.3,0C89.2,24.5,85.3,12.8,81.3,1z"/>
+</g>
+<g>
+	<path d="M149,4.3c0-1.1,0-2.2,0-3.3c3.7,0,7.4,0,11.2,0c0,1.1,0,2.2,0,3.3c-1.2,0-2.3,0-3.5,0c0,3.8,0,7.6,0,11.4
+		c5.9,0,11.8,0,17.7,0c0-3.8,0-7.6,0-11.4c-1.2,0-2.4,0-3.5,0c0-1.1,0-2.2,0-3.3c3.7,0,7.4,0,11.2,0c0,1.1,0,2.2,0,3.3
+		c-1.2,0-2.4,0-3.5,0c0,9.5,0,19.1,0,28.6c1.2,0,2.4,0,3.5,0c0,1.1,0,2.2,0,3.3c-3.7,0-7.4,0-11.2,0c0-1.1,0-2.2,0-3.3
+		c1.2,0,2.4,0,3.5,0c0-4.7,0-9.3,0-14c-5.9,0-11.8,0-17.7,0c0,4.7,0,9.3,0,14c1.2,0,2.4,0,3.5,0c0,1.1,0,2.2,0,3.3
+		c-3.7,0-7.4,0-11.2,0c0-1.1,0-2.2,0-3.3c1.2,0,2.4,0,3.5,0c0-9.5,0-19.1,0-28.6C151.3,4.3,150.1,4.3,149,4.3z"/>
+	<path d="M240.9,1c2.4,0,4.8,0,7.3,0c0,8.9,0,17.9,0,26.8c0,0.8,0,1.6,0,2.5c0.1,0.7,0.2,1.6,0.6,2.2c0.4,0.5,1,0.7,1.6,0.7
+		c0.7,0,1.3,0,2-0.2c0,1.1,0,2.1,0,3.2c-1.2,0.4-2.5,0.4-3.7,0.2c-1-0.2-2.1-0.6-2.8-1.3c-0.8-0.7-1.2-1.8-1.4-2.8
+		c-0.3-1.3-0.2-2.7-0.2-4c0-8,0-16.1,0-24.1c-1.1,0-2.2,0-3.3,0C240.9,3.2,240.9,2.1,240.9,1z"/>
+	<path d="M267.1,1c2.4,0,4.8,0,7.2,0c0,4.5,0,9.1,0,13.6c1.1-1.5,2.8-2.5,4.6-3c1.8-0.5,3.7-0.5,5.6-0.1c1.9,0.4,3.6,1.4,4.9,2.8
+		c1.6,1.7,2.4,3.9,2.7,6.2c0.1,1.1,0.1,2.2,0.1,3.2c0,3.1,0,6.2,0,9.3c1.1,0,2.2,0,3.3,0c0,1.1,0,2.1,0,3.2c-3.5,0-7,0-10.6,0
+		c0-1.1,0-2.1,0-3.2c1.1,0,2.2,0,3.3,0c0-3.7,0-7.4,0-11.2c0-1.9-0.5-3.8-1.7-5.3c-1.1-1.2-2.7-1.9-4.3-2c-1.7-0.1-3.5,0.1-5,1
+		c-1.1,0.7-1.9,1.8-2.4,3c-0.4,1.1-0.5,2.2-0.5,3.4c0,3.7,0,7.3,0,11c1.1,0,2.2,0,3.3,0c0,1.1,0,2.1,0,3.2c-3.5,0-7,0-10.5,0
+		c0-1.1,0-2.1,0-3.2c1.1,0,2.2,0,3.3,0c0-9.6,0-19.2,0-28.8c-1.1,0-2.2,0-3.3,0C267.1,3.2,267.1,2.1,267.1,1z"/>
+	<path d="M256,5.7c1.3,0,2.6,0,4,0c0,2.1,0,4.1,0,6.2c1.6,0,3.3,0,4.9,0c0,1.1,0,2.1,0,3.2c-1.6,0-3.3,0-4.9,0c0,5,0,9.9,0,14.9
+		c0,0.8,0.1,1.6,0.5,2.3c0.4,0.5,1,0.8,1.6,0.8c0.9,0.1,1.9,0,2.8-0.1c0,1.1,0,2.1,0,3.2c-1.3,0.4-2.6,0.4-3.9,0.2
+		c-1.3-0.2-2.6-0.6-3.5-1.6c-1.3-1.3-1.5-3.3-1.5-5.1c0-4.9,0-9.8,0-14.7c-1.3,0-2.5,0-3.8,0c0-1.1,0-2.1,0-3.2c1.3,0,2.5,0,3.8,0
+		C256,9.9,256,7.8,256,5.7z"/>
+	<g>
+		<path d="M192.6,11.7c2.2-0.6,4.6-0.6,6.8-0.2c2.6,0.5,5,1.9,6.6,3.9c1.2,1.5,1.9,3.2,2.3,5c0.4,1.6,0.3,3.3,0.3,4.9
+			c-7,0-14,0-20.9,0c0.1,2,0.8,4,2.1,5.5c1.1,1.3,2.7,2.2,4.4,2.5c1.8,0.4,3.7,0.3,5.4-0.2c1.9-0.5,3.6-1.8,4.5-3.5c1.3,0,2.6,0,4,0
+			c-1.1,2.5-3,4.6-5.5,5.8c-1.8,0.9-3.8,1.3-5.8,1.4c-3.1,0.1-6.2-0.8-8.6-2.7c-2.3-1.8-3.8-4.6-4.3-7.5c-0.6-3.5,0-7.3,2-10.2
+			C187.3,14.1,189.8,12.4,192.6,11.7z M194.3,14.7c-1.7,0.3-3.4,1.1-4.6,2.4c-1.3,1.4-2,3.3-2.2,5.1c5.7,0,11.3,0,17,0
+			c-0.2-1.8-0.8-3.6-2-5c-0.8-1-2-1.8-3.2-2.3C197.8,14.4,196,14.4,194.3,14.7z"/>
+	</g>
+	<g>
+		<path d="M217.9,12.6c2.6-1.4,5.7-1.7,8.6-1c2.3,0.6,4.4,2,5.9,3.9c0-1.2,0-2.4,0-3.6c2.4,0,4.8,0,7.2,0c0,1.1,0,2.1,0,3.2
+			c-1.1,0-2.2,0-3.3,0c0,6,0,11.9,0,17.9c1.1,0,2.2,0,3.3,0c0,1.1,0,2.1,0,3.2c-2.4,0-4.8,0-7.2,0c0-1.2,0-2.4,0-3.6
+			c-1.5,2-3.7,3.4-6.2,4c-3.3,0.8-7,0.1-9.7-1.9c-2.4-1.8-4.1-4.5-4.7-7.4c-0.7-3.1-0.4-6.4,1-9.2C213.8,15.7,215.6,13.8,217.9,12.6
+			z M223,14.6c-2.3,0.2-4.5,1.5-5.8,3.5c-1.7,2.5-2.1,5.7-1.5,8.6c0.5,2.4,2,4.7,4.3,5.9c2.7,1.4,6.2,1.3,8.6-0.5
+			c1.3-0.9,2.2-2.1,2.9-3.6c1-2.4,1.2-5.2,0.5-7.7c-0.6-2.3-2.2-4.5-4.4-5.6C226.2,14.7,224.6,14.4,223,14.6z"/>
+	</g>
+	<g>
+		<path d="M299.1,30c1.3-1.2,3.6-1.1,4.8,0.2c0.6,0.6,0.9,1.4,1.1,2.2v0.8c-0.1,0.8-0.4,1.6-1,2.2c-1,1.1-2.6,1.4-4,0.9
+			c-1-0.4-1.8-1.2-2-2.2C297.6,32.5,298,30.9,299.1,30z M300.9,29.8c-0.5,0.1-0.9,0.3-1.3,0.7c-1.2,1.1-1.2,3.2-0.1,4.4
+			c0.9,1,2.7,1.1,3.7,0.2c1.4-1.2,1.4-3.6,0-4.7C302.5,29.9,301.6,29.7,300.9,29.8z"/>
+	</g>
+	<g>
+		<path d="M300.1,30.8c0.6,0,1.3,0,1.9,0c0.4,0,0.9,0.2,1,0.7c0.1,0.4,0.1,0.8-0.1,1.2c-0.2,0.3-0.5,0.4-0.8,0.4
+			c0.4,0.6,0.8,1.2,1.1,1.7c-0.2,0-0.5,0-0.7,0c-0.4-0.6-0.7-1.1-1-1.7c-0.2,0-0.4,0-0.6,0c0,0.6,0,1.1,0,1.7c-0.2,0-0.4,0-0.7,0
+			C300.1,33.5,300.1,32.2,300.1,30.8z M300.7,31.4c0,0.4,0,0.8,0,1.2c0.4,0,0.9,0,1.3-0.1c0.5-0.1,0.5-0.9,0-1
+			C301.6,31.3,301.2,31.4,300.7,31.4z"/>
+	</g>
+</g></svg></span><span class="cs-brand"><svg class="cs-logo" role="img" viewBox="0 0 708 205.23" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMid meet" aria-label="OptumRx"><defs><style>.cls-1{fill:#ff612b;}</style></defs><g id="op_Layer_2" data-name="Layer 2"><g id="op_Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M526.29,158.63V38.54h38.09l.23,14.34c7.61-11,18.82-16.14,31.81-16.14,16.36,0,28,7.62,34.28,19.5,7.62-13,22-19.5,36.75-19.5,26.21,0,40.55,19.72,40.55,44.59v77.3H669.24V87.16c0-11.65-7.39-18.6-16.36-18.6s-16.35,7-16.35,18.6v71.47H597.77V87.16c0-11.65-7.4-18.6-16.36-18.6s-16.36,7-16.36,18.6v71.47Zm-13-45.71c0,30.92-24.65,48.4-56,48.4s-56-17.48-56-48.4V38.54h39V111.8c0,10.53,6.94,17.25,17,17.25s17-6.72,17-17.25V38.54h39ZM390.74,69.46V38.54h-32V7.84H319.94V115.61c0,29.8,17.7,44.81,46.16,44.81,8.29,0,17-.89,24.64-4v-30.7A48.18,48.18,0,0,1,376,128.16c-10.31,0-17.26-4.71-17.26-15.69v-43ZM270.88,98.58c0,17.26-12.55,30-28,30-15.68,0-28.23-12.77-28.23-30,0-17,12.55-29.8,28.23-29.8C258.33,68.78,270.88,81.56,270.88,98.58ZM214.64,205.23V146.08a54.08,54.08,0,0,0,37.19,14.57c32.49,0,58-27.56,58-62.07,0-34.28-25.54-61.84-58-61.84a54,54,0,0,0-38.31,15.69l-.22-13.89H175.66V205.23Zm-91.86-125c0,24.65-18.15,43-40.78,43s-40.77-18.37-40.77-43,18.14-43,40.77-43S122.78,55.57,122.78,80.21ZM82,0C36.07,0,0,35.62,0,80.21s36.07,80.21,82,80.21,82-35.62,82-80.21S127.93,0,82,0Z"/></g></g></svg></span></span></h3>
+          <p class="cs-card-sub">The &ldquo;Big Three&rdquo; PBM portals</p>
+          <ul>
+            <li>Plan-integrated, but owned by insurers or pharmacy chains</li>
+            <li>Dense portals, heavy on benefit jargon</li>
+            <li>Real cost is hard to see before filling, and tools lean toward affiliated pharmacies</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: clamp(26px, 4.8vw, 48px);">
+      <p>That mapped the opening. The discount cards were transparent but disconnected from the plan; the incumbent portals were connected but hard to read. MedImpact could be both, showing real, plan-specific prices across pharmacies before a member fills.</p>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <SectionContent title="User Research">
+    <div class="cs-body-text">
+      <p>Competitor teardowns told me what the category had settled on. They could not tell me why Blend Metrics&rsquo; own users were abandoning workflows halfway through. For that I ran a survey to size the problem, then interviews to understand it.</p>
+      <p><strong>34 survey responses</strong> from people who had built at least one workflow in the previous month, and <strong>8 follow-up interviews</strong> of roughly 30 minutes each with the operations and marketing people who live in this tool daily.</p>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: clamp(34px, 7.2vw, 72px);">What the Survey Told Us</h3>
+    <div class="cs-body-text">
+      <p>The survey was deliberately short. Five questions, all about the moment before and after publishing, because that is where the support tickets clustered.</p>
+    </div>
+
+    <div class="mi-survey-charts">
+      {miSurveyCharts.map((item) => (
+        <figure class="mi-pie-card">
+          <h4>{item.q}</h4>
+          <div class="mi-pie-row">
+            <svg class="mi-pie" viewBox="0 0 180 180" role="img" aria-label={item.paths.map((p) => `${p.pct}% ${p.label}`).join(', ')}>
+              {item.paths.map((p) => (<path d={p.d} fill={p.color} />))}
+            </svg>
+            <ul class="mi-pie-legend">
+              {item.paths.map((p) => (
+                <li>
+                  <span class="mi-pie-dot" style={`background:${p.color}`} />
+                  <span class="mi-pie-pct">{p.pct}%</span>
+                  <span class="mi-pie-label">{p.label}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </figure>
+      ))}
+    </div>
+
+    <div class="cs-body-text" style="margin-top: clamp(26px, 4.8vw, 48px);">
+      <p>Two numbers reframed the project. <strong>68% would not publish without manually checking the workflow first</strong>, and <strong>62% debug by opening every step in turn</strong>. People were not asking for more power. They were doing the builder&rsquo;s job for it, holding the whole workflow&rsquo;s state in their head because the canvas would not show it to them.</p>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: clamp(40px, 9.6vw, 96px);">What We Asked in Interviews</h3>
+    <div class="cs-body-text">
+      <p>The survey said where time went. The interviews said why. I kept the questions behavioral, asking what people actually did last time rather than what they think of the product.</p>
+    </div>
+
+    <ol class="cs-research-questions">
+      <li>Walk me through the last workflow you built. Where did you get stuck?</li>
+      <li>How do you know a workflow is working before you turn it on?</li>
+      <li>Tell me about a time one broke. How did you find out, and what did you do next?</li>
+      <li>When a workflow needs to do different things for different people, how do you set that up today?</li>
+      <li>What goes through your head right before you hit publish?</li>
+    </ol>
+
+    <h3 class="cs-subsection-title" style="margin-top: clamp(40px, 9.6vw, 96px);">What They Told Us</h3>
+    <div class="cs-body-text">
+      <p>Different words, same three frustrations, and each one maps to a theme that came out of the affinity map.</p>
+    </div>
+
+    <div class="cs-research-quotes">
+      <figure class="cs-research-quote">
+        <blockquote>I click into every single step before I publish, just to be sure. That takes longer than building the thing did.</blockquote>
+        <figcaption><span>Operations lead, 40-person SaaS</span><em>Configuration clarity</em></figcaption>
+      </figure>
+      <figure class="cs-research-quote">
+        <blockquote>I avoid branching. If I need two paths I build two separate workflows, because at least then I know which one broke.</blockquote>
+        <figcaption><span>Marketing operations manager</span><em>Branching anxiety</em></figcaption>
+      </figure>
+      <figure class="cs-research-quote">
+        <blockquote>You publish it and wait to see if someone complains. That is the test.</blockquote>
+        <figcaption><span>Automation specialist, agency</span><em>Testing &amp; validation</em></figcaption>
+      </figure>
     </div>
   </SectionContent>
 
@@ -172,10 +554,97 @@ const miSurvey = [
 
   <hr class="cs-section-divider">
 
+  <SectionContent title="Affinity Mapping">
+    <div class="cs-body-text">
+      <p>We gathered notes from user interviews, internal feedback sessions, and early usability tests, then grouped them to find the patterns.</p>
+      <p>Users were articulating frustrations differently, but the underlying themes were consistent. Whether they were talking about triggers, conditions, or testing, the same anxieties kept surfacing.</p>
+      <p>Once we clustered everything, it became clear: we weren't just solving for layout or interaction. We were solving for confidence.</p>
+    </div>
+
+    <h3 class="cs-subsection-title">Common Themes We Found</h3>
+    <div class="cs-themes-grid">
+      <div class="cs-theme">
+        <h4><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 5H3" /><path d="M12 19H3" /><path d="M14 3v4" /><path d="M16 17v4" /><path d="M21 12h-9" /><path d="M21 19h-5" /><path d="M21 5h-7" /><path d="M8 10v4" /><path d="M8 12H3" /></svg>Configuration Clarity</h4>
+        <ul>
+          <li>"I set up the trigger but I'm not sure it's actually connected."</li>
+          <li>"Which fields are required vs. optional?"</li>
+        </ul>
+      </div>
+      <div class="cs-theme">
+        <h4><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5" /><path d="M8 3H3v5" /><path d="M12 22v-8.3a4 4 0 0 0-1.172-2.872L3 3" /><path d="m15 9 6-6" /></svg>Branching Anxiety</h4>
+        <ul>
+          <li>"I added a split path but I don't know what happens to contacts who don't match."</li>
+          <li>"Can I see all conditions at once without clicking into each path?"</li>
+          <li>"What if I accidentally delete a path with steps in it?"</li>
+        </ul>
+      </div>
+      <div class="cs-theme">
+        <h4><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="m9 14 2 2 4-4" /></svg>Testing &amp; Validation</h4>
+        <ul>
+          <li>"How do I know this works before I publish it?"</li>
+          <li>"Can I run a test with sample data?"</li>
+          <li>"Where do I see what failed and why?"</li>
+        </ul>
+      </div>
+      <div class="cs-theme">
+        <h4><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3" /><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" /><circle cx="18" cy="5" r="3" /></svg>Workflow Management</h4>
+        <ul>
+          <li>"Does it auto-save or do I have to manually save?"</li>
+          <li>"Can I go back to a previous version?"</li>
+          <li>"What happens if I accidentally close the tab?"</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="cs-subsection-title"><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /><path d="M9 18h6" /><path d="M10 22h4" /></svg>What This Told Us</h3>
+    <p class="cs-body-text">Users didn't want fewer features. They wanted more visibility. So every design decision from here on, inline validation, test runners, auto-save indicators, confirmation dialogs, was built to answer one question: "Can I trust what I just built?"</p>
+
+    <div class="cs-image-full">
+      <img src="/images/bm-affinity-map.png" alt="Affinity map: Canvas & Node Clarity, Configuration & Setup, Branching & Logic, Testing & Validation, Publish & Lifecycle, and Workflow Management themes">
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
   <SectionContent title="Feature Prioritization">
     <div class="cs-body-text">
-      <p>The portal covers a wide range of tasks, so the work was scoped around the tasks members use most and the data the plan could provide. Features were grouped as follows.</p>
+      <p>Before grouping features, I ran a prioritization session with Photon\'s product team in Figma. Each participant worked on their own card and answered, for the dashboard, why members open it, what features would make it better, what they think about while using it, and how they feel. We then ranked the features together.</p>
     </div>
+
+    <h4 class="mi-fp-label">What we ranked, most important first</h4>
+    <ol class="mi-fp-rank">
+      <li>Prescription Info</li>
+      <li>Benefit Info</li>
+      <li>Pricing / Savings</li>
+      <li>Profile / Account Info</li>
+      <li>Medicine Chest</li>
+      <li>Dependant Info</li>
+      <li>Claim Info</li>
+      <li>Settings</li>
+      <li>Billing</li>
+      <li>My Profile</li>
+    </ol>
+
+    <div class="mi-fp-themes">
+      <div class="mi-fp-theme"><h4>Why they open it</h4><p>Order a refill, see what a drug will cost, check when they can fill next, handle early-fill and mail-order questions, see what to take today, and manage prescriptions for dependents.</p></div>
+      <div class="mi-fp-theme"><h4>Features they asked for</h4><p>Order from the dashboard, show cost and benefit tiers, ready-to-ship dates, pill and refill reminders, a to-do list, and drag-and-drop customization to show or hide modules.</p></div>
+      <div class="mi-fp-theme"><h4>What they think about</h4><p>How much they have paid and how much is left on the deductible, when they can refill, whether they took their meds today, and whether a drug is covered.</p></div>
+      <div class="mi-fp-theme"><h4>How they feel</h4><p>Anxious about paying for medications and stressed about pharmacy trips; frustrated when information is scattered or out of order; reassured when the deductible limit is close.</p></div>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: clamp(34px, 7.2vw, 72px);">The Session Boards</h3>
+    <div class="cs-body-text"><p>The prioritization matrix and each participant's notes from the live Figma session.</p></div>
+    <img class="mi-fp-board" src="/images/medimpact/feature-prioritization/fp-1.png" alt="Feature prioritization ranking matrix" width="3632" height="1714" loading="lazy" />
+    <div class="mi-fp-grid">
+      <img src="/images/medimpact/feature-prioritization/fp-7.png" alt="Session rules and instructions" width="1616" height="1130" loading="lazy" />
+      <img src="/images/medimpact/feature-prioritization/fp-2.png" alt="Participant session card" width="2120" height="2842" loading="lazy" />
+      <img src="/images/medimpact/feature-prioritization/fp-3.png" alt="Participant session card" width="2120" height="2010" loading="lazy" />
+      <img src="/images/medimpact/feature-prioritization/fp-4.png" alt="Participant session card" width="2120" height="2042" loading="lazy" />
+      <img src="/images/medimpact/feature-prioritization/fp-5.png" alt="Participant session card" width="2120" height="1978" loading="lazy" />
+      <img src="/images/medimpact/feature-prioritization/fp-6.png" alt="Participant session card" width="2120" height="2586" loading="lazy" />
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: clamp(34px, 7.2vw, 72px);">What made the cut</h3>
     <div class="cs-problems-grid">
       <div class="cs-problem-card cs-card--green">
         <h3><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></svg>Must-have</h3>
@@ -202,6 +671,31 @@ const miSurvey = [
           <li>Features that depended on data the plan could not yet provide</li>
         </ul>
       </div>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <SectionContent title="User Flows">
+    <div class="cs-body-text">
+      <p>These are the main tasks a member comes to the portal to do. Each flow starts from the dashboard and ends where the task is done, so the whole path is visible in one place.</p>
+    </div>
+
+    <div class="mi-flows-list">
+      {miFlows.map((f, idx) => (
+        <div class="cs-subsection" style={idx > 0 ? "margin-top: clamp(26px, 4.8vw, 48px);" : undefined}>
+          <h3 class="cs-subsection-title">{f.title}</h3>
+          <div class="cs-flow-pills">
+            {f.pills.map((p) => <span set:html={p} />)}
+          </div>
+          <div class="cs-body-text">
+            <p>{f.note}</p>
+          </div>
+          <div class="cs-image-full" style="margin-top: 26px;" set:html={miFlowSvgs[idx]} />
+        </div>
+      ))}
+      <p style="margin: 28px 0 4px; font-size: 13px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.05em;">Legend</p>
+      <div class="cs-image-full" style="max-width: 620px; margin-left: 0; margin-top: 6px;" set:html={miflowLegend} />
     </div>
   </SectionContent>
 
@@ -242,7 +736,7 @@ const miSurvey = [
 
   <hr class="cs-section-divider">
 
-  <SectionContent title="Stylized UI Components">
+<SectionContent title="Stylized UI Components">
     {miComponents.map((c, i) => (
       <div class="cs-component-showcase" style={i > 0 ? 'margin-top: clamp(44px, 12vw, 120px);' : ''}>
         <div class="cs-component-details">
@@ -254,24 +748,102 @@ const miSurvey = [
           </ul>
         </div>
         <div class="cs-component-image">
-          <img src={c.src} alt={c.title} class="cs-component-img mi-comp-img" loading="lazy" />
+          <img src={c.src} alt={c.title} class={c.plain ? "cs-component-img mi-comp-img mi-comp-img--plain" : "cs-component-img mi-comp-img"} style={`width:${c.halfW}px;max-width:100%;`} loading="lazy" />
         </div>
       </div>
     ))}
+
+    <div class="cs-comp-wide">
+      <h3 class="cs-component-title">Navigation</h3>
+      <p class="cs-component-desc">The desktop top bar keeps the main sections and the drug-price search one click away. On mobile, a top bar and a footer menu put the same destinations within thumb reach.</p>
+      <p class="mi-variant">Desktop</p>
+      <div class="mi-nav-desktop">
+        <img src="/images/medimpact/drug-price-check/desktop/header.png" alt="MedImpact desktop navigation bar" loading="lazy" />
+      </div>
+      <p class="mi-variant">Mobile</p>
+      <div class="mi-nav-mobile">
+        <img src="/images/medimpact/mobile/mobile/navigation-top-bar-menu-transparent.png" alt="MedImpact mobile top navigation bar" loading="lazy" />
+        <img src="/images/medimpact/mobile/mobile/navigation-footer-menu-03.png" alt="MedImpact mobile footer menu" loading="lazy" />
+      </div>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <SectionContent title="The Mobile App">
+    <div class="cs-body-text">
+      <p>MedImpact was built for mobile as well as desktop. The app puts the same core tasks &mdash; checking a drug price, refilling a prescription, tracking doses, and managing benefits &mdash; in a layout made for a phone.</p>
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: clamp(30px, 6vw, 56px);">App Sitemap</h3>
+    <div class="cs-body-text"><p>The information architecture of the mobile app, from the primary sections down to their screens.</p></div>
+    <div class="mi-sitemap" data-design-w="1160"><div class="mi-sm-root">MedImpact Mobile App</div><div class="mi-sm-cols"><div class="mi-sm-col"><div class="mi-sm-sec">Dashboard</div><ul class="mi-sm-leaves"><li>Next Steps</li><li>Benefit Overview</li><li>My Prescriptions</li><li>My Dependants</li><li>Savings</li><li>Medicine Chest</li></ul></div><div class="mi-sm-col"><div class="mi-sm-sec">Drug Price Check</div><ul class="mi-sm-leaves"><li>Local Price</li><li>Mail Order Price</li><li>My Savings</li><li>Pharmacy Map</li></ul></div><div class="mi-sm-col"><div class="mi-sm-sec">My Prescriptions</div><ul class="mi-sm-leaves"><li>Prescriptions</li><li>Orders</li><li>Claims History</li><li>Request a Prescription</li></ul></div><div class="mi-sm-col"><div class="mi-sm-sec">Vaccines</div><ul class="mi-sm-leaves"><li>Recommended</li><li>Vaccine Info</li><li>Schedule / Directions</li></ul></div><div class="mi-sm-col"><div class="mi-sm-sec">Benefits &amp; Enrollment</div><ul class="mi-sm-leaves"><li>Benefit Highlights</li><li>Plan Comparison</li></ul></div><div class="mi-sm-col"><div class="mi-sm-sec">Profile / Account</div><ul class="mi-sm-leaves"><li>Profile</li><li>Medical Info</li><li>Payment</li><li>Dependants</li><li>Change Password</li><li>Notifications</li></ul></div><div class="mi-sm-col"><div class="mi-sm-sec">Medicine Chest</div><ul class="mi-sm-leaves"><li>Next Dose</li><li>Doses Taken</li><li>Reminders</li></ul></div></div></div>
+
+    <h3 class="cs-subsection-title" style="margin-top: clamp(34px, 7vw, 64px);">App Store Images</h3>
+    <div class="mi-appstore">
+      {[1, 2, 3, 4, 5, 6].map((n) => (
+        <img src={`/images/medimpact/mobile-app/promo-${n}.webp`} alt={`MedImpact mobile app screen ${n}`} width="1436" height="2548" class="mi-appshot" loading="lazy" />
+      ))}
+    </div>
+
+    <h3 class="cs-subsection-title" style="margin-top: clamp(34px, 7vw, 64px);">Inside the App</h3>
+    <div class="mi-shots mi-shots--mobile">
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-1.png" alt="MedImpact mobile app dashboard" width="750" height="4724" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-2.png" alt="MedImpact mobile app dashboard" width="750" height="4724" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-3.png" alt="MedImpact mobile app dashboard" width="750" height="4724" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-4.png" alt="MedImpact mobile app dashboard" width="750" height="5118" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-5.png" alt="MedImpact mobile app dashboard" width="750" height="5118" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-6.png" alt="MedImpact mobile app dashboard" width="750" height="5118" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-7.png" alt="MedImpact mobile app profile" width="750" height="2414" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-8.png" alt="MedImpact mobile app profile" width="750" height="2414" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-9.png" alt="MedImpact mobile app profile" width="750" height="1334" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-10.png" alt="MedImpact mobile app profile" width="750" height="1334" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-11.png" alt="MedImpact mobile app profile" width="750" height="1334" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-12.png" alt="MedImpact mobile app notifications" width="750" height="1590" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-13.png" alt="MedImpact mobile app notifications" width="750" height="1590" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-14.png" alt="MedImpact mobile app drug price check" width="750" height="1624" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-15.png" alt="MedImpact mobile app drug price check" width="750" height="1624" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-16.png" alt="MedImpact mobile app drug price check" width="750" height="1624" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-17.png" alt="MedImpact mobile app drug price check" width="750" height="1334" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-18.png" alt="MedImpact mobile app drug price check" width="750" height="1334" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-19.png" alt="MedImpact mobile app drug price check" width="750" height="1624" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-20.png" alt="MedImpact mobile app drug price check" width="750" height="1624" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-21.png" alt="MedImpact mobile app drug price check" width="750" height="1624" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-22.png" alt="MedImpact mobile app drug price check" width="750" height="1624" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-23.png" alt="MedImpact mobile app drug price check" width="750" height="1624" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-24.png" alt="MedImpact mobile app drug price check" width="750" height="1624" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-25.png" alt="MedImpact mobile app drug price check" width="750" height="1624" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-26.png" alt="MedImpact mobile app drug price check" width="750" height="2736" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-27.png" alt="MedImpact mobile app drug price check" width="750" height="1734" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-28.png" alt="MedImpact mobile app drug price check" width="750" height="1756" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-29.png" alt="MedImpact mobile app drug price check" width="750" height="1756" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-30.png" alt="MedImpact mobile app drug price check" width="750" height="1624" loading="lazy" /></figure>
+      <figure class="mi-shot mi-shot--mobile"><img src="/images/medimpact/mobile-app/app-31.png" alt="MedImpact mobile app drug price check" width="750" height="1624" loading="lazy" /></figure>
+    </div>
   </SectionContent>
 
   <hr class="cs-section-divider">
 
   <SectionContent title="Hi Fi Designs">
     {miShowcase.map((s, i) => (
-      <div class={i % 2 === 1 ? 'cs-hifi-showcase cs-hifi-showcase--reverse' : 'cs-hifi-showcase'} style={i > 0 ? 'margin-top: clamp(44px, 12vw, 120px);' : ''}>
-        <div class="cs-hifi-image">
-          <img src={s.src} alt={s.title} class="mi-hifi-img" style="max-width: 100%;" loading="lazy" />
-        </div>
-        <div class="cs-hifi-content">
+      <div class="cs-hifi-annotated" style={i > 0 ? 'margin-top: clamp(52px, 12vw, 120px);' : ''}>
+        <div class="cs-hifi-head">
           <h3 class="cs-hifi-title">{s.title}</h3>
           <p class="cs-hifi-desc">{s.desc}</p>
           <blockquote class="cs-hifi-quote">{s.comment}</blockquote>
+        </div>
+        <div class="cs-annotated-wrap">
+          <div class="cs-annotated-left">
+            {s.leftCards.map((c) => (<div class="cs-annotated-card" style={`top:${c.top}%`}><h4>{c.h}</h4><p>{c.p}</p></div>))}
+          </div>
+          <div class="cs-annotated-center">
+            <img src={s.src} alt={s.title} width={s.w} height={s.h} class="cs-annotated-img" loading="lazy" />
+            {s.leftCards.map((c) => (<span class="cs-dot cs-dot--miL" style={`top:${c.top}%`}></span>))}
+            {s.rightCards.map((c) => (<span class="cs-dot cs-dot--miR" style={`top:${c.top}%`}></span>))}
+          </div>
+          <div class="cs-annotated-right">
+            {s.rightCards.map((c) => (<div class="cs-annotated-card" style={`top:${c.top}%`}><h4>{c.h}</h4><p>{c.p}</p></div>))}
+          </div>
         </div>
       </div>
     ))}
@@ -284,9 +856,7 @@ const miSurvey = [
             <>
               <p class="mi-variant">Desktop</p>
               <div class="mi-shots">
-                {f.desktop.map((img) => (
-                  <figure class="mi-shot"><img src={img.src} alt={img.alt} loading="lazy" /></figure>
-                ))}
+                {f.desktop.map((img) => (<figure class="mi-shot"><img src={img.src} alt={img.alt} width={img.w} height={img.h} loading="lazy" /></figure>))}
               </div>
             </>
           )}
@@ -294,9 +864,15 @@ const miSurvey = [
             <>
               <p class="mi-variant">Mobile</p>
               <div class="mi-shots mi-shots--mobile">
-                {f.mobile.map((img) => (
-                  <figure class="mi-shot mi-shot--mobile"><img src={img.src} alt={img.alt} loading="lazy" /></figure>
-                ))}
+                {f.mobile.map((img) => (<figure class="mi-shot mi-shot--mobile"><img src={img.src} alt={img.alt} width={img.w} height={img.h} loading="lazy" /></figure>))}
+              </div>
+            </>
+          )}
+          {f.name === "Claims History" && (
+            <>
+              <p class="mi-variant">Filters &amp; dropdowns</p>
+              <div class="mi-dropdowns">
+                {miClaimsDropdowns.map((img) => (<figure class:list={["mi-dropdown", img.src.includes("share") && "mi-dropdown--popup"]}><img src={img.src} alt={img.alt} width={img.w} height={img.h} loading="lazy" /></figure>))}
               </div>
             </>
           )}
@@ -307,10 +883,180 @@ const miSurvey = [
 
   <hr class="cs-section-divider">
 
-  <SectionContent title="Testing & Validation">
+  <SectionContent title="User Testing">
     <div class="cs-body-text">
-      <p>Screens were reviewed with Photon's team throughout the project rather than in a single round at the end. As flows were completed, they were checked against common member tasks such as pricing a drug, refilling a prescription, and reviewing a claim.</p>
-      <p>The resulting changes were mostly related to clarity: some labels were rewritten in plainer language, some pricing states were given additional explanation, and a few steps were reordered so the next action was clearer.</p>
+      <p>I ran moderated usability tests with 5 participants to validate the core member tasks. Each session lasted about 25 minutes and followed a structured test guide. I tracked completion rate, error rate, time to success, and satisfaction, then assigned severity ratings (1 = cosmetic, 4 = must fix) to prioritize what needed attention.</p>
+    </div>
+
+    <div class="cs-testing-metrics">
+      <div class="cs-metric-card"><span class="cs-metric-number">5</span><span class="cs-metric-label">Participants</span></div>
+      <div class="cs-metric-card"><span class="cs-metric-number">7</span><span class="cs-metric-label">Tasks Tested</span></div>
+      <div class="cs-metric-card"><span class="cs-metric-number">89%</span><span class="cs-metric-label">Completion Rate</span></div>
+      <div class="cs-metric-card"><span class="cs-metric-number">25 min</span><span class="cs-metric-label">Avg. Session</span></div>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: clamp(30px, 6.4vw, 64px);">
+      <h3 class="cs-subsection-title">Task Results</h3>
+    </div>
+
+    <div class="cs-testing-table-wrap">
+      <table class="cs-testing-table">
+        <thead>
+          <tr>
+            <th class="cs-testing-th--task">Task</th>
+            <th>U1</th><th>U2</th><th>U3</th><th>U4</th><th>U5</th>
+            <th>Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cs-testing-td--task">Look up a drug's price and compare it across nearby pharmacies.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate">5/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Switch the pharmacy used for pricing and confirm the price updates.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--iterate" title="Delayed"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate">4/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Refill a prescription from the My Prescriptions list.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate">5/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Filter claims history by date range and drug to find a specific claim.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--iterate" title="Delayed"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate">4/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Find a recommended vaccine and locate a nearby pharmacy to get it.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate">5/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Compare two plans during open enrollment.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--iterate" title="Delayed"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--iterate" title="Delayed"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td>
+            <td class="cs-testing-td--rate cs-testing-td--rate-low">3/5</td>
+          </tr>
+          <tr>
+            <td class="cs-testing-td--task">Share a claims record with a caregiver by email.</td>
+            <td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--pass" title="Pass"></span></td><td><span class="cs-test-dot cs-test-dot--iterate" title="Delayed"></span></td>
+            <td class="cs-testing-td--rate">4/5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cs-testing-legend">
+      <div class="cs-legend-item"><span class="cs-test-dot cs-test-dot--pass"></span> Pass</div>
+      <div class="cs-legend-item"><span class="cs-test-dot cs-test-dot--iterate"></span> Delayed</div>
+      <div class="cs-legend-item"><span class="cs-test-dot cs-test-dot--fail"></span> Failed</div>
+    </div>
+
+    <div class="cs-body-text" style="margin-top: clamp(30px, 6.4vw, 64px);">
+      <h3 class="cs-subsection-title">Key Findings</h3>
+    </div>
+    <div class="cs-findings-grid">
+      <div class="cs-finding-card cs-finding-card--sev3">
+        <div class="cs-finding-header">
+          <span class="cs-finding-severity cs-finding-severity--3">Severity 3</span>
+          <span class="cs-finding-tag">Must Fix</span>
+        </div>
+        <h3><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><line x1="12" x2="12" y1="8" y2="12" /><line x1="12" x2="12.01" y1="16" y2="16" /></svg>Starting a Plan Comparison</h3>
+        <p>2 of 5 participants weren't sure how to begin comparing plans during open enrollment. We added a clearer entry point and a short prompt noting that up to three plans can be compared at once.</p>
+      </div>
+      <div class="cs-finding-card cs-finding-card--sev2">
+        <div class="cs-finding-header">
+          <span class="cs-finding-severity cs-finding-severity--2">Severity 2</span>
+          <span class="cs-finding-tag">Improve</span>
+        </div>
+        <h3><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" /></svg>Pharmacy Switch Feedback</h3>
+        <p>1 participant didn't notice that prices had updated after switching pharmacy. We added a brief highlight on the updated prices so the change is easy to catch.</p>
+      </div>
+      <div class="cs-finding-card cs-finding-card--sev1">
+        <div class="cs-finding-header">
+          <span class="cs-finding-severity cs-finding-severity--1">Severity 1</span>
+          <span class="cs-finding-tag">Cosmetic</span>
+        </div>
+        <h3><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /><path d="M20 2v4" /><path d="M22 4h-4" /><circle cx="4" cy="20" r="2" /></svg>Removable Filter Pills</h3>
+        <p>1 participant didn't realize the keyword filter pills on Claims History could be removed. We added a clear remove affordance and a short tooltip.</p>
+      </div>
+    </div>
+  </SectionContent>
+
+  <hr class="cs-section-divider">
+
+  <SectionContent title="Developer Handoff">
+    <div class="cs-body-text">
+      <p>The handoff files cover the full icon set, color and type styles, and redlined specs for every screen and state, organized so developers can reference components and their variants at a glance.</p>
+    </div>
+    <div class="mi-shots" style="margin-top: clamp(18px, 3vw, 28px);">
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-1.png" alt="MedImpact developer handoff spec" width="2880" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-2.png" alt="MedImpact developer handoff spec" width="2880" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-3.png" alt="MedImpact developer handoff spec" width="2880" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-4.png" alt="MedImpact developer handoff spec" width="2880" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-5.png" alt="MedImpact developer handoff spec" width="2880" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-6.png" alt="MedImpact developer handoff spec" width="2880" height="2872" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-7.png" alt="MedImpact developer handoff spec" width="2880" height="3954" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-8.png" alt="MedImpact developer handoff spec" width="2880" height="3963" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-9.png" alt="MedImpact developer handoff spec" width="2880" height="2942" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-10.png" alt="MedImpact developer handoff spec" width="2880" height="7954" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-11.png" alt="MedImpact developer handoff spec" width="7144" height="5044" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-12.png" alt="MedImpact developer handoff spec" width="2882" height="5286" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-13.png" alt="MedImpact developer handoff spec" width="2882" height="5580" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-14.png" alt="MedImpact developer handoff spec" width="2882" height="2924" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-15.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-16.png" alt="MedImpact developer handoff spec" width="2882" height="5286" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-17.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-18.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-19.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-20.png" alt="MedImpact developer handoff spec" width="2880" height="3387" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-21.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-22.png" alt="MedImpact developer handoff spec" width="1440" height="1560" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-23.png" alt="MedImpact developer handoff spec" width="2880" height="1478" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-24.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-25.png" alt="MedImpact developer handoff spec" width="2880" height="2400" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-26.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-27.png" alt="MedImpact developer handoff spec" width="2880" height="1452" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-28.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-29.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-30.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-31.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-32.png" alt="MedImpact developer handoff spec" width="2882" height="3120" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-33.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-34.png" alt="MedImpact developer handoff spec" width="2882" height="2852" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-35.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-36.png" alt="MedImpact developer handoff spec" width="2882" height="2200" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-37.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-38.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-39.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-40.png" alt="MedImpact developer handoff spec" width="2920" height="2007" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-41.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-42.png" alt="MedImpact developer handoff spec" width="2882" height="3362" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-43.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-44.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-45.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-46.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-47.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-48.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-49.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-50.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-51.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-52.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-53.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-54.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-55.png" alt="MedImpact developer handoff spec" width="2882" height="3362" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-56.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-57.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-58.png" alt="MedImpact developer handoff spec" width="2882" height="3362" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-59.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-60.png" alt="MedImpact developer handoff spec" width="2882" height="3362" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-61.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-62.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-63.png" alt="MedImpact developer handoff spec" width="2882" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-64.png" alt="MedImpact developer handoff spec" width="3792" height="2048" loading="lazy" /></figure>
+      <figure class="mi-shot"><img src="/images/medimpact/developer-handoff/handoff-65.png" alt="MedImpact developer handoff spec" width="3792" height="2048" loading="lazy" /></figure>
     </div>
   </SectionContent>
 

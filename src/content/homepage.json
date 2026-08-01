@@ -7,6 +7,13 @@
   "heroDescription": "For the past 15 years I have lead teams to design premium user experiences that maximize growth, retention, and customer satisfaction. I'm currently based in Atlanta, GA, working as Director of User Experience for Marketeq Digital Inc.",
   "caseStudies": [
     {
+      "title": "MedImpact",
+      "description": "Designing a pharmacy-benefits member portal for desktop and mobile",
+      "image": "/images/medimpact.webp",
+      "imageAlt": "MedImpact case study preview",
+      "link": "medimpact"
+    },
+    {
       "title": "Referrizer",
       "description": "Redesigning the import contacts process to be more intuitive & seamless",
       "image": "/images/referrizer.webp",

@@ -822,6 +822,21 @@ body.lb-lock { overflow: hidden; }
   height: auto;
 }
 
+/* True-size mode (MedImpact 2x exports): the image opens at its real size — the display
+   width is set to half the native pixels in JS (crisp, no resampling). No zoom, and the
+   frame scrolls if the image is larger than the viewport. */
+.lb--truesize .lb-frame {
+  max-width: 96vw;
+  max-height: 92vh;
+  overflow: auto;
+  cursor: default;
+}
+.lb--truesize .lb-zoom { display: none; }
+/* Full-page screens get no frame padding; components (modals) keep the white frame padding. */
+.lb--truesize.lb--nopad .lb-frame { padding: 0; }
+/* Pop-up modals keep their border in the lightbox so the edge is visible on the white frame. */
+.lb--bordered .lb-img { border: 1px solid #e6e6e9; border-radius: 10px; }
+
 .lb-zoom {
   position: absolute;
   bottom: 20px;
@@ -851,15 +866,19 @@ body.lb-lock { overflow: hidden; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: none;
+  background: rgba(20, 20, 24, 0.58);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   border: 0;
+  border-radius: 50%;
   padding: 0;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.5);
-  transition: color 0.2s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #fff;
+  z-index: 10;
+  transition: background 0.2s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.lb-close:hover { color: #fff; transform: rotate(90deg); }
+.lb-close:hover { background: rgba(20, 20, 24, 0.82); transform: rotate(90deg); }
 
 .lb-nav {
   position: absolute;
@@ -876,6 +895,7 @@ body.lb-lock { overflow: hidden; }
   cursor: pointer;
   color: rgba(255, 255, 255, 0.45);
   border-radius: 50%;
+  z-index: 10;
   transition: color 0.2s ease, background 0.25s ease;
 }
 

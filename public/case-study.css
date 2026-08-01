@@ -298,32 +298,64 @@
   gap: 24px;
   margin-top: 8px;
 }
+/* Mobile screens: masonry — items pack under the shortest column so tall/short
+   screens never leave an orphan cell on a new row. Positions set by JS
+   (initMobileMasonry in components.js); CSS multi-column is the no-JS fallback. */
 .mi-shots--mobile {
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  display: block;
+  position: relative;
+  column-count: 4;
+  column-gap: 20px;
 }
-.mi-shot {
+.mi-shots--mobile .mi-shot {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  margin-bottom: 20px;
+}
+.mi-shots--mobile.mi-masonry-on {
+  column-count: auto;
+}
+.mi-shots--mobile.mi-masonry-on .mi-shot {
+  position: absolute;
+  top: 0;
+  left: 0;
   margin: 0;
-  border: 1px solid #e6e6e9;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.06);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
-.mi-shot:hover {
-  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.12);
-  transform: translateY(-2px);
-}
+.mi-shot { margin: 0; }
+/* Full-page screens: shown whole (no crop), with a border */
 .mi-shot img {
   display: block;
   width: 100%;
-  height: 320px;
-  object-fit: cover;
-  object-position: top center;
+  height: auto;
   cursor: zoom-in;
+  border: 1px solid #e6e6e9;
+  border-radius: 8px;
 }
-.mi-shot--mobile img { height: 380px; }
+
+/* Full-width component (e.g. mobile nav bars): title + description above, stacked full-width */
+.cs-comp-wide { margin-top: clamp(44px, 12vw, 120px); }
+.cs-comp-wide .cs-component-desc { max-width: 720px; }
+/* Desktop nav = full width */
+.mi-nav-desktop { margin-top: 10px; }
+.mi-nav-desktop img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* Mobile nav bars = natural small size, not stretched */
+.mi-nav-mobile {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+}
+.mi-nav-mobile img {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+}
 
 /* Grouping + labels for the plain galleries underneath the Hi-Fi showcases */
 .mi-rest { margin-top: clamp(56px, 14vw, 140px); }
@@ -575,32 +607,27 @@
 }
 
 
-/* Complex-component images in the Stylized Components section */
+/* Complex-component images (pop-up modals/panels) — border so the edges are visible, no crop.
+   Display width is set per image (half the 2x export = true size). */
 .mi-comp-img {
-  width: 100%;
-  max-width: 560px;
-  max-height: 520px;
-  object-fit: cover;
-  object-position: top center;
+  height: auto;
   border: 1px solid #e6e6e9;
   border-radius: 10px;
 }
+/* Non-pop-up components (e.g. inline widgets) get no border and no rounded corners */
+.cs-component-img.mi-comp-img--plain { border: none; border-radius: 0; }
 
-/* Cap the tall full-page screenshots used in the Hi-Fi showcase blocks */
+/* Hi-Fi showcase full-page screens — shown whole (no crop), with a border */
 .mi-hifi-img {
   width: 100%;
-  max-height: 600px;
-  object-fit: cover;
-  object-position: top center;
+  height: auto;
   border: 1px solid #e6e6e9;
   border-radius: 10px;
 }
 
 @media (max-width: 900px) {
   .mi-shots { grid-template-columns: 1fr; }
-  .mi-shots--mobile { grid-template-columns: repeat(2, 1fr); }
-  .mi-shot img { height: 260px; }
-  .mi-shot--mobile img { height: 320px; }
+  .mi-shots--mobile { column-count: 2; }
 }
 
 .cs-problem-card h3 {
@@ -2591,12 +2618,12 @@ div.cs-annotated-img svg {
 .cs-research-quotes {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 40px;
+  gap: 34px 24px;
+  margin-top: 44px;
   align-items: start;
 }
 
-/* Research quotes rendered as chat-message bubbles */
+/* Research quotes rendered as refined chat-message bubbles */
 .cs-research-quote {
   margin: 0;
   display: flex;
@@ -2606,62 +2633,80 @@ div.cs-annotated-img svg {
 .cs-research-quote blockquote {
   position: relative;
   margin: 0;
-  padding: 16px 20px;
-  background: #EEF2F8;
-  color: var(--black);
-  font-size: 0.98rem;
-  line-height: 1.55;
-  border-radius: 18px 18px 18px 5px;
-  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06);
+  padding: 22px 24px;
+  background: #f7f8fa;
+  border: 1px solid #ececf0;
+  color: #2b2b31;
+  font-size: 1rem;
+  line-height: 1.6;
+  border-radius: 16px;
 }
 
-/* speech-bubble tail on the bottom-left */
-.cs-research-quote blockquote::before {
+/* clean speech-bubble tail: a bordered square rotated into a notch, bottom-left */
+.cs-research-quote blockquote::before { content: none; }
+.cs-research-quote blockquote::after {
   content: '';
   position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 16px;
-  height: 14px;
-  background: #EEF2F8;
-  clip-path: polygon(0 0, 100% 0, 100% 55%);
+  left: 30px;
+  bottom: -7px;
+  width: 13px;
+  height: 13px;
+  background: #f7f8fa;
+  border-right: 1px solid #ececf0;
+  border-bottom: 1px solid #ececf0;
+  transform: rotate(45deg);
 }
-.cs-research-quote blockquote::after { content: none; }
 
 .cs-research-quote figcaption {
-  margin: 16px 0 0 4px;
-  display: flex;
+  margin: 20px 0 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 13px;
   align-items: center;
-  gap: 9px;
-  flex-wrap: wrap;
+  padding-left: 8px;
 }
 
-/* small avatar dot, like a chat sender */
+/* refined quote-mark avatar, matching the site's pull-quotes */
 .cs-research-quote figcaption::before {
-  content: '';
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #306CFE, #8AB0FF);
+  content: '\201C';
+  grid-row: 1 / 3;
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--black);
+  color: #fff;
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 1.5rem;
+  line-height: 0;
+  padding-top: 12px;
+  box-sizing: border-box;
 }
 
 .cs-research-quote figcaption span {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #555555;
+  grid-column: 2;
+  grid-row: 1;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.35;
 }
 
 .cs-research-quote figcaption em {
+  grid-column: 2;
+  grid-row: 2;
+  margin-top: 2px;
   font-style: normal;
-  font-size: 0.64rem;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: #2F62E6;
-  background: #E8EFFF;
-  padding: 3px 9px;
-  border-radius: 999px;
+  color: #a4a4ac;
 }
 
 @media (max-width: 900px) {
@@ -2838,3 +2883,105 @@ div.cs-annotated-img svg {
   .cs-curve-area,
   .cs-journey-grid--curve { min-width: 0; }
 }
+
+/* ---- Survey results: Google-Forms-style pie charts ---- */
+.mi-survey-charts { display: grid; gap: 16px; margin-top: clamp(18px, 3vw, 30px); }
+.mi-pie-card { border: 1px solid #e9e9ee; border-radius: 14px; padding: clamp(18px, 3vw, 28px); background: #fff; }
+.mi-pie-card h4 { font-size: 1rem; font-weight: 600; margin: 0 0 18px; color: var(--black); line-height: 1.45; }
+.mi-pie-row { display: flex; align-items: center; gap: clamp(20px, 4vw, 52px); flex-wrap: wrap; }
+.mi-pie { width: 168px; height: 168px; flex: 0 0 auto; }
+.mi-pie path { stroke: #fff; stroke-width: 1.5; }
+.mi-pie-legend { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; flex: 1 1 260px; min-width: 240px; }
+.mi-pie-legend li { display: flex; align-items: baseline; gap: 11px; font-size: 0.93rem; color: #3a3a42; line-height: 1.45; }
+.mi-pie-dot { width: 12px; height: 12px; border-radius: 3px; flex: 0 0 auto; position: relative; top: 1px; }
+.mi-pie-pct { font-weight: 700; color: var(--black); min-width: 40px; flex: 0 0 auto; }
+.mi-pie-label { flex: 1; }
+@media (max-width: 560px) {
+  .mi-pie-row { justify-content: center; }
+  .mi-pie-legend { flex-basis: 100%; min-width: 0; }
+}
+
+/* ---- Competitor logos: force identical rendered height ---- */
+.cs-problem-card .cs-logos { gap: 16px; align-items: center; flex-wrap: nowrap; }
+.cs-problem-card .cs-brand { align-items: center; }
+.cs-problem-card .cs-logo { height: 22px; width: auto; }
+.cs-problem-card .cs-wordmark { font-size: 19px; line-height: 22px; display: inline-block; }
+
+
+/* Per-logo size tuning: GoodRx tile + SingleCare read small at uniform height */
+.cs-problem-card .cs-logo[aria-label="GoodRx"] { height: 40px; }
+.cs-problem-card .cs-logo[aria-label="SingleCare"] { height: 27px; }
+
+/* Mobile app promo screens (app-store mockups) */
+.mi-appstore { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px; margin-top: clamp(20px, 3vw, 32px); }
+.mi-appstore .mi-appshot { flex: 0 0 auto; width: clamp(132px, 15.6%, 200px); height: auto; border-radius: 16px; display: block; cursor: zoom-in; }
+
+
+/* Comment cards on each Hi-Fi showcase (copied component, MedImpact content) */
+.cs-hifi-cards { display: flex; flex-direction: column; gap: 12px; margin-top: 18px; }
+
+/* Hi-Fi annotated showcase: B&W quote up top, blue cards both sides pointing to centered image */
+.cs-hifi-annotated { max-width: 100%; }
+.cs-hifi-head { max-width: 760px; margin: 0 auto; text-align: center; }
+.cs-hifi-head .cs-hifi-quote { margin-left: auto; margin-right: auto; }
+.cs-hifi-annotated .cs-annotated-img { border: 1px solid #e6e6e9; border-radius: 10px; }
+
+/* Feature prioritization session */
+.mi-fp-label { font-size: 0.95rem; font-weight: 700; color: var(--black); margin: clamp(20px,3vw,28px) 0 12px; }
+.mi-fp-rank { columns: 2; column-gap: 44px; max-width: 560px; padding-left: 20px; margin: 0; }
+.mi-fp-rank li { margin-bottom: 8px; font-size: 0.98rem; color: #2a2a30; break-inside: avoid; }
+.mi-fp-themes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: clamp(22px,3vw,32px); }
+.mi-fp-theme { border: 1px solid #e9e9ee; border-radius: 12px; padding: 18px 20px; background: #fff; }
+.mi-fp-theme h4 { margin: 0 0 8px; font-size: 0.9rem; font-weight: 700; color: var(--black); }
+.mi-fp-theme p { margin: 0; font-size: 0.95rem; line-height: 1.6; color: #55555f; }
+@media (max-width: 700px) { .mi-fp-themes { grid-template-columns: 1fr; } .mi-fp-rank { columns: 1; } }
+
+/* Mobile app sitemap (IA tree) — fixed design width, scaled to fit like the journey map */
+.mi-sitemap { font-family: var(--font-sans); --sm-line: #cdd3e6; margin-top: 26px; }
+.mi-sm-root { width: 240px; margin: 0 auto; text-align: center; padding: 12px 16px; background: #6d28d9; color: #fff; border-radius: 10px; font-weight: 700; font-size: 15px; position: relative; }
+.mi-sm-root::after { content: ''; position: absolute; left: 50%; top: 100%; width: 2px; height: 24px; background: var(--sm-line); transform: translateX(-50%); }
+.mi-sm-cols { display: flex; gap: 16px; margin-top: 48px; position: relative; align-items: start; }
+.mi-sm-cols::before { content: ''; position: absolute; top: -24px; left: calc(100% / 14); right: calc(100% / 14); height: 2px; background: var(--sm-line); }
+.mi-sm-col { flex: 1; position: relative; }
+.mi-sm-col::before { content: ''; position: absolute; top: -24px; left: 50%; width: 2px; height: 24px; background: var(--sm-line); transform: translateX(-50%); }
+.mi-sm-sec { text-align: center; padding: 10px 12px; background: #f3f0fb; border: 1px solid #d9cef7; border-radius: 8px; font-weight: 700; font-size: 13px; color: var(--black); line-height: 1.3; }
+.mi-sm-leaves { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.mi-sm-leaves li { padding: 8px 10px; background: #fff; border: 1px solid #e6e6ea; border-radius: 7px; font-size: 12px; color: #44444c; text-align: center; line-height: 1.3; }
+
+/* Annotated Hi-Fi: align cards to their dots; edge dots with connector stubs */
+.cs-hifi-annotated .cs-annotated-wrap { align-items: stretch; }
+.cs-hifi-annotated .cs-annotated-left,
+.cs-hifi-annotated .cs-annotated-right { position: relative; }
+.cs-hifi-annotated .cs-annotated-card { position: absolute; left: 0; right: 0; transform: translateY(-50%); margin: 0; }
+.cs-dot--miL { left: 0; right: auto; transform: translate(-50%, -50%); }
+.cs-dot--miR { right: 0; left: auto; transform: translate(50%, -50%); }
+.cs-dot--miL::after { content: ''; position: absolute; top: 50%; right: 50%; width: 28px; height: 1.5px; background: #306CFE; transform: translateY(-50%); }
+.cs-dot--miR::after { content: ''; position: absolute; top: 50%; left: 50%; width: 28px; height: 1.5px; background: #306CFE; transform: translateY(-50%); }
+@media (max-width: 900px) {
+  .cs-hifi-annotated .cs-annotated-card { position: static; transform: none; margin-bottom: 12px; }
+  .cs-hifi-annotated .cs-dot { display: none; }
+}
+
+/* Sitemap bus alignment: contiguous columns so the horizontal line meets the corner drops */
+.mi-sm-cols { gap: 0; }
+.mi-sm-col { padding: 0 8px; }
+
+/* BlinkRx real logo mark */
+.cs-brand-img { display: inline-block; background-size: contain; background-repeat: no-repeat; background-position: left center; }
+
+/* Feature prioritization session boards */
+.mi-fp-board { width: 100%; height: auto; display: block; border: 1px solid #e6e6e9; border-radius: 10px; margin-top: 22px; cursor: zoom-in; }
+.mi-fp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+.mi-fp-grid img { width: 100%; height: auto; display: block; border: 1px solid #e6e6e9; border-radius: 10px; cursor: zoom-in; }
+@media (max-width: 700px) { .mi-fp-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* Compact annotation cards so positioned cards never overlap */
+.cs-hifi-annotated .cs-annotated-card { padding: 10px 13px; }
+.cs-hifi-annotated .cs-annotated-card h4 { font-size: 0.83rem; margin-bottom: 3px; }
+.cs-hifi-annotated .cs-annotated-card p { font-size: 0.78rem; line-height: 1.42; }
+
+/* Claims filters & dropdowns — natural size, not stretched to the grid */
+.mi-dropdowns { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; margin-top: 8px; }
+.mi-dropdowns .mi-dropdown { margin: 0; }
+.mi-dropdowns .mi-dropdown img { display: block; width: auto; height: auto; max-height: 340px; max-width: 100%; border: none; border-radius: 8px; cursor: zoom-in; }
+.mi-dropdowns .mi-dropdown--popup img { border: 1px solid #e6e6e9; }

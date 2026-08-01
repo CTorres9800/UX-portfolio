@@ -61,7 +61,7 @@
 
   function fitJourneyMaps() {
     var isSmall = window.matchMedia('(max-width: 900px)').matches;
-    document.querySelectorAll('.cs-journey-map').forEach(function (map) {
+    document.querySelectorAll('.cs-journey-map, .mi-sitemap').forEach(function (map) {
       var scaler = map.parentNode;
       if (!scaler.classList || !scaler.classList.contains('cs-journey-scaler')) {
         scaler = document.createElement('div');
@@ -78,10 +78,11 @@
         return;
       }
 
-      map.style.width = JOURNEY_DESIGN_WIDTH + 'px';
+      var dw = parseInt(map.getAttribute('data-design-w'), 10) || JOURNEY_DESIGN_WIDTH;
+      map.style.width = dw + 'px';
       map.style.transformOrigin = 'top left';
       map.style.transform = 'none';
-      var scale = scaler.clientWidth / JOURNEY_DESIGN_WIDTH;
+      var scale = scaler.clientWidth / dw;
       map.style.transform = 'scale(' + scale + ')';
       scaler.style.height = (map.offsetHeight * scale) + 'px';
     });
@@ -143,7 +144,35 @@
       var src = imgs[cur].currentSrc || imgs[cur].src;
       lbImg.style.opacity = '0';
       var pre = new Image();
-      pre.onload = function () { lbImg.src = src; lbImg.alt = imgs[cur].alt || ''; lbImg.style.opacity = '1'; };
+      pre.onload = function () {
+        lbImg.src = src; lbImg.alt = imgs[cur].alt || ''; lbImg.style.opacity = '1';
+        // MedImpact screens are exported at 2x, so true size = half the native width.
+        // Show them at true size on open (no zoom needed); the frame scrolls if larger than the viewport.
+        var mi = src.indexOf('/images/medimpact/') !== -1;
+        lb.classList.toggle('lb--truesize', mi);
+        if (mi) {
+          var nw = pre.naturalWidth, nh = pre.naturalHeight, ar = nw ? nh / nw : 1;
+          var phone = nw <= 900 && ar > 1.5;
+          var tw = phone ? (nw > 600 ? nw / 2 : nw) : nw / 2;
+          lbImg.style.width = Math.round(tw) + 'px';
+          lbImg.style.height = 'auto';
+          lbImg.style.maxWidth = 'none';
+          lbImg.style.maxHeight = 'none';
+          // Full-page screens get no frame padding; components (modals) keep it.
+          var el = imgs[cur];
+          var fullPage = (el.closest && !!el.closest('.mi-shot')) || el.classList.contains('mi-hifi-img') || el.classList.contains('cs-annotated-img');
+          lb.classList.toggle('lb--nopad', fullPage);
+          // Pop-up modals carry a border (so their edge is visible on the white frame);
+          // dropdowns/widgets (marked plain) and full-page screens do not.
+          var popupModal = el.classList.contains('mi-comp-img') && !el.classList.contains('mi-comp-img--plain');
+          lb.classList.toggle('lb--bordered', popupModal);
+        } else {
+          lbImg.style.width = ''; lbImg.style.height = '';
+          lbImg.style.maxWidth = ''; lbImg.style.maxHeight = '';
+          lb.classList.remove('lb--nopad');
+          lb.classList.remove('lb--bordered');
+        }
+      };
       pre.src = src;
       if (iEl) iEl.textContent = pad(cur + 1);
     }
@@ -172,7 +201,7 @@
     });
     lb.querySelector('.lb-close').addEventListener('click', closeLb);
     zoomBtn.addEventListener('click', function (e) { e.stopPropagation(); setZoom(!zoomed); });
-    frame.addEventListener('click', function (e) { e.stopPropagation(); setZoom(!zoomed); });
+    frame.addEventListener('click', function (e) { e.stopPropagation(); if (lb.classList.contains('lb--truesize')) return; setZoom(!zoomed); });
     if (multi) {
       lb.querySelector('.lb-prev').addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
       lb.querySelector('.lb-next').addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
@@ -215,5 +244,71 @@
     }
 
     lastScrollY = currentScrollY;
+  });
+})();
+
+/* Normalize competitor logos to identical rendered cap-height:
+   tighten each SVG's viewBox to its ink bounds so a fixed CSS height renders uniformly. */
+(function () {
+  function tighten() {
+    var svgs = document.querySelectorAll('.cs-problem-card .cs-logo');
+    for (var i = 0; i < svgs.length; i++) {
+      var svg = svgs[i];
+      if (svg.dataset.tightened) continue;
+      try {
+        var b = svg.getBBox();
+        if (b && b.width > 0.5 && b.height > 0.5) {
+          var pad = b.height * 0.02;
+          svg.setAttribute('viewBox', (b.x - pad).toFixed(2) + ' ' + (b.y - pad).toFixed(2) + ' ' +
+            (b.width + pad * 2).toFixed(2) + ' ' + (b.height + pad * 2).toFixed(2));
+          svg.dataset.tightened = '1';
+        }
+      } catch (e) { /* getBBox needs layout; retry on load */ }
+    }
+  }
+  if (document.readyState !== 'loading') tighten();
+  else document.addEventListener('DOMContentLoaded', tighten);
+  window.addEventListener('load', tighten);
+})();
+
+/* Mobile-screen masonry: place each phone screenshot under the shortest column,
+   at a consistent column width, so nothing waits for a full new row. */
+(function () {
+  function layout() {
+    var grids = document.querySelectorAll('.mi-shots--mobile');
+    for (var g = 0; g < grids.length; g++) {
+      var grid = grids[g];
+      var items = grid.querySelectorAll('.mi-shot');
+      if (!items.length) continue;
+      var cols = window.innerWidth <= 900 ? 2 : 4;
+      var gap = 20;
+      var width = grid.clientWidth;
+      var colW = (width - gap * (cols - 1)) / cols;
+      grid.classList.add('mi-masonry-on');
+      var colH = [];
+      for (var c = 0; c < cols; c++) colH.push(0);
+      for (var i = 0; i < items.length; i++) {
+        var it = items[i];
+        it.style.width = colW + 'px';
+        var shortest = 0;
+        for (var k = 1; k < cols; k++) { if (colH[k] < colH[shortest]) shortest = k; }
+        it.style.left = (shortest * (colW + gap)) + 'px';
+        it.style.top = colH[shortest] + 'px';
+        colH[shortest] += it.offsetHeight + gap;
+      }
+      var max = 0;
+      for (var m = 0; m < cols; m++) { if (colH[m] > max) max = colH[m]; }
+      grid.style.height = (max - gap) + 'px';
+    }
+  }
+  var t;
+  function schedule() { clearTimeout(t); t = setTimeout(layout, 60); }
+  if (document.readyState !== 'loading') layout();
+  else document.addEventListener('DOMContentLoaded', layout);
+  window.addEventListener('load', layout);
+  window.addEventListener('resize', schedule);
+  // Re-run as each phone image finishes loading (heights change).
+  document.querySelectorAll('.mi-shots--mobile .mi-shot img').forEach(function (img) {
+    if (!img.complete) img.addEventListener('load', schedule);
   });
 })();
