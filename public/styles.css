@@ -766,6 +766,7 @@ body.lb-lock { overflow: hidden; }
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   padding: 24px;
   background: rgba(13, 13, 15, 0.96);
   -webkit-backdrop-filter: blur(7px);
@@ -827,7 +828,7 @@ body.lb-lock { overflow: hidden; }
    frame scrolls if the image is larger than the viewport. */
 .lb--truesize .lb-frame {
   max-width: 96vw;
-  max-height: 92vh;
+  max-height: 86vh;
   overflow: auto;
   cursor: default;
 }
@@ -904,15 +905,13 @@ body.lb-lock { overflow: hidden; }
 .lb-next { right: 20px; }
 
 .lb-counter {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: static;
+  margin-top: 16px;
   font-family: var(--font-sans);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.24em;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.85);
   font-variant-numeric: tabular-nums;
 }
 

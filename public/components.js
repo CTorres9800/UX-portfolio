@@ -160,11 +160,11 @@
           lbImg.style.maxHeight = 'none';
           // Full-page screens get no frame padding; components (modals) keep it.
           var el = imgs[cur];
-          var fullPage = (el.closest && !!el.closest('.mi-shot')) || el.classList.contains('mi-hifi-img') || el.classList.contains('cs-annotated-img');
+          var fullPage = (el.closest && !!el.closest('.mi-shot')) || el.classList.contains('mi-hifi-img') || el.classList.contains('cs-annotated-img') || el.classList.contains('mi-appshot') || el.classList.contains('mi-fp-board') || (el.closest && !!el.closest('.mi-fp-grid'));
           lb.classList.toggle('lb--nopad', fullPage);
           // Pop-up modals carry a border (so their edge is visible on the white frame);
           // dropdowns/widgets (marked plain) and full-page screens do not.
-          var popupModal = el.classList.contains('mi-comp-img') && !el.classList.contains('mi-comp-img--plain');
+          var popupModal = (el.classList.contains('mi-comp-img') && !el.classList.contains('mi-comp-img--plain')) || (el.closest && !!el.closest('.mi-dropdown--popup'));
           lb.classList.toggle('lb--bordered', popupModal);
         } else {
           lbImg.style.width = ''; lbImg.style.height = '';

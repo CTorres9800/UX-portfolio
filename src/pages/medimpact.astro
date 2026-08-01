@@ -854,13 +854,15 @@ const miSurvey = [
           {f.name === "Claims History" ? (
             <>
               <p class="mi-variant">Desktop</p>
-              <div class="mi-claims-desktop">
-                <div class="mi-claims-screen">
-                  {f.desktop.map((img) => (<figure class="mi-shot"><img src={img.src} alt={img.alt} width={img.w} height={img.h} loading="lazy" /></figure>))}
-                </div>
-                <div class="mi-dropdowns mi-dropdowns--side">
-                  {miClaimsDropdowns.map((img) => (<figure class:list={["mi-dropdown", img.src.includes("share") && "mi-dropdown--popup"]}><img src={img.src} alt={img.alt} width={img.w} height={img.h} loading="lazy" /></figure>))}
-                </div>
+              <div class="mi-shots mi-claims-full">
+                {f.desktop.map((img) => (<figure class="mi-shot"><img src={img.src} alt={img.alt} width={img.w} height={img.h} loading="lazy" /></figure>))}
+              </div>
+              <p class="mi-variant">Filters &amp; dropdowns</p>
+              <div class="mi-drops-row">
+                {miClaimsDropdowns.filter((img) => img.src.includes("filter-") || img.src.includes("sort-by")).map((img) => (<figure class="mi-dropdown"><img src={img.src} alt={img.alt} width={img.w} height={img.h} loading="lazy" /></figure>))}
+              </div>
+              <div class="mi-drops-rest">
+                {miClaimsDropdowns.filter((img) => img.src.includes("share") || img.src.includes("date-picker")).map((img) => (<figure class:list={["mi-dropdown", img.src.includes("share-popup") && "mi-dropdown--popup"]}><img src={img.src} alt={img.alt} width={img.w} height={img.h} loading="lazy" /></figure>))}
               </div>
             </>
           ) : (f.desktop.length > 0 && (
