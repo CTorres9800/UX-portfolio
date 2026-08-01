@@ -52,7 +52,7 @@ function miPiePaths(segs) {
   });
 }
 const miSurveyCharts = miSurveyQ.map((item) => ({ ...item, paths: miPiePaths(item.segs) }));
-// MedImpact user flows — one per core member task, shown with the existing cs-flow-pills component.
+// MedImpact user flows, one per core member task, shown with the existing cs-flow-pills component.
 const miFlows = [
   {
     title: 'Checking a drug price',
@@ -111,7 +111,7 @@ const miOrder = ['Dashboard','My Prescriptions','Drug Price Check','Claims Histo
 const miFeatures = miOrder.filter((k) => miGallery[k]).map((k) => ({ name: k, ...miGallery[k] }));
 const miShowcase = [
   { src: "/images/medimpact/dashboard/desktop/desktop-hd.png", w: 2880, h: 3852, title: "Dashboard", desc: "The dashboard shows to-do items, savings, and prescription status when a member logs in.", comment: "The most common next actions are placed on the first screen rather than behind navigation.",
-    leftCards: [ { h: "Prescriptions first", p: "Prescriptions lead — status and refills, or a prompt to find your drugs if none are on file.", top: 19 }, { h: "Savings up front", p: "Savings Opportunities suggests a generic, a similar drug, or an alternate dosage to lower cost.", top: 66 } ],
+    leftCards: [ { h: "Prescriptions first", p: "Prescriptions lead, status and refills, or a prompt to find your drugs if none are on file.", top: 19 }, { h: "Savings up front", p: "Savings Opportunities suggests a generic, a similar drug, or an alternate dosage to lower cost.", top: 66 } ],
     rightCards: [ { h: "Notifications and cart", p: "Alerts and the medication cart stay one tap away in the top bar.", top: 4 }, { h: "Next Steps", p: "A to-do panel: verify email, add dependants, check benefits, set up the medicine chest.", top: 30 } ] },
   { src: "/images/medimpact/dashboard/desktop/dashboard-tab-to-do-next.png", w: 2880, h: 3852, title: "To Do Next", desc: "The To Do Next area lists tasks a member should handle, such as verifying an email, checking benefits, or setting up a refill.", comment: "Outstanding tasks are grouped in one place instead of scattered across the portal.",
     leftCards: [ { h: "Refill from the dashboard", p: "Prescription Info shows suggested refill dates and an Add to Cart button.", top: 19 }, { h: "Manage dependants", p: "View a dependant's profile or switch into their account from the dashboard.", top: 51 } ],
@@ -119,7 +119,7 @@ const miShowcase = [
   { src: "/images/medimpact/my-prescriptions/desktop/1-1-1-my-prescriptions.png", w: 2880, h: 4712, title: "My Prescriptions", desc: "Active prescriptions are listed with drug name, last fill date, pharmacy, and prescriber, along with refill and auto-refill status.", comment: "Refill status is shown inline so members do not need to open each prescription.",
     leftCards: [ { h: "Filters as pills", p: "Active filters show as removable pills under the filter row.", top: 20 }, { h: "Refill status inline", p: "Each row shows refills left, recommended refill date, pharmacy, and an auto-refill toggle.", top: 41 } ],
     rightCards: [ { h: "Refill or request", p: "Refill an existing prescription or request a new one from the top of the page.", top: 13 }, { h: "Act from the list", p: "Add to Cart and Get Pricing sit on every row, no drill-down needed.", top: 41 } ] },
-  { src: "/images/medimpact/drug-price-check/desktop/frame-299.png", w: 2920, h: 4190, title: "Drug Price Check: Best Local Price", desc: "The Best Local Price tab lists nearby pharmacies and their price for the drug, with the lowest local price highlighted and shown on a map.", comment: "The three pricing views — Best Local Price, Mail Order Price, and Savings Calculator — sit under one set of tabs.",
+  { src: "/images/medimpact/drug-price-check/desktop/frame-299.png", w: 2920, h: 4190, title: "Drug Price Check: Best Local Price", desc: "The Best Local Price tab lists nearby pharmacies and their price for the drug, with the lowest local price highlighted and shown on a map.", comment: "The three pricing views, Best Local Price, Mail Order Price, and Savings Calculator, sit under one set of tabs.",
     leftCards: [ { h: "Three pricing tabs", p: "Best Local Price, Mail Order Price, and Savings Calculator sit under one set of tabs.", top: 21 }, { h: "Lowest local price", p: "Nearby pharmacies are listed with their price, the best local price flagged.", top: 47 } ],
     rightCards: [ { h: "Filter the results", p: "Sort by distance and limit to preferred pharmacies only.", top: 28 }, { h: "Prices on the map", p: "The same pharmacies and prices are pinned on a map beside the list.", top: 52 } ] },
   { src: "/images/medimpact/drug-price-check/desktop/mail-order-price.png", w: 2880, h: 2968, title: "Drug Price Check: Mail Order Price", desc: "The Mail Order Price tab shows the cost of filling the same drug through mail order.", comment: "Mail order uses the same layout as local pricing, so the two are easy to compare.",
@@ -143,10 +143,10 @@ const miShowcase = [
 ];
 const miShowcaseSrcs = new Set(miShowcase.map((s) => s.src));
 const miClaimsDropdowns = [
-  { src: "/images/medimpact/claims-history/desktop/filter-drug-name.png", alt: "Claims filter — drug name", w: 560, h: 868 },
-  { src: "/images/medimpact/claims-history/desktop/filter-pharmacies.png", alt: "Claims filter — pharmacies", w: 520, h: 868 },
-  { src: "/images/medimpact/claims-history/desktop/filter-physician.png", alt: "Claims filter — physician", w: 526, h: 868 },
-  { src: "/images/medimpact/claims-history/desktop/filter-price.png", alt: "Claims filter — price", w: 480, h: 868 },
+  { src: "/images/medimpact/claims-history/desktop/filter-drug-name.png", alt: "Claims filter, drug name", w: 560, h: 868 },
+  { src: "/images/medimpact/claims-history/desktop/filter-pharmacies.png", alt: "Claims filter, pharmacies", w: 520, h: 868 },
+  { src: "/images/medimpact/claims-history/desktop/filter-physician.png", alt: "Claims filter, physician", w: 526, h: 868 },
+  { src: "/images/medimpact/claims-history/desktop/filter-price.png", alt: "Claims filter, price", w: 480, h: 868 },
   { src: "/images/medimpact/claims-history/desktop/sort-by.png", alt: "Claims sort dropdown", w: 480, h: 920 },
   { src: "/images/medimpact/claims-history/desktop/date-picker.png", alt: "Claims date range picker", w: 826, h: 694 },
   { src: "/images/medimpact/claims-history/desktop/share-popup.png", alt: "Claims share popup", w: 1413, h: 838 },
@@ -298,7 +298,7 @@ const miSurvey = [
   <SectionContent title="How I Worked">
     <div class="cs-body-text">
       <p>I worked as a Senior UX Designer through Photon, on a remote contract. I met with the product team every day and worked with product managers, researchers, visual designers, and developers throughout. Part of the role was reviewing work from the development team and other designers.</p>
-      <p>Each area followed the same process: define the task, design it for desktop and mobile, review it with the team, and revise. Much of the work involved keeping plan logic &mdash; eligibility, pricing tiers, and coverage rules &mdash; accurate in the background while keeping the interface straightforward.</p>
+      <p>Each area followed the same process: define the task, design it for desktop and mobile, review it with the team, and revise. Much of the work involved keeping plan logic, eligibility, pricing tiers, and coverage rules, accurate in the background while keeping the interface straightforward.</p>
     </div>
   </SectionContent>
 
@@ -599,7 +599,7 @@ const miSurvey = [
     </div>
 
     <h3 class="cs-subsection-title"><svg class="cs-ico" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" /><path d="M9 18h6" /><path d="M10 22h4" /></svg>What This Told Us</h3>
-    <p class="cs-body-text">Members didn&rsquo;t want more features. They wanted to know what things cost and what to do next, before they committed. So every design decision from here on &mdash; plan-specific prices, a savings calculator, inline refill status, plain-language benefits &mdash; was built to answer one question: &ldquo;What will this cost me, and what should I do?&rdquo;</p>
+    <p class="cs-body-text">Members didn&rsquo;t want more features. They wanted to know what things cost and what to do next, before they committed. So every design decision from here on, plan-specific prices, a savings calculator, inline refill status, plain-language benefits, was built to answer one question: &ldquo;What will this cost me, and what should I do?&rdquo;</p>
 
     <div class="mi-affinity">
       <div class="mi-affinity-col"><div class="mi-affinity-head">Cost transparency</div><div class="mi-affinity-note mi-note--yellow">&ldquo;I never know what it&rsquo;ll cost until I pay.&rdquo;</div><div class="mi-affinity-note mi-note--yellow">&ldquo;Is there a cheaper version of this drug?&rdquo;</div><div class="mi-affinity-note mi-note--yellow">&ldquo;Which pharmacy is cheapest for me?&rdquo;</div><div class="mi-affinity-note mi-note--yellow">Cash price and my copay are totally different.</div></div>
@@ -778,7 +778,7 @@ const miSurvey = [
 
   <SectionContent title="The Mobile App">
     <div class="cs-body-text">
-      <p>MedImpact was built for mobile as well as desktop. The app puts the same core tasks &mdash; checking a drug price, refilling a prescription, tracking doses, and managing benefits &mdash; in a layout made for a phone.</p>
+      <p>MedImpact was built for mobile as well as desktop. The app puts the same core tasks, checking a drug price, refilling a prescription, tracking doses, and managing benefits, in a layout made for a phone.</p>
     </div>
 
     <h3 class="cs-subsection-title" style="margin-top: clamp(30px, 6vw, 56px);">App Sitemap</h3>
@@ -1092,7 +1092,7 @@ const miSurvey = [
           </div>
         ))}
         <div class="mi-survey-note">
-          <p class="mi-survey-note-label">In their words &mdash; would you hire another designer to redesign the work?</p>
+          <p class="mi-survey-note-label">In their words, would you hire another designer to redesign the work?</p>
           <p class="mi-survey-note-text">&ldquo;The work done was thorough and meets our needs. I don't see a reason to have another designer to perform a redesign.&rdquo;</p>
         </div>
       </div>
