@@ -203,6 +203,7 @@ body {
 .highlight {
   position: relative;
   display: inline;
+  z-index: 0;
 }
 
 .highlight::after {
