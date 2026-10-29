@@ -38,6 +38,78 @@ const data = homepage!;
     }
 
     .hero--home .highlight::after { content: none; }
+
+    .hero-ninja-art {
+      position: relative;
+      width: min(340px, calc(100% - 40px));
+      margin: 44px auto 0;
+    }
+
+    .hero-ninja-art .hero-ninja {
+      display: block;
+      width: 60%;
+      max-height: none;
+      animation: none;
+    }
+
+    .ninja-note {
+      position: absolute;
+      right: 0;
+      width: 38%;
+      margin: 0;
+      color: #8a8a8a;
+      font: italic 13px/1.5 var(--font-sans);
+      letter-spacing: .01em;
+    }
+
+    .ninja-note--top {
+      left: 56%;
+      right: auto;
+      top: 14%;
+      width: 44%;
+    }
+
+    .ninja-note--top svg {
+      position: absolute;
+      right: calc(100% + 4px);
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 18px;
+      overflow: visible;
+      fill: none;
+      stroke: #a2a2a2;
+      stroke-width: 1.15;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .ninja-note--bottom {
+      left: 40%;
+      right: auto;
+      bottom: 12%;
+      width: 60%;
+    }
+
+    .ninja-note--bottom span { display: block; white-space: nowrap; }
+
+    @media (min-width: 1000px) {
+      .hero.hero--home { grid-template-columns: minmax(0, 1fr) clamp(300px, 29vw, 350px); }
+      .hero-ninja-art {
+        width: 100%;
+        margin: 0;
+        animation: ninja-rise 3.5s cubic-bezier(.7, 0, .3, 1) .35s both;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .ninja-note { font-size: 12px; }
+      .ninja-note--top svg { width: 28px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-ninja-art { animation: none; }
+    }
   </style>
   <script is:inline>document.fonts.ready.then(()=>document.documentElement.classList.add('fonts-loaded'));</script>
 </head>
@@ -55,7 +127,19 @@ const data = homepage!;
         View More
       </a>
     </div>
-    <img class="hero-ninja" src="/images/ninja-peek.png" alt="" aria-hidden="true">
+    <aside class="hero-ninja-art" aria-label="A playful ninja illustration">
+      <img class="hero-ninja" src="/images/ninja-peek.png" alt="" aria-hidden="true" width="474" height="900">
+      <p class="ninja-note ninja-note--top">
+        That's not me.
+        <svg viewBox="0 0 36 18" aria-hidden="true">
+          <path d="M35 9C24 2 13 2 0 13M2 7l-2 6 6-1" />
+        </svg>
+      </p>
+      <p class="ninja-note ninja-note--bottom">
+        <span>I might be a unicorn,</span>
+        <span>but I'm definitely not a ninja.</span>
+      </p>
+    </aside>
   </section>
 
   <!-- Work / Case Studies -->
