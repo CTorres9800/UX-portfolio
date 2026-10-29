@@ -21,7 +21,24 @@ const data = homepage!;
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
-  <style>html{opacity:0}html.fonts-loaded{opacity:1;transition:opacity .15s ease-in}</style>
+  <style>
+    html { opacity: 0; }
+    html.fonts-loaded { opacity: 1; transition: opacity .15s ease-in; }
+
+    /* Paint the marker on the text itself so it cannot fall behind the hero. */
+    .hero--home .highlight {
+      background: linear-gradient(
+        transparent 58%,
+        rgba(246, 239, 168, .65) 58%,
+        rgba(246, 239, 168, .65) 96%,
+        transparent 96%
+      );
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+
+    .hero--home .highlight::after { content: none; }
+  </style>
   <script is:inline>document.fonts.ready.then(()=>document.documentElement.classList.add('fonts-loaded'));</script>
 </head>
 <body>
