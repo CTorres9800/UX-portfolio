@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "build:cloudflare": "node scripts/build-cloudflare.mjs",
+    "deploy:cloudflare": "npx --yes wrangler@4.159.0 deploy"
   },
   "repository": {
     "type": "git",
@@ -28,5 +30,8 @@
     "astro": "^7.0.7",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "parse5": "8.1.1"
   }
 }

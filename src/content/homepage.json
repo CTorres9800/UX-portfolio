@@ -4,35 +4,35 @@
   "heroHeadingAfter": ", turning complex problems into intuitive ",
   "heroHeadingHighlight": "human",
   "heroHeadingEnd": " experiences.",
-  "heroDescription": "I'm an AI-native UX product designer with 15+ years of experience across enterprise, fintech and growth-stage products. I combine AI-assisted research, rapid prototyping and Figma-to-code design systems to create intuitive user experiences. Based in Atlanta, GA, I'm currently Lead UX Product Designer at Marketeq Digital.",
+  "heroDescription": "I'm an AI-native UX product designer with 15+ years of experience across enterprise, fintech and growth-stage products. I combine AI-assisted research, rapid prototyping and Figma-to-code design systems to create intuitive user experiences. Based in Miami, FL, I currently serve as both Senior AI-Native Product Manager and Lead UX Product Designer at Marketeq Digital.",
   "caseStudies": [
     {
       "title": "MedImpact",
       "description": "Designing a pharmacy-benefits member portal for desktop and mobile",
       "image": "/images/medimpact.webp",
       "imageAlt": "MedImpact case study preview",
-      "link": "medimpact"
+      "link": "/medimpact"
     },
     {
       "title": "Referrizer",
       "description": "Redesigning the import contacts process to be more intuitive & seamless",
       "image": "/images/referrizer.webp",
       "imageAlt": "Referrizer case study preview",
-      "link": "referrizer"
+      "link": "/referrizer"
     },
     {
       "title": "Blend Metrics",
       "description": "New API Integration workflow builder to be more intuitive and flexible",
       "image": "/images/blend-metrics.webp",
       "imageAlt": "Blend Metrics case study preview",
-      "link": "blend-metrics"
+      "link": "/blend-metrics"
     },
     {
       "title": "Marketeq Projects",
       "description": "Redesigning the project listing experience to build buyer confidence",
       "image": "/images/marketeq-projects.webp",
       "imageAlt": "Marketeq Projects case study preview",
-      "link": "marketeq-projects"
+      "link": "/marketeq-projects"
     }
   ],
   "contactDescription": "Drop me a line on Linkedin or shoot me an email",

@@ -1,0 +1,18 @@
+{
+  "name": "ux-portfolio",
+  "account_id": "1ac2975ec1508ffc5cd33d31529c3ea3",
+  "compatibility_date": "2026-11-09",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    { "pattern": "christophertorres.me/ux-portfolio", "zone_name": "christophertorres.me" },
+    { "pattern": "christophertorres.me/ux-portfolio/*", "zone_name": "christophertorres.me" }
+  ],
+  "build": {
+    "command": "npm run build:cloudflare"
+  },
+  "assets": {
+    "directory": "./dist/cloudflare/site",
+    "html_handling": "force-trailing-slash"
+  }
+}

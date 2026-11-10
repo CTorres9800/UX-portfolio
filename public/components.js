@@ -1,5 +1,6 @@
 // Shared UI components — header, footer, nav behavior
 (function () {
+  const siteRoot = document.currentScript ? new URL('./', document.currentScript.src).pathname : '/';
   const linkedInSVG = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>';
   const emailSVG = '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>';
 
@@ -9,7 +10,7 @@
     headerEl.outerHTML =
       '<header class="header">' +
         '<div class="container header-inner">' +
-          '<a href="/" class="logo"><span class="logo-first">Christopher</span> Torres</a>' +
+          '<a href="' + siteRoot + '" class="logo"><span class="logo-first">Christopher</span> Torres</a>' +
           '<button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">' +
             '<svg class="menu-icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">' +
               '<rect class="menu-line menu-line-1" width="15.3821" height="2.05601" style="transform:matrix(-0.707107,0.707107,0.707107,0.707107,29.0898,18.2128)" fill="black"/>' +
@@ -18,10 +19,10 @@
             '</svg>' +
           '</button>' +
           '<nav class="nav">' +
-            '<a href="/about">ABOUT</a>' +
-            '<a href="/#work">WORK</a>' +
-            '<a href="/Christopher-Torres-Resume.pdf" target="_blank" rel="noopener">RESUME</a>' +
-            '<a href="/contact">CONTACT</a>' +
+            '<a href="' + siteRoot + 'about">ABOUT</a>' +
+            '<a href="' + siteRoot + '#work">WORK</a>' +
+            '<a href="' + siteRoot + 'Christopher-Torres-Resume.pdf" target="_blank" rel="noopener">RESUME</a>' +
+            '<a href="' + siteRoot + 'contact">CONTACT</a>' +
             '<a href="https://www.linkedin.com/in/christorres17/" target="_blank" rel="noopener" class="nav-icon" aria-label="LinkedIn">' +
               linkedInSVG +
             '</a>' +
